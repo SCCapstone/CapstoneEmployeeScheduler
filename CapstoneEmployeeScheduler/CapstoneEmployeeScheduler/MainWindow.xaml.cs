@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace CapstoneEmployeeScheduler
 {
@@ -20,9 +21,22 @@ namespace CapstoneEmployeeScheduler
     /// </summary>
     public partial class MainWindow : Window
     {
+        SqlConnection con = new SqlConnection("user id=chanc; " +
+                                              "password=password;server=(localdb)\\MSSQLLocalDB; " +
+                                              "Trusted_Connection=yes; " +
+                                              "database=dbo; " +
+                                              "connection timeout=30");
         public MainWindow()
         {
             InitializeComponent();
+            con.Open();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Here 1");
+            SqlCommand cmd = new SqlCommand("insert into table1 (Name) values ('Me')", con);
+            cmd.ExecuteNonQuery();
         }
     }
 }
