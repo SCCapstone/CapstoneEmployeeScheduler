@@ -36,7 +36,7 @@ namespace CapstoneEmployeeScheduler
         {
             Console.WriteLine("Here 1");
             SqlCommand cmd = new SqlCommand("insert into table1 (Name) values ('Me')", con);
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery(); 
         }
     }
 }
