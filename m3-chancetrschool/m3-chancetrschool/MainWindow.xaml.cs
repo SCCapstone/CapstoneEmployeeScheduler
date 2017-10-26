@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 
-namespace CapstoneEmployeeScheduler
+namespace m3_chancetrschool
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
