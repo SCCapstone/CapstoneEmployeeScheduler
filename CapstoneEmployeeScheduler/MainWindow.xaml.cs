@@ -12,14 +12,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.SqlClient;
+using System.Data.SqlClient; 
 
 namespace CapstoneEmployeeScheduler
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-   
     public partial class MainWindow : Window
     {
         SqlConnection con = new SqlConnection("user id=chanc; " +
@@ -35,10 +34,9 @@ namespace CapstoneEmployeeScheduler
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Hello this is Eric typing something");
             Console.WriteLine("Here 1");
             SqlCommand cmd = new SqlCommand("insert into table1 (Name) values ('Me')", con);
-            cmd.ExecuteNonQuery(); 
+            cmd.ExecuteNonQuery();
         }
     }
 }
