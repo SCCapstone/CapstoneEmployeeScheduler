@@ -35,6 +35,10 @@ namespace CapstoneEmployeeScheduler
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+
+            Console.WriteLine("Change 1");
+            Console.WriteLine("Change 2");
+            Console.WriteLine("Change 3");
             Console.WriteLine("Chance's Change");
             Console.WriteLine("Hello this is Eric typing something");
             Console.WriteLine("Here 1");
