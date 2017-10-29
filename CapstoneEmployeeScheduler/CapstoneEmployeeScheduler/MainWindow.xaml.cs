@@ -35,7 +35,7 @@ namespace CapstoneEmployeeScheduler
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Chris edits this one.");
+            Console.WriteLine("Chris should have merge.");
 
             Console.WriteLine("Change 1");
             Console.WriteLine("Change 2");
