@@ -35,7 +35,7 @@ namespace CapstoneEmployeeScheduler
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Eric causes merge.");
+            Console.WriteLine("Cause conflict.");
 
             Console.WriteLine("Change 1");
             Console.WriteLine("Change 2");
