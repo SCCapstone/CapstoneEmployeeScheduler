@@ -35,7 +35,7 @@ namespace CapstoneEmployeeScheduler
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("A");
-            Console.WriteLine("Franklin's Change");
+            Console.WriteLine("Franklin's Change!");
             Console.WriteLine("Here 1");
             SqlCommand cmd = new SqlCommand("insert into table1 (Name) values ('Me')", con);
             cmd.ExecuteNonQuery();
