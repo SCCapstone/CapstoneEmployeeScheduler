@@ -25,7 +25,7 @@ namespace CapstoneEmployeeScheduler
         SqlConnection con = new SqlConnection("user id=chanc; " +
                                               "password=password;server=(localdb)\\MSSQLLocalDB; " +
                                               "Trusted_Connection=yes; " +
-                                              "database=dbo; " +
+                                              "database=Dev; " +
                                               "connection timeout=30");
         public MainWindow()
         {
