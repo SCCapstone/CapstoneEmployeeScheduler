@@ -18,7 +18,7 @@ namespace CapstoneEmployeeScheduler
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// </summary> comment
    
     public partial class MainWindow : Window
     {
