@@ -23,5 +23,12 @@ namespace CapstoneEmployeeScheduler.view
         {
             InitializeComponent();
         }
+
+        private void buttonSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow m = new MainWindow();
+            m.Show();
+            this.Close();
+        }
     }
 }

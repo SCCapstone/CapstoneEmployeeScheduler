@@ -12,6 +12,6 @@
     <TextBox x:Name="txtUsername" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" Margin="10,0,0,0"/>
     <Label Content="Password" Foreground="Black"/>
     <PasswordBox x:Name="txtPassword" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" Margin="10,0,0,0"/>
-    <Button Name="buttonSubmit" Background="White" Content="Submit" Foreground="Black" FontSize="18" Margin="10 10"/>
+    <Button Name="buttonSubmit" Background="White" Content="Submit" Foreground="Black" FontSize="18" Margin="10 10" Click="buttonSubmit_Click"/>
   </StackPanel>
 </Window>
