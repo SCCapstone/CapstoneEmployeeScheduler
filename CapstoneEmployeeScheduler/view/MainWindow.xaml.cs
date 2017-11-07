@@ -22,22 +22,22 @@ namespace CapstoneEmployeeScheduler
    
     public partial class MainWindow : Window
     {
-        SqlConnection con = new SqlConnection("user id=chanc; " +
+        /*SqlConnection con = new SqlConnection("user id=chanc; " +
                                               "password=password;server=(localdb)\\MSSQLLocalDB; " +
                                               "Trusted_Connection=yes; " +
                                               "database=Dev; " +
-                                              "connection timeout=30");
+                                              "connection timeout=30");*/
         public MainWindow()
         {
             InitializeComponent();
-            con.Open();
+            //con.Open();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             
-            SqlCommand cmd = new SqlCommand("insert into table1 (Name) values ('Me')", con);
-            cmd.ExecuteNonQuery(); 
+            //SqlCommand cmd = new SqlCommand("insert into table1 (Name) values ('Me')", con);
+            //cmd.ExecuteNonQuery(); 
         }
     }
 }
