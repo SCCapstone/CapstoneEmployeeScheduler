@@ -2,8 +2,12 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CapstoneEmployeeScheduler"
-             StartupUri="Views/MainWindow.xaml">
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             StartupUri="Views/LoginWindow.xaml">
     <Application.Resources>
-         
+        <system:String x:Key="DatabaseUsername">chanc</system:String>
+        <system:String x:Key="DatabasePassword">password</system:String>
+        <system:String x:Key="DatabaseServer">(localdb)\\MSSQLLocalDB</system:String>
+        <system:String x:Key="DatabaseName">Dev</system:String>
     </Application.Resources>
 </Application>
