@@ -56,5 +56,11 @@ namespace CapstoneEmployeeScheduler.Views
 
 
         }
+
+        private void buttonExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MessageBox.Show("Application Exited Succesfully");
+        }
     }
 }
