@@ -13,7 +13,8 @@ RoleTwoDaysAgo int FOREIGN KEY REFERENCES Roles(ID),
 RoleThreeDaysAgo int FOREIGN KEY REFERENCES Roles(ID),
 Out bit,
 Disabled bit,
-Admin bit
+Admin bit,
+Password varchar(255)
 );
 
 create table User_Roles (
