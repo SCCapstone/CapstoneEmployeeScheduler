@@ -53,5 +53,20 @@ namespace CapstoneEmployeeScheduler
             MessageBox.Show("You have successfully logged out.");
             
         }
+
+        private void AddEditEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new AddEditEmployee();
+        }
+
+        private void AddEditRole_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new AddEditRole();
+        }
+
+        private void History_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new History();
+        }
     }
 }
