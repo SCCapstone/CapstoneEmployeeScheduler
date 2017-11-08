@@ -46,5 +46,12 @@ namespace CapstoneEmployeeScheduler
             //SqlCommand cmd = new SqlCommand("insert into table1 (Name) values ('Me')", con);
             //cmd.ExecuteNonQuery(); 
         }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MessageBox.Show("You have successfully logged out.");
+            
+        }
     }
 }

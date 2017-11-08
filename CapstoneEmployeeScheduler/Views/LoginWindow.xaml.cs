@@ -19,9 +19,48 @@ namespace CapstoneEmployeeScheduler.Views
     /// </summary>
     public partial class LoginWindow : Window
     {
+        static int attempt = 3;
         public LoginWindow()
         {
             InitializeComponent();
+        }
+
+        private void buttonSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            string username;
+            string password;
+            username = txtUsername.Text;
+            password = txtPassword.Password;
+
+            if (txtUsername.Text == "" || txtPassword.Password == "")
+            {
+                MessageBox.Show("Please provide UserName and Password");
+                return;
+            }
+
+            if ((this.txtUsername.Text == "admin") && (this.txtPassword.Password == "admin"))
+            {
+                attempt = 0;
+                MessageBox.Show("Success!");
+                MainWindow m = new MainWindow();
+                m.Show();
+                this.Close();
+            }
+
+            else if ((attempt == 3) && (attempt > 0))
+            {
+                //nothing yet
+                Label.Content = ("Incorrect credentials. You have " + Convert.ToString(attempt) + " attempts remaining.");
+                --attempt;
+            }
+
+
+        }
+
+        private void buttonExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MessageBox.Show("Application Exited Succesfully");
         }
     }
 }
