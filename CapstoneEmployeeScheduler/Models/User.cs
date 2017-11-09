@@ -8,7 +8,7 @@ namespace CapstoneEmployeeScheduler.Model
 {
     class User
     {
-        private int ID;
+        private int id;
         private string userName;
         private string email;
         private string shift;
@@ -21,16 +21,16 @@ namespace CapstoneEmployeeScheduler.Model
         private string password;
         private List<Role> roles;
 
-        public int ID1
+        public int Id
         {
             get
             {
-                return ID;
+                return id;
             }
 
             set
             {
-                ID = value;
+                id = value;
             }
         }
 

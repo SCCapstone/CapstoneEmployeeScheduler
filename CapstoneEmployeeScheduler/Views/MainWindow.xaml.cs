@@ -68,5 +68,10 @@ namespace CapstoneEmployeeScheduler
         {
             Main.Content = new Views.Employees();
         }
+
+        private void TestingBackend_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.TestingBackend();
+        }
     }
 }

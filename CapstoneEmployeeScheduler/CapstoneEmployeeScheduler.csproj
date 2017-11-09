@@ -67,6 +67,9 @@
     <Compile Include="DAOs\RoleDAO.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Views\TestingBackend.xaml.cs">
+      <DependentUpon>TestingBackend.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\Employees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -94,6 +97,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\TestingBackend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

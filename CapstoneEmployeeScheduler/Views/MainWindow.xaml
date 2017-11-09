@@ -12,6 +12,7 @@
         <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="logout_Click" Margin="0,0,23.6,691.8" Height="29" Width="55"/>
         <Button x:Name="HistoryButton" Content="History" Margin="330,10,112,279" Width="75" Height="29" Click="History_Click" VerticalAlignment="Top"/>
         <Button x:Name="Employees" Content="Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="326,10,0,0" Height="29" Click="Employees_Click_1"/>
+        <Button x:Name="TestingBackend" Content="TestingBackend" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="50,400,0,0" Height="29" Click="TestingBackend_Click"/>
 
     </Grid>
 </Window>

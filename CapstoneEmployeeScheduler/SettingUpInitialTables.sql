@@ -11,7 +11,7 @@ Shift varchar(255) NOT NULL,
 RoleOneDayAgo int FOREIGN KEY REFERENCES Roles(ID),
 RoleTwoDaysAgo int FOREIGN KEY REFERENCES Roles(ID),
 RoleThreeDaysAgo int FOREIGN KEY REFERENCES Roles(ID),
-Out bit,
+OutOfWork bit,
 Disabled bit,
 Admin bit,
 Password varchar(255)
