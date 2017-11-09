@@ -60,8 +60,13 @@ namespace CapstoneEmployeeScheduler
             Main.Content = new History();
         }
 
-        
+   
 
        
+
+        private void Employees_Click_1(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.Employees();
+        }
     }
 }

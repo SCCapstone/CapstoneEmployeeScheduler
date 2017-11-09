@@ -56,20 +56,20 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DAOs\UserDAO.cs" />
-    <Compile Include="Views\History.xaml.cs">
-      <DependentUpon>History.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Employees.xaml.cs">
       <DependentUpon>Employees.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\History.xaml.cs">
+      <DependentUpon>History.xaml</DependentUpon>
     </Compile>
     <Compile Include="DAOs\RoleDAO.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
-    <Page Include="Views\History.xaml">
+    <Page Include="Views\Employees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Employees.xaml">
+    <Page Include="Views\History.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -11,6 +11,7 @@
         <Button x:Name="button" Content="Button" Margin="36,0,0,0" Height="29" Width="75" Click="button_Click" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="logout_Click" Margin="0,0,23.6,691.8" Height="29" Width="55"/>
         <Button x:Name="HistoryButton" Content="History" Margin="330,10,112,279" Width="75" Height="29" Click="History_Click" VerticalAlignment="Top"/>
+        <Button x:Name="Employees" Content="Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="326,10,0,0" Height="29" Click="Employees_Click_1"/>
 
     </Grid>
 </Window>
