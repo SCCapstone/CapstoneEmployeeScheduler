@@ -18,6 +18,7 @@ namespace CapstoneEmployeeScheduler.Model
         private bool outOfWork;
         private bool disabled;
         private bool admin;
+        private string password;
         private List<Role> roles;
 
         public int ID1
@@ -160,6 +161,19 @@ namespace CapstoneEmployeeScheduler.Model
             set
             {
                 roles = value;
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                return password;
+            }
+
+            set
+            {
+                password = value;
             }
         }
     }
