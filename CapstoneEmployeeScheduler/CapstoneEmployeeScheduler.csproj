@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DAOs\UserDAO.cs" />
     <Compile Include="Views\History.xaml.cs">
       <DependentUpon>History.xaml</DependentUpon>
     </Compile>
@@ -64,6 +65,7 @@
     <Compile Include="Views\AddEditEmployee.xaml.cs">
       <DependentUpon>AddEditEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DAOs\RoleDAO.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
     <Page Include="Views\History.xaml">
@@ -127,9 +129,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SettingUpInitialTables.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAOs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapstoneEmployeeScheduler.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -13,10 +14,10 @@ namespace CapstoneEmployeeScheduler.DAO
                                               "password=password;server=(localdb)\\MSSQLLocalDB; " +
                                               "Trusted_Connection=yes; " +
                                               "database=Dev; " +
-                                              "connection timeout=30");*/
+                                              "connection timeout=30");
         public User createUser(User user)
         {
-
+            return user = new Model.User();
         }
     }
 }
