@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for AddEditEmployee.xaml
+    /// Interaction logic for AddEditModal.xaml
     /// </summary>
-    public partial class AddEditEmployee : Window
+    public partial class AddEditModal : Window
     {
-        public AddEditEmployee()
+        public AddEditModal()
         {
             InitializeComponent();
         }

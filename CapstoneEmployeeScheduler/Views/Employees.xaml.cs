@@ -10,18 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CapstoneEmployeeScheduler.Views
+namespace CapstoneEmployeeScheduler
 {
     /// <summary>
     /// Interaction logic for AddEditEmployee.xaml
     /// </summary>
-    public partial class AddEditEmployee : Window
+    public partial class AddEditEmployee : Page
     {
         public AddEditEmployee()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+             
         }
     }
 }

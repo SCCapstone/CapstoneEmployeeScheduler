@@ -10,5 +10,7 @@
 
     <Grid>
         <TextBlock Text="Add or Edit Role" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="submit" Content="Submit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.321,4.997" Margin="193,224,0,0" Click="Button_Click_1"/>
+        <Button x:Name="cancel" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="24,224,0,0" Click="Button_Click" IsCancel="True"/>
     </Grid>
 </Page>
