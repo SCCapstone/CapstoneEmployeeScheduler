@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 
+
 namespace CapstoneEmployeeScheduler
 {
     /// <summary>
@@ -54,19 +55,13 @@ namespace CapstoneEmployeeScheduler
             
         }
 
-        private void AddEditEmployee_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new Employees();
-        }
-
-        private void AddEditRole_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new Roles();
-        }
-
         private void History_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new History();
         }
+
+        
+
+       
     }
 }

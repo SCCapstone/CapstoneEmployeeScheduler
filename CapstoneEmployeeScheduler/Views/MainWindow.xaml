@@ -9,10 +9,8 @@
     <Grid>
         <Frame x:Name="Main" Margin="24,60,25,10" NavigationUIVisibility="Hidden"/>
         <Button x:Name="button" Content="Button" Margin="36,0,0,0" Height="29" Width="75" Click="button_Click" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Right" VerticalAlignment="Top" Click="logout_Click" Margin="0,0,24,279" Height="29" Width="55"/>
+        <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="logout_Click" Margin="0,0,23.6,691.8" Height="29" Width="55"/>
         <Button x:Name="HistoryButton" Content="History" Margin="330,10,112,279" Width="75" Height="29" Click="History_Click" VerticalAlignment="Top"/>
-        <Button x:Name="AddEditEmployeeButton" Content="Add/Edit Employees"  Margin="176,11,223,279"  Width="118" Height="29" Click="AddEditEmployee_Click" VerticalAlignment="Top"/>
-        <Button x:Name="AddEditRoleButton" Content="Add/Edit Roles" Margin="22,11,377,279" Width="118" Height="29" Click="AddEditRole_Click" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

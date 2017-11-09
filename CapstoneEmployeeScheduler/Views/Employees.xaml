@@ -1,4 +1,4 @@
-﻿<Page x:Class="CapstoneEmployeeScheduler.AddEditEmployee"
+﻿<Page x:Class="CapstoneEmployeeScheduler.Employees"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:CapstoneEmployeeScheduler"
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="1000"
-      Title="AddEditEmployee" MinHeight="750" MinWidth="1000">
+      Title="Employees" MinHeight="750" MinWidth="1000">
 
     <Grid>
         <Grid Background="#FFB9B9B9" Margin="0,0,0,0">
