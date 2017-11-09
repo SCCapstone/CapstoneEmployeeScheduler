@@ -55,42 +55,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Views\AddEditEmployee.xaml.cs">
-      <DependentUpon>AddEditEmployee.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AddEditEmployees.xaml.cs">
-      <DependentUpon>AddEditEmployees.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="DAOs\UserDAO.cs" />
     <Compile Include="Views\History.xaml.cs">
       <DependentUpon>History.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Roles.xaml.cs">
-      <DependentUpon>Roles.xaml</DependentUpon>
+    <Compile Include="Views\AddEditRole.xaml.cs">
+      <DependentUpon>AddEditRole.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Employees.xaml.cs">
-      <DependentUpon>Employees.xaml</DependentUpon>
+    <Compile Include="Views\AddEditEmployee.xaml.cs">
+      <DependentUpon>AddEditEmployee.xaml</DependentUpon>
     </Compile>
     <Compile Include="DAOs\RoleDAO.cs" />
-    <Compile Include="DAOs\UserDAO.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
-    <Page Include="Views\AddEditEmployee.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\AddEditEmployees.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\History.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Roles.xaml">
+    <Page Include="Views\AddEditRole.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Employees.xaml">
+    <Page Include="Views\AddEditEmployee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
