@@ -59,11 +59,8 @@
     <Compile Include="Views\History.xaml.cs">
       <DependentUpon>History.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddEditRole.xaml.cs">
-      <DependentUpon>AddEditRole.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AddEditEmployee.xaml.cs">
-      <DependentUpon>AddEditEmployee.xaml</DependentUpon>
+    <Compile Include="Views\Employees.xaml.cs">
+      <DependentUpon>Employees.xaml</DependentUpon>
     </Compile>
     <Compile Include="DAOs\RoleDAO.cs" />
     <Compile Include="Models\Role.cs" />
@@ -72,11 +69,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddEditRole.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\AddEditEmployee.xaml">
+    <Page Include="Views\Employees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
