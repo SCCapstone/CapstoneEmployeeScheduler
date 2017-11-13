@@ -47,7 +47,7 @@ namespace CapstoneEmployeeScheduler.Views
             user.UserName = "Chance";
             user.Email = "@gmail";
             user.Shift = "Day";
-            //user.RoleOneDayAgo = null;
+            //user.RoleOneDayAgo;
             //user.RoleTwoDaysAgo = null;
             //user.RoleThreeDaysAgo = null;
             user.OutOfWork = false;

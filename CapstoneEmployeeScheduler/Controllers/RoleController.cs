@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapstoneEmployeeScheduler.Services
+namespace CapstoneEmployeeScheduler.Controllers
 {
-    class UserService
+    class RoleController
     {
     }
 }
