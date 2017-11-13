@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for History.xaml
+    /// Interaction logic for Roles.xaml
     /// </summary>
-    public partial class History : Page
+    public partial class Roles : Page
     {
-        public History()
+        public Roles()
         {
             InitializeComponent();
         }

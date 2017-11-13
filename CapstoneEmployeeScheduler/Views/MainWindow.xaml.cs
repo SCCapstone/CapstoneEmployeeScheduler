@@ -31,6 +31,7 @@ namespace CapstoneEmployeeScheduler
         public MainWindow()
         {
             InitializeComponent();
+            
             //con.Open();
         }
 
@@ -50,21 +51,10 @@ namespace CapstoneEmployeeScheduler
 
         private void logout_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            MessageBox.Show("You have successfully logged out.");
+            
             
         }
-
-        private void History_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new History();
-        }
-
-   
-
-       
-
-        private void Employees_Click_1(object sender, RoutedEventArgs e)
+         private void Employees_Click_1(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.Employees();
         }
@@ -72,6 +62,27 @@ namespace CapstoneEmployeeScheduler
         private void TestingBackend_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.TestingBackend();
+        }
+
+        private void Main_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.Roles();
+        }
+
+        private void History_Click_1(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.History();
+        }
+
+        private void logout_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MessageBox.Show("You have successfully logged out.");
         }
     }
 }
