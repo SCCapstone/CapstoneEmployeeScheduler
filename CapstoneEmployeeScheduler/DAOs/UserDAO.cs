@@ -6,18 +6,28 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace CapstoneEmployeeScheduler.DAO
 {
     class UserDAO
     {
-        SqlConnection connection = new SqlConnection("user id=chanc; " +
-                                              "password=password;server=(localdb)\\MSSQLLocalDB; " +
-                                              "Trusted_Connection=yes; " +
-                                              "database=Dev; " +
-                                              "connection timeout=30");
+        private static string u = (string)System.Windows.Application.Current.FindResource("DatabaseUsername");
+        private static string p = (string)System.Windows.Application.Current.FindResource("DatabasePassword");
+        private static string s = (string)System.Windows.Application.Current.FindResource("DatabaseServer");
+        private static string n = (string)System.Windows.Application.Current.FindResource("DatabaseName");
+
+
+
+        
         public User createUser(User user)
         {
+            Thread.Sleep(2000);
+            SqlConnection connection = new SqlConnection("user id=" + u + "; " +
+                                              "password=" + p + ";server=" + s + "; " +
+                                              "Trusted_Connection=yes; " +
+                                              "database=" + n + "; " +
+                                              "connection timeout=30");
             //int ID;
             //string userName;
             //string email;
@@ -29,7 +39,16 @@ namespace CapstoneEmployeeScheduler.DAO
             //bool disabled;
             //bool admin;
             //string password;
-            
+            Console.WriteLine(connection.Database);
+            Console.WriteLine(connection);
+            //Console.WriteLine(connection.Credential.Password);
+            //Console.WriteLine(connection.Credential.UserId);
+
+
+            Console.WriteLine(u);
+            Console.WriteLine(p);
+            Console.WriteLine(s);
+            Console.WriteLine(n);
             connection.Open();
             SqlCommand command = new SqlCommand(null, connection);
 
