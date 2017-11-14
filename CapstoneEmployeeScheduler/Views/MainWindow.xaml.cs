@@ -37,16 +37,7 @@ namespace CapstoneEmployeeScheduler
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            var u = this.TryFindResource("DatabaseUsername");
-            var p = this.TryFindResource("DatabasePassword");
-            var s = this.TryFindResource("DatabaseServer");
-            var n = this.TryFindResource("DatabaseName");
-            Console.WriteLine(u);
-            Console.WriteLine(p);
-            Console.WriteLine(s);
-            Console.WriteLine(n);
-            //SqlCommand cmd = new SqlCommand("insert into table1 (Name) values ('Me')", con);
-            //cmd.ExecuteNonQuery(); 
+            
         }
 
         private void logout_Click(object sender, RoutedEventArgs e)

@@ -29,19 +29,19 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void UserDAO_Click(object sender, RoutedEventArgs e)
         {
-        //     private int id;
-        //private string userName;
-        //private string email;
-        //private string shift;
-        //private int roleOneDayAgo;
-        //private int roleTwoDaysAgo;
-        //private int roleThreeDaysAgo;
-        //private bool outOfWork;
-        //private bool disabled;
-        //private bool admin;
-        //private string password;
+            //     private int id;
+            //private string userName;
+            //private string email;
+            //private string shift;
+            //private int roleOneDayAgo;
+            //private int roleTwoDaysAgo;
+            //private int roleThreeDaysAgo;
+            //private bool outOfWork;
+            //private bool disabled;
+            //private bool admin;
+            //private string password;
 
-            UserDAO userDAO = new DAO.UserDAO();
+            UserDAO userDAO = new UserDAO();
             User user = new User();
             user.Id = 111;
             user.UserName = "Chance";

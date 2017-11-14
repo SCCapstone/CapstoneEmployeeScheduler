@@ -5,9 +5,6 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-        <system:String x:Key="DatabaseUsername">chanc</system:String>
-        <system:String x:Key="DatabasePassword">password</system:String>
-        <system:String x:Key="DatabaseServer">(localdb)\\MSSQLLocalDB</system:String>
-        <system:String x:Key="DatabaseName">Dev</system:String>
+        <system:String x:Key="Connection">user id=chanc; password=password;server=(localdb)\MSSQLLocalDB; Trusted_Connection=yes; database=Dev; connection timeout=5</system:String>
     </Application.Resources>
 </Application>
