@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,6 +60,12 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAOs\UserDAO.cs" />
+    <Compile Include="Views\CustomMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CustomMessageBox.Designer.cs">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Employees.xaml.cs">
       <DependentUpon>Employees.xaml</DependentUpon>
     </Compile>
@@ -126,6 +134,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomMessageBox.resx">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

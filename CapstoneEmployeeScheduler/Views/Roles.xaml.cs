@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CapstoneEmployeeScheduler.Views;
+
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -23,6 +25,19 @@ namespace CapstoneEmployeeScheduler.Views
         public Roles()
         {
             InitializeComponent();
+            //this.button1.Click += new EventHandler(button1_Click);
+        }
+
+        /*private void NewRole_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This is going to be the form");
+            //Make button work with form
+        }*/
+
+        private void NewRole_Click(object sender, RoutedEventArgs e)
+        {
+            RoleModal.Show();
+            //Make button work with form
         }
     }
 }
