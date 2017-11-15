@@ -60,11 +60,11 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAOs\UserDAO.cs" />
-    <Compile Include="Views\CustomMessageBox.cs">
+    <Compile Include="Views\RolePopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CustomMessageBox.Designer.cs">
-      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    <Compile Include="Views\RolePopUp.Designer.cs">
+      <DependentUpon>RolePopUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Employees.xaml.cs">
       <DependentUpon>Employees.xaml</DependentUpon>
@@ -72,11 +72,11 @@
     <Compile Include="DAOs\RoleDAO.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Views\Form1.cs">
+    <Compile Include="Views\EmployeePopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Views\EmployeePopUp.Designer.cs">
+      <DependentUpon>EmployeePopUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\History.xaml.cs">
       <DependentUpon>History.xaml</DependentUpon>
@@ -141,11 +141,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\CustomMessageBox.resx">
-      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    <EmbeddedResource Include="Views\RolePopUp.resx">
+      <DependentUpon>RolePopUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Views\EmployeePopUp.resx">
+      <DependentUpon>EmployeePopUp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
