@@ -56,7 +56,7 @@
             this.nameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBox.Location = new System.Drawing.Point(195, 77);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(349, 29);
+            this.nameBox.Size = new System.Drawing.Size(404, 29);
             this.nameBox.TabIndex = 1;
             // 
             // shiftLabel
@@ -88,7 +88,7 @@
             this.shiftBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shiftBox.Location = new System.Drawing.Point(195, 144);
             this.shiftBox.Name = "shiftBox";
-            this.shiftBox.Size = new System.Drawing.Size(349, 29);
+            this.shiftBox.Size = new System.Drawing.Size(404, 29);
             this.shiftBox.TabIndex = 2;
             // 
             // descriptionLabel
@@ -109,7 +109,7 @@
             this.descriptionBox.Location = new System.Drawing.Point(195, 217);
             this.descriptionBox.Multiline = true;
             this.descriptionBox.Name = "descriptionBox";
-            this.descriptionBox.Size = new System.Drawing.Size(349, 130);
+            this.descriptionBox.Size = new System.Drawing.Size(404, 130);
             this.descriptionBox.TabIndex = 5;
             this.descriptionBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -141,7 +141,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(575, 477);
+            this.ClientSize = new System.Drawing.Size(648, 493);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.descriptionLabel);

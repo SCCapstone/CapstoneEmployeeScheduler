@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CapstoneEmployeeScheduler.Views;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -24,5 +25,14 @@ namespace CapstoneEmployeeScheduler.Views
         {
             InitializeComponent();
         }
+
+        private void NewEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeModal.Show();
+            //Make button work with form
+        }
+
     }
+
+
 }
