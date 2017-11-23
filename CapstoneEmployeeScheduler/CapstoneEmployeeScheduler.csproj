@@ -60,6 +60,9 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAOs\UserDAO.cs" />
+    <Compile Include="Views\EmployeeModal.xaml.cs">
+      <DependentUpon>EmployeeModal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RolePopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,12 +75,6 @@
     <Compile Include="DAOs\RoleDAO.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Views\EmployeePopUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\EmployeePopUp.Designer.cs">
-      <DependentUpon>EmployeePopUp.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\History.xaml.cs">
       <DependentUpon>History.xaml</DependentUpon>
     </Compile>
@@ -87,6 +84,10 @@
     <Compile Include="Views\TestingBackend.xaml.cs">
       <DependentUpon>TestingBackend.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\EmployeeModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Employees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,9 +144,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RolePopUp.resx">
       <DependentUpon>RolePopUp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\EmployeePopUp.resx">
-      <DependentUpon>EmployeePopUp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

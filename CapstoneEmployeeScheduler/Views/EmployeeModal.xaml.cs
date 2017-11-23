@@ -10,31 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CapstoneEmployeeScheduler.Views;
 
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for Employees.xaml
+    /// Interaction logic for EmployeeModal.xaml
     /// </summary>
-    public partial class Employees : Page
+    public partial class EmployeeModal : Window
     {
-        public Employees()
+        public EmployeeModal()
         {
             InitializeComponent();
         }
 
-        private void NewEmployee_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            EmployeeModal m = new Views.EmployeeModal();
-            m.ShowDialog();
-            //Make button work with form
-            
+            this.Close();
         }
 
+        private void submit_Click(object sender, RoutedEventArgs e)
+        {
+            //send data from text boxes to the database
+        }
     }
-
-
 }

@@ -62,5 +62,10 @@ namespace CapstoneEmployeeScheduler.Views
             this.Close();
             MessageBox.Show("Application Exited Succesfully");
         }
+
+        private void txtUsername_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
