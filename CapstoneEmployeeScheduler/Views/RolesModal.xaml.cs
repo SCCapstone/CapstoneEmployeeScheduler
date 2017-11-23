@@ -15,28 +15,23 @@ using System.Windows.Shapes;
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for EmployeeModal.xaml
+    /// Interaction logic for RolesModal.xaml
     /// </summary>
-    public partial class EmployeeModal : Window
+    public partial class RolesModal : Window
     {
-        public EmployeeModal()
+        public RolesModal()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-            //send data from text boxes to the database
+            //add value from text boxes into database
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void cancel_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

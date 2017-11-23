@@ -9,11 +9,11 @@
     <Grid Margin="0,0,-0.2,-29.6">
         <Button x:Name="cancel" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Margin="150,276,0,0" Click="Button_Click" IsCancel="True" Height="30"/>
         <Button x:Name="submit" Content="Submit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="430,276,0,0" Click="submit_Click" Height="30"/>
-        <Label Content="Description" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,147,0,0" FontSize="16"/>
+        <Label Content="Shift" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,147,0,0" FontSize="16"/>
         <Label Content="Roles" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="34,79,0,0" Width="67" FontSize="16"/>
         <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,20,0,0" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="376" Margin="150,29,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="376" Margin="150,87,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="78" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="376" Margin="150,147,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" Margin="150,29,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" Margin="150,87,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" Margin="150,147,0,0" TextChanged="TextBox_TextChanged"/>
     </Grid>
 </Window>

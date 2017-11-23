@@ -36,7 +36,8 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void NewRole_Click(object sender, RoutedEventArgs e)
         {
-            RoleModal.Show();
+            RolesModal m = new Views.RolesModal();
+            m.ShowDialog();
             //Make button work with form
         }
     }
