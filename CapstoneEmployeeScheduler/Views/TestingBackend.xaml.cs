@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.DAO;
 using CapstoneEmployeeScheduler.Model;
+using CapstoneEmployeeScheduler.Controllers;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -41,7 +42,7 @@ namespace CapstoneEmployeeScheduler.Views
             //private bool admin;
             //private string password;
 
-            UserDAO userDAO = new UserDAO();
+            UserController userController = new UserController();
             User user = new User();
             user.Id = 111;
             user.UserName = "Chance";
@@ -53,8 +54,8 @@ namespace CapstoneEmployeeScheduler.Views
             user.OutOfWork = false;
             user.Disabled = false;
             user.Admin = false;
-            user.Password = "Password1";
-            userDAO.createUser(user);
+            user.Password = "Password2";
+            userController.createUser(user);
         }
     }
 }
