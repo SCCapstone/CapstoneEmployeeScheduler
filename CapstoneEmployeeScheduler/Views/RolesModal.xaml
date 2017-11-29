@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
         mc:Ignorable="d"
-        Title="Capstone Employee Scheduler - Roles Modal" Height="325.338" Width="560.852" FontSize="15">
-    <Grid Margin="0,0,3.2,18.6">
+        Title="Capstone Employee Scheduler - Roles Modal" Height="325.338" Width="560.852" FontSize="15" Visibility="Visible">
+    <Grid Margin="0,0,-0.6,-3" Background="#FF84C8FF">
         <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="416,240,0,0" Height="36" FontSize="15" Click="submit_Click" FontWeight="Bold"/>
         <Button x:Name="cancel" Content="CANCEL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="150,240,0,0" Height="35" FontSize="15" IsCancel="True" Click="cancel_Click" RenderTransformOrigin="0.427,1.191"/>
         <Label Content="DESCRIPTION:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,119,0,0" FontSize="15" FontWeight="Bold"/>
