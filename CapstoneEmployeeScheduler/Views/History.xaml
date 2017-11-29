@@ -9,7 +9,8 @@
       Title="History">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="History" VerticalAlignment="Top" Margin="115,143,0,0"/>
-
+        <Grid Background="#FFB9B9B9" Margin="0,0,-700,-450">
+            <Label x:Name="Title" Content="History" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="362,70,0,0" Width="314" Height="78" Background="#FF84C8FF" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold"/>
+        </Grid>
     </Grid>
 </Page>
