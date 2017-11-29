@@ -154,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SettingUpInitialTables.sql" />
-    <Resource Include="Assets\logo.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
