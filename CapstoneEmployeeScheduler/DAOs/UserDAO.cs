@@ -64,7 +64,7 @@ namespace CapstoneEmployeeScheduler.DAO
 
             // Create and prepare an SQL statement.
             command.CommandText =
-                "UPDATE Users SET UserName = @username, Email = @email, Shift = @shift, OutOfWork = @outofwork, Disable = @disabled, Admin = @Admin, Password = @password WHERE ID = @id";
+                "UPDATE Users SET UserName = @username, Email = @email, Shift = @shift, OutOfWork = @outofwork, Disabled = @disabled, Admin = @Admin, Password = @password WHERE ID = @id";
 
             SqlParameter userNameParam = new SqlParameter("@username", SqlDbType.Text, 100);
             SqlParameter emailParam = new SqlParameter("@email", SqlDbType.Text, 10);
@@ -106,50 +106,50 @@ namespace CapstoneEmployeeScheduler.DAO
             connection.Open();
             SqlCommand command = new SqlCommand(null, connection);
 
-            // Create and prepare an SQL statement.
             command.CommandText =
                 "SELECT * FROM Users WHERE ID = @id";
             
             SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 10);
             
-            idParam.Value = 4005;
+            idParam.Value = id;
             
             command.Parameters.Add(idParam);
 
-            // Call Prepare after setting the Commandtext and Parameters.
-            //command.Prepare();
-            //command.ExecuteNonQuery();
-
             User user = new Model.User();
-            Console.WriteLine("HERE 1");
             SqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-        //           private string id;
-        //private string userName;
-        //private string email;
-        //private string shift;
-        //private int? roleOneDayAgo = null;
-        //private int? roleTwoDaysAgo = null;
-        //private int? roleThreeDaysAgo = null;
-        //private bool outOfWork;
-        //private bool disabled;
-        //private bool admin;
-        //private string password;
-
-
-                    //Console.WriteLine("{0}\t{1}", reader.GetInt32(0),
-                    //    reader.GetString(1));
                     user.Id = reader.GetInt32(0);
                     user.UserName = reader.GetString(1);
                     user.Email = reader.GetString(2);
                     user.Shift = reader.GetString(3);
-                    user.RoleOneDayAgo = reader.GetInt32(4);
-                    user.RoleTwoDaysAgo = reader.GetInt32(5);
-                    user.RoleThreeDaysAgo = reader.GetInt32(6);
+                    if(!reader.IsDBNull(4))
+                    {
+                        user.RoleOneDayAgo = reader.GetInt32(4);
+                    }
+                    else
+                    {
+                        user.RoleOneDayAgo = null;
+                    }
+                    if (!reader.IsDBNull(5))
+                    {
+                        user.RoleOneDayAgo = reader.GetInt32(5);
+                    }
+                    else
+                    {
+                        user.RoleOneDayAgo = null;
+                    }
+                    if (!reader.IsDBNull(6))
+                    {
+                        user.RoleOneDayAgo = reader.GetInt32(6);
+                    }
+                    else
+                    {
+                        user.RoleOneDayAgo = null;
+                    }
                     user.OutOfWork = reader.GetBoolean(7);
                     user.Disabled = reader.GetBoolean(8);
                     user.Admin = reader.GetBoolean(9);
@@ -161,30 +161,67 @@ namespace CapstoneEmployeeScheduler.DAO
                 Console.WriteLine("No rows found.");
             }
             reader.Close();
-            //user.Id = reader.GetInt32(reader.GetOrdinal("ID"));
-            //using (SqlDataReader reader = command.ExecuteReader())
-            //{
-            //    Console.WriteLine("HERE 2");
-
-            //    if (reader.Read())
-            //    {
-            //        user.Id = reader.GetInt32(reader.GetOrdinal("ID"));
-            //        Console.WriteLine("HERE 3");
-
-            //        Console.WriteLine(user.Id);
-
-            //        //string businessName = reader.GetString(reader.GetOrdinal("BusinessName"));
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("HERE 4");
-
-            //        //MessageBox.Show(string.Format("Sorry, no business found with id = {0}", myParam2));
-            //    }
-            //}
-
-
             return user;
+        }
+
+        public List<User> getAllUsers()
+        {
+            SqlConnection connection = new SqlConnection(con);
+            connection.Open();
+            SqlCommand command = new SqlCommand(null, connection);
+
+            command.CommandText =
+                "SELECT * FROM Users";
+            
+            List<User> users = new List<User>();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                int counter = 0;
+                while (reader.Read())
+                {
+                    users.ElementAt(counter).Id = reader.GetInt32(0);
+                    users.ElementAt(counter).UserName = reader.GetString(1);
+                    users.ElementAt(counter).Email = reader.GetString(2);
+                    users.ElementAt(counter).Shift = reader.GetString(3);
+                    if (!reader.IsDBNull(4))
+                    {
+                        users.ElementAt(counter).RoleOneDayAgo = reader.GetInt32(4);
+                    }
+                    else
+                    {
+                        users.ElementAt(counter).RoleOneDayAgo = null;
+                    }
+                    if (!reader.IsDBNull(5))
+                    {
+                        users.ElementAt(counter).RoleOneDayAgo = reader.GetInt32(5);
+                    }
+                    else
+                    {
+                        users.ElementAt(counter).RoleOneDayAgo = null;
+                    }
+                    if (!reader.IsDBNull(6))
+                    {
+                        users.ElementAt(counter).RoleOneDayAgo = reader.GetInt32(6);
+                    }
+                    else
+                    {
+                        users.ElementAt(counter).RoleOneDayAgo = null;
+                    }
+                    users.ElementAt(counter).OutOfWork = reader.GetBoolean(7);
+                    users.ElementAt(counter).Disabled = reader.GetBoolean(8);
+                    users.ElementAt(counter).Admin = reader.GetBoolean(9);
+                    users.ElementAt(counter).Password = reader.GetString(10);
+                    counter++;
+                }
+            }
+            else
+            {
+                Console.WriteLine("No rows found.");
+            }
+            reader.Close();
+            return users;
         }
     }
 }

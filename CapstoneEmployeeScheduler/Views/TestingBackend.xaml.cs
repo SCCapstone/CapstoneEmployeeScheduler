@@ -55,7 +55,18 @@ namespace CapstoneEmployeeScheduler.Views
             user.Disabled = false;
             user.Admin = false;
             user.Password = "Password2";
-            userController.createUser(user);
+            //userController.createUser(user);
+            user = userController.getUserById(4006);
+            Console.WriteLine(user.Email);
+            user.Email = "new";
+            userController.editUser(user);
+            Console.WriteLine(user.Email);
+
+            List<User> users = userController.getAllUsers();
+            for(int i=0;i<users.Count;i++)
+            {
+                Console.WriteLine(users.ElementAt(i).Id);
+            }
         }
     }
 }
