@@ -178,42 +178,44 @@ namespace CapstoneEmployeeScheduler.DAO
 
             if (reader.HasRows)
             {
-                int counter = 0;
+                //int counter = 0;
                 while (reader.Read())
                 {
-                    users.ElementAt(counter).Id = reader.GetInt32(0);
-                    users.ElementAt(counter).UserName = reader.GetString(1);
-                    users.ElementAt(counter).Email = reader.GetString(2);
-                    users.ElementAt(counter).Shift = reader.GetString(3);
+                    User user = new Model.User();
+                    user.Id = reader.GetInt32(0);
+                    user.UserName = reader.GetString(1);
+                    user.Email = reader.GetString(2);
+                    user.Shift = reader.GetString(3);
                     if (!reader.IsDBNull(4))
                     {
-                        users.ElementAt(counter).RoleOneDayAgo = reader.GetInt32(4);
+                        user.RoleOneDayAgo = reader.GetInt32(4);
                     }
                     else
                     {
-                        users.ElementAt(counter).RoleOneDayAgo = null;
+                        user.RoleOneDayAgo = null;
                     }
                     if (!reader.IsDBNull(5))
                     {
-                        users.ElementAt(counter).RoleOneDayAgo = reader.GetInt32(5);
+                        user.RoleOneDayAgo = reader.GetInt32(5);
                     }
                     else
                     {
-                        users.ElementAt(counter).RoleOneDayAgo = null;
+                        user.RoleOneDayAgo = null;
                     }
                     if (!reader.IsDBNull(6))
                     {
-                        users.ElementAt(counter).RoleOneDayAgo = reader.GetInt32(6);
+                        user.RoleOneDayAgo = reader.GetInt32(6);
                     }
                     else
                     {
-                        users.ElementAt(counter).RoleOneDayAgo = null;
+                        user.RoleOneDayAgo = null;
                     }
-                    users.ElementAt(counter).OutOfWork = reader.GetBoolean(7);
-                    users.ElementAt(counter).Disabled = reader.GetBoolean(8);
-                    users.ElementAt(counter).Admin = reader.GetBoolean(9);
-                    users.ElementAt(counter).Password = reader.GetString(10);
-                    counter++;
+                    user.OutOfWork = reader.GetBoolean(7);
+                    user.Disabled = reader.GetBoolean(8);
+                    user.Admin = reader.GetBoolean(9);
+                    user.Password = reader.GetString(10);
+                    users.Add(user);
+                    //counter++;
                 }
             }
             else

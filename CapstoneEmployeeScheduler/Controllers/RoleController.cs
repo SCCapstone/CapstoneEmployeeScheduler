@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapstoneEmployeeScheduler.DAO;
+using CapstoneEmployeeScheduler.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,16 @@ namespace CapstoneEmployeeScheduler.Controllers
 {
     class RoleController
     {
+        RoleDAO roleDAO = new RoleDAO();
+
+        public void createRole(Role role)
+        {
+            roleDAO.createRole(role);
+        }
+
+        public void editRole(Role role)
+        {
+            roleDAO.editRole(role);
+        }
     }
 }

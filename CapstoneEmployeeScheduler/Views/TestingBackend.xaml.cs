@@ -57,16 +57,25 @@ namespace CapstoneEmployeeScheduler.Views
             user.Password = "Password2";
             //userController.createUser(user);
             user = userController.getUserById(4006);
-            Console.WriteLine(user.Email);
+            //Console.WriteLine(user.Email);
             user.Email = "new";
             userController.editUser(user);
-            Console.WriteLine(user.Email);
+            //Console.WriteLine(user.Email);
 
             List<User> users = userController.getAllUsers();
             for(int i=0;i<users.Count;i++)
             {
-                Console.WriteLine(users.ElementAt(i).Id);
+                //Console.WriteLine(users.ElementAt(i).Id);
             }
+
+
+
+            RoleController roleController = new RoleController();
+            Role role = new Role();
+            role.Id = 1;
+            role.RoleName = "Change";
+            //roleController.createRole(role);
+            roleController.editRole(role);
         }
     }
 }

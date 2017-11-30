@@ -8,19 +8,19 @@ namespace CapstoneEmployeeScheduler.Model
 {
     class Role
     {
-        private int ID;
+        private int id;
         private string roleName;
 
-        public int ID1
+        public int Id
         {
             get
             {
-                return ID;
+                return id;
             }
 
             set
             {
-                ID = value;
+                id = value;
             }
         }
 
