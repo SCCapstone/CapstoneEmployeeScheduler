@@ -62,5 +62,70 @@ namespace CapstoneEmployeeScheduler.DAO
 
             return role;
         }
+
+        public Role getRoleById(int id)
+        {
+            SqlConnection connection = new SqlConnection(con);
+            connection.Open();
+            SqlCommand command = new SqlCommand(null, connection);
+
+            command.CommandText =
+                "SELECT * FROM Roles WHERE ID = @id";
+
+            SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 10);
+
+            idParam.Value = id;
+
+            command.Parameters.Add(idParam);
+
+            Role role = new Model.Role();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    role.Id = reader.GetInt32(0);
+                    role.RoleName = reader.GetString(1);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No rows found.");
+            }
+            reader.Close();
+            return role;
+        }
+
+        public List<Role> getAllRoles()
+        {
+            SqlConnection connection = new SqlConnection(con);
+            connection.Open();
+            SqlCommand command = new SqlCommand(null, connection);
+
+            command.CommandText =
+                "SELECT * FROM Roles";
+
+            List<Role> roles = new List<Role>();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Role role = new Model.Role();
+                    role.Id = reader.GetInt32(0);
+                    role.RoleName = reader.GetString(1);
+                    roles.Add(role);
+                    //counter++;
+                }
+            }
+            else
+            {
+                Console.WriteLine("No rows found.");
+            }
+            reader.Close();
+            return roles;
+        }
     }
 }

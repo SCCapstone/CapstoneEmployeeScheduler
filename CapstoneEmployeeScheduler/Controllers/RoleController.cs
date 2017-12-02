@@ -21,5 +21,15 @@ namespace CapstoneEmployeeScheduler.Controllers
         {
             roleDAO.editRole(role);
         }
+
+        public Role getRoleById(int id)
+        {
+            return roleDAO.getRoleById(id);
+        }
+
+        public List<Role> getAllRoles()
+        {
+            return roleDAO.getAllRoles();
+        }
     }
 }

@@ -63,7 +63,7 @@ namespace CapstoneEmployeeScheduler.Views
             //Console.WriteLine(user.Email);
 
             List<User> users = userController.getAllUsers();
-            for(int i=0;i<users.Count;i++)
+            for (int i = 0; i < users.Count; i++)
             {
                 //Console.WriteLine(users.ElementAt(i).Id);
             }
@@ -75,7 +75,13 @@ namespace CapstoneEmployeeScheduler.Views
             role.Id = 1;
             role.RoleName = "Change";
             //roleController.createRole(role);
-            roleController.editRole(role);
+            //role = roleController.getRoleById(2);
+            //Console.WriteLine(role.RoleName);
+            List<Role> roles = roleController.getAllRoles();
+            for (int i = 0; i < roles.Count; i++)
+            {
+                Console.WriteLine(roles.ElementAt(i).RoleName);
+            }
         }
     }
 }
