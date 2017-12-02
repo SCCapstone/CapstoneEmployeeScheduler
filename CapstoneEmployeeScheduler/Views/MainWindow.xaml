@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Navigated="Main_Navigated" Margin="0,0,-0.4,-0.2" Padding="0"/>
         <Button x:Name="Employees" Content="Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="0,110,0,0" Height="46" Click="Employees_Click_1" Grid.Column="1" RenderTransformOrigin="-2.887,0.683" Background="#FF84C8FF" BorderBrush="#FF888888" Foreground="Black" FontWeight="Bold"/>
-        <Button x:Name="TestingBackend" Content="TestingBackend" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="5,400,0,0" Height="29" Click="TestingBackend_Click" Grid.Column="1" FontWeight="Bold"/>
+        <!--<Button x:Name="TestingBackend" Content="TestingBackend" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="5,400,0,0" Height="29" Click="TestingBackend_Click" Grid.Column="1" FontWeight="Bold"/>-->
         <Button x:Name="Roles" Grid.ColumnSpan="2" Content="Roles" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="0,156,0,0" Height="49" Click="Button_Click_1" Background="#FF84C8FF" BorderBrush="#FF888888" Foreground="Black" FontWeight="Bold"/>
         <Button x:Name="History" Grid.ColumnSpan="2" Content="History" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Width="85" Height="47" Click="History_Click_1" BorderBrush="#FF888888" Foreground="Black" Background="#FF84C8FF" FontWeight="Bold"/>
         <Button x:Name="logout" Grid.ColumnSpan="2" Content="Log Out" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="0,608,0,0" Height="42" Click="logout_Click_1" BorderBrush="#FF888888" Background="#FFE01B1B" FontWeight="Bold"/>
