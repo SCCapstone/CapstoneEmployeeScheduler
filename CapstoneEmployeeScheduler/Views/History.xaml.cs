@@ -37,13 +37,27 @@ namespace CapstoneEmployeeScheduler.Views
             DataSet ds = new DataSet();
             adapter.Fill(ds, srcTable: "Users");
             DataTable data = ds.Tables[0];
-            String path = @"C:\Users\Public\Documents\MyDocument";
-            CreateCSVFile(data, path);
+            String path = @"E:\Documents\Dev";
+            // CreateCSVFile(data, path);
+            var columnHeaders = (from DataColumn x in data.Columns
+                                 select x.ColumnName).ToArray();
+            StringBuilder builder = new StringBuilder(String.Join(",", columnHeaders));
+            builder.Append("\n");
 
-
-            void CreateCSVFile(DataTable dtDataTablesList, string strFilePath)
+            foreach (DataRow row in data.Rows)
             {
-                // Create the CSV file to which grid data will be exported.
+                for (int i = 0; i < data.Columns.Count; i++)
+                {
+                    builder.Append(row[i].ToString());
+                    builder.Append((i == data.Columns.Count - 1) ? "\n" : ",");
+                }
+            }
+
+        }
+        /*
+        private void CreateCSVFile(DataTable dtDataTablesList, string strFilePath)
+         {
+                
                 StreamWriter sw = new StreamWriter(strFilePath, false);
                 //First we will write the headers.
                 int iColCount = dtDataTablesList.Columns.Count;
@@ -74,28 +88,7 @@ namespace CapstoneEmployeeScheduler.Views
                     sw.Write(sw.NewLine);
                 }
                 sw.Close();
-            }
-
-            /*
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
-            {
-                if(sfd.ShowDialog() == DialogResult.OK)
-                {
-                    using (var sw = new StreamWriter(sfd.FileName))
-                    {
-                        var writer = new CsvWriter(sw);
-                        writer.WriteHeader(typeof(Employees));
-                        foreach(Employees a in WhateverThisIs.DataSource as List<Employees>)
-                        {
-                            writer.WriteRecord(a);
-                        }
-                    }
-                }
-                System.Windows.MessageBox.Show("Your Data has been Saved");
-            }
-            */
-
-        }
-
+         }
+         */
     }
 }
