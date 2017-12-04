@@ -5,15 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
         mc:Ignorable="d"
-        Title="Capstone Employee Scheduler Login" Height="300" Width="350" Background="#FF84C8F0">
-    <StackPanel Margin="10">
-        <Label Content="Capstone Employee Scheduler" Foreground="Black" FontSize="18" HorizontalAlignment="Left"/>
-        <Label Content="Username" Foreground="Black"/>
-        <TextBox x:Name="txtUsername" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" Margin="10,0,0,0"/>
-        <Label Content="Password" Foreground="Black"/>
-        <PasswordBox x:Name="txtPassword" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" Margin="10,0,0,0"/>
-        <Button Name="buttonSubmit" Background="White" Content="Submit" Foreground="Black" FontSize="18" Margin="10,10,0,10" Click="buttonSubmit_Click" Width="75" HorizontalAlignment="Center"/>
-        <Label Name ="Label" Foreground="Red"/>
-        <Button Name="Exit" Background="White" Content="Cancel" Foreground="Black" FontSize="14" Click="buttonExit_Click" Margin="134,0"/>
-    </StackPanel>
+        Title="Capstone Employee Scheduler Login" Height="238.597" Width="350" Background="#FF84C8F0">
+    <Grid Background="#FF84C8FF" Margin="0,0,0,-79.2">
+        <Label Content="Log In" Foreground="Black" FontSize="23" HorizontalAlignment="Left" Margin="29,13,0,224" Width="96" FontWeight="Bold"/>
+        <TextBox x:Name="txtUsername" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" Margin="29,69,23,194" TextChanged="txtUsername_TextChanged_1" Text="Username"/>
+        <PasswordBox x:Name="txtPassword" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" Margin="29,117,23,146" Password="Password"/>
+        <Button Name="buttonSubmit" Content="SUBMIT" Foreground="Black" FontSize="15" Click="buttonSubmit_Click" Width="96" Height= "30" Margin="225,165,23,93" FontWeight="Bold"/>
+        <Button Name="Exit" Content="CANCEL" Foreground="Black" FontSize="14" Click="buttonExit_Click" Width="96" Height="30" Margin="29,165,219,93"/>
+    </Grid>
 </Window>

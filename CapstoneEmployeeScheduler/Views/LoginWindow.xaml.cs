@@ -25,6 +25,8 @@ namespace CapstoneEmployeeScheduler.Views
             InitializeComponent();
         }
 
+        
+
         private void buttonSubmit_Click(object sender, RoutedEventArgs e)
         {
             string username;
@@ -50,7 +52,7 @@ namespace CapstoneEmployeeScheduler.Views
             else if ((attempt == 3) && (attempt > 0))
             {
                 //nothing yet
-                Label.Content = ("Incorrect credentials. You have " + Convert.ToString(attempt) + " attempts remaining.");
+                
                 --attempt;
             }
 
@@ -64,6 +66,11 @@ namespace CapstoneEmployeeScheduler.Views
         }
 
         private void txtUsername_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtUsername_TextChanged_1(object sender, TextChangedEventArgs e)
         {
 
         }
