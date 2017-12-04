@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.Views;
+using CapstoneEmployeeScheduler.Controllers;
+using CapstoneEmployeeScheduler.Model;
 
 
 namespace CapstoneEmployeeScheduler.Views
@@ -26,7 +28,11 @@ namespace CapstoneEmployeeScheduler.Views
         public Roles()
         {
             InitializeComponent();
-            //this.button1.Click += new EventHandler(button1_Click);
+            /*RoleController r = new RoleController();
+            List<Role> items = new List<Role>();
+            items = r.getAllRoles();
+            Roles.ItemsSource = items;
+            */
         }
                 
         private void NewRole_Click(object sender, RoutedEventArgs e)
