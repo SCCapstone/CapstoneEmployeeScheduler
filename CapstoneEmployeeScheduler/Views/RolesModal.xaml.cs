@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CapstoneEmployeeScheduler.Model;
+using CapstoneEmployeeScheduler.Controllers;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -26,7 +28,11 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-            //add value from text boxes into database
+            RoleController r = new RoleController();
+            Role role = new Role();
+            role.RoleName = name.Text;
+            r.createRole(role);
+            this.Close();
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)
