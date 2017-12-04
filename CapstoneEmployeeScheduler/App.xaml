@@ -5,6 +5,6 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-        <system:String x:Key="Connection">Data Source=DESKTOP-76O8AFN\SQLEXPRESS;Initial Catalog=Dev;Integrated Security=True</system:String>
+        <system:String x:Key="Connection">Data Source=LENOVO-Franklin;Initial Catalog=Dev;Integrated Security=True</system:String>
     </Application.Resources>
 </Application>
