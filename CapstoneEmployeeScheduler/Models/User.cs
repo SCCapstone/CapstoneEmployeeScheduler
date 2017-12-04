@@ -9,9 +9,9 @@ namespace CapstoneEmployeeScheduler.Model
     class User
     {
         private int id;
-        private string userName;
-        private string email;
-        private string shift;
+        public string userName;
+        public string email;
+        public string shift;
         private int? roleOneDayAgo = null;
         private int? roleTwoDaysAgo = null;
         private int? roleThreeDaysAgo = null;

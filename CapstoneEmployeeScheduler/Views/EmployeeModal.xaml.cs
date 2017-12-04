@@ -38,14 +38,14 @@ namespace CapstoneEmployeeScheduler.Views
             User user = new User();
             user.UserName = name.Text;
             user.Email = email.Text;
-            user.Id = 1;
+            user.Id = 1; //this will need to be uniquely generated somehow in the future (2nd semester)
             user.Shift = " ";
             user.OutOfWork = false;
             user.Disabled = false;
             user.Admin = false;
             user.Password = " ";
             uc.createUser(user);
-
+            
             this.Close();
         }
 
