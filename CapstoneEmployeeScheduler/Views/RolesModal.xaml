@@ -11,8 +11,8 @@
         <Button x:Name="cancel" Content="CANCEL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="150,240,0,0" Height="35" FontSize="15" IsCancel="True" Click="cancel_Click" RenderTransformOrigin="0.427,1.191"/>
         <Label Content="DESCRIPTION:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,119,0,0" FontSize="15" FontWeight="Bold"/>
         <Label Content="ROLE NAME:" HorizontalAlignment="Left" Margin="33,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
-        <TextBox HorizontalAlignment="Left" Height="84" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="377" Margin="150,119,0,0"/>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="377" Margin="150,47,0,0" FontSize="18"/>
+        <TextBox HorizontalAlignment="Left" Height="84" TextWrapping="Wrap" VerticalAlignment="Top" Width="377" Margin="150,119,0,0" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" VerticalAlignment="Top" Width="377" Margin="150,47,0,0" FontSize="18"/>
 
     </Grid>
 </Window>
