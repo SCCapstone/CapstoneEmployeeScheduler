@@ -46,7 +46,7 @@ namespace CapstoneEmployeeScheduler.Views
             user.Password = " ";
             uc.createUser(user);
 
-
+            this.Close();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
