@@ -16,7 +16,7 @@ using System.IO;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using CsvHelper;
+//using CsvHelper;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -31,7 +31,7 @@ namespace CapstoneEmployeeScheduler.Views
         }
         private void CSVButton_Click(object sender, RoutedEventArgs e)
         {
-            string connection = (string)System.Windows.Application.Current.FindResource("Connection");
+            /*string connection = (string)System.Windows.Application.Current.FindResource("Connection");
             string queryString = "SELECT * from Dev;";
             SqlDataAdapter adapter = new SqlDataAdapter(selectCommandText: queryString, selectConnectionString: connection);
             DataSet ds = new DataSet();
@@ -75,7 +75,7 @@ namespace CapstoneEmployeeScheduler.Views
                 }
                 sw.Close();
             }
-
+            */
             /*
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
             {
