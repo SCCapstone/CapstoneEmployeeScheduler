@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CapstoneEmployeeScheduler.Controllers;
+using CapstoneEmployeeScheduler.DAO;
+using CapstoneEmployeeScheduler.Model;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -31,7 +34,19 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-            //send data from text boxes to the database
+            UserController uc = new UserController();
+            User user = new User();
+            user.UserName = name.Text;
+            user.Email = email.Text;
+            user.Id = 1; //this will need to be uniquely generated somehow in the future (2nd semester)
+            user.Shift = " ";
+            user.OutOfWork = false;
+            user.Disabled = false;
+            user.Admin = false;
+            user.Password = " ";
+            uc.createUser(user);
+            
+            this.Close();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

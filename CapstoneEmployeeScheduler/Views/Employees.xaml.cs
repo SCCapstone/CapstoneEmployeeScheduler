@@ -13,7 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.Views;
-
+using CapstoneEmployeeScheduler.Model;
+using CapstoneEmployeeScheduler.Controllers;
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
@@ -24,6 +25,11 @@ namespace CapstoneEmployeeScheduler.Views
         public Employees()
         {
             InitializeComponent();
+            UserController u = new UserController();
+            List<User> items = new List<User>();
+            items = u.getAllUsers();
+            Users.ItemsSource = items;
+
         }
 
         private void NewEmployee_Click(object sender, RoutedEventArgs e)
@@ -34,6 +40,10 @@ namespace CapstoneEmployeeScheduler.Views
             
         }
 
+        private void EmployeeTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
 
