@@ -75,5 +75,10 @@ namespace CapstoneEmployeeScheduler
             this.Close();
             MessageBox.Show("You have successfully logged out.");
         }
+
+        private void GenerateButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Under Construction. Please check back at a later time :)");
+        }
     }
 }
