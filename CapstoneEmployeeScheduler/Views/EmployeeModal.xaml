@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
         mc:Ignorable="d"
         Title="Capstone Employee Scheduler - Employee Modal" Height="309.896" Width="530.413" FontSize="10" Background="#FF84C8FF">
-    <Grid Margin="0,0,23,13.8">
+    <Grid Margin="0,0,4,3">
         <Label Content="SHIFT:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,159,0,0" FontSize="16" FontWeight="Bold"/>
         <Label Content="ROLES:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,99,0,0" Width="67" FontSize="16" FontWeight="Bold"/>
         <Label Content="NAME:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,34,0,0" FontSize="16" FontWeight="Bold"/>
