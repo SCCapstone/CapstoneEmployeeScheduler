@@ -13,10 +13,14 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Content="Log In" Foreground="Black" FontSize="23" HorizontalAlignment="Left" Margin="29,19,0,281" Width="96" FontWeight="Bold"/>
+        <Label Content="Capstone Employee Scheduler" Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="27,25,0,275" Width="329" FontWeight="Bold" BorderBrush="#FF252323" OpacityMask="#FF120B0B" Background="{x:Null}"/>
         <TextBox Name="txtUsername" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" Margin="28,68,42,231" TextChanged="txtUsername_TextChanged_1"/>
-        <PasswordBox Name="txtPassword" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" PasswordChanged="txtPassword_PasswordChanged" Margin="28,116,43,183"/>
-        <Button Name="buttonSubmit" Content="SUBMIT" Foreground="Black" FontSize="15" Click="buttonSubmit_Click" Width="96" Height= "30" Margin="243,164,43,127.6" FontWeight="Bold"/>
+        <PasswordBox Name="txtPassword" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" PasswordChanged="txtPassword_PasswordChanged" Margin="28,116,43,183" KeyDown="txtPassword_KeyDown"/>
+        <Button Name="buttonSubmit" Content="SUBMIT" Foreground="Black" FontSize="15" Click="buttonSubmit_Click" Width="96" Height= "30" Margin="243,164,43,127.6" FontWeight="Bold">
+            <Button.BindingGroup>
+                <BindingGroup/>
+            </Button.BindingGroup>
+        </Button>
         <Button Name="Exit" Content="CANCEL" Foreground="Black" FontSize="14" Click="buttonExit_Click" Width="96" Height="30" Margin="28,164,258,127.6"/>
         <TextBlock Name ="tbUsername" HorizontalAlignment="Left" TextWrapping="Wrap" Text="USERNAME" VerticalAlignment="Top" Margin="33,78,0,0" Height="25" Width="104" FontSize="17" Opacity="0.5" IsHitTestVisible="False"/>
         <TextBlock Name ="tbPassword" HorizontalAlignment="Left" Margin="33,126,0,0" TextWrapping="Wrap" Text="PASSWORD" VerticalAlignment="Top" Height="25" Width="104" FontSize="17" Opacity="0.5" IsHitTestVisible="False"/>

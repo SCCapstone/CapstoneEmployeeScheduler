@@ -27,7 +27,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         
 
-        private void buttonSubmit_Click(object sender, RoutedEventArgs e)
+        private void buttonSubmit_Click(object sender, EventArgs e)
         {
             string username;
             string password;
@@ -85,5 +85,13 @@ namespace CapstoneEmployeeScheduler.Views
             else
                 tbPassword.Visibility = Visibility.Visible;
         }
-    }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                buttonSubmit_Click(null, EventArgs.Empty);
+            }
+        }
+            }
 }
