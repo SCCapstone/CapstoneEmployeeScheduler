@@ -72,7 +72,18 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void txtUsername_TextChanged_1(object sender, TextChangedEventArgs e)
         {
+            if (txtUsername.Text.Length > 0)
+                tbUsername.Visibility = Visibility.Collapsed;
+            else
+                tbUsername.Visibility = Visibility.Visible;
+        }
 
+        private void txtPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (txtPassword.Password.Length > 0)
+                tbPassword.Visibility = Visibility.Collapsed;
+            else
+                tbPassword.Visibility = Visibility.Visible;
         }
     }
 }
