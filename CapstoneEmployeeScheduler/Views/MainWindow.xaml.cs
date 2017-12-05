@@ -34,8 +34,8 @@ namespace CapstoneEmployeeScheduler
             
             //con.Open();
         }
-
-        private void Employees_Click_1(object sender, RoutedEventArgs e)
+        
+private void Employees_Click_1(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.Employees();
         }
@@ -43,6 +43,11 @@ namespace CapstoneEmployeeScheduler
         private void TestingBackend_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.TestingBackend();
+        }
+
+        private void Main_Navigated(object sender, NavigationEventArgs e)
+        {
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
