@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CapstoneEmployeeScheduler"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
-             StartupUri="Views/MainWindow.xaml">
+             StartupUri="Views/LoginWindow.xaml">
     <Application.Resources>
         <system:String x:Key="Connection">Data Source=LENOVO-Franklin;Initial Catalog=Dev;Integrated Security=True</system:String>
     </Application.Resources>
