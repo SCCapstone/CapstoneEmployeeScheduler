@@ -6,13 +6,20 @@
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler"
         mc:Ignorable="d"
         Title="Capstone Employee Scheduler: Home" Height="750" Width="1000" MinHeight="750" MinWidth="1000">
-    <Grid Background="#FFB9B9B9">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\dukenner\Desktop\blue.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Navigated="Main_Navigated" Margin="0,0,-0.4,-0.2" Padding="0" Background="#FF84C8FF"/>
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Navigated="Main_Navigated" Margin="0,0,-0.4,-0.2" Padding="0">
+            <Frame.Background>
+                <ImageBrush/>
+            </Frame.Background>
+        </Frame>
         <Button x:Name="Employees" Content="Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="0,287,0,0" Height="74" Click="Employees_Click_1" Grid.Column="1" RenderTransformOrigin="-2.887,0.683" Background="#FFDDDDDD" BorderBrush="#FF888888" Foreground="Black" FontWeight="Bold"/>
         <!--<Button x:Name="TestingBackend" Content="TestingBackend" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="5,400,0,0" Height="29" Click="TestingBackend_Click" Grid.Column="1" FontWeight="Bold"/>-->
         <Button x:Name="Roles" Grid.ColumnSpan="2" Content="Roles" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="0,361,0,0" Height="74" Click="Button_Click_1" Background="#FFDDDDDD" BorderBrush="#FF888888" Foreground="Black" FontWeight="Bold"/>
