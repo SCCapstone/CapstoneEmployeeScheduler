@@ -78,7 +78,7 @@ namespace CapstoneEmployeeScheduler
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Under Construction. Please check back at a later time :)");
+            MessageBox.Show("Under Construction. Please check back at a later time :)", "Generate Schdedule");
         }
     }
 }
