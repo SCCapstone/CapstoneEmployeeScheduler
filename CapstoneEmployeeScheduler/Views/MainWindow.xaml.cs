@@ -35,17 +35,7 @@ namespace CapstoneEmployeeScheduler
             //con.Open();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void logout_Click(object sender, RoutedEventArgs e)
-        {
-            
-            
-        }
-         private void Employees_Click_1(object sender, RoutedEventArgs e)
+        private void Employees_Click_1(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.Employees();
         }
@@ -53,11 +43,6 @@ namespace CapstoneEmployeeScheduler
         private void TestingBackend_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.TestingBackend();
-        }
-
-        private void Main_Navigated(object sender, NavigationEventArgs e)
-        {
-
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -78,7 +63,7 @@ namespace CapstoneEmployeeScheduler
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Under Construction. Please check back at a later time :)", "Generate Schdedule");
+            MessageBox.Show("Under Construction. Please check back at a later time :)", "Generate Schedule");
         }
     }
 }
