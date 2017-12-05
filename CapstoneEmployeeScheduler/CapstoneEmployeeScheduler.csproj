@@ -173,7 +173,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\blue.png" />
+    <Resource Include="Images\blue.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="SettingUpInitialTables.sql" />
   </ItemGroup>
   <ItemGroup>
