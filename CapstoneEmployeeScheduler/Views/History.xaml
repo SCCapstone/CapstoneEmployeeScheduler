@@ -9,8 +9,9 @@
       Title="History">
 
     <Grid>
-        <Grid Background="#FF84C8FF" Margin="0,0,-700,-450">
-            <Label x:Name="Title" Content="History" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="362,70,0,0" Width="314" Height="78" Background="#FF84C8FF" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold"/>
+        <Grid Margin="0,0,-700,-450">
+            
+            <Label x:Name="Title" Content="History" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="362,70,0,0" Width="314" Height="78" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold"/>
             <Button x:Name="CSVButton" Content="Export to CSV" HorizontalAlignment="Left" Height="120" Margin="654,472,0,0" VerticalAlignment="Top" Width="250" FontWeight="Bold" Click="CSVButton_Click" FontSize="24"/>
         </Grid>
     </Grid>
