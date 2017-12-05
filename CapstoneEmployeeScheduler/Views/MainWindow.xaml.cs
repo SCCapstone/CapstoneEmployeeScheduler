@@ -23,11 +23,7 @@ namespace CapstoneEmployeeScheduler
    
     public partial class MainWindow : Window
     {
-        /*SqlConnection con = new SqlConnection("user id=chanc; " +
-                                              "password=password;server=(localdb)\\MSSQLLocalDB; " +
-                                              "Trusted_Connection=yes; " +
-                                              "database=Dev; " +
-                                              "connection timeout=30");*/
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -47,7 +43,7 @@ private void Employees_Click_1(object sender, RoutedEventArgs e)
 
         private void Main_Navigated(object sender, NavigationEventArgs e)
         {
-
+            // Not sure what this does, but taking it out crashes program
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -63,7 +59,7 @@ private void Employees_Click_1(object sender, RoutedEventArgs e)
         private void logout_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
-            MessageBox.Show("You have successfully logged out.");
+            MessageBox.Show("You have successfully logged out.", "Logout Successful");
         }
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)

@@ -18,7 +18,7 @@
         <Button x:Name="Roles" Grid.ColumnSpan="2" Content="Roles" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="0,361,0,0" Height="74" Click="Button_Click_1" Background="#FFDDDDDD" BorderBrush="#FF888888" Foreground="Black" FontWeight="Bold"/>
         <Button x:Name="History" Grid.ColumnSpan="2" Content="History" HorizontalAlignment="Left" Margin="0,213,0,0" VerticalAlignment="Top" Width="124" Height="74" Click="History_Click_1" BorderBrush="#FF888888" Foreground="Black" Background="#FFDDDDDD" FontWeight="Bold"/>
         <Button x:Name="logout" Grid.ColumnSpan="2" Content="Log Out" HorizontalAlignment="Left" VerticalAlignment="Top" Width="198" Margin="22,602,0,0" Height="69" Click="logout_Click_1" BorderBrush="#FF888888" Background="#FFE01B1B" FontWeight="Bold" FontSize="18"/>
-        <Label x:Name="Title" Grid.ColumnSpan="2" Content="Capstone Employee Scheduler" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="156,46,0,0" Height="100" Width="740" FontWeight="Bold" FontSize="48" RenderTransformOrigin="0.145,0.288"/>
+        <Label x:Name="Title" Grid.ColumnSpan="2" Content="Capstone Employee Scheduler" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="154,60,0,0" Height="100" Width="740" FontWeight="Bold" FontSize="48" RenderTransformOrigin="0.145,0.288"/>
         <Button x:Name="GenerateButton" Grid.ColumnSpan="2" Content="Generate Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="198" Margin="709,602,0,0" FontWeight="Bold" Height="69" FontSize="18" Click="GenerateButton_Click"/>
 
     </Grid>
