@@ -8,7 +8,7 @@
         Title="Capstone Employee Scheduler Login" Height="254.386" Width="381.579" Background="#FF84C8F0">
     <Grid Margin="0,0,-24.8,-123.2">
         <Grid.Background>
-            <ImageBrush/>
+            <ImageBrush ImageSource="C:\Users\dukenner\Desktop\blue.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
