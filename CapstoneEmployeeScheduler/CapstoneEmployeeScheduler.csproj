@@ -173,6 +173,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\blue.jpg" />
     <Content Include="SettingUpInitialTables.sql" />
   </ItemGroup>
   <ItemGroup>
