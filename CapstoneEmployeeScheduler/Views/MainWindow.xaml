@@ -8,7 +8,7 @@
         Title="Capstone Employee Scheduler: Home" Height="750" Width="1000" MinHeight="750" MinWidth="1000">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\dukenner\Desktop\blue.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
