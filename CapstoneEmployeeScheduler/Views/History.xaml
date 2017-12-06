@@ -13,7 +13,7 @@
 
             <Label x:Name="Title" Content="History" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="362,70,0,0" Width="314" Height="78" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold"/>
             <Button x:Name="CSVButton" Content="Export to CSV" HorizontalAlignment="Left" Height="58" Margin="751,588,0,0" VerticalAlignment="Top" Width="153" FontWeight="Bold" Click="CSVButton_Click" FontSize="20"/>
-            <Grid HorizontalAlignment="Left" Height="375" Margin="302,189,0,0" VerticalAlignment="Top" Width="540"/>
+            <Grid x:Name="history" HorizontalAlignment="Left" Height="375" Margin="302,189,0,0" VerticalAlignment="Top" Width="540" Background="#FFFAFAFA"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
     </Grid>
