@@ -25,13 +25,13 @@ namespace CapstoneEmployeeScheduler.DAO
                 "INSERT INTO Users (UserName, Email, Shift, OutOfWork, Disabled, Admin, Password) " +
                 "VALUES (@username, @email, @shift, @outofwork, @disabled, @admin, @password)";
 
-            SqlParameter userNameParam = new SqlParameter("@username", SqlDbType.Text, 100);
-            SqlParameter emailParam = new SqlParameter("@email", SqlDbType.Text, 10);
-            SqlParameter shiftParam = new SqlParameter("@shift", SqlDbType.Text, 10);
+            SqlParameter userNameParam = new SqlParameter("@username", SqlDbType.Text, 255);
+            SqlParameter emailParam = new SqlParameter("@email", SqlDbType.Text, 255);
+            SqlParameter shiftParam = new SqlParameter("@shift", SqlDbType.Text, 255);
             SqlParameter outOfWorkParam = new SqlParameter("@outofwork", SqlDbType.Bit, 10);
             SqlParameter disabledParam = new SqlParameter("@disabled", SqlDbType.Bit, 10);
             SqlParameter adminParam = new SqlParameter("@admin", SqlDbType.Bit, 10);
-            SqlParameter passwordParam = new SqlParameter("@password", SqlDbType.Text, 10);
+            SqlParameter passwordParam = new SqlParameter("@password", SqlDbType.Text, 255);
 
             userNameParam.Value = user.UserName;
             emailParam.Value = user.Email;
@@ -67,13 +67,13 @@ namespace CapstoneEmployeeScheduler.DAO
                 "UPDATE Users SET UserName = @username, Email = @email, Shift = @shift, OutOfWork = @outofwork, Disabled = @disabled, Admin = @Admin, Password = @password WHERE ID = @id";
 
             SqlParameter userNameParam = new SqlParameter("@username", SqlDbType.Text, 100);
-            SqlParameter emailParam = new SqlParameter("@email", SqlDbType.Text, 10);
-            SqlParameter shiftParam = new SqlParameter("@shift", SqlDbType.Text, 10);
+            SqlParameter emailParam = new SqlParameter("@email", SqlDbType.Text, 255);
+            SqlParameter shiftParam = new SqlParameter("@shift", SqlDbType.Text, 255);
             SqlParameter outOfWorkParam = new SqlParameter("@outofwork", SqlDbType.Bit, 10);
             SqlParameter disabledParam = new SqlParameter("@disabled", SqlDbType.Bit, 10);
             SqlParameter adminParam = new SqlParameter("@admin", SqlDbType.Bit, 10);
-            SqlParameter passwordParam = new SqlParameter("@password", SqlDbType.Text, 10);
-            SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 10);
+            SqlParameter passwordParam = new SqlParameter("@password", SqlDbType.Text, 255);
+            SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 20);
 
             userNameParam.Value = user.UserName;
             emailParam.Value = user.Email;
@@ -109,7 +109,7 @@ namespace CapstoneEmployeeScheduler.DAO
             command.CommandText =
                 "SELECT * FROM Users WHERE ID = @id";
             
-            SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 10);
+            SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 20);
             
             idParam.Value = id;
             
