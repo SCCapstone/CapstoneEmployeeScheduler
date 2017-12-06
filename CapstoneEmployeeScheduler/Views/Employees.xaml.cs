@@ -47,11 +47,18 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
+            
             InitializeComponent();
             UserController u = new UserController();
             List<User> items = new List<User>();
             items = u.getAllUsers();
             Users.ItemsSource = items;
+        }
+
+        private void edit_Click(object sender, RoutedEventArgs e)
+        {
+            editEmployeeModal em = new Views.editEmployeeModal();
+            em.ShowDialog();
         }
     }
 

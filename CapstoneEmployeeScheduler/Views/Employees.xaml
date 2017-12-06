@@ -28,6 +28,7 @@
                 <Button x:Name="RefreshButton" Content="Refresh" HorizontalAlignment="Left" VerticalAlignment="Top" Width="207" Margin="180,602,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="RefreshButton_Click"/>
             </Grid>
             </Grid>
-        </Grid>
+        <Button Content="Button" Name="edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="499,609,0,0" Click="edit_Click"/>
+    </Grid>
    
 </Page>

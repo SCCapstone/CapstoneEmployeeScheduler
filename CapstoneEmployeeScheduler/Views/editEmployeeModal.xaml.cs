@@ -39,5 +39,15 @@ namespace CapstoneEmployeeScheduler.Views
         {
 
         }
+
+        private void name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
