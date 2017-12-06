@@ -37,16 +37,17 @@ namespace CapstoneEmployeeScheduler.Views
             DataSet ds = new DataSet();
             adapter.Fill(ds, srcTable: "Users");
             DataTable data = ds.Tables[0];
-            // string path = Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
             string path = @"C:\Users\Public\Documents\Users.csv";
             CreateCSVFile(data, path);
-            System.Windows.MessageBox.Show("CSV File created. Please check your computer.", "Created!");
+            System.Windows.MessageBox.Show("CSV File created. Please check your C:\\Users\\Public\\Documents.", "Created!");
 
 
             void CreateCSVFile(DataTable dtDataTablesList, string strFilePath)
             {
                 // Create the CSV file to which grid data will be exported.
                 StreamWriter sw = new StreamWriter(strFilePath, false);
+                sw.Write("sep = \t");
+                sw.Write(sw.NewLine);
                 //First we will write the headers.
                 int iColCount = dtDataTablesList.Columns.Count;
                 for (int i = 1; i < iColCount; i++)
@@ -54,7 +55,8 @@ namespace CapstoneEmployeeScheduler.Views
                     sw.Write(dtDataTablesList.Columns[i]);
                     if (i < iColCount - 1)
                     {
-                        sw.Write("\t", "\t");
+                        sw.Write(" ");
+                        sw.Write("\t");
                     }
                 }
                 sw.Write(sw.NewLine);
@@ -70,33 +72,14 @@ namespace CapstoneEmployeeScheduler.Views
                         }
                         if (i < iColCount - 1)
                         {
-                            sw.Write("  ", "  ");
+                            sw.Write(" ");
+                            sw.Write("\t");
                         }
                     }
                     sw.Write(sw.NewLine);
                 }
                 sw.Close();
             }
-            
-            /*
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
-            {
-                if(sfd.ShowDialog() == DialogResult.OK)
-                {
-                    using (var sw = new StreamWriter(sfd.FileName))
-                    {
-                        var writer = new CsvWriter(sw);
-                        writer.WriteHeader(typeof(Employees));
-                        foreach(Employees a in WhateverThisIs.DataSource as List<Employees>)
-                        {
-                            writer.WriteRecord(a);
-                        }
-                    }
-                }
-                System.Windows.MessageBox.Show("Your Data has been Saved");
-            }
-            */
-
         }
 
     }
