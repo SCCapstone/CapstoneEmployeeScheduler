@@ -31,14 +31,16 @@ namespace CapstoneEmployeeScheduler.Views
         }
         private void CSVButton_Click(object sender, RoutedEventArgs e)
         {
-            /*string connection = (string)System.Windows.Application.Current.FindResource("Connection");
-            string queryString = "SELECT * from Dev;";
+            string connection = (string)System.Windows.Application.Current.FindResource("Connection");
+            string queryString = "SELECT * from Users;";
             SqlDataAdapter adapter = new SqlDataAdapter(selectCommandText: queryString, selectConnectionString: connection);
             DataSet ds = new DataSet();
             adapter.Fill(ds, srcTable: "Users");
             DataTable data = ds.Tables[0];
-            String path = @"C:\Users\Public\Documents\MyDocument";
+            // string path = Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+            string path = @"C:\Users\Public\Documents\Users.csv";
             CreateCSVFile(data, path);
+            System.Windows.MessageBox.Show("CSV File created. Please check your computer.", "Created!");
 
 
             void CreateCSVFile(DataTable dtDataTablesList, string strFilePath)
@@ -47,12 +49,12 @@ namespace CapstoneEmployeeScheduler.Views
                 StreamWriter sw = new StreamWriter(strFilePath, false);
                 //First we will write the headers.
                 int iColCount = dtDataTablesList.Columns.Count;
-                for (int i = 0; i < iColCount; i++)
+                for (int i = 1; i < iColCount; i++)
                 {
                     sw.Write(dtDataTablesList.Columns[i]);
                     if (i < iColCount - 1)
                     {
-                        sw.Write("", "");
+                        sw.Write("\t", "\t");
                     }
                 }
                 sw.Write(sw.NewLine);
@@ -60,7 +62,7 @@ namespace CapstoneEmployeeScheduler.Views
                 // Now write all the rows.
                 foreach (DataRow dr in dtDataTablesList.Rows)
                 {
-                    for (int i = 0; i < iColCount; i++)
+                    for (int i = 1; i < iColCount; i++)
                     {
                         if (!Convert.IsDBNull(dr[i]))
                         {
@@ -68,14 +70,14 @@ namespace CapstoneEmployeeScheduler.Views
                         }
                         if (i < iColCount - 1)
                         {
-                            sw.Write("", "");
+                            sw.Write("  ", "  ");
                         }
                     }
                     sw.Write(sw.NewLine);
                 }
                 sw.Close();
             }
-            */
+            
             /*
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
             {
