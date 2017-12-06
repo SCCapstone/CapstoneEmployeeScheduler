@@ -49,11 +49,9 @@ namespace CapstoneEmployeeScheduler.Views
             this.Close();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void name_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
-
-       
     }
 }

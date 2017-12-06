@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.Model;
 using CapstoneEmployeeScheduler.Controllers;
 
+
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
@@ -21,6 +22,7 @@ namespace CapstoneEmployeeScheduler.Views
     /// </summary>
     public partial class RolesModal : Window
     {
+        public string des;
         public RolesModal()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace CapstoneEmployeeScheduler.Views
             Role role = new Role();
             role.RoleName = name.Text;
             r.createRole(role);
+            des = description.Text;
             this.Close();
         }
 
