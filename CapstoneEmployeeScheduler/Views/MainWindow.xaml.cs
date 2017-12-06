@@ -66,5 +66,10 @@ private void Employees_Click_1(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Under Construction. Please check back at a later time :)", "Generate Schedule");
         }
+
+        private void home_Click(object sender, RoutedEventArgs e)
+        {
+            //Based on our design, Generate schedule may have to be on its own page that we can name "Home"
+        }
     }
 }
