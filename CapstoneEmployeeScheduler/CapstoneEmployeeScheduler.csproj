@@ -106,7 +106,7 @@
     </Compile>
     <Page Include="Views\EmployeeModal.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Employees.xaml">
       <SubType>Designer</SubType>
