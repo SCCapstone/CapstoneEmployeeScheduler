@@ -25,7 +25,8 @@
                         </ListView.View>
 
                     </ListView>
-                </Grid>
+                <Button x:Name="RefreshButton" Content="Refresh" HorizontalAlignment="Left" VerticalAlignment="Top" Width="207" Margin="180,602,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="RefreshButton_Click"/>
+            </Grid>
             </Grid>
         </Grid>
    
