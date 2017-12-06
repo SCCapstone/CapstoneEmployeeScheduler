@@ -31,6 +31,7 @@ namespace CapstoneEmployeeScheduler.Views
         }
         private void CSVButton_Click(object sender, RoutedEventArgs e)
         {
+            /*
             string connection = (string)System.Windows.Application.Current.FindResource("Connection");
             string queryString = "SELECT * from Users;";
             SqlDataAdapter adapter = new SqlDataAdapter(selectCommandText: queryString, selectConnectionString: connection);
@@ -95,9 +96,9 @@ namespace CapstoneEmployeeScheduler.Views
                 }
                 System.Windows.MessageBox.Show("Your Data has been Saved");
             }
-            */
-
+            
+    */
         }
-
+    
     }
 }
