@@ -235,8 +235,8 @@ namespace CapstoneEmployeeScheduler.DAO
             // Create and prepare an SQL statement.
             command.CommandText = "INSERT INTO user_roles(Role_ID, User_ID) VALUES(@userid, @roleid)";
 
-            SqlParameter userIDParam = new SqlParameter("@roleid", SqlDbType.Text, 100);
-            SqlParameter roleIDParam = new SqlParameter("@roleid", SqlDbType.Text, 100);
+            SqlParameter userIDParam = new SqlParameter("@userid", SqlDbType.Int, 20);
+            SqlParameter roleIDParam = new SqlParameter("@roleid", SqlDbType.Int, 20);
 
             userIDParam.Value = userID;
             roleIDParam.Value = roleID;
