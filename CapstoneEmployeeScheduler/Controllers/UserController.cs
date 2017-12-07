@@ -14,27 +14,50 @@ namespace CapstoneEmployeeScheduler.Controllers
 
         public void createUser(User user)
         {
-            userDAO.createUser(user);
+            user = userDAO.createUser(user);
+            List<Role> roles = user.Roles;
+            foreach (Role role in roles)
+            {
+                addRoleToUser(user.Id, role.Id);
+            }
         }
         
         public void editUser(User user)
         {
             userDAO.editUser(user);
+            List<Role> roles = user.Roles;
+            foreach (Role role in roles)
+            {
+                addRoleToUser(user.Id, role.Id);
+            }
         }
 
         public User getUserById(int id)
         {
-            return userDAO.getUserById(id);
+            User user = userDAO.getUserById(id);
+            user.Roles = getRolesForUser(user);
+            return user;
         }
 
         public List<User> getAllUsers()
         {
-            return userDAO.getAllUsers();
+            List<User> users = new List<User>();
+            users = userDAO.getAllUsers();
+            foreach(User user in users)
+            {
+                user.Roles = getRolesForUser(user);
+            }
+            return users;
         }
 
-        public void addRoleToUser(int userID, int roleID)
+        private void addRoleToUser(int userID, int roleID)
         {
             userDAO.addRoleToUser(userID, roleID);
+        }
+
+        private List<Role> getRolesForUser(User user)
+        {
+            return userDAO.getRolesForUser(user);
         }
     }
 }

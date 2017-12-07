@@ -30,57 +30,44 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void UserDAO_Click(object sender, RoutedEventArgs e)
         {
-            //     private int id;
-            //private string userName;
-            //private string email;
-            //private string shift;
-            //private int roleOneDayAgo;
-            //private int roleTwoDaysAgo;
-            //private int roleThreeDaysAgo;
-            //private bool outOfWork;
-            //private bool disabled;
-            //private bool admin;
-            //private string password;
-
             UserController userController = new UserController();
-            User user = new User();
-            user.Id = 111;
-            user.UserName = "Chance";
-            user.Email = "@gmail";
-            user.Shift = "Day";
-            //user.RoleOneDayAgo;
-            //user.RoleTwoDaysAgo = null;
-            //user.RoleThreeDaysAgo = null;
-            user.OutOfWork = false;
-            user.Disabled = false;
-            user.Admin = false;
-            user.Password = "Password2";
-            //userController.createUser(user);
-            user = userController.getUserById(4006);
-            //Console.WriteLine(user.Email);
-            user.Email = "new";
-            userController.editUser(user);
-            //Console.WriteLine(user.Email);
+            //User user = userController.getUserById(4007);
+            //user.shift = "newShift";
+            //user.email = "newEmail";
+            //user.UserName = "newName";
+            //user.Password = "newPassword";
+            //user.OutOfWork = false;
+            //user.Disabled = false;
+            //user.Admin = false;
+            //Role role1 = new Role();
+            //Role role2 = new Role();
+            //role1.Id = 3;
+            //role2.Id = 4;
+            //List<Role> roles = new List<Role>();
+            //roles.Add(role1);
+            //roles.Add(role2);
+            //user.Roles = roles;
+            //userController.editUser(user);
 
+
+
+
+            //User user2 = userController.getUserById(4007);
+            //List<Role> roles2 = user2.Roles;
+            //foreach(Role role in roles2)
+            //{
+            //    Console.WriteLine(role.Id);
+            //    Console.WriteLine(role.RoleName);
+            //}
             List<User> users = userController.getAllUsers();
-            for (int i = 0; i < users.Count; i++)
+            foreach(User user in users)
             {
-                //Console.WriteLine(users.ElementAt(i).Id);
-            }
-
-
-
-            RoleController roleController = new RoleController();
-            Role role = new Role();
-            role.Id = 1;
-            role.RoleName = "Change";
-            //roleController.createRole(role);
-            //role = roleController.getRoleById(2);
-            //Console.WriteLine(role.RoleName);
-            List<Role> roles = roleController.getAllRoles();
-            for (int i = 0; i < roles.Count; i++)
-            {
-                Console.WriteLine(roles.ElementAt(i).RoleName);
+                Console.WriteLine("User: " + user.Id);
+                foreach(Role role in user.Roles)
+                {
+                    Console.WriteLine("Role: " + role.Id);
+                    Console.WriteLine(role.RoleName);
+                }
             }
         }
     }
