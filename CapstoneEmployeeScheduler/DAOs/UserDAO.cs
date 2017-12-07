@@ -225,5 +225,29 @@ namespace CapstoneEmployeeScheduler.DAO
             reader.Close();
             return users;
         }
+
+        public void addRoleToUser(int userID, int roleID)
+        {
+            SqlConnection connection = new SqlConnection(con);
+            connection.Open();
+            SqlCommand command = new SqlCommand(null, connection);
+
+            // Create and prepare an SQL statement.
+            command.CommandText = "INSERT INTO user_roles(Role_ID, User_ID) VALUES(@userid, @roleid)";
+
+            SqlParameter userIDParam = new SqlParameter("@roleid", SqlDbType.Text, 100);
+            SqlParameter roleIDParam = new SqlParameter("@roleid", SqlDbType.Text, 100);
+
+            userIDParam.Value = userID;
+            roleIDParam.Value = roleID;
+
+            command.Parameters.Add(userIDParam);
+            command.Parameters.Add(roleIDParam);
+
+            // Call Prepare after setting the Commandtext and Parameters.
+            command.Prepare();
+            command.ExecuteNonQuery();
+        }
+
     }
 }
