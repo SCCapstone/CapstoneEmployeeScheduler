@@ -23,6 +23,10 @@ namespace CapstoneEmployeeScheduler.Views
         public editEmployeeModal()
         {
             InitializeComponent();
+            RoleController r = new RoleController();
+            List<Role> items = new List<Role>();
+            items = r.getAllRoles();
+            roleList.ItemsSource = items;
         }
 
         private void submit_Click(object sender, RoutedEventArgs e)
@@ -41,6 +45,10 @@ namespace CapstoneEmployeeScheduler.Views
         }
 
         private void name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
