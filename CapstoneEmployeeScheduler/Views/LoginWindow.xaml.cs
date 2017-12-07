@@ -43,7 +43,7 @@ namespace CapstoneEmployeeScheduler.Views
             if ((this.txtUsername.Text == "admin") && (this.txtPassword.Password == "admin"))
             {
                 attempt = 0;
-                MessageBox.Show("Login Successful!", "Success!");
+                //MessageBox.Show("Login Successful!", "Success!");
                 MainWindow m = new MainWindow();
                 m.Show();
                 this.Close();
