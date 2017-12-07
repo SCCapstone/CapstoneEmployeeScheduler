@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
         mc:Ignorable="d"
         Title="Capstone Employee Scheduler - Roles Modal" Height="325.338" Width="560.852" FontSize="15" Visibility="Visible">
-    <Grid Margin="0,0,-0.6,-3" Background="#FF84C8FF">
+    <Grid Margin="0,0,-0.6,-3">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
         <TextBox x:Name="name" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" VerticalAlignment="Top" Width="377" Margin="150,47,0,0" FontSize="18"/>
         <TextBox x:Name="description" HorizontalAlignment="Left" Height="84" TextWrapping="Wrap" VerticalAlignment="Top" Width="377" Margin="150,119,0,0" TextChanged="TextBox_TextChanged"/>
         <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="416,240,0,0" Height="36" FontSize="15" Click="submit_Click" FontWeight="Bold"/>

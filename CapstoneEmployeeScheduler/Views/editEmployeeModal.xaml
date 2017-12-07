@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
         mc:Ignorable="d"
-        Title="Capstone Employee Scheduler - Edit Employee" Height="357.704" Width="587.611" FontSize="10" Background="#FF84C8FF">
+        Title="Capstone Employee Scheduler - Edit Employee" Height="357.704" Width="587.611" FontSize="10">
     <Grid Margin="0,0,4,3">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
         <Label Content="Shift:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,218,0,0" FontSize="16" FontWeight="Bold"/>
         <Label Content="Roles:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,161,0,0" Width="67" FontSize="16" FontWeight="Bold"/>
         <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,34,0,0" FontSize="16" FontWeight="Bold"/>

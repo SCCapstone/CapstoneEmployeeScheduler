@@ -52,7 +52,7 @@ namespace CapstoneEmployeeScheduler.Views
             else if ((attempt == 3) && (attempt > 0))
             {
                 //nothing yet
-                
+                MessageBox.Show("Incorrect Credentials");
                 --attempt;
             }
 
