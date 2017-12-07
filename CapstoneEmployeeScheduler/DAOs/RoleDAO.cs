@@ -93,7 +93,10 @@ namespace CapstoneEmployeeScheduler.DAO
                 {
                     role.Id = reader.GetInt32(0);
                     role.RoleName = reader.GetString(1);
-                    role.RoleDescription = reader.GetString(2);
+                    if (!reader.IsDBNull(2))
+                    {
+                        role.RoleDescription = reader.GetString(2);
+                    }
                 }
             }
             else
@@ -123,7 +126,10 @@ namespace CapstoneEmployeeScheduler.DAO
                     Role role = new Model.Role();
                     role.Id = reader.GetInt32(0);
                     role.RoleName = reader.GetString(1);
-                    role.RoleDescription = reader.GetString(2);
+                    if (!reader.IsDBNull(2))
+                    {
+                        role.RoleDescription = reader.GetString(2);
+                    }
                     roles.Add(role);
                 }
             }
