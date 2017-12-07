@@ -28,11 +28,11 @@ namespace CapstoneEmployeeScheduler.Views
         public Roles()
         {
             InitializeComponent();
-            /*RoleController r = new RoleController();
-            List<Role> items = new List<Role>();
-            items = r.getAllRoles();
-            Roles.ItemsSource = items;
-            */
+            RoleController r = new RoleController();
+            List<Role> item = new List<Role>();
+            item = r.getAllRoles();
+            role.ItemsSource = item;
+            
         }
                 
         private void NewRole_Click(object sender, RoutedEventArgs e)
@@ -40,6 +40,11 @@ namespace CapstoneEmployeeScheduler.Views
             RolesModal m = new Views.RolesModal();
             m.ShowDialog();
             //Make button work with form
+            InitializeComponent();
+            RoleController r = new RoleController();
+            List<Role> item = new List<Role>();
+            item = r.getAllRoles();
+            role.ItemsSource = item;
         }
     }
 }

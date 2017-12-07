@@ -31,5 +31,10 @@ namespace CapstoneEmployeeScheduler.Controllers
         {
             return userDAO.getAllUsers();
         }
+
+        public void addRoleToUser(int userID, int roleID)
+        {
+            userDAO.addRoleToUser(userID, roleID);
+        }
     }
 }

@@ -37,12 +37,34 @@ namespace CapstoneEmployeeScheduler.Views
             EmployeeModal m = new Views.EmployeeModal();
             m.ShowDialog();
             //Make button work with form
-            
+            InitializeComponent();
+            UserController u = new UserController();
+            List<User> items = new List<User>();
+            items = u.getAllUsers();
+            Users.ItemsSource = items;
+
         }
 
         private void EmployeeTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
+        }
 
+        /*private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            InitializeComponent();
+            UserController u = new UserController();
+            List<User> items = new List<User>();
+            items = u.getAllUsers();
+            Users.ItemsSource = items;
+        }
+        */
+
+        private void edit_Click(object sender, RoutedEventArgs e)
+        {
+            editEmployeeModal em = new Views.editEmployeeModal();
+            em.ShowDialog();
         }
     }
 

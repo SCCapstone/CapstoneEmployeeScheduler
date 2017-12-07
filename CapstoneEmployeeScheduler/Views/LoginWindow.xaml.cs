@@ -27,7 +27,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         
 
-        private void buttonSubmit_Click(object sender, RoutedEventArgs e)
+        private void buttonSubmit_Click(object sender, EventArgs e)
         {
             string username;
             string password;
@@ -43,7 +43,7 @@ namespace CapstoneEmployeeScheduler.Views
             if ((this.txtUsername.Text == "admin") && (this.txtPassword.Password == "admin"))
             {
                 attempt = 0;
-                MessageBox.Show("Success!");
+                //MessageBox.Show("Login Successful!", "Success!");
                 MainWindow m = new MainWindow();
                 m.Show();
                 this.Close();
@@ -72,7 +72,26 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void txtUsername_TextChanged_1(object sender, TextChangedEventArgs e)
         {
-
+            if (txtUsername.Text.Length > 0)
+                tbUsername.Visibility = Visibility.Collapsed;
+            else
+                tbUsername.Visibility = Visibility.Visible;
         }
-    }
+
+        private void txtPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (txtPassword.Password.Length > 0)
+                tbPassword.Visibility = Visibility.Collapsed;
+            else
+                tbPassword.Visibility = Visibility.Visible;
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                buttonSubmit_Click(null, EventArgs.Empty);
+            }
+        }
+            }
 }

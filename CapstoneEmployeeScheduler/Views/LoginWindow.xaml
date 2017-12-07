@@ -5,12 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
         mc:Ignorable="d"
-        Title="Capstone Employee Scheduler Login" Height="238.597" Width="350" Background="#FF84C8F0">
-    <Grid Background="#FF84C8FF" Margin="0,0,0,-79.2">
-        <Label Content="Log In" Foreground="Black" FontSize="23" HorizontalAlignment="Left" Margin="29,13,0,224" Width="96" FontWeight="Bold"/>
-        <TextBox x:Name="txtUsername" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" Margin="29,69,23,194" TextChanged="txtUsername_TextChanged_1" Text="Username"/>
-        <PasswordBox x:Name="txtPassword" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" Margin="29,117,23,146" Password="Password"/>
-        <Button Name="buttonSubmit" Content="SUBMIT" Foreground="Black" FontSize="15" Click="buttonSubmit_Click" Width="96" Height= "30" Margin="225,165,23,93" FontWeight="Bold"/>
-        <Button Name="Exit" Content="CANCEL" Foreground="Black" FontSize="14" Click="buttonExit_Click" Width="96" Height="30" Margin="29,165,219,93"/>
+        Title="Capstone Employee Scheduler Login" Height="254.386" Width="381.579" Background="#FF84C8F0">
+    <Grid Margin="0,0,-24.8,-123.2">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox Name="txtUsername" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" Margin="28,68,42,231" TextChanged="txtUsername_TextChanged_1"/>
+        <PasswordBox Name="txtPassword" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" PasswordChanged="txtPassword_PasswordChanged" Margin="28,116,43,183" KeyDown="txtPassword_KeyDown"/>
+        <Button Name="buttonSubmit" Content="SUBMIT" Foreground="Black" FontSize="15" Click="buttonSubmit_Click" Width="96" Height= "30" Margin="243,164,43,127.6" FontWeight="Bold">
+            <Button.BindingGroup>
+                <BindingGroup/>
+            </Button.BindingGroup>
+        </Button>
+        <Button Name="Exit" Content="CANCEL" Foreground="Black" FontSize="14" Click="buttonExit_Click" Width="96" Height="30" Margin="28,164,258,127.6"/>
+        <TextBlock Name ="tbUsername" HorizontalAlignment="Left" TextWrapping="Wrap" Text="USERNAME" VerticalAlignment="Top" Margin="33,78,0,0" Height="25" Width="104" FontSize="17" Opacity="0.5" IsHitTestVisible="False"/>
+        <TextBlock Name ="tbPassword" HorizontalAlignment="Left" Margin="33,126,0,0" TextWrapping="Wrap" Text="PASSWORD" VerticalAlignment="Top" Height="25" Width="104" FontSize="17" Opacity="0.5" IsHitTestVisible="False"/>
+        <Label Content="Capstone Employee Scheduler" Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="27,25,0,275" Width="329" FontWeight="Bold" BorderBrush="#FF252323" OpacityMask="#FF120B0B" Background="{x:Null}"/>
     </Grid>
 </Window>

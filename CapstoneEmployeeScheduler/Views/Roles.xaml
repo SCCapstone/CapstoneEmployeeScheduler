@@ -8,17 +8,19 @@
       Title="Roles" Height="631.516">
 
     <Grid Margin="0,10,0,-30.8" Height="652" VerticalAlignment="Top">
-        <Grid Background="#FF84C8FF" Margin="10,0,-10,33" RenderTransformOrigin="0.321,0.402">
+        <Grid Margin="10,0,-10,33" RenderTransformOrigin="0.321,0.402">
             <Label x:Name="Title" Content="Current Roles" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="154,68,0,0" Width="314" Height="65" Background="{x:Null}" FontWeight="Bold" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True"/>
             <Button x:Name="NewRole" Content="NEW ROLE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="207" Margin="723,531,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="NewRole_Click"/>
-            <!--<ListView Margin="154,173,70,142" Name="Roles">
+            <ListView Margin="154,173,70,142" Name="role">
                 <ListView.View>
+                    
                     <GridView>
-                        <GridViewColumn Header="Name" Width="200" DisplayMemberBinding= "{Binding roleName}"/>
+                        <GridViewColumn Header="Name" Width="200" DisplayMemberBinding= "{Binding RoleName}"/>
                         
+
                     </GridView>
                 </ListView.View>
-            </ListView-->
+            </ListView>
         </Grid>
         
     </Grid>
