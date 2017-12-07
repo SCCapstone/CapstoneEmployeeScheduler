@@ -14,8 +14,8 @@
         <TextBox x:Name="description" HorizontalAlignment="Left" Height="84" TextWrapping="Wrap" VerticalAlignment="Top" Width="377" Margin="150,119,0,0" TextChanged="TextBox_TextChanged"/>
         <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="416,240,0,0" Height="36" FontSize="15" Click="submit_Click" FontWeight="Bold"/>
         <Button x:Name="cancel" Content="CANCEL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="150,240,0,0" Height="35" FontSize="15" IsCancel="True" Click="cancel_Click" RenderTransformOrigin="0.427,1.191"/>
-        <Label Content="DESCRIPTION:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,119,0,0" FontSize="15" FontWeight="Bold"/>
-        <Label Content="ROLE NAME:" HorizontalAlignment="Left" Margin="33,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
+        <Label Content="DESCRIPTION:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,119,0,0" FontSize="15" FontWeight="Bold" Foreground="White"/>
+        <Label Content="ROLE NAME:" HorizontalAlignment="Left" Margin="33,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15" Foreground="White"/>
         
         
 
