@@ -53,7 +53,7 @@ namespace CapstoneEmployeeScheduler.DAO
 
             // Call Prepare after setting the Commandtext and Parameters.
             command.Prepare();
-            command.ExecuteNonQuery();
+            //command.ExecuteNonQuery();
             int id = (Int32)command.ExecuteScalar();
             user.Id = id;
             return user;
