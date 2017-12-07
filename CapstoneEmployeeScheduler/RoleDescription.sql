@@ -1,12 +1,2 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CapstoneEmployeeScheduler
-{
-    class RoleDescription
-    {
-    }
-}
+﻿ALTER TABLE Roles
+  ADD RoleDescription VARCHAR(255);
