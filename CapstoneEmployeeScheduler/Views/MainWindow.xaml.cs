@@ -27,7 +27,7 @@ namespace CapstoneEmployeeScheduler
         public MainWindow()
         {
             InitializeComponent();
-            
+            Main.Content = new Views.HomePage();
             //con.Open();
         }
         

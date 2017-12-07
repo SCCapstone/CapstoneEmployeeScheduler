@@ -33,8 +33,8 @@ namespace CapstoneEmployeeScheduler.Views
             RoleController r = new RoleController();
             Role role = new Role();
             role.RoleName = name.Text;
+            role.RoleDescription = description.Text;
             r.createRole(role);
-            des = description.Text;
             this.Close();
         }
 
@@ -44,6 +44,11 @@ namespace CapstoneEmployeeScheduler.Views
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void name_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

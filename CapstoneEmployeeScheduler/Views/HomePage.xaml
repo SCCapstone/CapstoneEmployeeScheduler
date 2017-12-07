@@ -11,7 +11,7 @@
     <Grid>
         <Grid Margin="0,0,-700,-450">
 
-            <Label x:Name="Title" Content="Capstone Employee Scheduler" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="362,70,0,0" Width="556" Height="78" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold"/>
+            <Label x:Name="Title" Content="Capstone Employee Scheduler" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="84,70,0,0" Width="906" Height="78" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold" Foreground="White"/>
             <Button x:Name="GenerateButton" Grid.ColumnSpan="2" Content="Generate Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="198" Margin="433,284,0,0" FontWeight="Bold" Height="69" FontSize="18" Click="GenerateButton_Click"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>

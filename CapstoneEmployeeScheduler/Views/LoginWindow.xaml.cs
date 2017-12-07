@@ -42,7 +42,7 @@ namespace CapstoneEmployeeScheduler.Views
 
             if ((this.txtUsername.Text == "admin") && (this.txtPassword.Password == "admin"))
             {
-            
+
                 //MessageBox.Show("Login Successful!", "Success!");
                 MainWindow m = new MainWindow();
                 m.Show();
@@ -95,6 +95,11 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 buttonSubmit_Click(null, EventArgs.Empty);
             }
+        }
+
+        private void buttonSubmit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 
