@@ -19,7 +19,7 @@ namespace CapstoneEmployeeScheduler.Views
     /// </summary>
     public partial class LoginWindow : Window
     {
-        static int attempt = 3;
+    
         public LoginWindow()
         {
             InitializeComponent();
@@ -42,22 +42,17 @@ namespace CapstoneEmployeeScheduler.Views
 
             if ((this.txtUsername.Text == "admin") && (this.txtPassword.Password == "admin"))
             {
-                attempt = 0;
+            
                 //MessageBox.Show("Login Successful!", "Success!");
                 MainWindow m = new MainWindow();
                 m.Show();
                 this.Close();
             }
 
-            else if ((attempt == 3) && (attempt > 0))
-            {
+            else
                 //nothing yet
-                
-                --attempt;
-            }
-
-
-        }
+                MessageBox.Show("Incorrect Credentials");
+         }
 
         private void buttonExit_Click(object sender, RoutedEventArgs e)
         {
@@ -101,5 +96,6 @@ namespace CapstoneEmployeeScheduler.Views
                 buttonSubmit_Click(null, EventArgs.Empty);
             }
         }
-     }
+    }
+
 }
