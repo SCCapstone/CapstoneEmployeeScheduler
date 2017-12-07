@@ -40,6 +40,11 @@ namespace CapstoneEmployeeScheduler.Views
             RolesModal m = new Views.RolesModal();
             m.ShowDialog();
             //Make button work with form
+            InitializeComponent();
+            RoleController r = new RoleController();
+            List<Role> item = new List<Role>();
+            item = r.getAllRoles();
+            role.ItemsSource = item;
         }
     }
 }

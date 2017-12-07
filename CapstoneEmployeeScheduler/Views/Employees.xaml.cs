@@ -37,7 +37,12 @@ namespace CapstoneEmployeeScheduler.Views
             EmployeeModal m = new Views.EmployeeModal();
             m.ShowDialog();
             //Make button work with form
-            
+            InitializeComponent();
+            UserController u = new UserController();
+            List<User> items = new List<User>();
+            items = u.getAllUsers();
+            Users.ItemsSource = items;
+
         }
 
         private void EmployeeTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -45,7 +50,7 @@ namespace CapstoneEmployeeScheduler.Views
             
         }
 
-        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        /*private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
             
             InitializeComponent();
@@ -54,6 +59,7 @@ namespace CapstoneEmployeeScheduler.Views
             items = u.getAllUsers();
             Users.ItemsSource = items;
         }
+        */
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
