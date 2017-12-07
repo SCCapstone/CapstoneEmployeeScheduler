@@ -26,34 +26,6 @@ namespace CapstoneEmployeeScheduler.Views
         }
 
         
-
-        private void buttonSubmit_Click(object sender, EventArgs e)
-        {
-            string username;
-            string password;
-            username = txtUsername.Text;
-            password = txtPassword.Password;
-
-            if (txtUsername.Text == "" || txtPassword.Password == "")
-            {
-                MessageBox.Show("Please provide UserName and Password");
-                return;
-            }
-
-            if ((this.txtUsername.Text == "admin") && (this.txtPassword.Password == "admin"))
-            {
-
-                //MessageBox.Show("Login Successful!", "Success!");
-                MainWindow m = new MainWindow();
-                m.Show();
-                this.Close();
-            }
-
-            else
-                //nothing yet
-                MessageBox.Show("Incorrect Credentials");
-         }
-
         private void buttonExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -97,9 +69,31 @@ namespace CapstoneEmployeeScheduler.Views
             }
         }
 
-        private void buttonSubmit_Click(object sender, RoutedEventArgs e)
+        private void buttonSubmit_Click(object sender, EventArgs e)
         {
+            string username;
+            string password;
+            username = txtUsername.Text;
+            password = txtPassword.Password;
 
+            if (txtUsername.Text == "" || txtPassword.Password == "")
+            {
+                MessageBox.Show("Please provide Username and Password");
+                return;
+            }
+
+            if ((this.txtUsername.Text == "admin") && (this.txtPassword.Password == "admin"))
+            {
+
+                //MessageBox.Show("Login Successful!", "Success!");
+                MainWindow m = new MainWindow();
+                m.Show();
+                this.Close();
+            }
+
+            else
+                //nothing yet
+                MessageBox.Show("Incorrect Credentials");
         }
     }
 
