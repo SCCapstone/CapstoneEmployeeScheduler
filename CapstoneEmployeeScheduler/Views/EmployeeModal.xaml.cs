@@ -29,6 +29,7 @@ namespace CapstoneEmployeeScheduler.Views
             List<Role> items = new List<Role>();
             items = r.getAllRoles();
             roleList.ItemsSource = items;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,6 +41,8 @@ namespace CapstoneEmployeeScheduler.Views
         {
             UserController uc = new UserController();
             User user = new User();
+            //RoleController rc = new RoleController();
+            
             user.UserName = name.Text;
             user.Email = email.Text;
            
@@ -48,15 +51,23 @@ namespace CapstoneEmployeeScheduler.Views
             user.Disabled = false;
             user.Admin = false;
             user.Password = " ";
-            //user.Roles = roles.SelectedItems;
+            
+            List<Role> listItems = new List<Role>();
+            foreach (Role role in roleList.SelectedItems)
+            {
+                listItems.Add(role);
+            }
+            user.Roles = listItems;
+            
+
             uc.createUser(user);
 
             /*RoleController rc = new RoleController();
             Role role = new Role();
             //int roleId = role.Id;
             int userId = user.Id;
-            
-            this.Close();*/
+            */
+            this.Close();
         }
 
         private void name_TextChanged(object sender, TextChangedEventArgs e)
