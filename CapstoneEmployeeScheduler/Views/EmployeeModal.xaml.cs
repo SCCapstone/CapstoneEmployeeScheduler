@@ -49,7 +49,15 @@ namespace CapstoneEmployeeScheduler.Views
             user.Admin = false;
             user.Password = " ";
             uc.createUser(user);
-           
+            /*RoleController rc = new RoleController();
+            Role role = new Role();
+            //int roleId = role.Id;
+            int userId = user.Id;
+            foreach (Role i in roles.SelectedItems)
+            {
+                int roleID = i.Id;
+                uc.addRoleToUser(user.Id, roleID);
+            }*/
             this.Close();
         }
 
