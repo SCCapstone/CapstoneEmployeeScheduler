@@ -183,6 +183,7 @@
     <Resource Include="Images\blue.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Content Include="RoleDescription.sql" />
     <Content Include="SettingUpInitialTables.sql" />
   </ItemGroup>
   <ItemGroup>

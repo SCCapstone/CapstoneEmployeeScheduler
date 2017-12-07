@@ -30,15 +30,15 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void UserDAO_Click(object sender, RoutedEventArgs e)
         {
-            UserController userController = new UserController();
-            User user = new Model.User();
-            user.shift = "aaa";
-            user.email = "bbb";
-            user.UserName = "ccc";
-            user.Password = "ddd";
-            user.OutOfWork = false;
-            user.Disabled = false;
-            user.Admin = false;
+            //UserController userController = new UserController();
+            //User user = new Model.User();
+            //user.shift = "aaa";
+            //user.email = "bbb";
+            //user.UserName = "ccc";
+            //user.Password = "ddd";
+            //user.OutOfWork = false;
+            //user.Disabled = false;
+            //user.Admin = false;
             //Role role1 = new Role();
             //Role role2 = new Role();
             //role1.Id = 3;
@@ -47,7 +47,7 @@ namespace CapstoneEmployeeScheduler.Views
             //roles.Add(role1);
             //roles.Add(role2);
             //user.Roles = roles;
-            userController.createUser(user);
+            //userController.createUser(user);
 
 
 
@@ -59,7 +59,11 @@ namespace CapstoneEmployeeScheduler.Views
             //    Console.WriteLine(role.Id);
             //    Console.WriteLine(role.RoleName);
             //}
-
+            RoleController roleController = new RoleController();
+            Role role = new Model.Role();
+            role.RoleName = "Role Name here";
+            role.RoleDescription = "Role description 1";
+            roleController.createRole(role);
         }
     }
 }
