@@ -313,6 +313,10 @@ namespace CapstoneEmployeeScheduler.DAO
                     {
                         role.Id = reader.GetInt32(0);
                         role.RoleName = reader.GetString(1);
+                        if (!reader.IsDBNull(2))
+                        {
+                            role.RoleDescription = reader.GetString(2);
+                        }
                     }
                 }
                 else

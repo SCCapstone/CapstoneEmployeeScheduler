@@ -10,6 +10,7 @@ namespace CapstoneEmployeeScheduler.Model
     {
         private int id;
         private string roleName;
+        private string roleDescription;
 
         public int Id
         {
@@ -34,6 +35,19 @@ namespace CapstoneEmployeeScheduler.Model
             set
             {
                 roleName = value;
+            }
+        }
+
+        public string RoleDescription
+        {
+            get
+            {
+                return roleDescription;
+            }
+
+            set
+            {
+                roleDescription = value;
             }
         }
     }

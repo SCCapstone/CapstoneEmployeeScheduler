@@ -21,14 +21,17 @@ namespace CapstoneEmployeeScheduler.DAO
 
             // Create and prepare an SQL statement.
             command.CommandText =
-                "INSERT INTO Roles (RoleName) " +
-                "VALUES (@rolename)";
+                "INSERT INTO Roles (RoleName, RoleDescription) " +
+                "VALUES (@rolename, @roledescription)";
 
-            SqlParameter roleNameParam = new SqlParameter("@rolename", SqlDbType.Text, 100);
+            SqlParameter roleNameParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
+            SqlParameter roleDescriptionParam = new SqlParameter("@roledescription", SqlDbType.Text, 255);
 
             roleNameParam.Value = role.RoleName;
+            roleDescriptionParam.Value = role.RoleDescription;
 
             command.Parameters.Add(roleNameParam);
+            command.Parameters.Add(roleDescriptionParam);
 
             // Call Prepare after setting the Commandtext and Parameters.
             command.Prepare();
@@ -45,15 +48,18 @@ namespace CapstoneEmployeeScheduler.DAO
 
             // Create and prepare an SQL statement.
             command.CommandText =
-                "UPDATE Roles SET roleName = @rolename WHERE ID = @id";
+                "UPDATE Roles SET RoleName = @rolename, RoleDescription = @roledescription WHERE ID = @id";
 
-            SqlParameter roleNameParam = new SqlParameter("@rolename", SqlDbType.Text, 100);
+            SqlParameter roleNameParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
+            SqlParameter roleDescriptionParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
             SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 10);
 
             roleNameParam.Value = role.RoleName;
+            roleDescriptionParam.Value = role.RoleDescription;
             idParam.Value = role.Id;
 
             command.Parameters.Add(roleNameParam);
+            command.Parameters.Add(roleDescriptionParam);
             command.Parameters.Add(idParam);
 
             // Call Prepare after setting the Commandtext and Parameters.
@@ -87,6 +93,10 @@ namespace CapstoneEmployeeScheduler.DAO
                 {
                     role.Id = reader.GetInt32(0);
                     role.RoleName = reader.GetString(1);
+                    if (!reader.IsDBNull(2))
+                    {
+                        role.RoleDescription = reader.GetString(2);
+                    }
                 }
             }
             else
@@ -116,8 +126,11 @@ namespace CapstoneEmployeeScheduler.DAO
                     Role role = new Model.Role();
                     role.Id = reader.GetInt32(0);
                     role.RoleName = reader.GetString(1);
+                    if (!reader.IsDBNull(2))
+                    {
+                        role.RoleDescription = reader.GetString(2);
+                    }
                     roles.Add(role);
-                    //counter++;
                 }
             }
             else

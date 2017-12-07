@@ -46,5 +46,10 @@ namespace CapstoneEmployeeScheduler.Views
             item = r.getAllRoles();
             role.ItemsSource = item;
         }
+
+        private void role_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
