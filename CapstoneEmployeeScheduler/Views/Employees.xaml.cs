@@ -64,6 +64,7 @@ namespace CapstoneEmployeeScheduler.Views
         private void edit_Click(object sender, RoutedEventArgs e)
         {
             editEmployeeModal em = new Views.editEmployeeModal();
+
             em.ShowDialog();
         }
     }
