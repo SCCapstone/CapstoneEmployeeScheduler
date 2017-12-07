@@ -70,6 +70,7 @@ private void Employees_Click_1(object sender, RoutedEventArgs e)
         private void home_Click(object sender, RoutedEventArgs e)
         {
             //Based on our design, Generate schedule may have to be on its own page that we can name "Home"
+            Main.Content = new Views.HomePage();
         }
     }
 }
