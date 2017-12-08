@@ -93,5 +93,13 @@ namespace CapstoneEmployeeScheduler.Views
                 buttonSubmit_Click(null, EventArgs.Empty);
             }
         }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                buttonSubmit_Click(null, EventArgs.Empty);
             }
+        }
+     }
 }

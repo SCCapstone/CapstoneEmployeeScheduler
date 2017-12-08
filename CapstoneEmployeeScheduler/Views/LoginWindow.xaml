@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
         mc:Ignorable="d"
         Title="Capstone Employee Scheduler Login" Height="254.386" Width="381.579" Background="#FF84C8F0">
-    <Grid Margin="0,0,-24.8,-123.2">
+    <Grid Margin="0,0,-24.8,-123.2" >
         <Grid.Background>
             <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox Name="txtUsername" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" Margin="28,68,42,231" TextChanged="txtUsername_TextChanged_1"/>
+        <TextBox Name="txtUsername" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" Margin="28,68,42,231" TextChanged="txtUsername_TextChanged_1" KeyDown="txtUsername_KeyDown"/>
         <PasswordBox Name="txtPassword" Background="White" BorderBrush="Black" Foreground="Black" FontSize="18" Height="25" PasswordChanged="txtPassword_PasswordChanged" Margin="28,116,43,183" KeyDown="txtPassword_KeyDown"/>
         <Button Name="buttonSubmit" Content="SUBMIT" Foreground="Black" FontSize="15" Click="buttonSubmit_Click" Width="96" Height= "30" Margin="243,164,43,127.6" FontWeight="Bold">
             <Button.BindingGroup>
