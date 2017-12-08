@@ -80,6 +80,9 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAOs\UserDAO.cs" />
+    <Compile Include="Views\editEmployeeModal.xaml.cs">
+      <DependentUpon>editEmployeeModal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmployeeModal.xaml.cs">
       <DependentUpon>EmployeeModal.xaml</DependentUpon>
     </Compile>
@@ -104,9 +107,13 @@
     <Compile Include="Views\TestingBackend.xaml.cs">
       <DependentUpon>TestingBackend.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\EmployeeModal.xaml">
+    <Page Include="Views\editEmployeeModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeeModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Employees.xaml">
       <SubType>Designer</SubType>

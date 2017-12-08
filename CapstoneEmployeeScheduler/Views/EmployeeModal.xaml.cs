@@ -25,6 +25,10 @@ namespace CapstoneEmployeeScheduler.Views
         public EmployeeModal()
         {
             InitializeComponent();
+            RoleController r = new RoleController();
+            List<Role> items = new List<Role>();
+            items = r.getAllRoles();
+            roles.ItemsSource = items;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -38,18 +42,31 @@ namespace CapstoneEmployeeScheduler.Views
             User user = new User();
             user.UserName = name.Text;
             user.Email = email.Text;
-            user.Id = 1; //this will need to be uniquely generated somehow in the future (2nd semester)
+           
             user.Shift = " ";
             user.OutOfWork = false;
             user.Disabled = false;
             user.Admin = false;
             user.Password = " ";
             uc.createUser(user);
-            
+            /*RoleController rc = new RoleController();
+            Role role = new Role();
+            //int roleId = role.Id;
+            int userId = user.Id;
+            foreach (Role i in roles.SelectedItems)
+            {
+                int roleID = i.Id;
+                uc.addRoleToUser(user.Id, roleID);
+            }*/
             this.Close();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

@@ -10,7 +10,8 @@
 
     <Grid>
         <TextBlock Text="TestingBackend" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button x:Name="UserDAO" Content="UserDAO" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="50,200,0,0" Height="29" Click="UserDAO_Click"/>
+        <!--<Button x:Name="UserDAO" Content="UserDAO" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="50,200,0,0" Height="29" Click="UserDAO_Click"/>-->
+        <Button x:Name="UserDAO" Content="UserDAO" VerticalAlignment="Top" Width="135" Margin="0,284,284,0" Height="66" Click="UserDAO_Click" Grid.Column="1" RenderTransformOrigin="-2.887,0.683" Background="#FFDDDDDD" BorderBrush="#FF888888" Foreground="Black" FontWeight="Bold"/>
 
     </Grid>
 </Page>

@@ -13,39 +13,41 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.Model;
 using CapstoneEmployeeScheduler.Controllers;
-
-
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for RolesModal.xaml
+    /// Interaction logic for editEmployeeModal.xaml
     /// </summary>
-    public partial class RolesModal : Window
+    public partial class editEmployeeModal : Window
     {
-        public string des;
-        public RolesModal()
+        public editEmployeeModal()
         {
             InitializeComponent();
         }
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-            RoleController r = new RoleController();
-            Role role = new Role();
-            role.RoleName = name.Text;
-            r.createRole(role);
-            des = description.Text;
-            this.Close();
+            UserController uc = new UserController();
+            User user = new User();
+            user.userName = name.Text;
+            user.email = email.Text;
+            uc.editUser(user);
+            
         }
 
-        private void cancel_Click(object sender, RoutedEventArgs e)
+        private void email_TextChanged(object sender, TextChangedEventArgs e)
         {
-            this.Close();
+
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void name_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

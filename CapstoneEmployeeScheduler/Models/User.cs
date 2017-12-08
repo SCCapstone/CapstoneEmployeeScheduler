@@ -151,7 +151,7 @@ namespace CapstoneEmployeeScheduler.Model
             }
         }
 
-        internal List<Role> Roles
+        public List<Role> Roles
         {
             get
             {

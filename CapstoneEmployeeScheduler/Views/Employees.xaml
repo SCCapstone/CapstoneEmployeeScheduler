@@ -20,13 +20,29 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding UserName}" />
-                                <GridViewColumn Header="Email" Width="300" DisplayMemberBinding="{Binding Email}" />
+                                <GridViewColumn Header="Email" Width="200" DisplayMemberBinding="{Binding Email}" />
+                                <GridViewColumn>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="6,2,6,2">
+                                                <Button Content="Edit"
+                                                        Click="edit_Click"
+                                        Command="{Binding 
+                                        Path=DataContext.RunCommand, 
+                                        RelativeSource=
+                                        {RelativeSource FindAncestor, 
+                                        AncestorType={x:Type ItemsControl}}}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
                             </GridView>
                         </ListView.View>
 
                     </ListView>
-                </Grid>
             </Grid>
-        </Grid>
+            </Grid>
+        <Button Content="Button" Name="edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="499,609,0,0" Click="edit_Click"/>
+    </Grid>
    
 </Page>
