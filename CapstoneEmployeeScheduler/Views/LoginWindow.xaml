@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
         mc:Ignorable="d"
-        Title="Capstone Employee Scheduler Login" Height="254.386" Width="381.579" Background="#FF84C8F0">
+        Title="Capstone Employee Scheduler - Login" Height="254.386" Width="381.579" Background="#FF84C8F0">
     <Grid Margin="0,0,-24.8,-123.2" >
         <Grid.Background>
             <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>

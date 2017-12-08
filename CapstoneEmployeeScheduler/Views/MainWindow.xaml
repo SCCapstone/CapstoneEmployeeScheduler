@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler"
         mc:Ignorable="d"
-        Title="Capstone Employee Scheduler: Home" Height="750" Width="1000" MinHeight="750" MinWidth="1000">
+        Title="Capstone Employee Scheduler - Home" Height="750" Width="1000" MinHeight="750" MinWidth="1000">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>

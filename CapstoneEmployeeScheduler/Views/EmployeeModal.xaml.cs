@@ -28,7 +28,7 @@ namespace CapstoneEmployeeScheduler.Views
             RoleController r = new RoleController();
             List<Role> items = new List<Role>();
             items = r.getAllRoles();
-            roles.ItemsSource = items;
+            roleList.ItemsSource = items;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -48,17 +48,15 @@ namespace CapstoneEmployeeScheduler.Views
             user.Disabled = false;
             user.Admin = false;
             user.Password = " ";
+            //user.Roles = roles.SelectedItems;
             uc.createUser(user);
+
             /*RoleController rc = new RoleController();
             Role role = new Role();
             //int roleId = role.Id;
             int userId = user.Id;
-            foreach (Role i in roles.SelectedItems)
-            {
-                int roleID = i.Id;
-                uc.addRoleToUser(user.Id, roleID);
-            }*/
-            this.Close();
+            
+            this.Close();*/
         }
 
         private void name_TextChanged(object sender, TextChangedEventArgs e)

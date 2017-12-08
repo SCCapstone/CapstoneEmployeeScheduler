@@ -15,20 +15,26 @@ namespace CapstoneEmployeeScheduler.Controllers
         public void createUser(User user)
         {
             user = userDAO.createUser(user);
-            List<Role> roles = user.Roles;
-            foreach (Role role in roles)
+            if (user.Roles != null)
             {
-                addRoleToUser(user.Id, role.Id);
+                List<Role> roles = user.Roles;
+                foreach (Role role in roles)
+                {
+                    addRoleToUser(user.Id, role.Id);
+                }
             }
         }
         
         public void editUser(User user)
         {
             userDAO.editUser(user);
-            List<Role> roles = user.Roles;
-            foreach (Role role in roles)
+            if (user.Roles != null)
             {
-                addRoleToUser(user.Id, role.Id);
+                List<Role> roles = user.Roles;
+                foreach (Role role in roles)
+                {
+                    addRoleToUser(user.Id, role.Id);
+                }
             }
         }
 
@@ -45,7 +51,10 @@ namespace CapstoneEmployeeScheduler.Controllers
             users = userDAO.getAllUsers();
             foreach(User user in users)
             {
-                user.Roles = getRolesForUser(user);
+                if (user.Roles != null)
+                {
+                    user.Roles = getRolesForUser(user);
+                }
             }
             return users;
         }
