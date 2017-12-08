@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
         xmlns:DAO="clr-namespace:CapstoneEmployeeScheduler.DAO" x:Class="CapstoneEmployeeScheduler.Views.EmployeeModal"
         mc:Ignorable="d"
-        Title="Capstone Employee Scheduler - Employee Modal" Height="357.704" Width="587.611" FontSize="10" Background="#FF84C8FF">
+        Title="Capstone Employee Scheduler - Employee Modal" Height="357.704" Width="587.611" FontSize="10">
     <Grid Margin="0,0,4,3">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
         <Label Content="Roles:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,161,0,0" Width="67" FontSize="16" FontWeight="Bold"/>
         <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,34,0,0" FontSize="16" FontWeight="Bold"/>
         <TextBox x:Name="name" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" Margin="122,34,0,0" FontSize="18" TextChanged="name_TextChanged"/>
