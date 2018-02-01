@@ -11,17 +11,27 @@ namespace CapstoneEmployeeScheduler.DAO
 {
     class RoleDAO
     {
-        private static string con = (string)System.Windows.Application.Current.FindResource("Connection");
+
+        //public string con = (string)System.Windows.Application.Current.FindResource("Connection");
 
         public Role createRole(Role role)
         {
+            string con = null;
+            if (null == System.Windows.Application.Current)
+            {
+                con = "user id = chance; password = password; server = (localdb)\\MSSQLLocalDB; Trusted_Connection = yes; database = Dev; connection timeout = 5";
+            }
+            else
+            {
+                con = (string)System.Windows.Application.Current.FindResource("Connection");
+            }
             SqlConnection connection = new SqlConnection(con);
             connection.Open();
             SqlCommand command = new SqlCommand(null, connection);
 
             // Create and prepare an SQL statement.
             command.CommandText =
-                "INSERT INTO Roles (RoleName, RoleDescription) " +
+                        "INSERT INTO Roles (RoleName, RoleDescription) " +
                 "VALUES (@rolename, @roledescription)";
 
             SqlParameter roleNameParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
@@ -42,6 +52,15 @@ namespace CapstoneEmployeeScheduler.DAO
 
         public Role editRole(Role role)
         {
+            string con = null;
+            if (null == System.Windows.Application.Current)
+            {
+                con = "user id = chance; password = password; server = (localdb)\\MSSQLLocalDB; Trusted_Connection = yes; database = Dev; connection timeout = 5";
+            }
+            else
+            {
+                con = (string)System.Windows.Application.Current.FindResource("Connection");
+            }
             SqlConnection connection = new SqlConnection(con);
             connection.Open();
             SqlCommand command = new SqlCommand(null, connection);
@@ -71,6 +90,15 @@ namespace CapstoneEmployeeScheduler.DAO
 
         public Role getRoleById(int id)
         {
+            string con = null;
+            if (null == System.Windows.Application.Current)
+            {
+                con = "user id = chance; password = password; server = (localdb)\\MSSQLLocalDB; Trusted_Connection = yes; database = Dev; connection timeout = 5";
+            }
+            else
+            {
+                con = (string)System.Windows.Application.Current.FindResource("Connection");
+            }
             SqlConnection connection = new SqlConnection(con);
             connection.Open();
             SqlCommand command = new SqlCommand(null, connection);
@@ -109,6 +137,15 @@ namespace CapstoneEmployeeScheduler.DAO
 
         public List<Role> getAllRoles()
         {
+            string con = null;
+            if (null == System.Windows.Application.Current)
+            {
+                con = "user id = chance; password = password; server = (localdb)\\MSSQLLocalDB; Trusted_Connection = yes; database = Dev; connection timeout = 5";
+            }
+            else
+            {
+                con = (string)System.Windows.Application.Current.FindResource("Connection");
+            }
             SqlConnection connection = new SqlConnection(con);
             connection.Open();
             SqlCommand command = new SqlCommand(null, connection);

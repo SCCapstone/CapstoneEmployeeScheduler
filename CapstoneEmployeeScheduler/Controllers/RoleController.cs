@@ -10,25 +10,65 @@ namespace CapstoneEmployeeScheduler.Controllers
 {
     class RoleController
     {
-        RoleDAO roleDAO = new RoleDAO();
 
         public void createRole(Role role)
         {
+            RoleDAO roleDAO = null;
+            try
+            {
+                roleDAO = new RoleDAO();
+
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
+
             roleDAO.createRole(role);
         }
 
         public void editRole(Role role)
         {
+            RoleDAO roleDAO = null;
+            try
+            {
+                roleDAO = new RoleDAO();
+
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             roleDAO.editRole(role);
         }
 
         public Role getRoleById(int id)
         {
+            RoleDAO roleDAO = null;
+            try
+            {
+                roleDAO = new RoleDAO();
+
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             return roleDAO.getRoleById(id);
         }
 
         public List<Role> getAllRoles()
         {
+            RoleDAO roleDAO = null;
+            try
+            {
+                roleDAO = new RoleDAO();
+
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             return roleDAO.getAllRoles();
         }
     }

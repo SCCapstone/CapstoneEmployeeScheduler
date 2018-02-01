@@ -28,7 +28,7 @@ namespace CapstoneEmployeeScheduler.Views
             InitializeComponent();
         }
 
-        private void UserDAO_Click(object sender, RoutedEventArgs e)
+        public void UserDAO_Click(object sender, RoutedEventArgs e)
         {
             //UserController userController = new UserController();
             //User user = new Model.User();
@@ -61,9 +61,22 @@ namespace CapstoneEmployeeScheduler.Views
             //}
             RoleController roleController = new RoleController();
             Role role = new Model.Role();
-            role.RoleName = "Role Name here";
+            role.RoleName = "Testing Role";
             role.RoleDescription = "Role description 1";
             roleController.createRole(role);
+        }
+        public string TestGet()
+        {
+            RoleController rc = new RoleController();
+            List<Role> roles = rc.getAllRoles();
+            for(int i=0;i<roles.Count;i++)
+            {
+                if(roles.ElementAt(i).RoleName.Equals("Testing Role"))
+                {
+                    return "Testing Role";
+                }
+            }
+            return "Failure";
         }
     }
 }
