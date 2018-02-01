@@ -69,16 +69,21 @@ namespace CapstoneEmployeeScheduler.Views
             }
         }
 
-        private void buttonSubmit_Click(object sender, EventArgs e)
+        public void buttonSubmit_Click(object sender, EventArgs e)
         {
             string username;
             string password;
             username = txtUsername.Text;
             password = txtPassword.Password;
+            login(username, password);
 
+        }
+        public void login(string username, string password)
+        {
             if (txtUsername.Text == "" || txtPassword.Password == "")
             {
                 MessageBox.Show("Please provide Username and Password");
+
                 return;
             }
 
