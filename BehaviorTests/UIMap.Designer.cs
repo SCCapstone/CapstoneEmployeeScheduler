@@ -58,6 +58,70 @@ namespace BehaviorTests
             Mouse.Click(uISUBMITButton, new Point(42, 20));
         }
         
+        /// <summary>
+        /// NavigatingPages - Use 'NavigatingPagesParams' to pass parameters into this method.
+        /// </summary>
+        public void NavigatingPages()
+        {
+            #region Variable Declarations
+            WpfText uIUSERNAMEText = this.UICapstoneEmployeeScheWindow.UIUSERNAMEText;
+            WpfEdit uITxtUsernameEdit = this.UICapstoneEmployeeScheWindow.UITxtUsernameEdit;
+            WpfEdit uITxtPasswordEdit = this.UICapstoneEmployeeScheWindow.UITxtPasswordEdit;
+            WpfButton uISUBMITButton = this.UICapstoneEmployeeScheWindow.UISUBMITButton;
+            WpfButton uIGenerateScheduleButton = this.UICapstoneEmployeeScheWindow1.UIMainPane.UIGenerateScheduleButton;
+            WinButton uIOKButton = this.UIGenerateScheduleWindow.UIOKWindow.UIOKButton;
+            WpfButton uIHISTORYButton = this.UICapstoneEmployeeScheWindow1.UIHISTORYButton;
+            WpfButton uIHOMEButton = this.UICapstoneEmployeeScheWindow1.UIHOMEButton;
+            WpfButton uIEMPLOYEESButton = this.UICapstoneEmployeeScheWindow1.UIEMPLOYEESButton;
+            WpfButton uIROLESButton = this.UICapstoneEmployeeScheWindow1.UIROLESButton;
+            #endregion
+
+            // Launch '%USERPROFILE%\Desktop\CapstoneEmployeeScheduler.exe'
+            ApplicationUnderTest uICapstoneEmployeeScheWindow = ApplicationUnderTest.Launch(this.NavigatingPagesParams.UICapstoneEmployeeScheWindowExePath, this.NavigatingPagesParams.UICapstoneEmployeeScheWindowAlternateExePath);
+
+            // Click 'USERNAME' label
+            Mouse.Click(uIUSERNAMEText, new Point(73, 8));
+
+            // Type 'admin' in 'txtUsername' text box
+            uITxtUsernameEdit.Text = this.NavigatingPagesParams.UITxtUsernameEditText;
+
+            // Click 'txtPassword' text box
+            Mouse.Click(uITxtPasswordEdit, new Point(144, 1));
+
+            // Click 'txtPassword' text box
+            Mouse.Click(uITxtPasswordEdit, new Point(140, 14));
+
+            // Type '********' in 'txtPassword' text box
+            Keyboard.SendKeys(uITxtPasswordEdit, this.NavigatingPagesParams.UITxtPasswordEditSendKeys, true);
+
+            // Click 'SUBMIT' button
+            Mouse.Click(uISUBMITButton, new Point(21, 13));
+
+            // Click 'Generate Schedule' button
+            Mouse.Click(uIGenerateScheduleButton, new Point(73, 33));
+
+            // Click 'OK' button
+            Mouse.Click(uIOKButton, new Point(50, 13));
+
+            // Click 'HISTORY' button
+            Mouse.Click(uIHISTORYButton, new Point(66, 32));
+
+            // Click 'HOME' button
+            Mouse.Click(uIHOMEButton, new Point(65, 42));
+
+            // Click 'EMPLOYEES' button
+            Mouse.Click(uIEMPLOYEESButton, new Point(69, 43));
+
+            // Click 'HOME' button
+            Mouse.Click(uIHOMEButton, new Point(46, 28));
+
+            // Click 'ROLES' button
+            Mouse.Click(uIROLESButton, new Point(54, 52));
+
+            // Click 'HOME' button
+            Mouse.Click(uIHOMEButton, new Point(69, 30));
+        }
+        
         #region Properties
         public virtual LoginTestParams LoginTestParams
         {
@@ -68,6 +132,18 @@ namespace BehaviorTests
                     this.mLoginTestParams = new LoginTestParams();
                 }
                 return this.mLoginTestParams;
+            }
+        }
+        
+        public virtual NavigatingPagesParams NavigatingPagesParams
+        {
+            get
+            {
+                if ((this.mNavigatingPagesParams == null))
+                {
+                    this.mNavigatingPagesParams = new NavigatingPagesParams();
+                }
+                return this.mNavigatingPagesParams;
             }
         }
         
@@ -130,10 +206,24 @@ namespace BehaviorTests
                 return this.mUILogoutSuccessfulWindow;
             }
         }
+        
+        public UICapstoneEmployeeScheWindow1 UICapstoneEmployeeScheWindow1
+        {
+            get
+            {
+                if ((this.mUICapstoneEmployeeScheWindow1 == null))
+                {
+                    this.mUICapstoneEmployeeScheWindow1 = new UICapstoneEmployeeScheWindow1();
+                }
+                return this.mUICapstoneEmployeeScheWindow1;
+            }
+        }
         #endregion
         
         #region Fields
         private LoginTestParams mLoginTestParams;
+        
+        private NavigatingPagesParams mNavigatingPagesParams;
         
         private UIWpfWindow mUIWpfWindow;
         
@@ -144,6 +234,8 @@ namespace BehaviorTests
         private UIGenerateScheduleWindow mUIGenerateScheduleWindow;
         
         private UILogoutSuccessfulWindow mUILogoutSuccessfulWindow;
+        
+        private UICapstoneEmployeeScheWindow1 mUICapstoneEmployeeScheWindow1;
         #endregion
     }
     
@@ -152,6 +244,36 @@ namespace BehaviorTests
     /// </summary>
     [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
     public class LoginTestParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Launch '%USERPROFILE%\Desktop\CapstoneEmployeeScheduler.exe'
+        /// </summary>
+        public string UICapstoneEmployeeScheWindowExePath = "C:\\Users\\Da Jew\\Desktop\\CapstoneEmployeeScheduler.exe";
+        
+        /// <summary>
+        /// Launch '%USERPROFILE%\Desktop\CapstoneEmployeeScheduler.exe'
+        /// </summary>
+        public string UICapstoneEmployeeScheWindowAlternateExePath = "%USERPROFILE%\\Desktop\\CapstoneEmployeeScheduler.exe";
+        
+        /// <summary>
+        /// Type 'admin' in 'txtUsername' text box
+        /// </summary>
+        public string UITxtUsernameEditText = "admin";
+        
+        /// <summary>
+        /// Type '********' in 'txtPassword' text box
+        /// </summary>
+        public string UITxtPasswordEditSendKeys = "ltMtR4VOfdZS3D8xaljxesqUwEXKaQEX";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'NavigatingPages'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class NavigatingPagesParams
     {
         
         #region Fields
@@ -266,6 +388,22 @@ namespace BehaviorTests
                 return this.mUISUBMITButton;
             }
         }
+        
+        public WpfText UIUSERNAMEText
+        {
+            get
+            {
+                if ((this.mUIUSERNAMEText == null))
+                {
+                    this.mUIUSERNAMEText = new WpfText(this);
+                    #region Search Criteria
+                    this.mUIUSERNAMEText.SearchProperties[WpfText.PropertyNames.AutomationId] = "tbUsername";
+                    this.mUIUSERNAMEText.WindowTitles.Add("Capstone Employee Scheduler - Login");
+                    #endregion
+                }
+                return this.mUIUSERNAMEText;
+            }
+        }
         #endregion
         
         #region Fields
@@ -276,6 +414,8 @@ namespace BehaviorTests
         private WpfText mUIPASSWORDText;
         
         private WpfButton mUISUBMITButton;
+        
+        private WpfText mUIUSERNAMEText;
         #endregion
     }
     
@@ -448,6 +588,147 @@ namespace BehaviorTests
         
         #region Fields
         private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UICapstoneEmployeeScheWindow1 : WpfWindow
+    {
+        
+        public UICapstoneEmployeeScheWindow1()
+        {
+            #region Search Criteria
+            this.SearchProperties[WpfWindow.PropertyNames.Name] = "Capstone Employee Scheduler - Home";
+            this.SearchProperties.Add(new PropertyExpression(WpfWindow.PropertyNames.ClassName, "HwndWrapper", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Capstone Employee Scheduler - Home");
+            #endregion
+        }
+        
+        #region Properties
+        public UIMainPane UIMainPane
+        {
+            get
+            {
+                if ((this.mUIMainPane == null))
+                {
+                    this.mUIMainPane = new UIMainPane(this);
+                }
+                return this.mUIMainPane;
+            }
+        }
+        
+        public WpfButton UIHISTORYButton
+        {
+            get
+            {
+                if ((this.mUIHISTORYButton == null))
+                {
+                    this.mUIHISTORYButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIHISTORYButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "History";
+                    this.mUIHISTORYButton.WindowTitles.Add("Capstone Employee Scheduler - Home");
+                    #endregion
+                }
+                return this.mUIHISTORYButton;
+            }
+        }
+        
+        public WpfButton UIHOMEButton
+        {
+            get
+            {
+                if ((this.mUIHOMEButton == null))
+                {
+                    this.mUIHOMEButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIHOMEButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "home";
+                    this.mUIHOMEButton.WindowTitles.Add("Capstone Employee Scheduler - Home");
+                    #endregion
+                }
+                return this.mUIHOMEButton;
+            }
+        }
+        
+        public WpfButton UIEMPLOYEESButton
+        {
+            get
+            {
+                if ((this.mUIEMPLOYEESButton == null))
+                {
+                    this.mUIEMPLOYEESButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIEMPLOYEESButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "Employees";
+                    this.mUIEMPLOYEESButton.WindowTitles.Add("Capstone Employee Scheduler - Home");
+                    #endregion
+                }
+                return this.mUIEMPLOYEESButton;
+            }
+        }
+        
+        public WpfButton UIROLESButton
+        {
+            get
+            {
+                if ((this.mUIROLESButton == null))
+                {
+                    this.mUIROLESButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIROLESButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "Roles";
+                    this.mUIROLESButton.WindowTitles.Add("Capstone Employee Scheduler - Home");
+                    #endregion
+                }
+                return this.mUIROLESButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIMainPane mUIMainPane;
+        
+        private WpfButton mUIHISTORYButton;
+        
+        private WpfButton mUIHOMEButton;
+        
+        private WpfButton mUIEMPLOYEESButton;
+        
+        private WpfButton mUIROLESButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIMainPane : WpfPane
+    {
+        
+        public UIMainPane(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WpfPane.PropertyNames.ClassName] = "Uia.Frame";
+            this.SearchProperties[WpfPane.PropertyNames.AutomationId] = "Main";
+            this.WindowTitles.Add("Capstone Employee Scheduler - Home");
+            #endregion
+        }
+        
+        #region Properties
+        public WpfButton UIGenerateScheduleButton
+        {
+            get
+            {
+                if ((this.mUIGenerateScheduleButton == null))
+                {
+                    this.mUIGenerateScheduleButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIGenerateScheduleButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "GenerateButton";
+                    this.mUIGenerateScheduleButton.WindowTitles.Add("Capstone Employee Scheduler - Home");
+                    #endregion
+                }
+                return this.mUIGenerateScheduleButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WpfButton mUIGenerateScheduleButton;
         #endregion
     }
 }
