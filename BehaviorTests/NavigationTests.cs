@@ -25,8 +25,9 @@ namespace BehaviorTests
         [TestMethod]
         public void NavigationTest()
         {
-            UIMap.Login();
-            this.UIMap.CredentialTest();
+
+            this.UIMap.LoginTest();
+
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
 
 

@@ -31,26 +31,9 @@ namespace BehaviorTests
     {
         
         /// <summary>
-        /// Testing Userrname and Password
+        /// LoginTest - Use 'LoginTestParams' to pass parameters into this method.
         /// </summary>
-        public void CredentialTest()
-        {
-            #region Variable Declarations
-            WpfEdit uITxtUsernameEdit = this.UICapstoneEmployeeScheWindow.UITxtUsernameEdit;
-            WpfEdit uITxtPasswordEdit = this.UICapstoneEmployeeScheWindow.UITxtPasswordEdit;
-            #endregion
-
-            // Verify that the 'ControlType' property of 'txtUsername' text box equals 'admin'
-            Assert.AreEqual(this.CredentialTestExpectedValues.UITxtUsernameEditControlType, uITxtUsernameEdit.ControlType.ToString(), "Wrong Username");
-
-            // Verify that the 'ControlType' property of 'txtPassword' text box equals 'admin'
-            Assert.AreEqual(this.CredentialTestExpectedValues.UITxtPasswordEditControlType, uITxtPasswordEdit.ControlType.ToString(), "Wrong Password");
-        }
-        
-        /// <summary>
-        /// Tests entering Login information
-        /// </summary>
-        public void Login()
+        public void LoginTest()
         {
             #region Variable Declarations
             WpfEdit uITxtUsernameEdit = this.UICapstoneEmployeeScheWindow.UITxtUsernameEdit;
@@ -59,41 +42,32 @@ namespace BehaviorTests
             WpfButton uISUBMITButton = this.UICapstoneEmployeeScheWindow.UISUBMITButton;
             #endregion
 
+            // Launch '%USERPROFILE%\Desktop\CapstoneEmployeeScheduler.exe'
+            ApplicationUnderTest uICapstoneEmployeeScheWindow = ApplicationUnderTest.Launch(this.LoginTestParams.UICapstoneEmployeeScheWindowExePath, this.LoginTestParams.UICapstoneEmployeeScheWindowAlternateExePath);
+
             // Type 'admin' in 'txtUsername' text box
-            uITxtUsernameEdit.Text = this.LoginParams.UITxtUsernameEditText;
+            uITxtUsernameEdit.Text = this.LoginTestParams.UITxtUsernameEditText;
 
             // Click 'PASSWORD' label
-            Mouse.Click(uIPASSWORDText, new Point(68, 12));
+            Mouse.Click(uIPASSWORDText, new Point(45, 4));
 
             // Type '********' in 'txtPassword' text box
-            Keyboard.SendKeys(uITxtPasswordEdit, this.LoginParams.UITxtPasswordEditSendKeys, true);
+            Keyboard.SendKeys(uITxtPasswordEdit, this.LoginTestParams.UITxtPasswordEditSendKeys, true);
 
             // Click 'SUBMIT' button
-            Mouse.Click(uISUBMITButton, new Point(41, 17));
+            Mouse.Click(uISUBMITButton, new Point(42, 20));
         }
         
         #region Properties
-        public virtual CredentialTestExpectedValues CredentialTestExpectedValues
+        public virtual LoginTestParams LoginTestParams
         {
             get
             {
-                if ((this.mCredentialTestExpectedValues == null))
+                if ((this.mLoginTestParams == null))
                 {
-                    this.mCredentialTestExpectedValues = new CredentialTestExpectedValues();
+                    this.mLoginTestParams = new LoginTestParams();
                 }
-                return this.mCredentialTestExpectedValues;
-            }
-        }
-        
-        public virtual LoginParams LoginParams
-        {
-            get
-            {
-                if ((this.mLoginParams == null))
-                {
-                    this.mLoginParams = new LoginParams();
-                }
-                return this.mLoginParams;
+                return this.mLoginTestParams;
             }
         }
         
@@ -159,9 +133,7 @@ namespace BehaviorTests
         #endregion
         
         #region Fields
-        private CredentialTestExpectedValues mCredentialTestExpectedValues;
-        
-        private LoginParams mLoginParams;
+        private LoginTestParams mLoginTestParams;
         
         private UIWpfWindow mUIWpfWindow;
         
@@ -176,33 +148,23 @@ namespace BehaviorTests
     }
     
     /// <summary>
-    /// Parameters to be passed into 'CredentialTest'
+    /// Parameters to be passed into 'LoginTest'
     /// </summary>
     [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
-    public class CredentialTestExpectedValues
+    public class LoginTestParams
     {
         
         #region Fields
         /// <summary>
-        /// Verify that the 'ControlType' property of 'txtUsername' text box equals 'admin'
+        /// Launch '%USERPROFILE%\Desktop\CapstoneEmployeeScheduler.exe'
         /// </summary>
-        public string UITxtUsernameEditControlType = "admin";
+        public string UICapstoneEmployeeScheWindowExePath = "C:\\Users\\Da Jew\\Desktop\\CapstoneEmployeeScheduler.exe";
         
         /// <summary>
-        /// Verify that the 'ControlType' property of 'txtPassword' text box equals 'admin'
+        /// Launch '%USERPROFILE%\Desktop\CapstoneEmployeeScheduler.exe'
         /// </summary>
-        public string UITxtPasswordEditControlType = "admin";
-        #endregion
-    }
-    
-    /// <summary>
-    /// Parameters to be passed into 'Login'
-    /// </summary>
-    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
-    public class LoginParams
-    {
+        public string UICapstoneEmployeeScheWindowAlternateExePath = "%USERPROFILE%\\Desktop\\CapstoneEmployeeScheduler.exe";
         
-        #region Fields
         /// <summary>
         /// Type 'admin' in 'txtUsername' text box
         /// </summary>
