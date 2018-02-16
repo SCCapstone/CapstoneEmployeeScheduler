@@ -94,6 +94,7 @@ namespace CapstoneEmployeeScheduler.Views
                 MainWindow m = new MainWindow();
                 m.Show();
                 this.Close();
+    
             }
 
             else
