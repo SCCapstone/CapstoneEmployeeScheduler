@@ -30,7 +30,7 @@ namespace CapstoneEmployeeScheduler.Views
             //List<genSchedule> = new List<genSchedule>();
             List<String> items = new List<String>();
             items.Add("02/08/2018 14:25");
-            History.ItemsSource = items;
+            GeneratedSchedules.ItemsSource = items;
         }
         
         private void CSVEButton_Click(object sender, RoutedEventArgs e)

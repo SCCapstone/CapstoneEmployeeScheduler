@@ -11,10 +11,10 @@
     <Grid>
         <Grid Margin="0,0,-700,-450">
 
-            <Label x:Name="Title" Content="History" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="251,70,0,0" Width="653" Height="78" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold"/>
+            <Label x:Name="Title" Content="GeneratedSchedules" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="251,70,0,0" Width="653" Height="78" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold"/>
             <Button x:Name="CSVEButton" Content="Export Employees to CSV" HorizontalAlignment="Left" Height="58" Margin="610,588,0,0" VerticalAlignment="Top" Width="286" FontWeight="Bold" Click="CSVEButton_Click" FontSize="20"/>
             <Button x:Name="CSVRButton" Content="Export Roles to CSV" HorizontalAlignment="Left" Height="58" Margin="193,588,0,0" VerticalAlignment="Top" Width="286" FontWeight="Bold" Click="CSVRButton_Click" FontSize="20"/>
-            <ListView Margin="193,147,104,187" Name= "History" SelectionChanged="History_SelectionChanged">
+            <ListView Margin="193,147,104,187" Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Date and Time Created" Width="300" />
