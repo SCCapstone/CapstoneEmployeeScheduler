@@ -67,6 +67,11 @@ namespace CapstoneEmployeeScheduler.Views
 
             em.ShowDialog();
         }
+
+        private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
 

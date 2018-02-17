@@ -27,7 +27,12 @@ namespace CapstoneEmployeeScheduler.Views
         public History()
         {
             InitializeComponent();
+            //List<genSchedule> = new List<genSchedule>();
+            List<String> items = new List<String>();
+            items.Add("02/08/2018 14:25");
+            GeneratedSchedules.ItemsSource = items;
         }
+        
         private void CSVEButton_Click(object sender, RoutedEventArgs e)
         {
             //Employee Export
@@ -95,5 +100,14 @@ namespace CapstoneEmployeeScheduler.Views
             sw.Close();
         }
 
+        private void view_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.MessageBox.Show("Will display the history from the selected date/time.", "VIEWS");
+        }
+
+        private void History_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

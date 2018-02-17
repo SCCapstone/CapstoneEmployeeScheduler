@@ -10,29 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.IO;
-using System.Data;
-using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class HomePage : Page
+    public partial class ShowSchedule : Window
     {
-        public HomePage()
+        public ShowSchedule()
         {
-            InitializeComponent();
-        }
-
-        private void GenerateButton_Click(object sender, RoutedEventArgs e)
-        {
-            ShowSchedule s = new ShowSchedule();
-            s.Show();
+            
         }
     }
 }
