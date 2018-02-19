@@ -12,9 +12,9 @@ namespace CapstoneEmployeeScheduler.Model
         public string userName;
         public string email;
         public string shift;
-        private int? roleOneDayAgo = null;
-        private int? roleTwoDaysAgo = null;
-        private int? roleThreeDaysAgo = null;
+        private Role roleOneDayAgo = null;
+        private Role roleTwoDaysAgo = null;
+        private Role roleThreeDaysAgo = null;
         private bool outOfWork;
         private bool disabled;
         private bool admin;
@@ -73,7 +73,7 @@ namespace CapstoneEmployeeScheduler.Model
             }
         }
 
-        public int? RoleOneDayAgo
+        public Role RoleOneDayAgo
         {
             get
             {
@@ -86,7 +86,7 @@ namespace CapstoneEmployeeScheduler.Model
             }
         }
 
-        public int? RoleTwoDaysAgo
+        public Role RoleTwoDaysAgo
         {
             get
             {
@@ -99,7 +99,7 @@ namespace CapstoneEmployeeScheduler.Model
             }
         }
 
-        public int? RoleThreeDaysAgo
+        public Role RoleThreeDaysAgo
         {
             get
             {
