@@ -82,6 +82,7 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAOs\ScheduleDAO.cs" />
     <Compile Include="DAOs\UserDAO.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Views\Admin.xaml.cs">
