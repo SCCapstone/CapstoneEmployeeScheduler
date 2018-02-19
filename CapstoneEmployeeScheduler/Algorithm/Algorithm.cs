@@ -19,16 +19,32 @@ namespace CapstoneEmployeeScheduler.Algorithm
         public void makeSchedule()//probably not a void (used as placeholder)
         {
             List<User> users = uc.getAllUsers();
-            /*foreach(User u in users)
+            
+            foreach (User u in users)
             {
-                
-            }*/
+                if (u.Disabled == false)
+                {
+                    //do scheduling things
+                }
+            }
             
-            
+         
         }
+        
         //THIS IS THE MAIN METHOD /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+        public static void Shuffle(int[] array)//Fisher-Yates method for shuffling (Using to make sure roles dont repeat)
+        {
+            Random r = new System.Random();
+            int n = array.Length;
+            while (n > 1)
+            {
+                int k = r.Next(n--);
+                int temp = array[n];
+                array[n] = array[k];
+                array[k] = temp;
+            }
+        }
 
         public int readList(User user)//reads the user_roles list for a specific user
         {
@@ -54,25 +70,121 @@ namespace CapstoneEmployeeScheduler.Algorithm
             }
 
         }
-        /*
+        
         public Role pickRole(User user)
         {
-            Role role = new Role();
+           
             List<Role> roles = user.Roles;
-            int count = 0;
-            readList(user);
+            int count = readList(user);
+
             if (count == 0)
             {
                 return null;
             }
-            if (count == 1) //returns the only role
+            else if (count == 1) //returns the only role
             {
                 return roles[0]; 
             }
-            if (count == 2) //alternates between two roles
-            
-            
-        }*/
+            else if (count == 2) //alternates between two roles
+            {
+                if (user.RoleOneDayAgo == roles[0])//ask Chance about making rolexdaysago a 'role' or converting this somehow
+                {
+                    return roles[1];
+                }
+                else
+                {
+                    return roles[0];
+                }
+            }
+            else if (count == 3)
+            {
+                Random r = new System.Random();
+                var array = new int[] { 0, 1, 2 };
+
+                if (user.RoleOneDayAgo == roles[0])//Shuffling should assure that the role at the same position in the array is not the same
+                {
+                    Shuffle(array);
+                    return roles[0];
+                }
+                else if (user.RoleOneDayAgo == roles[1])
+                {
+                    Shuffle(array);
+                    return roles[1];
+                }
+                else if (user.RoleOneDayAgo == roles[2])
+                {
+                    Shuffle(array);
+                    return roles[2];
+                }
+            }
+            else if (count == 4)
+            {
+                Random r = new System.Random();
+                var array = new int[] { 0, 1, 2, 3 };
+
+                if (user.RoleOneDayAgo == roles[0])
+                {
+                    Shuffle(array);
+                    return roles[0];
+                }
+                else if (user.RoleOneDayAgo == roles[1])
+                {
+                    Shuffle(array);
+                    return roles[1];
+                }
+                else if (user.RoleOneDayAgo == roles[2])
+                {
+                    Shuffle(array);
+                    return roles[2];
+                }
+                else if (user.RoleOneDayAgo == roles[3])
+                {
+                    Shuffle(array);
+                    return roles[3];
+                }
+                if (user.RoleTwoDaysAgo == roles[0])
+                {
+                    Shuffle(array);
+                    return roles[0];
+                }
+                else if (user.RoleTwoDaysAgo == roles[1])
+                {
+                    Shuffle(array);
+                    return roles[1];
+                }
+                else if (user.RoleTwoDaysAgo == roles[2])
+                {
+                    Shuffle(array);
+                    return roles[2];
+                }
+                else if (user.RoleTwoDaysAgo == roles[3])
+                {
+                    Shuffle(array);
+                    return roles[3];
+                }
+            }
+            else
+            {
+                Random r = new System.Random();
+                int val = r.Next(0, count);
+                var array = new int[count];
+                for (int i = 0; i<count; i++)
+                {
+                    array[i] = i;
+                }
+                if (user.RoleOneDayAgo == roles[val] || user.RoleTwoDaysAgo == roles[val] || user.RoleThreeDaysAgo == roles[val])
+                {
+                    Shuffle(array);
+                    return roles[array[val]];
+                }
+                else
+                {
+                    return roles[array[val]];
+                }
+            }
+            return roles[0];
+        }
+
         public ScheduleElement createElement(User user, Role role)
         {
             ScheduleElement s = new ScheduleElement();
@@ -80,10 +192,12 @@ namespace CapstoneEmployeeScheduler.Algorithm
             s.role = role;
             return s;
         }
+
         public void addToSchedule(ScheduleElement s)//adds a user-role relationship to the element list
         {
             schedule.Add(s);
         }
+
         public List<ScheduleElement> showSchedule()//returns the list
         { 
             return schedule;
