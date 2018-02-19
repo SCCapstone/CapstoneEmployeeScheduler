@@ -5,11 +5,7 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              StartupUri="Views/LoginWindow.xaml">
     <Application.Resources>
-        <!--<system:String x:Key="Connection">user id=chance; password=password;server=(localdb)\MSSQLLocalDB; Trusted_Connection=yes; database=Dev; connection timeout=5</system:String>-->
-        <system:String x:Key= "Connection">user id=chris; password=password;server=DESKTOP-76O8AFN\SQLEXPRESS; Trusted_Connection=yes; database=Dev; connection timeout=2</system:String>
-        <!--<system:String x:Key="Connection">Data Source=ICARUS\TESTDB;Initial Catalog=Dev;Integrated Security=True</system:String>-->
-        <!--<system:String x:Key="Connection">Data Source=DESKTOP-ISLQ7AU\TESTDB;Initial Catalog=Dev;Integrated Security=True</system:String>-->
-
+        <system:String x:Key="Connection">Data Source=employeescheduler.database.windows.net;Initial Catalog=Dev;User ID=CapstoneEmployeeSchedule;Password=EmployeeSchedule123</system:String>
 
     </Application.Resources>
 </Application>
