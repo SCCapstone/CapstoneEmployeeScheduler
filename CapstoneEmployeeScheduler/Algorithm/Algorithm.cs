@@ -74,7 +74,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
 
         }
 
-        public Role pickRole(User user)
+        public int pickRole(User user)
         {
             int? role1 = user.RoleOneDayAgo;
             int? role2 = user.RoleTwoDaysAgo;
@@ -90,22 +90,22 @@ namespace CapstoneEmployeeScheduler.Algorithm
 
             if (count == 0)
             {
-                return null;
+                return 0;
             }
-            //TODO: Convert each instance of roles[n] to roleNums[n], make sure they interact correctly with the new lists
+            
             else if (count == 1) //returns the only role
             {
-                return roles[0];
+                return roleNums[0];
             }
             else if (count == 2) //alternates between two roles
             {
                 if (role1 == roleNums[0])//update roles (helper function)
                 {
-                    return roles[1];
+                    return roleNums[1];
                 }
                 else
                 {
-                    return roles[0];
+                    return roleNums[0];
                 }
             }
             else if (count == 3)
@@ -113,20 +113,20 @@ namespace CapstoneEmployeeScheduler.Algorithm
                 Random r = new System.Random();
                 var array = new int[] { 0, 1, 2 };
 
-                if (user.RoleOneDayAgo == roles[0])//Shuffling should assure that the role at the same position in the array is not the same
+                if (role1 == roleNums[0])//Shuffling should assure that the role at the same position in the array is not the same
                 {
                     Shuffle(array);
-                    return roles[0];
+                    return roleNums[0];
                 }
-                else if (user.RoleOneDayAgo == roles[1])
+                else if (role1 == roleNums[1])
                 {
                     Shuffle(array);
-                    return roles[1];
+                    return roleNums[1];
                 }
-                else if (user.RoleOneDayAgo == roles[2])
+                else if (role1 == roleNums[2])
                 {
                     Shuffle(array);
-                    return roles[2];
+                    return roleNums[2];
                 }
             }
             else if (count == 4)
@@ -134,45 +134,45 @@ namespace CapstoneEmployeeScheduler.Algorithm
                 Random r = new System.Random();
                 var array = new int[] { 0, 1, 2, 3 };
 
-                if (user.RoleOneDayAgo == roles[0])
+                if (role1 == roleNums[0])
                 {
                     Shuffle(array);
-                    return roles[0];
+                    return roleNums[0];
                 }
-                else if (user.RoleOneDayAgo == roles[1])
+                else if (role1 == roleNums[1])
                 {
                     Shuffle(array);
-                    return roles[1];
+                    return roleNums[1];
                 }
-                else if (user.RoleOneDayAgo == roles[2])
+                else if (role1 == roleNums[2])
                 {
                     Shuffle(array);
-                    return roles[2];
+                    return roleNums[2];
                 }
-                else if (user.RoleOneDayAgo == roles[3])
+                else if (role1 == roleNums[3])
                 {
                     Shuffle(array);
-                    return roles[3];
+                    return roleNums[3];
                 }
-                if (user.RoleTwoDaysAgo == roles[0])
+                if (role2 == roleNums[0])
                 {
                     Shuffle(array);
-                    return roles[0];
+                    return roleNums[0];
                 }
-                else if (user.RoleTwoDaysAgo == roles[1])
+                else if (role2 == roleNums[1])
                 {
                     Shuffle(array);
-                    return roles[1];
+                    return roleNums[1];
                 }
-                else if (user.RoleTwoDaysAgo == roles[2])
+                else if (role2 == roleNums[2])
                 {
                     Shuffle(array);
-                    return roles[2];
+                    return roleNums[2];
                 }
-                else if (user.RoleTwoDaysAgo == roles[3])
+                else if (role2 == roleNums[3])
                 {
                     Shuffle(array);
-                    return roles[3];
+                    return roleNums[3];
                 }
             }
             else
@@ -184,17 +184,17 @@ namespace CapstoneEmployeeScheduler.Algorithm
                 {
                     array[i] = i;
                 }
-                if (user.RoleOneDayAgo == roles[val] || user.RoleTwoDaysAgo == roles[val] || user.RoleThreeDaysAgo == roles[val])
+                if (role1 == roleNums[val] || role2 == roleNums[val] || role3 == roleNums[val])
                 {
                     Shuffle(array);
-                    return roles[array[val]];
+                    return roleNums[array[val]];
                 }
                 else
                 {
-                    return roles[array[val]];
+                    return roleNums[array[val]];
                 }
             }
-            return roles[0];
+            return roleNums[0];
         }
 
         public void addToSchedule(User user, Role role)
