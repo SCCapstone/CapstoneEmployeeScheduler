@@ -202,7 +202,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
             schedule.Add(user.Id, role.Id);
         }
 
-        public Dictionary<int,int> showSchedule()//returns the list
+        public Dictionary<int,int> showSchedule()//returns the dictionary
         {
             return schedule;
         }
