@@ -8,6 +8,7 @@ namespace CapstoneEmployeeScheduler.Models
 {
     class Schedule
     {
+        private int id;
         public Dictionary<int, int> userRoles;
 
         public Dictionary<int, int> UserRoles
@@ -20,6 +21,19 @@ namespace CapstoneEmployeeScheduler.Models
             set
             {
                 userRoles = value;
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
             }
         }
     }

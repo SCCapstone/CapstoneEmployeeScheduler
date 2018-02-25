@@ -21,40 +21,25 @@ namespace CapstoneEmployeeScheduler.DAOs
 
             // Create and prepare an SQL statement.
             command.CommandText =
-                "INSERT INTO Schedules (ID, UserID, RoleID) " +
-                "VALUES (@id, @userid, @roleid); SELECT CAST(scope_identity() AS int)";
+                "INSERT INTO Schedules (UserID, RoleID) " +
+                "VALUES (@userid, @roleid); SELECT CAST(scope_identity() AS int)";
 
 
 
-            SqlParameter userNameParam = new SqlParameter("@username", SqlDbType.Text, 255);
-            SqlParameter emailParam = new SqlParameter("@email", SqlDbType.Text, 255);
-            SqlParameter shiftParam = new SqlParameter("@shift", SqlDbType.Text, 255);
-            SqlParameter outOfWorkParam = new SqlParameter("@outofwork", SqlDbType.Bit, 10);
-            SqlParameter disabledParam = new SqlParameter("@disabled", SqlDbType.Bit, 10);
-            SqlParameter adminParam = new SqlParameter("@admin", SqlDbType.Bit, 10);
-            SqlParameter passwordParam = new SqlParameter("@password", SqlDbType.Text, 255);
+            SqlParameter userIDParam = new SqlParameter("@userid", SqlDbType.Int, 32);
+            SqlParameter roleIDParam = new SqlParameter("@roleid", SqlDbType.Int, 32);
 
-            //userNameParam.Value = user.UserName;
-            //emailParam.Value = user.Email;
-            //shiftParam.Value = user.Shift;
-            //outOfWorkParam.Value = user.OutOfWork;
-            //disabledParam.Value = user.Disabled;
-            //adminParam.Value = user.Admin;
-            //passwordParam.Value = user.Password;
+            userIDParam.Value = schedule.userRoles.Keys.ElementAt(0);
+            roleIDParam.Value = schedule.userRoles.Values.ElementAt(0);
 
-            //command.Parameters.Add(userNameParam);
-            //command.Parameters.Add(emailParam);
-            //command.Parameters.Add(shiftParam);
-            //command.Parameters.Add(outOfWorkParam);
-            //command.Parameters.Add(disabledParam);
-            //command.Parameters.Add(adminParam);
-            //command.Parameters.Add(passwordParam);
+            command.Parameters.Add(userIDParam);
+            command.Parameters.Add(roleIDParam);
 
             //// Call Prepare after setting the Commandtext and Parameters.
-            //command.Prepare();
-            ////command.ExecuteNonQuery();
-            //int id = (Int32)command.ExecuteScalar();
-            //user.Id = id;
+            command.Prepare();
+            //command.ExecuteNonQuery();
+            int id = (Int32)command.ExecuteScalar();
+            schedule.Id = id;
             return schedule;
         }
     }
