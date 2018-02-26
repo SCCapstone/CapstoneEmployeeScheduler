@@ -72,6 +72,15 @@ namespace CapstoneEmployeeScheduler.Views
         {
 
         }
+
+        private void PrintEButton_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDlg = new PrintDialog();
+            if(printDlg.ShowDialog() == true)
+            {
+                printDlg.PrintVisual(Users, "List of Employees");
+            }
+        }
     }
 
 
