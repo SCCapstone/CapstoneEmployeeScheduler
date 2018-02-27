@@ -6,20 +6,22 @@ using System.Threading.Tasks;
 using CapstoneEmployeeScheduler.Model;
 using System.Data;
 using CapstoneEmployeeScheduler.Controllers;
-
+using CapstoneEmployeeScheduler.Models;
 
 namespace CapstoneEmployeeScheduler.Algorithm
 {
     class Algorithm
     {
+
         User u = new User();
+        Schedule s = new Schedule();
         UserController uc = new UserController();
-        //List<ScheduleElement> schedule = new List<ScheduleElement>();
+        ScheduleController sc = new ScheduleController();
         Dictionary<int, int> schedule = new Dictionary<int, int>();
 
 
         //THIS IS THE MAIN METHOD////////////////////////////////////////////////////////////////////////////////////////////////////
-        public Dictionary<int, int> makeSchedule()
+        public void makeSchedule()
         {
             List<User> users = uc.getAllUsers();
            
@@ -32,7 +34,8 @@ namespace CapstoneEmployeeScheduler.Algorithm
                     addToSchedule(u, roleid);
                 }
             }
-            return schedule;
+            s.userRoles = schedule;
+            sc.createSchedule(s);
 
         }
 
@@ -201,7 +204,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
 
         public void addToSchedule(User user, int roleId)
         {
-            schedule.Add(user.Id, roleId);
+           schedule.Add(user.Id, roleId);
         }
 
         public Dictionary<int, int> showSchedule()//returns the list
