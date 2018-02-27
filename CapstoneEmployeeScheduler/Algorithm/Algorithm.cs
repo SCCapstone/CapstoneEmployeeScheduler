@@ -15,17 +15,14 @@ namespace CapstoneEmployeeScheduler.Algorithm
 
         User u = new User();
         Schedule s = new Schedule();
-        UserController uc = new UserController();
+        //UserController uc = new UserController();
         ScheduleController sc = new ScheduleController();
-        Dictionary<int, int> schedule = new Dictionary<int, int>();
-
+        
+       
 
         //THIS IS THE MAIN METHOD////////////////////////////////////////////////////////////////////////////////////////////////////
-        public void makeSchedule()
+        public void Generate(List<User> users)
         {
-            List<User> users = uc.getAllUsers();
-           
-
             foreach (User u in users)
             {
                 if (u.Disabled == false)
@@ -34,14 +31,14 @@ namespace CapstoneEmployeeScheduler.Algorithm
                     addToSchedule(u, roleid);
                 }
             }
-            s.userRoles = schedule;
-            sc.createSchedule(s);
 
+            sc.createSchedule(s);
+            
         }
 
         //THIS IS THE MAIN METHOD /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        public static void Shuffle(int[] array)//Fisher-Yates method for shuffling (Using to make sure roles dont repeat)
+        private static void Shuffle(int[] array)//Fisher-Yates method for shuffling (Using to make sure roles dont repeat)
         {
             Random r = new System.Random();
             int n = array.Length;
@@ -54,7 +51,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
             }
         }
 
-        public int readList(User user)//reads the user_roles list for a specific user
+        private int readList(User user)//reads the user_roles list for a specific user
         {
             List<Role> roles = user.Roles;
             int count = 0;
@@ -79,7 +76,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
 
         }
 
-        public int pickRole(User user)
+        private int pickRole(User user)
         {
             int? role1 = user.RoleOneDayAgo;
             int? role2 = user.RoleTwoDaysAgo;
@@ -202,14 +199,14 @@ namespace CapstoneEmployeeScheduler.Algorithm
             return roleNums[0];
         }
 
-        public void addToSchedule(User user, int roleId)
+        private void addToSchedule(User user, int roleId)
         {
-           schedule.Add(user.Id, roleId);
+           s.UserRoles.Add(user.Id, roleId);
         }
 
         public Dictionary<int, int> showSchedule()//returns the list
         {
-            return schedule;
+            return s.UserRoles;
         }
 
     }

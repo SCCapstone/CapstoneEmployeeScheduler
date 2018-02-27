@@ -16,6 +16,9 @@ using System.IO;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CapstoneEmployeeScheduler.Model;
+using CapstoneEmployeeScheduler.Models;
+using CapstoneEmployeeScheduler.Controllers;
 using CapstoneEmployeeScheduler.Algorithm;
 
 namespace CapstoneEmployeeScheduler.Views
@@ -28,15 +31,17 @@ namespace CapstoneEmployeeScheduler.Views
         public HomePage()
         {
             InitializeComponent();
+           
         }
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-               
-            }
-            s.Show();
+            Schedule s = new Schedule();
+            UserController uc = new UserController();
+            List<User> users = new List<User>();
+            users = uc.getAllUsers();
+            //Generate(users);
+
         }
     }
 }
