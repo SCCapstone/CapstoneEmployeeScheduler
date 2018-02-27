@@ -16,6 +16,7 @@ using System.IO;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CapstoneEmployeeScheduler.Algorithm;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -31,7 +32,10 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowSchedule s = new ShowSchedule();
+            try
+            {
+               
+            }
             s.Show();
         }
     }

@@ -19,18 +19,20 @@ namespace CapstoneEmployeeScheduler.Algorithm
 
 
         //THIS IS THE MAIN METHOD////////////////////////////////////////////////////////////////////////////////////////////////////
-        public void makeSchedule()//probably not a void (used as placeholder)
+        public Dictionary<int, int> makeSchedule()
         {
             List<User> users = uc.getAllUsers();
+           
 
             foreach (User u in users)
             {
                 if (u.Disabled == false)
                 {
-                    //do scheduling things
+                    int roleid = pickRole(u);
+                    addToSchedule(u, roleid);
                 }
             }
-
+            return schedule;
 
         }
 
@@ -197,9 +199,9 @@ namespace CapstoneEmployeeScheduler.Algorithm
             return roleNums[0];
         }
 
-        public void addToSchedule(User user, Role role)
+        public void addToSchedule(User user, int roleId)
         {
-            schedule.Add(user.Id, role.Id);
+            schedule.Add(user.Id, roleId);
         }
 
         public Dictionary<int, int> showSchedule()//returns the list
