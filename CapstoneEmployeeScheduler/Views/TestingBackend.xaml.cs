@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.DAO;
 using CapstoneEmployeeScheduler.Model;
 using CapstoneEmployeeScheduler.Controllers;
-using CapstoneEmployeeScheduler.Models;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -32,11 +31,14 @@ namespace CapstoneEmployeeScheduler.Views
         public void UserDAO_Click(object sender, RoutedEventArgs e)
         {
             ScheduleController sc = new ScheduleController();
-
-            Schedule schedule = new Schedule();
-            schedule.userRoles.Add(1234, 5678);
-            schedule.userRoles.Add(789, 10000);
-            sc.createSchedule(schedule);
+            Schedule s = new Schedule();
+            s.ScheduleDate = DateTime.Today;
+            s.UserRoles.Add(123, 123);
+            s.UserRoles.Add(1234, 123);
+            sc.createSchedule(s);
+            s = sc.getScheduleByDate(DateTime.Today);
+            Console.WriteLine(s.Id);
+            
         }
 
         public string TestGet()

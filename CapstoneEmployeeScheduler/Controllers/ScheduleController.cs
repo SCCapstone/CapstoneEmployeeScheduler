@@ -1,5 +1,5 @@
 ﻿using CapstoneEmployeeScheduler.DAOs;
-using CapstoneEmployeeScheduler.Models;
+using CapstoneEmployeeScheduler.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,14 +16,24 @@ namespace CapstoneEmployeeScheduler.Controllers
             try
             {
                 scheduleDAO = new ScheduleDAO();
-
             }
             catch (System.TypeInitializationException)
             {
-
             }
-
             scheduleDAO.createSchedule(schedule);
+        }
+
+        public Schedule getScheduleByDate(DateTime date)
+        {
+            ScheduleDAO scheduleDAO = null;
+            try
+            {
+                scheduleDAO = new ScheduleDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+            }
+            return scheduleDAO.getScheduleByDate(date);
         }
     }
 }

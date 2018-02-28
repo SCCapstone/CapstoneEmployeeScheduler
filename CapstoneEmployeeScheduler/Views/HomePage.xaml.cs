@@ -17,7 +17,6 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapstoneEmployeeScheduler.Model;
-using CapstoneEmployeeScheduler.Models;
 using CapstoneEmployeeScheduler.Controllers;
 using CapstoneEmployeeScheduler.Algorithm;
 

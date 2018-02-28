@@ -25,5 +25,6 @@ Role_ID int NOT NULL FOREIGN KEY REFERENCES Roles(ID)
 create table Schedule (
     ID varchar(255) not null,
     User_ID int not null,
-    Role_ID int not null
+    Role_ID int not null,
+    ScheduleDate date not null
     );

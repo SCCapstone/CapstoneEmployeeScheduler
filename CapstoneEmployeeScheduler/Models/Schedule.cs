@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapstoneEmployeeScheduler.Models
+namespace CapstoneEmployeeScheduler.Model
 {
     class Schedule
     {
         private string id;
-        public Dictionary<int, int> userRoles = new Dictionary<int, int>();
+        private Dictionary<int, int> userRoles = new Dictionary<int, int>();
+        DateTime scheduleDate;
 
         public Dictionary<int, int> UserRoles
         {
@@ -34,6 +35,19 @@ namespace CapstoneEmployeeScheduler.Models
             set
             {
                 id = value;
+            }
+        }
+
+        public DateTime ScheduleDate
+        {
+            get
+            {
+                return scheduleDate;
+            }
+
+            set
+            {
+                scheduleDate = value;
             }
         }
     }

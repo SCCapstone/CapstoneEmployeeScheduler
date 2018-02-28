@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using CapstoneEmployeeScheduler.Model;
 using System.Data;
 using CapstoneEmployeeScheduler.Controllers;
-using CapstoneEmployeeScheduler.Models;
 
 namespace CapstoneEmployeeScheduler.Algorithm
 {
