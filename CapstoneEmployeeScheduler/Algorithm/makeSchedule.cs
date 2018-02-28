@@ -9,7 +9,7 @@ using CapstoneEmployeeScheduler.Controllers;
 
 namespace CapstoneEmployeeScheduler.Algorithm
 {
-    class Algorithm
+    class makeSchedule
     {
 
         User u = new User();
