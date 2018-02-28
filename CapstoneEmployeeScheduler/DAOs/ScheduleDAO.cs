@@ -18,58 +18,30 @@ namespace CapstoneEmployeeScheduler.DAOs
             SqlConnection connection = new SqlConnection(con);
             connection.Open();
             SqlCommand command = new SqlCommand(null, connection);
-
             SqlParameter userIDParam = null;
             SqlParameter roleIDParam = null;
             SqlParameter idParam = null;
-            int id = 0;
-
-
-            command.CommandText =
-                "INSERT INTO Schedules (UserID, RoleID) " +
-                "VALUES (@userid, @roleid); SELECT CAST(scope_identity() AS int)";
-
-            userIDParam = new SqlParameter("@userid", SqlDbType.Int, 32);
-            roleIDParam = new SqlParameter("@roleid", SqlDbType.Int, 32);
-
-            userIDParam.Value = schedule.userRoles.Keys.First();
-            roleIDParam.Value = schedule.userRoles[int.Parse(userIDParam.ToString())];
-
-            schedule.userRoles.Remove((int)userIDParam.Value);
-
-            command.Parameters.Add(userIDParam);
-            command.Parameters.Add(roleIDParam);
-
-            command.Prepare();
-            id = (Int32)command.ExecuteScalar();
-
-            for (int i=0;i<schedule.userRoles.Count;i++)
+            string id = Guid.NewGuid().ToString();
+            int count = schedule.userRoles.Count;
+            for (int i=0;i<count;i++)
             {
+                command.Parameters.Clear();
                 command.CommandText =
-                "INSERT INTO Schedules (ID, UserID, RoleID) " +
+                "INSERT INTO Schedule (ID, User_ID, Role_ID) " +
                 "VALUES (@id, @userid, @roleid);";
-
-                idParam = new SqlParameter("@id", SqlDbType.Int, 32);
+                idParam = new SqlParameter("@id", SqlDbType.Text, 255);
                 userIDParam = new SqlParameter("@userid", SqlDbType.Int, 32);
                 roleIDParam = new SqlParameter("@roleid", SqlDbType.Int, 32);
-
                 idParam.Value = id;
                 userIDParam.Value = schedule.userRoles.Keys.First();
-                roleIDParam.Value = schedule.userRoles[int.Parse(userIDParam.ToString())];
-
+                roleIDParam.Value = schedule.userRoles[int.Parse(userIDParam.Value.ToString())];
                 schedule.userRoles.Remove((int)userIDParam.Value);
-
                 command.Parameters.Add(idParam);
                 command.Parameters.Add(userIDParam);
                 command.Parameters.Add(roleIDParam);
-
                 command.Prepare();
                 command.ExecuteNonQuery();
             }
-
-
-
-
             schedule.Id = id;
             return schedule;
         }

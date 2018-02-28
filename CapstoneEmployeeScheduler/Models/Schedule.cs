@@ -8,8 +8,8 @@ namespace CapstoneEmployeeScheduler.Models
 {
     class Schedule
     {
-        private int id;
-        public Dictionary<int, int> userRoles;
+        private string id;
+        public Dictionary<int, int> userRoles = new Dictionary<int, int>();
 
         public Dictionary<int, int> UserRoles
         {
@@ -24,7 +24,7 @@ namespace CapstoneEmployeeScheduler.Models
             }
         }
 
-        public int Id
+        public string Id
         {
             get
             {

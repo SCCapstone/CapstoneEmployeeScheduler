@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.DAO;
 using CapstoneEmployeeScheduler.Model;
 using CapstoneEmployeeScheduler.Controllers;
+using CapstoneEmployeeScheduler.Models;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -30,41 +31,14 @@ namespace CapstoneEmployeeScheduler.Views
 
         public void UserDAO_Click(object sender, RoutedEventArgs e)
         {
-            //UserController userController = new UserController();
-            //User user = new Model.User();
-            //user.shift = "aaa";
-            //user.email = "bbb";
-            //user.UserName = "ccc";
-            //user.Password = "ddd";
-            //user.OutOfWork = false;
-            //user.Disabled = false;
-            //user.Admin = false;
-            //Role role1 = new Role();
-            //Role role2 = new Role();
-            //role1.Id = 3;
-            //role2.Id = 4;
-            //List<Role> roles = new List<Role>();
-            //roles.Add(role1);
-            //roles.Add(role2);
-            //user.Roles = roles;
-            //userController.createUser(user);
+            ScheduleController sc = new ScheduleController();
 
-
-
-
-            //User user2 = userController.getUserById(4007);
-            //List<Role> roles2 = user2.Roles;
-            //foreach(Role role in roles2)
-            //{
-            //    Console.WriteLine(role.Id);
-            //    Console.WriteLine(role.RoleName);
-            //}
-            RoleController roleController = new RoleController();
-            Role role = new Model.Role();
-            role.RoleName = "Testing Role";
-            role.RoleDescription = "Role description 1";
-            roleController.createRole(role);
+            Schedule schedule = new Schedule();
+            schedule.userRoles.Add(1234, 5678);
+            schedule.userRoles.Add(789, 10000);
+            sc.createSchedule(schedule);
         }
+
         public string TestGet()
         {
             RoleController rc = new RoleController();
