@@ -12,16 +12,14 @@
         <Grid Margin="0,0,-700,-450">
 
             <Label x:Name="Title" Content="GeneratedSchedules" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="251,70,0,0" Width="653" Height="78" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold"/>
-            <Button x:Name="CSVEButton" Content="Export Employees to CSV" HorizontalAlignment="Left" Height="58" Margin="610,588,0,0" VerticalAlignment="Top" Width="286" FontWeight="Bold" Click="CSVEButton_Click" FontSize="20"/>
-            <Button x:Name="CSVRButton" Content="Export Roles to CSV" HorizontalAlignment="Left" Height="58" Margin="193,588,0,0" VerticalAlignment="Top" Width="286" FontWeight="Bold" Click="CSVRButton_Click" FontSize="20"/>
-            <ListView Margin="193,147,104,187" Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged">
+            <ListView  Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged" Margin="193,205,104,211">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Date and Time Created" Width="300" />
+                        <GridViewColumn Header="Date and Time Created" Width="400" />
                         <GridViewColumn>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <StackPanel Margin="6,2,6,2">
+                                    <StackPanel>
                                         <Button Content="View"
                                                 Click="view_Click"
                                  Command="{Binding
@@ -36,7 +34,9 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+            <Button x:Name="CSVEButton" Content="Export Employees to CSV" HorizontalAlignment="Left" Height="58" Margin="610,588,0,0" VerticalAlignment="Top" Width="286" FontWeight="Bold" Click="CSVEButton_Click" FontSize="20"/>
+            <Button x:Name="CSVRButton" Content="Export Roles to CSV" HorizontalAlignment="Left" Height="58" Margin="193,588,0,0" VerticalAlignment="Top" Width="286" FontWeight="Bold" Click="CSVRButton_Click" FontSize="20"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <Grid/>
     </Grid>
 </Page>
