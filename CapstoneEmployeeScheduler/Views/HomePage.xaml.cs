@@ -40,7 +40,8 @@ namespace CapstoneEmployeeScheduler.Views
             UserController uc = new UserController();
             List<User> users = new List<User>();
             users = uc.getAllUsers();
-            //Generate(users);
+            makeSchedule a = new makeSchedule();
+            a.Generate(users);
 
         }
     }
