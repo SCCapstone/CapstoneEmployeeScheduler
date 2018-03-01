@@ -51,10 +51,7 @@ namespace CapstoneEmployeeScheduler.Controllers
             users = userDAO.getAllUsers();
             foreach(User user in users)
             {
-                if (user.Roles != null)
-                {
-                    user.Roles = getRolesForUser(user);
-                }
+                user.Roles = getRolesForUser(user);
             }
             return users;
         }
