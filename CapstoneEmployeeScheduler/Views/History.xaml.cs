@@ -16,6 +16,9 @@ using System.IO;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CapstoneEmployeeScheduler.Model;
+using CapstoneEmployeeScheduler.Controllers;
+using CapstoneEmployeeScheduler.Algorithm;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -24,12 +27,19 @@ namespace CapstoneEmployeeScheduler.Views
     /// </summary>
     public partial class History : Page
     {
+        List<Schedule> items = new List<Schedule>();
+
         public History()
         {
             InitializeComponent();
             //List<genSchedule> = new List<genSchedule>();
-            List<String> items = new List<String>();
-            items.Add("02/08/2018 14:25");
+            //items.Add("02/08/2018 14:25");
+            GeneratedSchedules.ItemsSource = items;
+        }
+
+        internal void addNewSchedule(Schedule s)
+        {
+            items.Add(s);
             GeneratedSchedules.ItemsSource = items;
         }
         

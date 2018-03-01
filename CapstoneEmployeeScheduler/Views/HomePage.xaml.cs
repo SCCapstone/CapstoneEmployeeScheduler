@@ -41,7 +41,6 @@ namespace CapstoneEmployeeScheduler.Views
             users = uc.getAllUsers();
             makeSchedule a = new makeSchedule();
             a.Generate(users);
-
         }
     }
 }
