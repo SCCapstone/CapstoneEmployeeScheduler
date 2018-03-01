@@ -20,23 +20,45 @@ namespace CapstoneEmployeeScheduler.Views
     /// </summary>
     public partial class editEmployeeModal : Window
     {
-        public editEmployeeModal()
+        private int passedID;
+        public editEmployeeModal(int id)
         {
+            
             InitializeComponent();
-            RoleController r = new RoleController();
-            List<Role> items = new List<Role>();
-            items = r.getAllRoles();
-            roleList.ItemsSource = items;
+            passedID = id;
+            /*UserController uc = new UserController();
+            User user = uc.getUserById(id);
+            user.userName = name.Text;
+            user.email = email.Text;
+            user.shift = "something";
+            user.Password = " ";
+            uc.editUser(user);
+            MessageBox.Show("Edit Successful!", "Edit Successful");
+            this.Close();
+            //List<Role> items = new List<Role>();
+            //items = r.getAllRoles();
+            // roleList.ItemsSource = items;
+            */
+
         }
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
+            
+            //TODO: When creating table in Employee.xaml, display id as well
+            //Then get ID of current user and should work.
             UserController uc = new UserController();
-            User user = new User();
+            int currentID =  passedID;  //WHAT GOES HERE
+            User user = uc.getUserById(currentID);
             user.userName = name.Text;
             user.email = email.Text;
+            user.shift = "something";
+            user.Password = " ";
             uc.editUser(user);
+            MessageBox.Show("Edit Successful!", "Edit Successful");
+            this.Close();
             
+
         }
 
         private void email_TextChanged(object sender, TextChangedEventArgs e)
