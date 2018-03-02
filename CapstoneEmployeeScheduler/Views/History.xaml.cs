@@ -16,6 +16,9 @@ using System.IO;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CapstoneEmployeeScheduler.Model;
+using CapstoneEmployeeScheduler.Controllers;
+using CapstoneEmployeeScheduler.Algorithm;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -24,12 +27,23 @@ namespace CapstoneEmployeeScheduler.Views
     /// </summary>
     public partial class History : Page
     {
+        List<Schedule> items = new List<Schedule>();
+        ScheduleController sc = new ScheduleController();
         public History()
         {
             InitializeComponent();
             //List<genSchedule> = new List<genSchedule>();
-            List<String> items = new List<String>();
-            items.Add("02/08/2018 14:25");
+            items.Add(sc.getLastSchedule(0));
+            items.Add(sc.getLastSchedule(1));
+            items.Add(sc.getLastSchedule(2));
+            items.Add(sc.getLastSchedule(3));
+            items.Add(sc.getLastSchedule(4));
+            GeneratedSchedules.ItemsSource = items;
+        }
+
+        internal void addNewSchedule(Schedule s)
+        {
+            items.Add(s);
             GeneratedSchedules.ItemsSource = items;
         }
         
@@ -102,7 +116,9 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void view_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("Will display the history from the selected date/time.", "VIEWS");
+            String id = (String)GeneratedSchedules.SelectedItem;
+            Schedule s = new Schedule();
+            s.Id = id;
         }
 
         private void History_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -9,10 +9,10 @@
       Title="Home">
 
     <Grid>
-        <Grid Margin="0,0,-700,-450">
+        <Grid Margin="-331,-132,-735,-342" HorizontalAlignment="Left" Width="1366" Height="774" VerticalAlignment="Top">
 
-            <Label x:Name="Title" Content="Capstone Employee Scheduler" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="37,84,0,0" Width="906" Height="78" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold" Foreground="Black"/>
-            <Button x:Name="GenerateButton" Content="Generate Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="198" Margin="396,527,0,0" FontWeight="Bold" Height="69" FontSize="18" Click="GenerateButton_Click"/>
+            <Label x:Name="Title" Content="Capstone Employee Scheduler" Margin="429,325,0,292" Height="157" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black"/>
+            <Button x:Name="GenerateButton" Content="GENERATE SCHEDULE" HorizontalAlignment="Left" Width="286" Margin="731,614,0,92" FontWeight="Bold" FontSize="24" Height ="68" Click="GenerateButton_Click"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
     </Grid>

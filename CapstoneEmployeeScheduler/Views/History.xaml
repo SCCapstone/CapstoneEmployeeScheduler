@@ -5,23 +5,21 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="693.9" d:DesignWidth="1120.8"
       Title="History">
 
-    <Grid>
-        <Grid Margin="0,0,-700,-450">
-
-            <Label x:Name="Title" Content="GeneratedSchedules" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="251,70,0,0" Width="653" Height="78" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold"/>
-            <Button x:Name="CSVEButton" Content="Export Employees to CSV" HorizontalAlignment="Left" Height="58" Margin="610,588,0,0" VerticalAlignment="Top" Width="286" FontWeight="Bold" Click="CSVEButton_Click" FontSize="20"/>
-            <Button x:Name="CSVRButton" Content="Export Roles to CSV" HorizontalAlignment="Left" Height="58" Margin="193,588,0,0" VerticalAlignment="Top" Width="286" FontWeight="Bold" Click="CSVRButton_Click" FontSize="20"/>
-            <ListView Margin="193,147,104,187" Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged">
+    <Grid Margin="0,0,0,0">
+        <Grid Margin="0,0,0,0" HorizontalAlignment="Left" Width="1873" Height="1569" VerticalAlignment="Top">
+            <Label x:Name="Title" Content="Schedule History" HorizontalContentAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="193,87,0,0" Width="703" Height="78" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold" Foreground="White"/>
+            <ListView  Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged" Margin="193,205,0,1121" HorizontalAlignment="Left" Width="703">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Date and Time Created" Width="300" />
+                        <GridViewColumn Header="Date and Time Created" Width="200" DisplayMemberBinding="{Binding ScheduleDate}"/>
+                        <GridViewColumn Header="ID" Width="200" DisplayMemberBinding="{Binding Id}"/>
                         <GridViewColumn>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <StackPanel Margin="6,2,6,2">
+                                    <StackPanel>
                                         <Button Content="View"
                                                 Click="view_Click"
                                  Command="{Binding
@@ -36,7 +34,9 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+            <Button x:Name="CSVEButton" Content="EXPORT EMPLOYEES TO CSV" HorizontalAlignment="Left" Height="58" Margin="193,602,0,0" VerticalAlignment="Top" Width="703" FontWeight="Bold" Click="CSVEButton_Click" FontSize="24"/>
+            <Button x:Name="CSVRButton" Content="EXPORT ROLES TO CSV" HorizontalAlignment="Left" Height="58" Margin="193,502,0,0" VerticalAlignment="Top" Width="703" FontWeight="Bold" Click="CSVRButton_Click" FontSize="24"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <Grid Margin="0,0,0,0" Height="695" VerticalAlignment="Top"/>
     </Grid>
 </Page>

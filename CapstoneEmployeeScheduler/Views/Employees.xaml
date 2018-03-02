@@ -10,28 +10,30 @@
     <Grid x:Name="Page" Margin="0,-10,0,10.4">
 
         <Grid>
-            <Grid Margin="0,0,0,0">
+            <Grid Margin="0,0,0,0.4">
 
 
-                <Label x:Name="Title" Content="Company Employees" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,64,0,0" Width="401" Height="78" FontWeight="Bold" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True"/>
-                <Button x:Name="NewEmployee" Content="New Employee" HorizontalAlignment="Left" VerticalAlignment="Top" Width="207" Margin="709,602,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="NewEmployee_Click"/>
+                <Label x:Name="Title" Content="Company Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="193,87,0,0" Width="703" Height="101" FontWeight="Bold" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True" Foreground="White"/>
+                <Button x:Name="NewEmployee" Content="NEW EMPLOYEE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="207" Margin="689,602,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="NewEmployee_Click"/>
 
-                <ListView Margin="193,147,104,187" Name="Users" SelectionChanged="Users_SelectionChanged">
+                <ListView Margin="193,205,104,203.4" Name="Users" SelectionChanged="Users_SelectionChanged">
                     <ListView.View>
                         <GridView>
+                            <GridViewColumn Header="UserID" Width="200" DisplayMemberBinding="{Binding Id}" />
                             <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding UserName}" />
                             <GridViewColumn Header="Email" Width="200" DisplayMemberBinding="{Binding Email}" />
                             <GridViewColumn>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Margin="6,2,6,2">
-                                            <Button Content="Edit"
-                                                        Click="edit_Click"
-                                        Command="{Binding 
-                                        Path=DataContext.RunCommand, 
-                                        RelativeSource=
-                                        {RelativeSource FindAncestor, 
-                                        AncestorType={x:Type ItemsControl}}}"/>
+                                            <Button Name="EditButton" Content="Edit"
+                                                    Click="edit_Click"
+                                                    Command="{Binding 
+                                                    Path=DataContext.RunCommand,
+                                                    RelativeSource=
+                                                    {RelativeSource FindAncestor, 
+                                                    AncestorType={x:Type ItemsControl}}}"
+                                                    IsEnabled="{Binding ElementName=Users, Path=SelectedItems.Count}"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -40,7 +42,7 @@
                     </ListView.View>
 
                 </ListView>
-                <Button x:Name="PrintEButton" Content="Print Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Width="207" Margin="193,602,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="PrintEButton_Click"/>
+                <Button x:Name="PrintEButton" Content="PRINT EMPLOYEES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="207" Margin="193,602,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="22" Click="PrintEButton_Click"/>
             </Grid>
         </Grid>
     </Grid>
