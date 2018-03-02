@@ -21,13 +21,16 @@ namespace CapstoneEmployeeScheduler.Views
     public partial class editEmployeeModal : Window
     {
         private int passedID;
+        UserController uc = new UserController();
+        User user;
         public editEmployeeModal(int id)
         {
             
             InitializeComponent();
             passedID = id;
-            UserController uc = new UserController();
-            User user = uc.getUserById(id);
+            //UserController uc = new UserController();
+            //User user = uc.getUserById(passedID);
+            user = uc.getUserById(passedID);
             name.Text = user.userName;
             email.Text = user.email;
             //user.shift = "something";
@@ -47,9 +50,9 @@ namespace CapstoneEmployeeScheduler.Views
             
             //TODO: When creating table in Employee.xaml, display id as well
             //Then get ID of current user and should work.
-            /*UserController uc = new UserController();
-            int currentID =  passedID;  //WHAT GOES HERE
-            User user = uc.getUserById(currentID);
+            //UserController uc = new UserController();
+            //int currentID =  passedID;  //WHAT GOES HERE
+            //User user = uc.getUserById(passedID);
             user.userName = name.Text;
             user.email = email.Text;
             user.shift = "something";
@@ -57,8 +60,6 @@ namespace CapstoneEmployeeScheduler.Views
             uc.editUser(user);
             MessageBox.Show("Edit Successful!", "Edit Successful");
             this.Close();
-            */
-
         }
 
         private void email_TextChanged(object sender, TextChangedEventArgs e)
