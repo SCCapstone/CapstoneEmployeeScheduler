@@ -26,11 +26,7 @@ namespace CapstoneEmployeeScheduler.Views
         {
             //code to display the table with all the employees
             InitializeComponent();
-            UserController u = new UserController();
-            List<User> items = new List<User>();
-            items = u.getAllUsers();
-            Users.ItemsSource = items;
-
+            ShowTable();
         }
 
         private void NewEmployee_Click(object sender, RoutedEventArgs e)
@@ -39,11 +35,7 @@ namespace CapstoneEmployeeScheduler.Views
             EmployeeModal m = new Views.EmployeeModal();
             m.ShowDialog();
             InitializeComponent();
-            UserController u = new UserController();
-            List<User> items = new List<User>();
-            items = u.getAllUsers();
-            Users.ItemsSource = items;
-
+            ShowTable();
         }
 
         private void EmployeeTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -51,7 +43,14 @@ namespace CapstoneEmployeeScheduler.Views
             //Not sure what this method does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
         }
 
-        
+        public void ShowTable()
+        {
+            //method to show the table of users and email.
+            UserController u = new UserController();
+            List<User> items = new List<User>();
+            items = u.getAllUsers();
+            Users.ItemsSource = items;
+        }
         
 
         private void edit_Click(object sender, RoutedEventArgs e)
@@ -68,6 +67,7 @@ namespace CapstoneEmployeeScheduler.Views
             int id = u.Id;
             editEmployeeModal em = new Views.editEmployeeModal(id);
             em.ShowDialog();
+            ShowTable();
         }
 
         private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)

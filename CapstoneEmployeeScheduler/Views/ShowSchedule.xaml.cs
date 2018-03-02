@@ -25,8 +25,8 @@ namespace CapstoneEmployeeScheduler.Views
     public partial class ShowSchedule : Window
     {
 
-        DataGrid dt = new DataGrid();
-            int numberofEmployees = CapstoneEmployeeScheduler.Algorithm.makeSchedule.userCount;
+        DataGridView dt = new DataGridView();
+        int numberofEmployees = CapstoneEmployeeScheduler.Algorithm.makeSchedule.userCount;
 
         public ShowSchedule()
         {
