@@ -35,5 +35,19 @@ namespace CapstoneEmployeeScheduler.Controllers
             }
             return scheduleDAO.getScheduleByDate(date);
         }
+
+        public Schedule getLastSchedule(int daysPassed)
+        {
+            ScheduleDAO scheduleDAO = null;
+            try
+            {
+                scheduleDAO = new ScheduleDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
+            return scheduleDAO.getLastSchedule(daysPassed);
+        }
     }
 }

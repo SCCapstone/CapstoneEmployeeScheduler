@@ -10,11 +10,12 @@
 
     <Grid Margin="0,0,-762,-415">
         <Grid Margin="2,0,-702.2,-450.4">
-            <Label x:Name="Title" Content="GeneratedSchedules" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="251,70,0,0" Width="653" Height="78" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold"/>
-            <ListView  Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged" Margin="193,205,1687.2,1004.8">
+            <Label x:Name="Title" Content="Schedule History" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="251,70,0,0" Width="653" Height="78" FontSize="36" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold"/>
+            <ListView  Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged" Margin="193,205,1465.4,1005.2">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Date and Time Created" Width="400" />
+                        <GridViewColumn Header="Date and Time Created" Width="200" DisplayMemberBinding="{Binding ScheduleDate}"/>
+                        <GridViewColumn Header="ID" Width="200" DisplayMemberBinding="{Binding Id}"/>
                         <GridViewColumn>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
