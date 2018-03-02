@@ -7,16 +7,9 @@
         mc:Ignorable="d"
         Title="Schedule" Height="499.16" Width="623.53">
     <Grid Margin="0,0,-8,0">
-        <DataGrid HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="604"/>
-
-        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Margin="0,10,-0.4,-10.2" Padding="0" FontSize="16">
-            <Frame.Background>
-                <ImageBrush/>
-            </Frame.Background>
-        </Frame>
-
+        <DataGrid x:Name="dataGridView1" HorizontalAlignment="Left" Height="442" Margin="10,10,0,0" VerticalAlignment="Top" Width="596"/>
     </Grid>
 
-    
-    
+
+
 </Window>
