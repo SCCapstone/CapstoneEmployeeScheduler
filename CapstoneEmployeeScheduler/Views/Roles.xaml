@@ -5,15 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
       mc:Ignorable="d" d:DesignWidth="1000"
-      Title="Roles" Height="631.516">
+      Title="Roles" Height="797.916">
 
-    <Grid Margin="0,10,0,-30.8" Height="652" VerticalAlignment="Top">
-        <Grid Margin="10,0,-10,33" RenderTransformOrigin="0.321,0.402">
-            <Label x:Name="Title" Content="Current Roles" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="154,68,0,0" Width="314" Height="65" Background="{x:Null}" FontWeight="Bold" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True"/>
-            <Button x:Name="NewRole" Content="NEW ROLE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="207" Margin="723,531,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="NewRole_Click"/>
-            <ListView Margin="154,173,70,142" Name="role" SelectionChanged="role_SelectionChanged">
+    <Grid Margin="0,0,0,0" Height="941" VerticalAlignment="Top">
+        <Grid Margin="0,0,0,0" RenderTransformOrigin="0,0" Height="941" VerticalAlignment="Bottom">
+            <Label x:Name="Title" Content="Current Roles" HorizontalAlignment="Left" Margin="193,87,0,764" Width="737" Background="{x:Null}" FontWeight="Bold" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True" Foreground="White"/>
+            <Button x:Name="NewRole" Content="NEW ROLE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="207" Margin="689,602,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="NewRole_Click"/>
+            <ListView Margin="193,205,104,379" Name="role" SelectionChanged="role_SelectionChanged">
                 <ListView.View>
-                    
+
                     <GridView>
                         <GridViewColumn Header="Name" Width="200" DisplayMemberBinding= "{Binding RoleName}"/>
                         <GridViewColumn Header="Description" Width="600" DisplayMemberBinding= "{Binding RoleDescription}"/>
@@ -22,6 +22,6 @@
                 </ListView.View>
             </ListView>
         </Grid>
-        
+
     </Grid>
 </Page>

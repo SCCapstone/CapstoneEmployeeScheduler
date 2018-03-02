@@ -75,6 +75,7 @@ namespace CapstoneEmployeeScheduler.Views
                 printDlg.PrintVisual(Users, "List of Employees");
             }
         }
+
     }
 
 
