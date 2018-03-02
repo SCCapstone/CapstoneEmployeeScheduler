@@ -122,11 +122,11 @@
     <Compile Include="Views\RolesModal.xaml.cs">
       <DependentUpon>RolesModal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TestingBackend.xaml.cs">
-      <DependentUpon>TestingBackend.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ShowSchedule.xaml.cs">
       <DependentUpon>ShowSchedule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestingBackend.xaml.cs">
+      <DependentUpon>TestingBackend.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Admin.xaml">
       <SubType>Designer</SubType>
@@ -176,11 +176,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TestingBackend.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ShowSchedule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\TestingBackend.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

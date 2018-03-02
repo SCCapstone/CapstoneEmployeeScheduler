@@ -16,8 +16,8 @@ namespace CapstoneEmployeeScheduler.Algorithm
         Schedule s = new Schedule();
         //UserController uc = new UserController();
         ScheduleController sc = new ScheduleController();
-        
-       
+
+        public static int userCount = 0;
 
         //THIS IS THE MAIN METHOD////////////////////////////////////////////////////////////////////////////////////////////////////
         public void Generate(List<User> users)
@@ -28,7 +28,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
                 {
                     int roleid = pickRole(u);
                     addToSchedule(u, roleid);
-                    updateRole(u,roleid);
+                    userCount++;
                 }
             }
 
@@ -199,13 +199,6 @@ namespace CapstoneEmployeeScheduler.Algorithm
             return roleNums[0];
         }
 
-        private void updateRole(User user, int roleId)
-        {
-            user.RoleThreeDaysAgo = user.RoleTwoDaysAgo;
-            user.RoleTwoDaysAgo = user.RoleOneDayAgo;
-            user.RoleOneDayAgo = roleId;
-
-        }
         private void addToSchedule(User user, int roleId)
         {
            s.UserRoles.Add(user.Id, roleId);

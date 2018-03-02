@@ -87,5 +87,39 @@ namespace CapstoneEmployeeScheduler.DAOs
             return schedule;
         }
 
+        public Schedule getLastSchedule(int daysPassed)
+        {
+            SqlConnection conn = new SqlConnection(con);
+            conn.Open();
+            SqlCommand comm = new SqlCommand(null, conn);
+
+            comm.CommandText =
+                "SELECT * FROM Schedule s WHERE " + daysPassed + "=(SELECT COUNT(DISTINCT ScheduleDate) FROM Schedule sc WHERE s.ScheduleDate<=sc.ScheduleDate)";
+           
+            Schedule sched = new Model.Schedule();
+            SqlDataReader read = comm.ExecuteReader();
+
+            if (read.HasRows)
+            {
+                while (read.Read())
+                {
+                    sched.Id = read.GetString(0);
+                    sched.ScheduleDate = read.GetDateTime(3);
+                    if (sched.UserRoles.ContainsKey(read.GetInt32(1))){
+
+                    }
+                    else
+                    {
+                        sched.UserRoles.Add(read.GetInt32(1), read.GetInt32(2));
+                    }
+                }
+             }
+            else
+            {
+                Console.WriteLine("No rows found.");
+            }
+            read.Close();
+            return sched;
+        }
     }
 }
