@@ -29,6 +29,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
                     int roleid = pickRole(u);
                     addToSchedule(u, roleid);
                     userCount++;
+                    updateRole(u,roleid);
                 }
             }
 
@@ -208,6 +209,11 @@ namespace CapstoneEmployeeScheduler.Algorithm
         {
             return s.UserRoles;
         }
-
+        private void updateRole(User user,int roleID)
+        {
+            user.RoleThreeDaysAgo = user.RoleTwoDaysAgo;
+            user.RoleTwoDaysAgo = user.RoleOneDayAgo;
+            user.RoleOneDayAgo = roleID;
+        }
     }
 }
