@@ -24,6 +24,7 @@ namespace CapstoneEmployeeScheduler.Views
     {
         public Employees()
         {
+            //code to display the table with all the employees
             InitializeComponent();
             UserController u = new UserController();
             List<User> items = new List<User>();
@@ -34,9 +35,9 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void NewEmployee_Click(object sender, RoutedEventArgs e)
         {
+            //calls popup to create a new employee
             EmployeeModal m = new Views.EmployeeModal();
             m.ShowDialog();
-            //Make button work with form
             InitializeComponent();
             UserController u = new UserController();
             List<User> items = new List<User>();
@@ -47,23 +48,13 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void EmployeeTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            //Not sure what this method does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
         }
-
-        /*private void RefreshButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-            InitializeComponent();
-            UserController u = new UserController();
-            List<User> items = new List<User>();
-            items = u.getAllUsers();
-            Users.ItemsSource = items;
-        }
-        */
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
-
+            //This method is called when the edit button is pressed on one of the employees
+            //need a way to autofill the text boxes and overwrite instead of doing nothing.
             int id = (int)Users.SelectedItem;
             editEmployeeModal em = new Views.editEmployeeModal(id);
             em.ShowDialog();
@@ -71,11 +62,13 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
         }
 
         private void PrintEButton_Click(object sender, RoutedEventArgs e)
         {
+            //method for printing table of employees
+            //TODO: once schedule is able to be displayed, move to schedule
             PrintDialog printDlg = new PrintDialog();
             if(printDlg.ShowDialog() == true)
             {
