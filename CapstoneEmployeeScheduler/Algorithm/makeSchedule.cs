@@ -16,8 +16,8 @@ namespace CapstoneEmployeeScheduler.Algorithm
         Schedule s = new Schedule();
         //UserController uc = new UserController();
         ScheduleController sc = new ScheduleController();
-        
-       
+
+        public static int userCount = 0;
 
         //THIS IS THE MAIN METHOD////////////////////////////////////////////////////////////////////////////////////////////////////
         public void Generate(List<User> users)
@@ -28,6 +28,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
                 {
                     int roleid = pickRole(u);
                     addToSchedule(u, roleid);
+                    userCount++;
                 }
             }
 
