@@ -26,13 +26,14 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Margin="6,2,6,2">
-                                            <Button Content="Edit"
-                                                        Click="edit_Click"
-                                        Command="{Binding 
-                                        Path=DataContext.RunCommand, 
-                                        RelativeSource=
-                                        {RelativeSource FindAncestor, 
-                                        AncestorType={x:Type ItemsControl}}}"/>
+                                            <Button Name="EditButton" Content="Edit"
+                                                    Click="edit_Click"
+                                                    Command="{Binding 
+                                                    Path=DataContext.RunCommand,
+                                                    RelativeSource=
+                                                    {RelativeSource FindAncestor, 
+                                                    AncestorType={x:Type ItemsControl}}}"
+                                                    IsEnabled="{Binding ElementName=Users, Path=SelectedItems.Count}"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>

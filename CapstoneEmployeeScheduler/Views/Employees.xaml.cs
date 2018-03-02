@@ -51,11 +51,21 @@ namespace CapstoneEmployeeScheduler.Views
             //Not sure what this method does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
         }
 
+        
+        
+
         private void edit_Click(object sender, RoutedEventArgs e)
         {
             //This method is called when the edit button is pressed on one of the employees
             //need a way to autofill the text boxes and overwrite instead of doing nothing.
-            int id = (int)Users.SelectedItem;
+            //var item = Users.Items.GetItemAt(Users.SelectedIndex);
+            //MessageBox.Show(item.ToString());
+
+            //string type = Users.SelectedItem.GetType().ToString();
+            //MessageBox.Show(type);
+
+            User u= (User) Users.SelectedItem;
+            int id = u.Id;
             editEmployeeModal em = new Views.editEmployeeModal(id);
             em.ShowDialog();
         }
@@ -63,6 +73,10 @@ namespace CapstoneEmployeeScheduler.Views
         private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
+            if (Users.SelectedIndex >= 0)
+            {
+                
+            }
         }
 
         private void PrintEButton_Click(object sender, RoutedEventArgs e)
