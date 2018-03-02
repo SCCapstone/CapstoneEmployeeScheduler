@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Windows.Forms;
 using CapstoneEmployeeScheduler.Model;
 using CapstoneEmployeeScheduler.Controllers;
+using CapstoneEmployeeScheduler.Algorithm;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -28,13 +29,14 @@ namespace CapstoneEmployeeScheduler.Views
     {
 
         DataGridView dt = new DataGridView();
-        int numberofEmployees = CapstoneEmployeeScheduler.Algorithm.makeSchedule.userCount;
+        List<User> users = new List<User>();
+        UserController u = new UserController();
+        int numberofEmployees = makeSchedule.userCount;
+        
 
         public ShowSchedule()
         {
             //InitializeComponent();
-            List<User> users = new List<User>();
-            UserController u = new UserController();
             users = u.getAllUsers();
             showTheSchedule.ItemsSource = users;
 
