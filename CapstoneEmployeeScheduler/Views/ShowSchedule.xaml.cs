@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using CapstoneEmployeeScheduler.Model;
+using CapstoneEmployeeScheduler.Controllers;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -31,32 +33,13 @@ namespace CapstoneEmployeeScheduler.Views
         public ShowSchedule()
         {
             //InitializeComponent();
+            List<User> users = new List<User>();
+            UserController u = new UserController();
+            users = u.getAllUsers();
+            showTheSchedule.ItemsSource = users;
+
             
-            AddCols();
-            AddRows();
-            WriteRows();
-            
         }
 
-        private void AddCols()
-        {
-            DataGridTextColumn textColumn = new DataGridTextColumn();
-            textColumn.Header = "Employee";
-            textColumn.Binding = new System.Windows.Data.Binding("Employee");
-            dataGridView1.Columns.Add(textColumn);
-        }
-
-        private void AddRows()
-        {
-            for(int i =0; i < numberofEmployees; i++)
-            {
-                dt.Rows.Add();
-            }
-        }
-
-        private void WriteRows()
-        {
-           dataGridView1.ItemsSource = dt;
-        }
     }
 }
