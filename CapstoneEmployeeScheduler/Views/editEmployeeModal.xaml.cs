@@ -25,19 +25,14 @@ namespace CapstoneEmployeeScheduler.Views
         User user;
         public editEmployeeModal(int id)
         {
-            
+
+            //Fills the boxes with values already in database
             InitializeComponent();
             passedID = id;
-            //UserController uc = new UserController();
-            //User user = uc.getUserById(passedID);
             user = uc.getUserById(passedID);
             name.Text = user.userName;
             email.Text = user.email;
-            //user.shift = "something";
-            //user.Password = " ";
-            //uc.editUser(user);
-            //MessageBox.Show("Edit Successful!", "Edit Successful");
-            //this.Close();
+            //displays role that are able to be selected
             List<Role> items = new List<Role>();
             RoleController r = new RoleController();
             items = r.getAllRoles();
@@ -50,17 +45,14 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-            
-            //TODO: When creating table in Employee.xaml, display id as well
-            //Then get ID of current user and should work.
-            //UserController uc = new UserController();
-            //int currentID =  passedID;  //WHAT GOES HERE
-            //User user = uc.getUserById(passedID);
+           
+            //Once the submit button is selected, updates database values
             user.userName = name.Text;
             user.email = email.Text;
             user.shift = "something";
             user.Password = " ";
             uc.editUser(user);
+            //add roles the user selected
             List<Role> listItems = new List<Role>();
             foreach (Role role in roleList.SelectedItems)
             {
@@ -73,16 +65,16 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void email_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
         }
 
         private void name_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
         }
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -45,7 +45,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         public void ShowTable()
         {
-            //method to show the table of users and email.
+            //method to show the table of users and emails since every method uses it
             UserController u = new UserController();
             List<User> items = new List<User>();
             items = u.getAllUsers();
@@ -56,15 +56,10 @@ namespace CapstoneEmployeeScheduler.Views
         private void edit_Click(object sender, RoutedEventArgs e)
         {
             //This method is called when the edit button is pressed on one of the employees
-            //need a way to autofill the text boxes and overwrite instead of doing nothing.
-            //var item = Users.Items.GetItemAt(Users.SelectedIndex);
-            //MessageBox.Show(item.ToString());
-
-            //string type = Users.SelectedItem.GetType().ToString();
-            //MessageBox.Show(type);
-
+            
             User u= (User) Users.SelectedItem;
             int id = u.Id;
+            //gets the id of the employee being edited and sends it to the modal
             editEmployeeModal em = new Views.editEmployeeModal(id);
             em.ShowDialog();
             ShowTable();
@@ -75,7 +70,7 @@ namespace CapstoneEmployeeScheduler.Views
             //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
             if (Users.SelectedIndex >= 0)
             {
-                
+                //dunno why this is here
             }
         }
 
