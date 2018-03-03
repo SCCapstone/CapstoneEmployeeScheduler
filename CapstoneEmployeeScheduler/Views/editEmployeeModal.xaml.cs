@@ -38,9 +38,12 @@ namespace CapstoneEmployeeScheduler.Views
             //uc.editUser(user);
             //MessageBox.Show("Edit Successful!", "Edit Successful");
             //this.Close();
-            //List<Role> items = new List<Role>();
-            //items = r.getAllRoles();
-            // roleList.ItemsSource = items;
+            List<Role> items = new List<Role>();
+            RoleController r = new RoleController();
+            items = r.getAllRoles();
+            roleList.ItemsSource = items;
+            items = r.getAllRoles();
+            roleList.ItemsSource = items;
             
 
         }
@@ -58,6 +61,12 @@ namespace CapstoneEmployeeScheduler.Views
             user.shift = "something";
             user.Password = " ";
             uc.editUser(user);
+            List<Role> listItems = new List<Role>();
+            foreach (Role role in roleList.SelectedItems)
+            {
+                listItems.Add(role);
+            }
+            user.Roles = listItems;
             MessageBox.Show("Edit Successful!", "Edit Successful");
             this.Close();
         }
