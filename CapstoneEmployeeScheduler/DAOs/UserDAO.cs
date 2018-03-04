@@ -164,6 +164,7 @@ namespace CapstoneEmployeeScheduler.DAO
                 Console.WriteLine("No rows found.");
             }
             reader.Close();
+            connection.Close();
             return user;
         }
 
@@ -226,6 +227,7 @@ namespace CapstoneEmployeeScheduler.DAO
                 Console.WriteLine("No rows found.");
             }
             reader.Close();
+            connection.Close();
             return users;
         }
 
