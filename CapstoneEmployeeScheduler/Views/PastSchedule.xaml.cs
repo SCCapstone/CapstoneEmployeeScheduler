@@ -1,5 +1,8 @@
-﻿using System;
+﻿using CapstoneEmployeeScheduler.Controllers;
+using CapstoneEmployeeScheduler.Model;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,33 +14,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Windows.Forms;
-using CapstoneEmployeeScheduler.Model;
-using CapstoneEmployeeScheduler.Controllers;
-using CapstoneEmployeeScheduler.Algorithm;
-using System.Data;
 
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for PastSchedule.xaml
     /// </summary>
-    /// 
-     
-    
-    
-    public partial class ShowSchedule : Page
+    public partial class PastSchedule : Window
     {
-        
-
-        public ShowSchedule()
+        public PastSchedule()
         {
             InitializeComponent();
-            showTheSchedule.ItemsSource = CreateTable().DefaultView;
-        }
-
-        public DataTable CreateTable()
-        {
             DataTable dt = new DataTable();
             Schedule s = new Schedule();
             ScheduleController sc = new ScheduleController();
@@ -55,7 +42,7 @@ namespace CapstoneEmployeeScheduler.Views
                 Role r = rc.getRoleById(s.UserRoles.ElementAt(i).Value);
                 dt.Rows.Add(u.UserName, u.Shift, r.RoleName);
             }
-            return dt;
+            showTheSchedule.ItemsSource = dt.DefaultView;
 
         }
     }
