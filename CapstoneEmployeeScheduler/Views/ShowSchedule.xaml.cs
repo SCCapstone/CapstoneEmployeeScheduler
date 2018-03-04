@@ -26,17 +26,14 @@ namespace CapstoneEmployeeScheduler.Views
     
     public partial class ShowSchedule : Window
     {
-
         DataGridView dt = new DataGridView();
         int numberofEmployees = CapstoneEmployeeScheduler.Algorithm.makeSchedule.userCount;
 
         public ShowSchedule()
         {
-            //InitializeComponent();
-            List<User> users = new List<User>();
-            UserController u = new UserController();
-            users = u.getAllUsers();
-            showTheSchedule.ItemsSource = users;
+            InitializeComponent();
+            
+            //showTheSchedule.ItemsSource = users;
 
             
         }

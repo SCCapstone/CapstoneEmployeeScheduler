@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Schedule" Height="499.16" Width="623.53">
     <Grid Margin="0,0,-8,0">
-        <ListView HorizontalAlignment="Left" Name="showTheSchedule" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="591">
+        <ListView HorizontalAlignment="Left" Name="showTheSchedule" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="600">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Employee" Width="300" DisplayMemberBinding= "{Binding }"/>
-                    <GridViewColumn Header="Shift" Width="300" DisplayMemberBinding= "{Binding }"/>
-                    <GridViewColumn Header="Role" Width="300" DisplayMemberBinding= "{Binding }"/>
+                    <GridViewColumn Header="Employee" Width="200" DisplayMemberBinding= "{Binding }"/>
+                    <GridViewColumn Header="Shift" Width="200" DisplayMemberBinding= "{Binding }"/>
+                    <GridViewColumn Header="Role" Width="200" DisplayMemberBinding= "{Binding }"/>
                 </GridView>
             </ListView.View>
         </ListView>
