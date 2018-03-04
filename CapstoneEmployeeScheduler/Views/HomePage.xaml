@@ -12,7 +12,8 @@
         <Grid Margin="-331,-132,-735,-342" HorizontalAlignment="Left" Width="1366" Height="774" VerticalAlignment="Top">
 
             <Label x:Name="Title" Content="Capstone Employee Scheduler" Margin="429,325,0,292" Height="157" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True" FontWeight="Bold" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black"/>
-            <Button x:Name="GenerateButton" Content="GENERATE SCHEDULE" HorizontalAlignment="Left" Width="286" Margin="731,614,0,92" FontWeight="Bold" FontSize="24" Height ="68" Click="GenerateButton_Click"/>
+            <Button x:Name="GenerateButton" Content="GENERATE SCHEDULE" HorizontalAlignment="Left" Width="200" Margin="582,627,0,103" FontWeight="Bold" FontSize="18" Click="GenerateButton_Click" RenderTransformOrigin="0.5,0.505"/>
+            <Button x:Name="ShowButton" Content="Today's Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="1000,627,0,0" Height="44" FontSize="24"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
     </Grid>
