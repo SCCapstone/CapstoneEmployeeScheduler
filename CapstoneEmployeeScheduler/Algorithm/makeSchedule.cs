@@ -22,13 +22,16 @@ namespace CapstoneEmployeeScheduler.Algorithm
         //THIS IS THE MAIN METHOD////////////////////////////////////////////////////////////////////////////////////////////////////
         public void Generate(List<User> users)
         {
+
+            int roleid;
             foreach (User u in users)
             {
                 if (u.Disabled == false)
                 {
-                    int roleid = pickRole(u);
+                    roleid = pickRole(u);
                     addToSchedule(u, roleid);
                     userCount++;
+                    updateRole(u,roleid);
                 }
             }
 
@@ -208,6 +211,11 @@ namespace CapstoneEmployeeScheduler.Algorithm
         {
             return s.UserRoles;
         }
-
+        private void updateRole(User user,int roleID)
+        {
+            user.RoleThreeDaysAgo = user.RoleTwoDaysAgo;
+            user.RoleTwoDaysAgo = user.RoleOneDayAgo;
+            user.RoleOneDayAgo = roleID;
+        }
     }
 }
