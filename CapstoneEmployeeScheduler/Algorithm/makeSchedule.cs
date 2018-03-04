@@ -9,7 +9,7 @@ using CapstoneEmployeeScheduler.Controllers;
 
 namespace CapstoneEmployeeScheduler.Algorithm
 {
-    class makeSchedule
+    class MakeSchedule
     {
 
         User u = new User();
@@ -17,10 +17,10 @@ namespace CapstoneEmployeeScheduler.Algorithm
         //UserController uc = new UserController();
         ScheduleController sc = new ScheduleController();
 
-        public static int userCount = 0;
+       
 
         //THIS IS THE MAIN METHOD////////////////////////////////////////////////////////////////////////////////////////////////////
-        public void Generate(List<User> users)
+        public Schedule Generate(List<User> users)
         {
 
             int roleid;
@@ -30,12 +30,12 @@ namespace CapstoneEmployeeScheduler.Algorithm
                 {
                     roleid = pickRole(u);
                     addToSchedule(u, roleid);
-                    userCount++;
                     updateRole(u,roleid);
                 }
             }
 
-            sc.createSchedule(s);
+            sc.createSchedule(s);//add schedule to the database
+            return s;
             
         }
 
