@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using CapstoneEmployeeScheduler.Model;
 using CapstoneEmployeeScheduler.Controllers;
 using CapstoneEmployeeScheduler.Algorithm;
+using System.Data;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -25,25 +26,49 @@ namespace CapstoneEmployeeScheduler.Views
      
     
     
-    public partial class ShowSchedule : Window
+    public partial class ShowSchedule : Page
     {
-        DataGridView dt = new DataGridView();
-        List<User> users = new List<User>();
-        UserController u = new UserController();
-        int numberofEmployees = makeSchedule.userCount;
         
 
         public ShowSchedule()
         {
-            
-            Schedule s = new Schedule();
-            UserController uc = new UserController();
-            List<User> users = new List<User>();
-            users = uc.getAllUsers();
-            makeSchedule a = new makeSchedule();
-            a.Generate(users);
-            showTheSchedule.ItemsSource = users;
+            InitializeComponent();
+            //Schedule s = new Schedule();
+            //ScheduleController sc = new ScheduleController();
+            //UserController uc = new UserController();
+            //List<User> users = new List<User>();
+            //users = uc.getAllUsers();
+            //makeSchedule a = new makeSchedule();
+            //a.Generate(users);
+            //s = sc.getScheduleByDate(DateTime.Today);
+            //showTheSchedule.View = View.Details;
+            //MyGridView.Columns.Add("Frequency");
+
+            //showTheSchedule.Items.Add(new System.Windows.Forms.ListViewItem(new string[] { "employee" }));
+            showTheSchedule.ItemsSource = CreateTable().DefaultView;
         }
 
+        public DataTable CreateTable()
+        {
+            DataTable dt = new DataTable();
+            Schedule s = new Schedule();
+            ScheduleController sc = new ScheduleController();
+            UserController uc = new UserController();
+            RoleController rc = new RoleController();
+            s = sc.getScheduleByDate(DateTime.Today);
+
+            dt.Columns.Add("Employee", typeof(string));
+            dt.Columns.Add("Shift", typeof(string));
+            dt.Columns.Add("Role", typeof(string));
+
+            for (int i = 0; i < s.UserRoles.Count; i++)
+            {
+                User u = uc.getUserById(s.UserRoles.ElementAt(i).Key);
+                Role r = rc.getRoleById(s.UserRoles.ElementAt(i).Value);
+                dt.Rows.Add(u.UserName, u.Shift, r.RoleName);
+            }
+            return dt;
+
+        }
     }
 }
