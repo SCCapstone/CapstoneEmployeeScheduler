@@ -15,7 +15,9 @@ using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.Views;
 using CapstoneEmployeeScheduler.Controllers;
 using CapstoneEmployeeScheduler.Model;
-
+using System.Data.SqlClient;
+using System.Data;
+using System.IO;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -50,6 +52,58 @@ namespace CapstoneEmployeeScheduler.Views
         private void role_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        private void CSVRButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Role Export
+            string connection = (string)System.Windows.Application.Current.FindResource("Connection");
+            string queryString = "SELECT * from Roles;";
+            SqlDataAdapter adapter = new SqlDataAdapter(selectCommandText: queryString, selectConnectionString: connection);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, srcTable: "Roles");
+            DataTable data = ds.Tables[0];
+            string path = @"C:\Users\Public\Documents\Roles.csv";
+            CreateCSVFile(data, path);
+            System.Windows.MessageBox.Show("CSV File created. Please check your C:\\Users\\Public\\Documents.", "Created!");
+        }
+
+        void CreateCSVFile(DataTable dtDataTablesList, string strFilePath)
+        {
+            // Create the CSV file to which grid data will be exported.
+            StreamWriter sw = new StreamWriter(strFilePath, false);
+            sw.Write("sep = \t");
+            sw.Write(sw.NewLine);
+            //First we will write the headers.
+            int iColCount = dtDataTablesList.Columns.Count;
+            for (int i = 1; i < iColCount; i++)
+            {
+                sw.Write(dtDataTablesList.Columns[i]);
+                if (i < iColCount - 1)
+                {
+                    sw.Write(" ");
+                    sw.Write("\t");
+                }
+            }
+            sw.Write(sw.NewLine);
+
+            // Now write all the rows.
+            foreach (DataRow dr in dtDataTablesList.Rows)
+            {
+                for (int i = 1; i < iColCount; i++)
+                {
+                    if (!Convert.IsDBNull(dr[i]))
+                    {
+                        sw.Write(dr[i].ToString());
+                    }
+                    if (i < iColCount - 1)
+                    {
+                        sw.Write(" ");
+                        sw.Write("\t");
+                    }
+                }
+                sw.Write(sw.NewLine);
+            }
+            sw.Close();
         }
     }
 }

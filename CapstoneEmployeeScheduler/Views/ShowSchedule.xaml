@@ -13,17 +13,19 @@
             <Grid Margin="0,0,0,0.4">
 
 
-                <Label x:Name="Title" Content="Company Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="193,87,0,0" Width="703" Height="101" FontWeight="Bold" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True" Foreground="White"/>
+                <Label x:Name="Title" Content="Company Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="209,82,0,0" Width="703" Height="101" FontWeight="Bold" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True" Foreground="White"/>
 
-                <ListView HorizontalAlignment="Left" Name="showTheSchedule" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="600">
+                <ListView HorizontalAlignment="Center" Name="showTheSchedule" Height="448" Margin="174,183,226,0" VerticalAlignment="Top" Width="600">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Employee Name" Width="200" DisplayMemberBinding= "{Binding Employee}"/>
                             <GridViewColumn Header="Shift" Width="200" DisplayMemberBinding= "{Binding Shift}"/>
                             <GridViewColumn Header="Role" Width="200" DisplayMemberBinding= "{Binding Role}"/>
+                            
                         </GridView>
                     </ListView.View>
                 </ListView>
+                <Button x:Name="PrintEButton" Content="Print Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="354,651,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="22" Click="PrintSButton_Click"/>
             </Grid>
         </Grid>
     </Grid>
