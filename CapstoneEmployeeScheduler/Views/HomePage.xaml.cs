@@ -35,14 +35,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            Schedule s = new Schedule();
-            UserController uc = new UserController();
-            List<User> users = new List<User>();
-            users = uc.getAllUsers();
-            makeSchedule a = new makeSchedule();
-            a.Generate(users);
-            */
+        
             ShowSchedule schedule = new ShowSchedule();
             schedule.Show();
         }

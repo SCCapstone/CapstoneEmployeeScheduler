@@ -35,13 +35,14 @@ namespace CapstoneEmployeeScheduler.Views
 
         public ShowSchedule()
         {
-            //InitializeComponent();
-            List<User> users = new List<User>();
-            UserController u = new UserController();
-            users = u.getAllUsers();
-            showTheSchedule.ItemsSource = users;
-
             
+            Schedule s = new Schedule();
+            UserController uc = new UserController();
+            List<User> users = new List<User>();
+            users = uc.getAllUsers();
+            makeSchedule a = new makeSchedule();
+            a.Generate(users);
+            showTheSchedule.ItemsSource = users;
         }
 
     }
