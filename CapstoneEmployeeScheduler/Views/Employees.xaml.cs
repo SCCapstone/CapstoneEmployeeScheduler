@@ -61,7 +61,7 @@ namespace CapstoneEmployeeScheduler.Views
         {
             //This method is called when the edit button is pressed on one of the employees
             
-            User u= (User) Users.SelectedItem;
+            User u = (User) Users.SelectedItem;
             int id = u.Id;
             //gets the id of the employee being edited and sends it to the modal
             editEmployeeModal em = new Views.editEmployeeModal(id);

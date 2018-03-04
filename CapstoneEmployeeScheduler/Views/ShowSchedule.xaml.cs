@@ -70,5 +70,16 @@ namespace CapstoneEmployeeScheduler.Views
             return dt;
 
         }
+
+        private void PrintSButton_Click(object sender, RoutedEventArgs e)
+        {
+            //method for printing table of employees
+            //TODO: once schedule is able to be displayed, move to schedule
+            System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
+            if (printDlg.ShowDialog() == true)
+            {
+                printDlg.PrintVisual(showTheSchedule, "List of Employees");
+            }
+        }
     }
 }
