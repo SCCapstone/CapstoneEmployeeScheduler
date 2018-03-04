@@ -44,5 +44,10 @@ namespace CapstoneEmployeeScheduler.Views
             ms.Generate(users);
             Content = new Views.ShowSchedule();
         }
+
+        private void ShowButton_Click(object sender, RoutedEventArgs e)
+        {
+            Content = new Views.ShowSchedule();
+        }
     }
 }
