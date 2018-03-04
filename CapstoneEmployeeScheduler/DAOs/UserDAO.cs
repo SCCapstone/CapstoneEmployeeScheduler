@@ -324,6 +324,7 @@ namespace CapstoneEmployeeScheduler.DAO
                     Console.WriteLine("No rows found.");
                 }
                 reader.Close();
+                connection.Close();
                 returnRoles.Add(role);
             }
             return returnRoles;
