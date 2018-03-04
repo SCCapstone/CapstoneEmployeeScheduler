@@ -30,14 +30,19 @@ namespace CapstoneEmployeeScheduler.Views
         public HomePage()
         {
             InitializeComponent();
-           
+            
+            
         }
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
-        
-            ShowSchedule schedule = new ShowSchedule();
-            schedule.Show();
+            Schedule s = new Schedule();
+            MakeSchedule ms = new MakeSchedule();
+            List<User> users = new List<User>();
+            UserController uc = new UserController();
+            users = uc.getAllUsers();
+            ms.Generate(users);
+            Content = new Views.ShowSchedule();
         }
     }
 }
