@@ -1,6 +1,7 @@
 # CapstoneEmployeeScheduler
 Windows Application to assign Employees and Roles in an efficient manner
-The release 0.0.1 will not work unless you change the App.xaml to your SQL Server Management Studio credential  as well as running the SettingUpInitialTables.sql and RoleDescription.sql files
+
+All features implemented for "Beta Release" milestone. To use the application: username = "admin" and password = "admin". There will be a short wait after you hit submit because the login gets all the users information from the database. There will also be a short delay when displaying the schedule and displaying the employees. If a schedule has already been created for the current day, the generate schedule button will fail. This is a known bug that we will fix in the next release.
 
 ## Testing
 ### Unit Tests
