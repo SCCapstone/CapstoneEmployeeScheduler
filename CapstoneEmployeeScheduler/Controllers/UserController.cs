@@ -45,6 +45,13 @@ namespace CapstoneEmployeeScheduler.Controllers
             return user;
         }
 
+        public List<User> getAllUsersWithoutRoles()
+        {
+            List<User> users = new List<User>();
+            users = userDAO.getAllUsers();
+            return users;
+        }
+
         public List<User> getAllUsers()
         {
             List<User> users = new List<User>();
