@@ -52,7 +52,7 @@ namespace CapstoneEmployeeScheduler.Views
             //method to show the table of users and emails since every method uses it
             UserController u = new UserController();
             List<User> items = new List<User>();
-            items = u.getAllUsers();
+            items = u.getAllUsersWithoutRoles();
             Users.ItemsSource = items;
         }
         

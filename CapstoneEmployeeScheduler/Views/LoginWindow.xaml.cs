@@ -84,7 +84,7 @@ namespace CapstoneEmployeeScheduler.Views
         public void login(string username, string password)
         {
             UserController uc = new UserController();
-            List<User> users = uc.getAllUsers();
+            List<User> users = uc.getAllUsersWithoutRoles();
             bool success = false;
             if (txtUsername.Text == "" || txtPassword.Password == "")
             {
