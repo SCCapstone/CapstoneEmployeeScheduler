@@ -31,17 +31,20 @@ namespace CapstoneEmployeeScheduler.DAO
 
             // Create and prepare an SQL statement.
             command.CommandText =
-                        "INSERT INTO Roles (RoleName, RoleDescription) " +
-                "VALUES (@rolename, @roledescription)";
+                        "INSERT INTO Roles (RoleName, RoleDescription, Count) " +
+                "VALUES (@rolename, @roledescription, @count)";
 
             SqlParameter roleNameParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
             SqlParameter roleDescriptionParam = new SqlParameter("@roledescription", SqlDbType.Text, 255);
+            SqlParameter countParam = new SqlParameter("@count", SqlDbType.Text, 255);
 
             roleNameParam.Value = role.RoleName;
             roleDescriptionParam.Value = role.RoleDescription;
+            countParam.Value = role.Count;
 
             command.Parameters.Add(roleNameParam);
             command.Parameters.Add(roleDescriptionParam);
+            command.Parameters.Add(countParam);
 
             // Call Prepare after setting the Commandtext and Parameters.
             command.Prepare();
