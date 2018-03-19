@@ -18,6 +18,8 @@ using CapstoneEmployeeScheduler.Controllers;
 using System.Data.SqlClient;
 using System.Data;
 using System.IO;
+using Microsoft.Win32;
+//using System.Windows.Forms;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -98,9 +100,25 @@ namespace CapstoneEmployeeScheduler.Views
             DataSet ds = new DataSet();
             adapter.Fill(ds, srcTable: "Users");
             DataTable data = ds.Tables[0];
-            string path = @"C:\Users\Public\Documents\Users.csv";
-            CreateCSVFile(data, path);
-            System.Windows.MessageBox.Show("CSV File created. Please check your C:\\Users\\Public\\Documents.", "Created!");
+
+            // Configure save file dialog box
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            string filename = "";
+            dlg.FileName = "Users"; // Default file name
+            dlg.DefaultExt = ".csv"; // Default file extension
+            dlg.Filter = "csv Files (.csv)|*.csv"; // Filter files by extension
+
+            // Show save file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process save file dialog box results
+            if (result == true)
+            {
+                // Save document
+                filename = dlg.FileName;
+            }
+            CreateCSVFile(data, filename);
+            System.Windows.MessageBox.Show("CSV File created!", "Created!");
         }
 
         void CreateCSVFile(DataTable dtDataTablesList, string strFilePath)
