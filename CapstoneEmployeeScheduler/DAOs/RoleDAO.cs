@@ -70,19 +70,22 @@ namespace CapstoneEmployeeScheduler.DAO
 
             // Create and prepare an SQL statement.
             command.CommandText =
-                "UPDATE Roles SET RoleName = @rolename, RoleDescription = @roledescription WHERE ID = @id";
+                "UPDATE Roles SET RoleName = @rolename, RoleDescription = @roledescription, Count = @count WHERE ID = @id";
 
             SqlParameter roleNameParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
             SqlParameter roleDescriptionParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
             SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 10);
+            SqlParameter countParam = new SqlParameter("@count", SqlDbType.Text, 255);
 
             roleNameParam.Value = role.RoleName;
             roleDescriptionParam.Value = role.RoleDescription;
             idParam.Value = role.Id;
+            countParam.Value = role.Count;
 
             command.Parameters.Add(roleNameParam);
             command.Parameters.Add(roleDescriptionParam);
             command.Parameters.Add(idParam);
+            command.Parameters.Add(countParam);
 
             // Call Prepare after setting the Commandtext and Parameters.
             command.Prepare();
