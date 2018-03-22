@@ -36,7 +36,7 @@ namespace CapstoneEmployeeScheduler.DAO
 
             SqlParameter roleNameParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
             SqlParameter roleDescriptionParam = new SqlParameter("@roledescription", SqlDbType.Text, 255);
-            SqlParameter countParam = new SqlParameter("@count", SqlDbType.Text, 255);
+            SqlParameter countParam = new SqlParameter("@count", SqlDbType.Int, 10);
 
             roleNameParam.Value = role.RoleName;
             roleDescriptionParam.Value = role.RoleDescription;
@@ -75,7 +75,7 @@ namespace CapstoneEmployeeScheduler.DAO
             SqlParameter roleNameParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
             SqlParameter roleDescriptionParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
             SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 10);
-            SqlParameter countParam = new SqlParameter("@count", SqlDbType.Text, 255);
+            SqlParameter countParam = new SqlParameter("@count", SqlDbType.Int, 10);
 
             roleNameParam.Value = role.RoleName;
             roleDescriptionParam.Value = role.RoleDescription;
@@ -130,6 +130,10 @@ namespace CapstoneEmployeeScheduler.DAO
                     if (!reader.IsDBNull(2))
                     {
                         role.RoleDescription = reader.GetString(2);
+                    }
+                    if (!reader.IsDBNull(3))
+                    {
+                        role.Count = reader.GetInt32(3);
                     }
                 }
             }
