@@ -36,6 +36,11 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
+            ScheduleController sc = new ScheduleController();
+            if (sc.getScheduleByDate(DateTime.Today) != null)
+            {
+                System.Windows.MessageBox.Show("There was already a schedule made today.");
+            }
             Schedule s = new Schedule();
             MakeSchedule ms = new MakeSchedule();
             List<User> users = new List<User>();
