@@ -319,6 +319,8 @@ namespace CapstoneEmployeeScheduler.DAO
                         {
                             role.RoleDescription = reader.GetString(2);
                         }
+                        if (!reader.IsDBNull(3))
+                            role.Count = reader.GetInt32(3);
                     }
                 }
                 else
