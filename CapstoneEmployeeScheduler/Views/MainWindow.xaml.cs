@@ -76,5 +76,70 @@ private void Employees_Click_1(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.ShowSchedule();
         }
+
+        private void NewEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.Employees();
+        }
+
+        private void NewRole_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.Roles();
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Generate_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.ShowSchedule();
+        }
+
+        private void ViewSchedule_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.PastSchedule();
+        }
+
+        private void NewRolesRole_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.Roles();
+        }
+
+        private void ViewRole_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.Roles();
+        }
+
+        private void NewEmployeesEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.Employees();
+        }
+
+        private void ViewEmployees_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.Employees();
+        }
+
+        private void ExportEmployees_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.Roles();
+        }
+
+        private void ExportRoles_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.Roles();
+        }
+
+        private void ExportSchedule_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.Roles();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

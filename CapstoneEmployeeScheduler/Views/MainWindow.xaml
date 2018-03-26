@@ -27,9 +27,36 @@
         <Button x:Name="Roles" Grid.ColumnSpan="2" Content="ROLES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="0,419,0,0" Height="65" Click="Button_Click_1" Background="#FFDDDDDD" BorderBrush="#FF888888" Foreground="Black" FontWeight="Bold" RenderTransformOrigin="0.476,0.473" FontSize="16"/>
         <!--<Button x:Name="Test" VerticalAlignment="Top" Width="135" Margin="0,284,284,0" Height="66" Click="TestingBackend_Click" Grid.Column="1" RenderTransformOrigin="-2.887,0.683" Background="#FFDDDDDD" BorderBrush="#FF888888" Foreground="Black" FontWeight="Bold"/>-->
         <Button x:Name="History" Grid.ColumnSpan="2" Content="HISTORY" HorizontalAlignment="Left" Margin="0,238,0,0" VerticalAlignment="Top" Width="135" Height="65" Click="History_Click_1" BorderBrush="#FF888888" Foreground="Black" Background="#FFDDDDDD" FontWeight="Bold" FontSize="16"/>
-        <Button x:Name="logout" Grid.ColumnSpan="3" Content="LOGOUT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="885,0,-0.4,0" Height="36" Click="logout_Click_1" BorderBrush="#FF888888" Background="#FFE01B1B" FontSize="18" FontWeight="Bold"/>
+        <Button x:Name="logout" Grid.ColumnSpan="3" Content="LOGOUT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="885,24,-0.4,0" Height="41" Click="logout_Click_1" BorderBrush="#FF888888" Background="#FFE01B1B" FontSize="18" FontWeight="Bold"/>
         <Button x:Name="home" Grid.ColumnSpan="2" Content="HOME" HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="135" Height="65" FontSize="16" FontWeight="Bold" Click="home_Click"/>
         <Button x:Name="schedule" Grid.ColumnSpan="2" Content="TODAY'S &#xD;&#xA;SCHEDULE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="0,507,0,0" Height="65" Click="schedule_Click" Background="#FFDDDDDD" BorderBrush="#FF888888" Foreground="Black" FontWeight="Bold" RenderTransformOrigin="0.476,0.473" FontSize="16"/>
+        <Menu Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0">
+            <MenuItem Header="File" Height="24" Width="28" Click="MenuItem_Click">
+                <MenuItem Header="_New">
+                    <MenuItem Header="Employee" Click="NewEmployee_Click"/>
+                    <MenuItem Header="Role" Click="NewRole_Click"/>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="_Logout" Click="Logout_Click"/>
+            </MenuItem>
+            <MenuItem Header="Schedules" Height="24" Width="65" RenderTransformOrigin="0.32,-2.067">
+                <MenuItem Header="_Generate" Click="Generate_Click"/>
+                <MenuItem Header="_View" Click="ViewSchedule_Click"/>
+            </MenuItem>
+            <MenuItem Header="Roles" Height="24" Width="41">
+                <MenuItem Header="_New" Click="NewRolesRole_Click"/>
+                <MenuItem Header="_View" Click="ViewRole_Click"/>
+            </MenuItem>
+            <MenuItem Header="Employees" Height="24" Width="70">
+                <MenuItem Header="_New" Click="NewEmployeesEmployee_Click"/>
+                <MenuItem Header="_View" Click="ViewEmployees_Click"/>
+            </MenuItem>
+            <MenuItem Header="Export" Height="24" Width="72">
+                <MenuItem Header="_Employees" Click="ExportEmployees_Click"/>
+                <MenuItem Header="_Roles" Click="ExportRoles_Click"/>
+                <MenuItem Header="_Schedule" Click="ExportSchedule_Click"/>
+            </MenuItem>
+        </Menu>
 
     </Grid>
 </Window>
