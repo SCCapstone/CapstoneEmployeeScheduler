@@ -34,6 +34,9 @@ namespace CapstoneEmployeeScheduler.Views
             Role role = new Role();
             role.RoleName = name.Text;
             role.RoleDescription = description.Text;
+            int x = 0;
+            Int32.TryParse(RoleCountBox.Text, out x);
+            role.RoleCount = x;
             r.createRole(role);
             this.Close();
         }
