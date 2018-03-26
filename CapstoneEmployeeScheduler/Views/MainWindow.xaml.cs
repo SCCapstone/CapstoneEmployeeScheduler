@@ -150,5 +150,10 @@ private void Employees_Click_1(object sender, RoutedEventArgs e)
             //    printDlg.PrintVisual(Users, "List of Employees");
             }
         }
+
+        private void PrintRoles_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
