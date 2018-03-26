@@ -11,6 +11,7 @@ namespace CapstoneEmployeeScheduler.Model
         private int id;
         private string roleName;
         private string roleDescription;
+        private int roleCount;
 
         public int Id
         {
@@ -48,6 +49,19 @@ namespace CapstoneEmployeeScheduler.Model
             set
             {
                 roleDescription = value;
+            }
+        }
+
+        public int RoleCount
+        {
+            get
+            {
+                return roleCount;
+            }
+            
+            set
+            {
+                roleCount = value;
             }
         }
     }

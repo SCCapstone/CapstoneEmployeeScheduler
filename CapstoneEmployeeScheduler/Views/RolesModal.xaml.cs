@@ -52,5 +52,19 @@ namespace CapstoneEmployeeScheduler.Views
         {
 
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void RoleCountBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(RoleCountBox.Text, "[^0-9]"))
+                {
+                MessageBox.Show("Please enter only numbers greater than zero.");
+                RoleCountBox.Text = RoleCountBox.Text.Remove(RoleCountBox.Text.Length - 1);
+            }
+        }
     }
 }
