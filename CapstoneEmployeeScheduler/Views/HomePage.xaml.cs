@@ -41,6 +41,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 System.Windows.MessageBox.Show("There was already a schedule made today.");
             }
+           
             Schedule s = new Schedule();
             MakeSchedule ms = new MakeSchedule();
             List<User> users = new List<User>();
