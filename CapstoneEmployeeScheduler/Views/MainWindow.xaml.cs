@@ -141,5 +141,14 @@ private void Employees_Click_1(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void PrintEmployees_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDlg = new PrintDialog();
+            if (printDlg.ShowDialog() == true)
+            {
+            //    printDlg.PrintVisual(Users, "List of Employees");
+            }
+        }
     }
 }

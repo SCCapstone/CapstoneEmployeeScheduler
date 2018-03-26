@@ -36,6 +36,10 @@
                     <MenuItem Header="Employee" Click="NewEmployee_Click"/>
                     <MenuItem Header="Role" Click="NewRole_Click"/>
                 </MenuItem>
+                <MenuItem Header="_Print">
+                    <MenuItem Header="Employees" Click="PrintEmployees_Click"/>
+                    <MenuItem Header="Roles" Click="PrintRoles_Click"/>
+                </MenuItem>
                 <Separator />
                 <MenuItem Header="_Logout" Click="Logout_Click"/>
             </MenuItem>
