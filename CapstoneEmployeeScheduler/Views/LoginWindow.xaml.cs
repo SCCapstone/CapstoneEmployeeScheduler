@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapstoneEmployeeScheduler.Controllers;
+using CapstoneEmployeeScheduler.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -81,6 +83,9 @@ namespace CapstoneEmployeeScheduler.Views
         }
         public void login(string username, string password)
         {
+            UserController uc = new UserController();
+            List<User> users = uc.getAllUsersWithoutRoles();
+            bool success = false;
             if (txtUsername.Text == "" || txtPassword.Password == "")
             {
                 MessageBox.Show("Please provide Username and Password");
@@ -95,11 +100,19 @@ namespace CapstoneEmployeeScheduler.Views
                 MainWindow m = new MainWindow();
                 m.Show();
                 this.Close();
-    
+                success = true;
             }
-
-            else
-                //nothing yet
+            foreach(User u in users)
+            {
+                if (u.Email.Equals(txtUsername.Text) && txtPassword.Password.Equals("Password"))
+                {
+                    MainWindow m = new MainWindow();
+                    m.Show();
+                    this.Close();
+                    success = true;
+                }
+            }
+            if(!success)
                 MessageBox.Show("Incorrect Credentials");
         }
     }

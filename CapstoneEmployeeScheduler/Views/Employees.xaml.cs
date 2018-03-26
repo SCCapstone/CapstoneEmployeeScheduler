@@ -15,6 +15,12 @@ using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.Views;
 using CapstoneEmployeeScheduler.Model;
 using CapstoneEmployeeScheduler.Controllers;
+using System.Data.SqlClient;
+using System.Data;
+using System.IO;
+using Microsoft.Win32;
+//using System.Windows.Forms;
+
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
@@ -45,10 +51,10 @@ namespace CapstoneEmployeeScheduler.Views
 
         public void ShowTable()
         {
-            //method to show the table of users and email.
+            //method to show the table of users and emails since every method uses it
             UserController u = new UserController();
             List<User> items = new List<User>();
-            items = u.getAllUsers();
+            items = u.getAllUsersWithoutRoles();
             Users.ItemsSource = items;
         }
         
@@ -56,15 +62,10 @@ namespace CapstoneEmployeeScheduler.Views
         private void edit_Click(object sender, RoutedEventArgs e)
         {
             //This method is called when the edit button is pressed on one of the employees
-            //need a way to autofill the text boxes and overwrite instead of doing nothing.
-            //var item = Users.Items.GetItemAt(Users.SelectedIndex);
-            //MessageBox.Show(item.ToString());
-
-            //string type = Users.SelectedItem.GetType().ToString();
-            //MessageBox.Show(type);
-
-            User u= (User) Users.SelectedItem;
+            
+            User u = (User) Users.SelectedItem;
             int id = u.Id;
+            //gets the id of the employee being edited and sends it to the modal
             editEmployeeModal em = new Views.editEmployeeModal(id);
             em.ShowDialog();
             ShowTable();
@@ -75,7 +76,7 @@ namespace CapstoneEmployeeScheduler.Views
             //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
             if (Users.SelectedIndex >= 0)
             {
-                
+                //dunno why this is here
             }
         }
 
@@ -90,6 +91,74 @@ namespace CapstoneEmployeeScheduler.Views
             }
         }
 
+        private void CSVEButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Employee Export
+            string connection = (string)System.Windows.Application.Current.FindResource("Connection");
+            string queryString = "SELECT * from Users;";
+            SqlDataAdapter adapter = new SqlDataAdapter(selectCommandText: queryString, selectConnectionString: connection);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, srcTable: "Users");
+            DataTable data = ds.Tables[0];
+
+            // Configure save file dialog box
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            string filename = "";
+            dlg.FileName = "Users"; // Default file name
+            dlg.DefaultExt = ".csv"; // Default file extension
+            dlg.Filter = "csv Files (.csv)|*.csv"; // Filter files by extension
+
+            // Show save file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process save file dialog box results
+            if (result == true)
+            {
+                // Save document
+                filename = dlg.FileName;
+            }
+            CreateCSVFile(data, filename);
+            System.Windows.MessageBox.Show("CSV File created!", "Created!");
+        }
+
+        void CreateCSVFile(DataTable dtDataTablesList, string strFilePath)
+        {
+            // Create the CSV file to which grid data will be exported.
+            StreamWriter sw = new StreamWriter(strFilePath, false);
+            sw.Write("sep = \t");
+            sw.Write(sw.NewLine);
+            //First we will write the headers.
+            int iColCount = dtDataTablesList.Columns.Count;
+            for (int i = 1; i < iColCount; i++)
+            {
+                sw.Write(dtDataTablesList.Columns[i]);
+                if (i < iColCount - 1)
+                {
+                    sw.Write(" ");
+                    sw.Write("\t");
+                }
+            }
+            sw.Write(sw.NewLine);
+
+            // Now write all the rows.
+            foreach (DataRow dr in dtDataTablesList.Rows)
+            {
+                for (int i = 1; i < iColCount; i++)
+                {
+                    if (!Convert.IsDBNull(dr[i]))
+                    {
+                        sw.Write(dr[i].ToString());
+                    }
+                    if (i < iColCount - 1)
+                    {
+                        sw.Write(" ");
+                        sw.Write("\t");
+                    }
+                }
+                sw.Write(sw.NewLine);
+            }
+            sw.Close();
+        }
     }
 
 

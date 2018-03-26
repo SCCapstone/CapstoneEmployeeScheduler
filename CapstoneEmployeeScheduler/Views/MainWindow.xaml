@@ -15,7 +15,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        
+
 
         <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Navigated="Main_Navigated" Margin="0,10,-0.4,-10.2" Padding="0" FontSize="16">
             <Frame.Background>
@@ -29,6 +29,7 @@
         <Button x:Name="History" Grid.ColumnSpan="2" Content="HISTORY" HorizontalAlignment="Left" Margin="0,238,0,0" VerticalAlignment="Top" Width="135" Height="65" Click="History_Click_1" BorderBrush="#FF888888" Foreground="Black" Background="#FFDDDDDD" FontWeight="Bold" FontSize="16"/>
         <Button x:Name="logout" Grid.ColumnSpan="3" Content="LOGOUT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="885,0,-0.4,0" Height="36" Click="logout_Click_1" BorderBrush="#FF888888" Background="#FFE01B1B" FontSize="18" FontWeight="Bold"/>
         <Button x:Name="home" Grid.ColumnSpan="2" Content="HOME" HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="135" Height="65" FontSize="16" FontWeight="Bold" Click="home_Click"/>
+        <Button x:Name="schedule" Grid.ColumnSpan="2" Content="TODAY'S &#xD;&#xA;SCHEDULE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="0,507,0,0" Height="65" Click="schedule_Click" Background="#FFDDDDDD" BorderBrush="#FF888888" Foreground="Black" FontWeight="Bold" RenderTransformOrigin="0.476,0.473" FontSize="16"/>
 
     </Grid>
 </Window>

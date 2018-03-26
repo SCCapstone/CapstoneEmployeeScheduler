@@ -14,13 +14,12 @@
             <ListView  Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged" Margin="193,205,0,1121" HorizontalAlignment="Left" Width="703">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Date and Time Created" Width="200" DisplayMemberBinding="{Binding ScheduleDate}"/>
-                        <GridViewColumn Header="ID" Width="200" DisplayMemberBinding="{Binding Id}"/>
-                        <GridViewColumn>
+                        <GridViewColumn Header="Date and Time Created" Width="200" DisplayMemberBinding="{Binding Date}"/>
+                        <GridViewColumn Header="View">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
-                                        <Button Content="View"
+                                        <Button Content="View" Name="View"
                                                 Click="view_Click"
                                  Command="{Binding
                                  Path=DataContext.RunCommand,
@@ -30,12 +29,9 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn/>
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button x:Name="CSVEButton" Content="EXPORT EMPLOYEES TO CSV" HorizontalAlignment="Left" Height="58" Margin="193,602,0,0" VerticalAlignment="Top" Width="703" FontWeight="Bold" Click="CSVEButton_Click" FontSize="24"/>
-            <Button x:Name="CSVRButton" Content="EXPORT ROLES TO CSV" HorizontalAlignment="Left" Height="58" Margin="193,502,0,0" VerticalAlignment="Top" Width="703" FontWeight="Bold" Click="CSVRButton_Click" FontSize="24"/>
         </Grid>
         <Grid Margin="0,0,0,0" Height="695" VerticalAlignment="Top"/>
     </Grid>

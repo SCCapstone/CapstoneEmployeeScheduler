@@ -30,20 +30,29 @@ namespace CapstoneEmployeeScheduler.Views
         public HomePage()
         {
             InitializeComponent();
-           
+            
+            
         }
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
+            ScheduleController sc = new ScheduleController();
+            if (sc.getScheduleByDate(DateTime.Today) != null)
+            {
+                System.Windows.MessageBox.Show("There was already a schedule made today.");
+            }
             Schedule s = new Schedule();
-            UserController uc = new UserController();
+            MakeSchedule ms = new MakeSchedule();
             List<User> users = new List<User>();
+            UserController uc = new UserController();
             users = uc.getAllUsers();
-            makeSchedule a = new makeSchedule();
-            a.Generate(users);
+            ms.Generate(users);
+            Content = new Views.ShowSchedule();
+        }
 
-            ShowSchedule schedule = new ShowSchedule();
-            schedule.Show();
+        private void ShowButton_Click(object sender, RoutedEventArgs e)
+        {
+            Content = new Views.ShowSchedule();
         }
     }
 }

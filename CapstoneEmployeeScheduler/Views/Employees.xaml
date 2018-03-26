@@ -14,8 +14,8 @@
 
 
                 <Label x:Name="Title" Content="Company Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="193,87,0,0" Width="703" Height="101" FontWeight="Bold" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True" Foreground="White"/>
-                <Button x:Name="NewEmployee" Content="NEW EMPLOYEE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="207" Margin="689,602,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="NewEmployee_Click"/>
-
+                <Button x:Name="NewEmployee" Content="NEW EMPLOYEE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="760,602,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="NewEmployee_Click"/>
+                <Button x:Name="CSVEButton" Content="EXPORT EMPLOYEES TO CSV" HorizontalAlignment="Left" Height="68" Margin="373,602,0,0" VerticalAlignment="Top" Width="350" FontWeight="Bold" Click="CSVEButton_Click" FontSize="24"/>
                 <ListView Margin="193,205,104,203.4" Name="Users" SelectionChanged="Users_SelectionChanged">
                     <ListView.View>
                         <GridView>
@@ -42,7 +42,7 @@
                     </ListView.View>
 
                 </ListView>
-                <Button x:Name="PrintEButton" Content="PRINT EMPLOYEES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="207" Margin="193,602,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="22" Click="PrintEButton_Click"/>
+                <Button x:Name="PrintEButton" Content="PRINT EMPLOYEES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="130,602,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="22" Click="PrintEButton_Click"/>
             </Grid>
         </Grid>
     </Grid>

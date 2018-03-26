@@ -164,6 +164,7 @@ namespace CapstoneEmployeeScheduler.DAO
                 Console.WriteLine("No rows found.");
             }
             reader.Close();
+            connection.Close();
             return user;
         }
 
@@ -226,6 +227,7 @@ namespace CapstoneEmployeeScheduler.DAO
                 Console.WriteLine("No rows found.");
             }
             reader.Close();
+            connection.Close();
             return users;
         }
 
@@ -317,6 +319,8 @@ namespace CapstoneEmployeeScheduler.DAO
                         {
                             role.RoleDescription = reader.GetString(2);
                         }
+                        if (!reader.IsDBNull(3))
+                            role.Count = reader.GetInt32(3);
                     }
                 }
                 else
@@ -324,6 +328,7 @@ namespace CapstoneEmployeeScheduler.DAO
                     Console.WriteLine("No rows found.");
                 }
                 reader.Close();
+                connection.Close();
                 returnRoles.Add(role);
             }
             return returnRoles;

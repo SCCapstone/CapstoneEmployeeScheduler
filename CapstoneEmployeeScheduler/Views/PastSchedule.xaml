@@ -1,0 +1,25 @@
+﻿<Window x:Class="CapstoneEmployeeScheduler.Views.PastSchedule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
+        mc:Ignorable="d"
+        Title="PastSchedule" Height="1000" Width="1000">
+
+            <Grid Margin="0,0,0,0.4">
+
+
+                <Label x:Name="Title" Content="Company Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="193,87,0,0" Width="703" Height="101" FontWeight="Bold" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True" Foreground="White"/>
+
+                <ListView HorizontalAlignment="Left" Name="showTheSchedule" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="600">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Employee Name" Width="200" DisplayMemberBinding= "{Binding Employee}"/>
+                            <GridViewColumn Header="Shift" Width="200" DisplayMemberBinding= "{Binding Shift}"/>
+                            <GridViewColumn Header="Role" Width="200" DisplayMemberBinding= "{Binding Role}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+</Window>
