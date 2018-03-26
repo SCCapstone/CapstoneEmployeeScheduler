@@ -13,8 +13,10 @@ namespace CapstoneEmployeeScheduler.Algorithm
     {
 
         User u = new User();
+        Role r = new Role();
         Schedule s = new Schedule();
         //UserController uc = new UserController();
+        RoleController rc = new RoleController();
         ScheduleController sc = new ScheduleController();
 
        
@@ -24,13 +26,24 @@ namespace CapstoneEmployeeScheduler.Algorithm
         {
 
             int roleid;
+            int count;
+            
             foreach (User u in users)
             {
                 if (u.Disabled == false)
                 {
-                    roleid = pickRole(u);
-                    addToSchedule(u, roleid);
-                    updateRole(u,roleid);
+                    Start: roleid = pickRole(u);
+                    count = checkCount(rc.getRoleById(roleid));//check to see if there are still spots open for that role
+                    if (count > 0)
+                    {
+                        count--;//take one spot away from the role
+                        addToSchedule(u, roleid);//add role/user pair to the schedule
+                        updateRole(u, roleid);//used for next day scheduling
+                    }
+                    else
+                    {
+                        goto Start;//hopefully find a better way to do this.
+                    }
                 }
             }
 
@@ -199,6 +212,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
                     return roleNums[array[val]];
                 }
             }
+            
             return roleNums[0];
         }
 
@@ -211,11 +225,16 @@ namespace CapstoneEmployeeScheduler.Algorithm
         {
             return s.UserRoles;
         }
-        private void updateRole(User user,int roleID)
+        private void updateRole(User user,int roleID)//add the current role and shift everything back one day
         {
             user.RoleThreeDaysAgo = user.RoleTwoDaysAgo;
             user.RoleTwoDaysAgo = user.RoleOneDayAgo;
             user.RoleOneDayAgo = roleID;
         }
+        public int checkCount(Role r)
+        {
+            return r.RoleCount;
+        }
     }
+    
 }
