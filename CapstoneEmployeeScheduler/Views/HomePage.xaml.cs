@@ -45,7 +45,7 @@ namespace CapstoneEmployeeScheduler.Views
             MakeSchedule ms = new MakeSchedule();
             List<User> users = new List<User>();
             UserController uc = new UserController();
-            users = uc.getAllUsers();
+            users = uc.getAllUsersWithRoleId();
             ms.Generate(users);
             Content = new Views.ShowSchedule();
         }

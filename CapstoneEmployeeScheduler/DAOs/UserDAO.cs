@@ -254,6 +254,41 @@ namespace CapstoneEmployeeScheduler.DAO
             command.ExecuteNonQuery();
         }
 
+        public List<Role> getRoleIdForUser(User user)
+        {
+            SqlConnection connection = new SqlConnection(con);
+            connection.Open();
+            SqlCommand command = new SqlCommand(null, connection);
+
+            // Create and prepare an SQL statement.
+            command.CommandText = "SELECT * FROM User_Roles WHERE User_ID = @userid";
+
+            SqlParameter userIDParam = new SqlParameter("@userid", SqlDbType.Int, 32);
+
+            userIDParam.Value = user.Id;
+
+            command.Parameters.Add(userIDParam);
+
+            List<Role> roles = new List<Role>();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Role role = new Role();
+                    role.Id = reader.GetInt32(1);//1 b/c user is at 0
+                    roles.Add(role);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No rows found.");
+            }
+            reader.Close();
+            return roles;
+        }
+
         public List<Role> getRolesForUser(User user)
         {
             SqlConnection connection = new SqlConnection(con);

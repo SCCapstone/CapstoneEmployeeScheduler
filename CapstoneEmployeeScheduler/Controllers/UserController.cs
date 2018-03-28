@@ -52,13 +52,24 @@ namespace CapstoneEmployeeScheduler.Controllers
             return users;
         }
 
-        public List<User> getAllUsers()
+        public List<User> getAllUsersWithEntireRole()
         {
             List<User> users = new List<User>();
             users = userDAO.getAllUsers();
             foreach(User user in users)
             {
                 user.Roles = getRolesForUser(user);
+            }
+            return users;
+        }
+
+        public List<User> getAllUsersWithRoleId()
+        {
+            List<User> users = new List<User>();
+            users = userDAO.getAllUsers();
+            foreach (User user in users)
+            {
+                user.Roles = getRoleIdForUser(user);
             }
             return users;
         }
@@ -71,6 +82,11 @@ namespace CapstoneEmployeeScheduler.Controllers
         private List<Role> getRolesForUser(User user)
         {
             return userDAO.getRolesForUser(user);
+        }
+
+        private List<Role> getRoleIdForUser(User user)
+        {
+            return userDAO.getRoleIdForUser(user);
         }
     }
 }
