@@ -34,6 +34,9 @@ namespace CapstoneEmployeeScheduler.Views
             Role role = new Role();
             role.RoleName = name.Text;
             role.RoleDescription = description.Text;
+            int x = 0;
+            Int32.TryParse(RoleCountBox.Text, out x);
+            role.RoleCount = x;
             r.createRole(role);
             this.Close();
         }
@@ -51,6 +54,20 @@ namespace CapstoneEmployeeScheduler.Views
         private void name_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void RoleCountBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(RoleCountBox.Text, "[^0-9]"))
+                {
+                MessageBox.Show("Please enter only numbers greater than zero.");
+                RoleCountBox.Text = RoleCountBox.Text.Remove(RoleCountBox.Text.Length - 1);
+            }
         }
     }
 }

@@ -10,14 +10,18 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" VerticalAlignment="Top" Width="377" Margin="150,47,0,0" FontSize="18" TextChanged="name_TextChanged"/>
-        <TextBox x:Name="description" HorizontalAlignment="Left" Height="84" TextWrapping="Wrap" VerticalAlignment="Top" Width="377" Margin="150,119,0,0" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" Margin="200,47,0,0" FontSize="18" TextChanged="name_TextChanged"/>
+        <TextBox x:Name="RoleCountBox" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Margin="200,95,0,0" FontSize="18" TextChanged="RoleCountBox_TextChanged"/>
+        <TextBox x:Name="description" HorizontalAlignment="Left" Height="67" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" Margin="200,147,0,0" TextChanged="TextBox_TextChanged"/>
         <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="416,240,0,0" Height="36" FontSize="15" Click="submit_Click" FontWeight="Bold"/>
         <Button x:Name="cancel" Content="CANCEL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="150,240,0,0" Height="35" FontSize="15" IsCancel="True" Click="cancel_Click" RenderTransformOrigin="0.427,1.191"/>
-        <Label Content="DESCRIPTION:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,119,0,0" FontSize="15" FontWeight="Bold" Foreground="White"/>
-        <Label Content="ROLE NAME:" HorizontalAlignment="Left" Margin="33,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15" Foreground="White"/>
+        <Label Content="DESCRIPTION:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="83,147,0,0" FontSize="15" FontWeight="Bold" Foreground="White"/>
+        <Label Content="ROLE NAME:" HorizontalAlignment="Left" Margin="96,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15" Foreground="White"/>
+        <Label Content="MAX PEOPLE PER ROLE:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,93,0,0" FontSize="15" FontWeight="Bold" Foreground="White" Height="49" Width="183"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="298,-100,0,0" VerticalAlignment="Top" Width="100"/>
         
-        
+
+
 
     </Grid>
 </Window>

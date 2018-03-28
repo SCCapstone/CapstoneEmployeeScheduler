@@ -40,7 +40,7 @@ namespace CapstoneEmployeeScheduler.DAO
 
             roleNameParam.Value = role.RoleName;
             roleDescriptionParam.Value = role.RoleDescription;
-            countParam.Value = role.Count;
+            countParam.Value = role.RoleCount;
 
             command.Parameters.Add(roleNameParam);
             command.Parameters.Add(roleDescriptionParam);
@@ -80,7 +80,7 @@ namespace CapstoneEmployeeScheduler.DAO
             roleNameParam.Value = role.RoleName;
             roleDescriptionParam.Value = role.RoleDescription;
             idParam.Value = role.Id;
-            countParam.Value = role.Count;
+            countParam.Value = role.RoleCount;
 
             command.Parameters.Add(roleNameParam);
             command.Parameters.Add(roleDescriptionParam);
@@ -133,7 +133,7 @@ namespace CapstoneEmployeeScheduler.DAO
                     }
                     if (!reader.IsDBNull(3))
                     {
-                        role.Count = reader.GetInt32(3);
+                        role.RoleCount = reader.GetInt32(3);
                     }
                 }
             }
@@ -178,7 +178,7 @@ namespace CapstoneEmployeeScheduler.DAO
                         role.RoleDescription = reader.GetString(2);
                     }
                     if (!reader.IsDBNull(3))
-                        role.Count = reader.GetInt32(3);
+                        role.RoleCount = reader.GetInt32(3);
                     roles.Add(role);
                 }
             }
