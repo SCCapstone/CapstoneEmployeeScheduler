@@ -59,6 +59,11 @@ namespace CapstoneEmployeeScheduler.DAO
             return user;
         }
 
+        public void deleteUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public User editUser(User user)
         {
             SqlConnection connection = new SqlConnection(con);

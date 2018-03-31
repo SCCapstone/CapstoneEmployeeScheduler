@@ -74,6 +74,11 @@ namespace CapstoneEmployeeScheduler.Controllers
             return users;
         }
 
+        public void deleteUser(User user)
+        {
+            userDAO.deleteUser(user);
+        }
+
         private void addRoleToUser(int userID, int roleID)
         {
             userDAO.addRoleToUser(userID, roleID);
