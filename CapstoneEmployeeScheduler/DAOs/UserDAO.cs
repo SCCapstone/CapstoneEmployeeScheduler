@@ -59,9 +59,38 @@ namespace CapstoneEmployeeScheduler.DAO
             return user;
         }
 
-        public void deleteUser(User user)
+        public void deleteUserById(int id)
         {
-            throw new NotImplementedException();
+            SqlConnection connection = new SqlConnection(con);
+            connection.Open();
+            SqlCommand command = new SqlCommand(null, connection);
+
+            // Create and prepare an SQL statement.
+            command.CommandText =
+                "DELETE FROM User_Roles WHERE User_ID = @id";
+
+            SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 20);
+            
+            idParam.Value = id;
+            
+            command.Parameters.Add(idParam);
+
+            // Call Prepare after setting the Commandtext and Parameters.
+            command.Prepare();
+            command.ExecuteNonQuery();
+
+            command.CommandText =
+                "DELETE FROM Users WHERE ID = @id";
+
+            idParam = new SqlParameter("@id", SqlDbType.Int, 20);
+
+            idParam.Value = id;
+
+            command.Parameters.Add(idParam);
+
+            // Call Prepare after setting the Commandtext and Parameters.
+            command.Prepare();
+            command.ExecuteNonQuery();
         }
 
         public User editUser(User user)
