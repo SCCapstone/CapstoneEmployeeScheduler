@@ -57,13 +57,13 @@ namespace CapstoneEmployeeScheduler.Views
             items = u.getAllUsersWithoutRoles();
             Users.ItemsSource = items;
         }
-        
+
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
             //This method is called when the edit button is pressed on one of the employees
-            
-            User u = (User) Users.SelectedItem;
+
+            User u = (User)Users.SelectedItem;
             int id = u.Id;
             //gets the id of the employee being edited and sends it to the modal
             editEmployeeModal em = new Views.editEmployeeModal(id);
@@ -83,12 +83,27 @@ namespace CapstoneEmployeeScheduler.Views
         private void PrintEButton_Click(object sender, RoutedEventArgs e)
         {
             //method for printing table of employees
-            //TODO: once schedule is able to be displayed, move to schedule
-            PrintDialog printDlg = new PrintDialog();
+
+            //New print method attempt didnt work
+            System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
+            FlowDocument fd = new FlowDocument();
+            foreach (object User in Users.Items)
+            {
+                fd.Blocks.Add(new Paragraph(new Run(User.ToString())));
+            }
+            fd.Name = "Employees";
+            IDocumentPaginatorSource idpSource = fd;
+            printDlg.PrintDocument(idpSource.DocumentPaginator, "List of Employees");
+            System.Windows.MessageBox.Show("CSV File created!", "Created!");
+
+            //THIS ONE WORKS THE OTHER DOES NOT
+            /*PrintDialog printDlg = new PrintDialog();
             if(printDlg.ShowDialog() == true)
             {
                 printDlg.PrintVisual(Users, "List of Employees");
-            }
+            }*/
+
+
         }
 
         private void CSVEButton_Click(object sender, RoutedEventArgs e)
