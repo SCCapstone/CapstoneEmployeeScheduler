@@ -87,14 +87,15 @@ namespace CapstoneEmployeeScheduler.Views
             //New print method attempt didnt work
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
             FlowDocument fd = new FlowDocument();
-            foreach (object User in Users.Items)
+            foreach (object item in Users.Items)
             {
-                fd.Blocks.Add(new Paragraph(new Run(User.ToString())));
+                fd.Blocks.Add(new Paragraph(new Run(item.ToString())));
             }
             fd.Name = "Employees";
             IDocumentPaginatorSource idpSource = fd;
+            printDlg.ShowDialog();
             printDlg.PrintDocument(idpSource.DocumentPaginator, "List of Employees");
-            System.Windows.MessageBox.Show("CSV File created!", "Created!");
+            System.Windows.MessageBox.Show("The Print method completed!");
 
             //THIS ONE WORKS THE OTHER DOES NOT
             /*PrintDialog printDlg = new PrintDialog();
