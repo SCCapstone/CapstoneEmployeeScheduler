@@ -42,6 +42,21 @@ namespace CapstoneEmployeeScheduler.Controllers
             roleDAO.editRole(role);
         }
 
+        public void deleteRole(int id)
+        {
+            RoleDAO roleDAO = null;
+            try
+            {
+                roleDAO = new RoleDAO();
+
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
+            roleDAO.deleteRole(id);
+        }
+
         public Role getRoleById(int id)
         {
             RoleDAO roleDAO = null;

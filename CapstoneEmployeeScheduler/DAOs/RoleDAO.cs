@@ -53,6 +53,39 @@ namespace CapstoneEmployeeScheduler.DAO
             return role;
         }
 
+        public void deleteRole(int id)
+        {
+            string con = (string)System.Windows.Application.Current.FindResource("Connection");
+            SqlConnection connection = new SqlConnection(con);
+            connection.Open();
+            SqlCommand command = new SqlCommand(null, connection);
+
+            // Create and prepare an SQL statement.
+            command.CommandText =
+                "DELETE FROM User_Roles WHERE Role_ID = @id";
+            
+            SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 20);
+
+            idParam.Value = id;
+            command.Parameters.Add(idParam);
+
+            // Call Prepare after setting the Commandtext and Parameters.
+            command.Prepare();
+            command.ExecuteNonQuery();
+
+            command.CommandText =
+                "DELETE FROM Roles WHERE ID = @id";
+
+            idParam = new SqlParameter("@id", SqlDbType.Int, 20);
+
+            idParam.Value = id;
+            command.Parameters.Add(idParam);
+
+            // Call Prepare after setting the Commandtext and Parameters.
+            command.Prepare();
+            command.ExecuteNonQuery();
+        }
+
         public Role editRole(Role role)
         {
             string con = null;
