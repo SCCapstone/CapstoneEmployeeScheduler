@@ -232,6 +232,8 @@
     <Resource Include="Images\employee.jpg" />
     <Resource Include="Images\role.jpg" />
     <Resource Include="Images\hammer.jpg" />
+    <Resource Include="Images\Addrole.jpg" />
+    <Resource Include="Images\plus.png" />
     <Content Include="RoleDescription.sql" />
     <Content Include="SettingUpInitialTables.sql" />
   </ItemGroup>
