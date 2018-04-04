@@ -225,6 +225,12 @@
     <Resource Include="Images\blue.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\schedule.jpg" />
+    <Resource Include="Images\home.jpg" />
+    <Resource Include="Images\history.png" />
+    <Resource Include="Images\employee.jpg" />
+    <Resource Include="Images\role.jpg" />
+    <Resource Include="Images\hammer.jpg" />
     <Content Include="RoleDescription.sql" />
     <Content Include="SettingUpInitialTables.sql" />
   </ItemGroup>
