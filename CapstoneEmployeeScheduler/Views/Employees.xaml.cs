@@ -87,7 +87,7 @@ namespace CapstoneEmployeeScheduler.Views
             //New print method attempt didnt work
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
             FlowDocument fd = new FlowDocument();
-            foreach (object item in Users.Items)
+            foreach (User item in Users.Items)
             {
                 fd.Blocks.Add(new Paragraph(new Run(item.ToString())));
             }

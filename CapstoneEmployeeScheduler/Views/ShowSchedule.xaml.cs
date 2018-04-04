@@ -62,12 +62,27 @@ namespace CapstoneEmployeeScheduler.Views
         private void PrintSButton_Click(object sender, RoutedEventArgs e)
         {
             //method for printing table of employees
-            //TODO: once schedule is able to be displayed, move to schedule
+            //New print method attempt didnt work
+            System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
+            FlowDocument fd = new FlowDocument();
+            foreach (object item in showTheSchedule.Items)
+            {
+                fd.Blocks.Add(new Paragraph(new Run(item.ToString())));
+            }
+            fd.Name = "Employees";
+            IDocumentPaginatorSource idpSource = fd;
+            printDlg.ShowDialog();
+            printDlg.PrintDocument(idpSource.DocumentPaginator, "Schedule");
+            System.Windows.MessageBox.Show("The Print method completed!");
+
+            //Old working printscreen print method
+            /*
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
             if (printDlg.ShowDialog() == true)
             {
                 printDlg.PrintVisual(showTheSchedule, "List of Employees");
             }
+            */
         }
     }
 }
