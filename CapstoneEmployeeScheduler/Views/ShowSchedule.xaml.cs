@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Forms;
-using CapstoneEmployeeScheduler.Model;
+using CapstoneEmployeeScheduler.Models;
 using CapstoneEmployeeScheduler.Controllers;
 using CapstoneEmployeeScheduler.Algorithm;
 using System.Data;

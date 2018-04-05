@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapstoneEmployeeScheduler.Model
+namespace CapstoneEmployeeScheduler.Models
 {
     class Role
     {

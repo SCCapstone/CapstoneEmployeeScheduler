@@ -1,4 +1,4 @@
-﻿using CapstoneEmployeeScheduler.Model;
+﻿using CapstoneEmployeeScheduler.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -134,7 +134,7 @@ namespace CapstoneEmployeeScheduler.DAO
             command.Prepare();
             command.ExecuteNonQuery();
 
-            return user;// = new Model.User();
+            return user;// = new Models.User();
         }
 
         public User getUserById(int id)
@@ -152,7 +152,7 @@ namespace CapstoneEmployeeScheduler.DAO
             
             command.Parameters.Add(idParam);
 
-            User user = new Model.User();
+            User user = new Models.User();
             SqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
@@ -219,7 +219,7 @@ namespace CapstoneEmployeeScheduler.DAO
                 //int counter = 0;
                 while (reader.Read())
                 {
-                    User user = new Model.User();
+                    User user = new Models.User();
                     user.Id = reader.GetInt32(0);
                     user.UserName = reader.GetString(1);
                     user.Email = reader.GetString(2);

@@ -1,4 +1,4 @@
-﻿using CapstoneEmployeeScheduler.Model;
+﻿using CapstoneEmployeeScheduler.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -67,7 +67,7 @@ namespace CapstoneEmployeeScheduler.DAOs
 
             command.Parameters.Add(scheduleDateParam);
 
-            Schedule schedule = new Model.Schedule();
+            Schedule schedule = new Models.Schedule();
             SqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
@@ -96,7 +96,7 @@ namespace CapstoneEmployeeScheduler.DAOs
             comm.CommandText =
                 "SELECT * FROM Schedule s WHERE " + daysPassed + "=(SELECT COUNT(DISTINCT ScheduleDate) FROM Schedule sc WHERE s.ScheduleDate<=sc.ScheduleDate)";
            
-            Schedule sched = new Model.Schedule();
+            Schedule sched = new Models.Schedule();
             SqlDataReader read = comm.ExecuteReader();
 
             if (read.HasRows)

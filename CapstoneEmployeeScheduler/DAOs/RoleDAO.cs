@@ -1,4 +1,4 @@
-﻿using CapstoneEmployeeScheduler.Model;
+﻿using CapstoneEmployeeScheduler.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -151,7 +151,7 @@ namespace CapstoneEmployeeScheduler.DAO
 
             command.Parameters.Add(idParam);
 
-            Role role = new Model.Role();
+            Role role = new Models.Role();
             SqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
@@ -203,7 +203,7 @@ namespace CapstoneEmployeeScheduler.DAO
             {
                 while (reader.Read())
                 {
-                    Role role = new Model.Role();
+                    Role role = new Models.Role();
                     role.Id = reader.GetInt32(0);
                     role.RoleName = reader.GetString(1);
                     if (!reader.IsDBNull(2))

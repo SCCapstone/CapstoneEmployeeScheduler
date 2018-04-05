@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.Controllers;
 using CapstoneEmployeeScheduler.DAO;
-using CapstoneEmployeeScheduler.Model;
+using CapstoneEmployeeScheduler.Models;
 
 namespace CapstoneEmployeeScheduler.Views
 {

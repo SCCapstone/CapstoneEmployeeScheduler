@@ -1,5 +1,5 @@
 ﻿using CapstoneEmployeeScheduler.DAO;
-using CapstoneEmployeeScheduler.Model;
+using CapstoneEmployeeScheduler.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

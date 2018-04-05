@@ -86,6 +86,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Algorithm\MakeSchedule.cs" />
+    <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
