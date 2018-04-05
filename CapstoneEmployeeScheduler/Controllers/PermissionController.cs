@@ -1,4 +1,5 @@
-﻿using CapstoneEmployeeScheduler.Models;
+﻿using CapstoneEmployeeScheduler.DAOs;
+using CapstoneEmployeeScheduler.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,11 @@ namespace CapstoneEmployeeScheduler.Controllers
 {
     class PermissionController
     {
+        PermissionDAO permDAO = new PermissionDAO();
+
         public void editPermissions(Permission perm)
         {
-
+            permDAO.editPermission(perm);
         }
     }
 }
