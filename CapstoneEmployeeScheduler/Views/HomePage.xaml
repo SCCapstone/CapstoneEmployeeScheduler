@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid Margin="-331,-132,-735,-342" HorizontalAlignment="Left" Width="1366" Height="774" VerticalAlignment="Top">
-            <Button x:Name="GenerateButton"  HorizontalAlignment="Left" Width="127" Margin="328,496,0,202" FontWeight="Bold" FontSize="32" Click="GenerateButton_Click" RenderTransformOrigin="0.5,0.505" Background="AliceBlue">
+            <Button x:Name="GenerateButton"  HorizontalAlignment="Left" Width="127" Margin="487,235,0,463" FontWeight="Bold" FontSize="32" Click="GenerateButton_Click" RenderTransformOrigin="0.5,0.505" Background="AliceBlue">
                 <StackPanel>
                     <Image Source ="/Images/hammer.jpg" Height="37" Width="75" ></Image>
                     <TextBlock FontWeight="Bold" FontSize="14" HorizontalAlignment="Center">Generate Schedule</TextBlock>
