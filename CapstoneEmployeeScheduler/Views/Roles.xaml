@@ -8,9 +8,9 @@
       Title="Roles" Height="797.916">
 
     <Grid Margin="0,0,0,0" Height="941" VerticalAlignment="Top">
-        <TextBlock HorizontalAlignment="Left" Height="50" Margin="570,10,0,0" TextWrapping="Wrap" Text=":Roles" VerticalAlignment="Top" Width="236" FontSize="24" FontWeight="Bold" FontStyle="Italic"/>
-        <Grid Margin="0,0,0,0" RenderTransformOrigin="0,0" Height="941" VerticalAlignment="Bottom">
-            <ListView Margin="124,55,0,344" x:Name="role" SelectionChanged="role_SelectionChanged" BorderBrush="Black">
+        <Grid Margin="570,10,194,881"/>
+        <Grid RenderTransformOrigin="0,0" Height="941" VerticalAlignment="Bottom">
+            <ListView Margin="124,55,0,322" x:Name="role" SelectionChanged="role_SelectionChanged" BorderBrush="Black">
                 <ListView.View>
 
                     <GridView>
@@ -20,7 +20,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button x:Name="NewRole"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="124,597,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="NewRole_Click">
+            <Button x:Name="NewRole"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="124,619,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="NewRole_Click">
                 <StackPanel>
                     <Image Source ="/Images/plus.png" Height="37" Width="75" />
                     <TextBlock FontWeight="Bold" FontSize="14" HorizontalAlignment="Center"><Run Text="Add Role"/></TextBlock>

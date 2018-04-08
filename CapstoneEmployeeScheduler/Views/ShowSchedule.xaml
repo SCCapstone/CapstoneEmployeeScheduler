@@ -12,16 +12,13 @@
         <Grid>
             <Grid Margin="0,0,0,0.4">
 
-
-                <Label x:Name="Title" Content="Company Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="209,82,0,0" Width="703" Height="101" FontWeight="Bold" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True" Foreground="White"/>
-
-                <ListView HorizontalAlignment="Center" Name="showTheSchedule" Height="448" Margin="174,183,226,0" VerticalAlignment="Top" Width="600">
+                <ListView HorizontalAlignment="Center" Name="showTheSchedule" Height="566" Margin="123,65,16,0" VerticalAlignment="Top" Width="861">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Employee Name" Width="200" DisplayMemberBinding= "{Binding Employee}"/>
                             <GridViewColumn Header="Shift" Width="200" DisplayMemberBinding= "{Binding Shift}"/>
                             <GridViewColumn Header="Role" Width="200" DisplayMemberBinding= "{Binding Role}"/>
-                            
+
                         </GridView>
                     </ListView.View>
                 </ListView>
