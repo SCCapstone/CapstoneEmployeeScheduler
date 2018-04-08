@@ -27,4 +27,12 @@ create table Schedule (
     User_ID int not null,
     Role_ID int not null,
     ScheduleDate date not null
-    );
+);
+
+create table Permission (
+	Employee_Page bit not null,
+	Role_Page bit not null,
+	History_Page bit not null,
+	Todays_Schedule bit not null,
+	Generate_Schedule bit not null
+);
