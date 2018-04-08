@@ -82,15 +82,28 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void PrintEButton_Click(object sender, RoutedEventArgs e)
         {
-            //method for printing table of employees
-
-            //New print method attempt didnt work
+            //Method for printing table of employees
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
             FlowDocument fd = new FlowDocument();
+            //Title of Page
+            Paragraph t = new Paragraph(new Run("Current Employees"));
+            t.FontSize = 36;
+            t.TextAlignment = TextAlignment.Center;
+            fd.Blocks.Add(t);
+
+            fd.ColumnWidth = printDlg.PrintableAreaWidth;
+            fd.ColumnGap = 10.0;
+
+            //Now add the users and emails
+            Paragraph u = new Paragraph();
             foreach (User item in Users.Items)
             {
-                fd.Blocks.Add(new Paragraph(new Run(item.ToString())));
+                //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
+                u = new Paragraph(new Run(item.userName + "\t\t" + item.email));
+                u.TextAlignment = TextAlignment.Left;
+                fd.Blocks.Add(u);
             }
+            
             fd.Name = "Employees";
             IDocumentPaginatorSource idpSource = fd;
             printDlg.ShowDialog();
