@@ -39,7 +39,7 @@ namespace CapstoneEmployeeScheduler.Views
             dt.Rows.Add(DateTime.Today.AddDays(-2));
             dt.Rows.Add(DateTime.Today.AddDays(-3));
             dt.Rows.Add(DateTime.Today.AddDays(-4));
-            dt.Rows.Add(DateTime.Today.AddDays(-5));
+            dt.Rows.Add(DateTime.Today.AddDays(-14));
 
             GeneratedSchedules.ItemsSource = dt.DefaultView;
             
