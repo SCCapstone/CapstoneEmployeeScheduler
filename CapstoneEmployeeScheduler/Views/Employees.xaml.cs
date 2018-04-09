@@ -93,13 +93,27 @@ namespace CapstoneEmployeeScheduler.Views
 
             fd.ColumnWidth = printDlg.PrintableAreaWidth;
             fd.ColumnGap = 10.0;
+            int padding = 40;
+
+            string name = "Name";
+            Paragraph l = new Paragraph(new Run(String.Format("{0}{1}", name.PadRight(padding), "Email")));
+            l.FontSize = 24;
+            l.TextAlignment = TextAlignment.Left;
+            fd.Blocks.Add(l);
 
             //Now add the users and emails
             Paragraph u = new Paragraph();
+            string username = " ";
+            string email = " ";
+            
             foreach (User item in Users.Items)
             {
                 //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
-                u = new Paragraph(new Run(item.userName + "\t\t" +  item.email));
+                username = item.userName;
+                email = item.email;
+                u = new Paragraph(new Run(String.Format("{0}{1}", username.PadRight(padding), email)));
+                //u = new Paragraph(new Run(String.Format("{0,-20}", username
+                // + "\t" + String.Format("{0,40}", email))));
                 u.TextAlignment = TextAlignment.Left;
                 fd.Blocks.Add(u);
             }

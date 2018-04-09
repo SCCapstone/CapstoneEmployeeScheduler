@@ -73,6 +73,13 @@ namespace CapstoneEmployeeScheduler.Views
             fd.ColumnWidth = printDlg.PrintableAreaWidth;
             fd.ColumnGap = 10.0;
 
+            int padding = 40;
+            string name = "Name";
+            string shift = "Shift";
+            Paragraph l = new Paragraph(new Run(String.Format("{0}{1}{2}", name.PadRight(padding), shift.PadRight(padding), "Role")));
+            l.FontSize = 24;
+            l.TextAlignment = TextAlignment.Left;
+            fd.Blocks.Add(l);
             //Now add the data from the Listview
             Paragraph u = new Paragraph();
             foreach (User item in showTheSchedule.Items)
