@@ -47,9 +47,20 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void view_Click(object sender, RoutedEventArgs e)
         {
-            //DateTime date = (DateTime)GeneratedSchedules.SelectedItem;
+    //        String dateTime = "";
+  //          if (GeneratedSchedules.SelectedItems.Count > 0)
+   //         {
+    //            foreach (DataRowView drv in GeneratedSchedules.SelectedItems)
+      //          {
+        //            dateTime = (drv.Row[0] != null) ? drv.Row[0].ToString() : String.Empty;
+          //      }
+            //}
+            DataRowView drv = GeneratedSchedules.Items.GetItemAt(GeneratedSchedules.SelectedIndex) as DataRowView;
+            DateTime date = Convert.ToDateTime(drv["Date"]);
+            //Nullable<DateTime> date = null;
+            //DateTime.TryParse(dateTime, out date);
             ScheduleController sc = new ScheduleController();
-            Schedule s = sc.getScheduleByDate(DateTime.Today);//date);
+            Schedule s = sc.getScheduleByDate(date);//date);
             if (s == null)
             {
                 System.Windows.MessageBox.Show("No Schedule Generated Yesterday", "Error");
