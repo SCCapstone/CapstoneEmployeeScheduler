@@ -96,8 +96,8 @@
     <Compile Include="DAOs\UserDAO.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\Schedule.cs" />
-    <Compile Include="Views\Admin.xaml.cs">
-      <DependentUpon>Admin.xaml</DependentUpon>
+    <Compile Include="Views\admin.xaml.cs">
+      <DependentUpon>admin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\editEmployeeModal.xaml.cs">
       <DependentUpon>editEmployeeModal.xaml</DependentUpon>
@@ -135,7 +135,7 @@
     <Compile Include="Views\TestingBackend.xaml.cs">
       <DependentUpon>TestingBackend.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\Admin.xaml">
+    <Page Include="Views\admin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
