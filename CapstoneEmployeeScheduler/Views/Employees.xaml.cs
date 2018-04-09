@@ -99,7 +99,7 @@ namespace CapstoneEmployeeScheduler.Views
             foreach (User item in Users.Items)
             {
                 //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
-                u = new Paragraph(new Run(item.userName + "\t\t" + item.email));
+                u = new Paragraph(new Run(item.userName + "\t\t" +  item.email));
                 u.TextAlignment = TextAlignment.Left;
                 fd.Blocks.Add(u);
             }
@@ -109,13 +109,6 @@ namespace CapstoneEmployeeScheduler.Views
             printDlg.ShowDialog();
             printDlg.PrintDocument(idpSource.DocumentPaginator, "List of Employees");
             System.Windows.MessageBox.Show("The Print method completed!");
-
-            //THIS ONE WORKS THE OTHER DOES NOT
-            /*PrintDialog printDlg = new PrintDialog();
-            if(printDlg.ShowDialog() == true)
-            {
-                printDlg.PrintVisual(Users, "List of Employees");
-            }*/
 
 
         }
