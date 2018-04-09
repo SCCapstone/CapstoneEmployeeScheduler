@@ -63,7 +63,7 @@ namespace CapstoneEmployeeScheduler.Views
             Schedule s = sc.getScheduleByDate(date);//date);
             if (s == null)
             {
-                System.Windows.MessageBox.Show("No Schedule Generated Yesterday", "Error");
+                System.Windows.MessageBox.Show("No Schedule Generated", "Error");
             }
             PastSchedule p = new Views.PastSchedule();
             p.ShowDialog();
