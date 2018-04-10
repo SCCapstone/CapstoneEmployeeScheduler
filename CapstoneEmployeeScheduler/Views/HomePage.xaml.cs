@@ -42,7 +42,8 @@ namespace CapstoneEmployeeScheduler.Views
             //Currently only runs for 10 seconds then quits
             //We can set it to quit once the schedule is generated
             ProgressIndicator.IsBusy = true;
-            ProgressIndicator.BusyContent = string.Format("generating schedule...");
+            ProgressIndicator.BusyContent = string.Format("Generating Schedule...");
+            //System.Windows.MessageBox.Show("Starting schedule building process");
 
             /*
             Task.Factory.StartNew(() =>
@@ -63,13 +64,16 @@ namespace CapstoneEmployeeScheduler.Views
             );*/
 
 
-            
+
             ScheduleController sc = new ScheduleController();
             if (sc.getScheduleByDate(DateTime.Today).Id != null)
             {
                 System.Windows.MessageBox.Show("There was already a schedule made today.");
+                ProgressIndicator.IsBusy = false;
+                return;
             }
-           
+
+            
             Schedule s = new Schedule();
             MakeSchedule ms = new MakeSchedule();
             List<User> users = new List<User>();
@@ -77,6 +81,9 @@ namespace CapstoneEmployeeScheduler.Views
             users = uc.getAllUsersWithRoleId();
             ms.Generate(users);
             ProgressIndicator.IsBusy = false;
+            System.Windows.MessageBox.Show("Loading screen should be done and schedule should appear");
+            //Thread.Sleep(1000);
+            
             Content = new Views.ShowSchedule();
             
         }
