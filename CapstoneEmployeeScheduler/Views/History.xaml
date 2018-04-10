@@ -9,8 +9,8 @@
       Title="History">
 
     <Grid Margin="0,0,0,0">
-        <Grid Margin="0,0,0,0" HorizontalAlignment="Left" Width="1873" Height="1569" VerticalAlignment="Top">
-            <ListView  Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged" Margin="124,55,0,869" HorizontalAlignment="Left" Width="859" BorderBrush="Black">
+        <Grid Margin="12,0,-764.2,-875.4" HorizontalAlignment="Left" Width="1873" Height="1569" VerticalAlignment="Top">
+            <ListView  Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged" Margin="136,55,0,869" HorizontalAlignment="Left" Width="859" BorderBrush="Black">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Date and Time Created" Width="200" DisplayMemberBinding="{Binding Date}"/>
@@ -20,10 +20,12 @@
                                     <StackPanel>
                                         <Button Content="View" Name="View"
                                                 Click="view_Click"
-                                 Command="{Binding
-                                 Path=DataContext.RunCommand,
-                                 RelativeSource={RelativeSource FindAncestor, 
-                                 AncestorType= {x:Type ItemsControl}}}"/>
+                                                Command="{Binding
+                                                Path=DataContext.RunCommand,
+                                                RelativeSource=
+                                                {RelativeSource FindAncestor, 
+                                                AncestorType= {x:Type ItemsControl}}}"
+                                                IsEnabled="{Binding ElementName=GeneratedSchedules, Path=SelectedItems.Count}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
