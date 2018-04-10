@@ -16,5 +16,10 @@ namespace CapstoneEmployeeScheduler.Controllers
         {
             permDAO.editPermission(perm);
         }
+
+        public Permission getPermissions()
+        {
+            return permDAO.getPermission();
+        }
     }
 }
