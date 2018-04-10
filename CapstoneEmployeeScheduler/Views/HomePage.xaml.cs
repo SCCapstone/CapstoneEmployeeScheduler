@@ -19,6 +19,8 @@ using System.Data.SqlClient;
 using CapstoneEmployeeScheduler.Models;
 using CapstoneEmployeeScheduler.Controllers;
 using CapstoneEmployeeScheduler.Algorithm;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -36,6 +38,29 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
+            //Progress Indicator
+            //Currently only runs for 10 seconds then quits
+            //We can set it to quit once the schedule is generated
+            ProgressIndicator.IsBusy = true;
+            Task.Factory.StartNew(() =>
+                {
+                    for(int i=0; i<10; i++)
+                    {
+                        Dispatcher.Invoke(DispatcherPriority.Normal, new Action(() =>
+                        {
+                            ProgressIndicator.BusyContent = string.Format("Processing step {0}...", i+1);
+                        }));
+                        Thread.Sleep(1000);
+                    }
+                }
+            ).ContinueWith((task) =>
+                {
+                    ProgressIndicator.IsBusy = false;
+                }, TaskScheduler.FromCurrentSynchronizationContext()
+            );
+
+
+
             ScheduleController sc = new ScheduleController();
             if (sc.getScheduleByDate(DateTime.Today).Id != null)
             {
