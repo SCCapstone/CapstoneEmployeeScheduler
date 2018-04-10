@@ -155,5 +155,10 @@ private void Employees_Click_1(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void Admin_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Views.admin();
+        }
     }
 }

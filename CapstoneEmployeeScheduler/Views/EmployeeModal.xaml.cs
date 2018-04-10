@@ -25,9 +25,9 @@ namespace CapstoneEmployeeScheduler.Views
         public EmployeeModal()
         {
             InitializeComponent();
-            RoleController r = new RoleController();
+            RoleController rc = new RoleController();
             List<Role> items = new List<Role>();
-            items = r.getAllRoles();
+            items = rc.getAllRoles();
             roleList.ItemsSource = items;
             
         }

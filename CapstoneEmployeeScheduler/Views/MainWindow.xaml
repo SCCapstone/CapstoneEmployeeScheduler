@@ -91,6 +91,12 @@
         <Rectangle Grid.ColumnSpan="2" Fill="#FFA2A9EC" HorizontalAlignment="Left" Height="346" Margin="0,375,0,0"  VerticalAlignment="Top" Width="124" />
         <Rectangle Grid.ColumnSpan="2" Fill="#FFA2A9EC" HorizontalAlignment="Left" Height="41" Margin="124,24,0,0" VerticalAlignment="Top" Width="761"/>
         <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="36" Margin="129,29,0,0" TextWrapping="Wrap" Text="Capstone Employee Scheduler" FontSize="20" FontStyle="Italic" FontWeight="Bold"  VerticalAlignment="Top" Width="649"/>
+        <Button x:Name="admin" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="0,375,0,0" Height="65" Click="Admin_Click" Background="#FFA2A9EC" BorderBrush="#FFA2A9EC" Foreground="Black" FontWeight="Bold" RenderTransformOrigin="0.476,0.473" FontSize="16">
+            <StackPanel>
+                <Image Source ="/CapstoneEmployeeScheduler;component/Images/admin_icon.png" Height="37" Width="75" />
+                <TextBlock FontWeight="Bold" FontSize="14" HorizontalAlignment="Center"><Run Text="Admin"/></TextBlock>
+            </StackPanel>
+        </Button>
 
     </Grid>
 </Window>

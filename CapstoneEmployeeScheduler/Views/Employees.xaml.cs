@@ -82,27 +82,47 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void PrintEButton_Click(object sender, RoutedEventArgs e)
         {
-            //method for printing table of employees
-
-            //New print method attempt didnt work
+            //Method for printing table of employees
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
             FlowDocument fd = new FlowDocument();
+            //Title of Page
+            Paragraph t = new Paragraph(new Run("Current Employees"));
+            t.FontSize = 36;
+            t.TextAlignment = TextAlignment.Center;
+            fd.Blocks.Add(t);
+
+            fd.ColumnWidth = printDlg.PrintableAreaWidth;
+            fd.ColumnGap = 10.0;
+            int padding = 40;
+
+            string name = "Name";
+            Paragraph l = new Paragraph(new Run(String.Format("{0}{1}", name.PadRight(padding), "Email")));
+            l.FontSize = 24;
+            l.TextAlignment = TextAlignment.Left;
+            fd.Blocks.Add(l);
+
+            //Now add the users and emails
+            Paragraph u = new Paragraph();
+            string username = " ";
+            string email = " ";
+            
             foreach (User item in Users.Items)
             {
-                fd.Blocks.Add(new Paragraph(new Run(item.ToString())));
+                //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
+                username = item.userName;
+                email = item.email;
+                u = new Paragraph(new Run(String.Format("{0}{1}", username.PadRight(padding), email)));
+                //u = new Paragraph(new Run(String.Format("{0,-20}", username
+                // + "\t" + String.Format("{0,40}", email))));
+                u.TextAlignment = TextAlignment.Left;
+                fd.Blocks.Add(u);
             }
+            
             fd.Name = "Employees";
             IDocumentPaginatorSource idpSource = fd;
             printDlg.ShowDialog();
             printDlg.PrintDocument(idpSource.DocumentPaginator, "List of Employees");
             System.Windows.MessageBox.Show("The Print method completed!");
-
-            //THIS ONE WORKS THE OTHER DOES NOT
-            /*PrintDialog printDlg = new PrintDialog();
-            if(printDlg.ShowDialog() == true)
-            {
-                printDlg.PrintVisual(Users, "List of Employees");
-            }*/
 
 
         }
