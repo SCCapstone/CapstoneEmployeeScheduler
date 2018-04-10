@@ -44,5 +44,37 @@ namespace CapstoneEmployeeScheduler.DAOs
             command.Prepare();
             command.ExecuteNonQuery();
         }
+
+        public Permission getPermission()
+        {
+            SqlConnection connection = new SqlConnection(con);
+            connection.Open();
+            SqlCommand command = new SqlCommand(null, connection);
+
+            command.CommandText =
+                "SELECT * FROM Permission";
+
+            Permission perm = new Permission();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    perm.EmployeePage = reader.GetBoolean(0);
+                    perm.RolePage = reader.GetBoolean(1);
+                    perm.HistoryPage = reader.GetBoolean(2);
+                    perm.TodaysSchedule = reader.GetBoolean(3);
+                    perm.GenerateSchedule = reader.GetBoolean(4);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No rows found.");
+            }
+            reader.Close();
+            connection.Close();
+            return perm;
+        }
     }
 }
