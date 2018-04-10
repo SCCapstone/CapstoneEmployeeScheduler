@@ -42,13 +42,16 @@ namespace CapstoneEmployeeScheduler.Views
             //Currently only runs for 10 seconds then quits
             //We can set it to quit once the schedule is generated
             ProgressIndicator.IsBusy = true;
+            ProgressIndicator.BusyContent = string.Format("generating schedule...");
+
+            /*
             Task.Factory.StartNew(() =>
                 {
                     for(int i=0; i<10; i++)
                     {
                         Dispatcher.Invoke(DispatcherPriority.Normal, new Action(() =>
                         {
-                            ProgressIndicator.BusyContent = string.Format("Processing step {0}...", i+1);
+                            ProgressIndicator.BusyContent = string.Format("generating schedule");
                         }));
                         Thread.Sleep(1000);
                     }
@@ -57,10 +60,10 @@ namespace CapstoneEmployeeScheduler.Views
                 {
                     ProgressIndicator.IsBusy = false;
                 }, TaskScheduler.FromCurrentSynchronizationContext()
-            );
+            );*/
 
 
-
+            
             ScheduleController sc = new ScheduleController();
             if (sc.getScheduleByDate(DateTime.Today).Id != null)
             {
@@ -73,7 +76,9 @@ namespace CapstoneEmployeeScheduler.Views
             UserController uc = new UserController();
             users = uc.getAllUsersWithRoleId();
             ms.Generate(users);
+            ProgressIndicator.IsBusy = false;
             Content = new Views.ShowSchedule();
+            
         }
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)
