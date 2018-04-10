@@ -55,5 +55,11 @@ namespace CapstoneEmployeeScheduler.Views
         {
             Content = new Views.ShowSchedule();
         }
+
+        private void test_Click(object sender, RoutedEventArgs e)
+        {
+            preGeneration x = new Views.preGeneration();
+            x.Show();
+        }
     }
 }

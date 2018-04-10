@@ -96,6 +96,9 @@
     <Compile Include="DAOs\UserDAO.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Views\preGeneration.xaml.cs">
+      <DependentUpon>preGeneration.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\admin.xaml.cs">
       <DependentUpon>admin.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
     <Compile Include="Views\TestingBackend.xaml.cs">
       <DependentUpon>TestingBackend.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\preGeneration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\admin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
