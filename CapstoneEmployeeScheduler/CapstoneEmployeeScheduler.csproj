@@ -236,6 +236,8 @@
     <Resource Include="Images\hammer.jpg" />
     <Resource Include="Images\Addrole.jpg" />
     <Resource Include="Images\plus.png" />
+    <Resource Include="Images\forum_administrator-512.png" />
+    <Resource Include="Images\admin_icon.png" />
     <Content Include="RoleDescription.sql" />
     <Content Include="SettingUpInitialTables.sql" />
   </ItemGroup>
