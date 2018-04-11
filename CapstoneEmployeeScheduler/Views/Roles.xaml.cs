@@ -40,7 +40,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         public void ShowTable()
         {
-            //method to show the table of users and emails since every method uses it
+            //method to show the table of roles and stuff since every method uses it
             RoleController r = new RoleController();
             List<Role> item = new List<Role>();
             item = r.getAllRoles();
@@ -84,9 +84,9 @@ namespace CapstoneEmployeeScheduler.Views
             Role r = (Role)role.SelectedItem;
             int id = r.Id;
             //gets the id of the role being edited and sends it to the modal
-            //editEmployeeModal em = new Views.editEmployeeModal(id);
-            //em.ShowDialog();
-            System.Windows.MessageBox.Show("Display Role Modal");
+            EditRoleModal rm = new Views.EditRoleModal(id);
+            rm.ShowDialog();
+            //System.Windows.MessageBox.Show("Display Role Modal");
             ShowTable();
         }
 
