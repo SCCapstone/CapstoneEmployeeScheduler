@@ -13,7 +13,7 @@
             <Grid Margin="0,0,0,0.4">
                 <Button x:Name="NewEmployee" Content="NEW EMPLOYEE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="202" Margin="756,649,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="50" FontSize="24" Click="NewEmployee_Click"/>
                 <Button x:Name="CSVEButton" Content="EXPORT EMPLOYEES TO CSV" HorizontalAlignment="Left" Height="50" Margin="388,648,0,0" VerticalAlignment="Top" Width="336" FontWeight="Bold" Click="CSVEButton_Click" FontSize="24"/>
-                <ListView Margin="131,65,26,181.6" Name="Users" SelectionChanged="Users_SelectionChanged" BorderBrush="Black">
+                <ListView Margin="124,65,26,181.6" Name="Users" SelectionChanged="Users_SelectionChanged" BorderBrush="Black">
                     <ListView.View>
                         <GridView>
                             <!--<GridViewColumn Header="UserID" Width="200" DisplayMemberBinding="{Binding Id}" />-->

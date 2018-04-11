@@ -84,6 +84,7 @@ namespace CapstoneEmployeeScheduler.Views
                 int userID = u.Id;
                 uc.deleteUserById(userID);
                 System.Windows.MessageBox.Show("User has been deleted.");
+                ShowTable();
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -95,7 +96,7 @@ namespace CapstoneEmployeeScheduler.Views
         private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
-            if (Users.SelectedIndex > 0)
+            if (Users.SelectedIndex >= 0)
             {
                 DeleteButton.Visibility = Visibility.Visible;
                 DeleteButton.IsEnabled = true;
