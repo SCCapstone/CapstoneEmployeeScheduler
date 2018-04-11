@@ -11,9 +11,9 @@
 
         <Grid>
             <Grid Margin="0,0,0,0.4">
-                <Button x:Name="NewEmployee" Content="NEW EMPLOYEE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="701,659,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="NewEmployee_Click"/>
-                <Button x:Name="CSVEButton" Content="EXPORT EMPLOYEES TO CSV" HorizontalAlignment="Left" Height="68" Margin="346,659,0,0" VerticalAlignment="Top" Width="350" FontWeight="Bold" Click="CSVEButton_Click" FontSize="24"/>
-                <ListView Margin="140,65,-16,95" Name="Users" SelectionChanged="Users_SelectionChanged" BorderBrush="Black">
+                <Button x:Name="NewEmployee" Content="NEW EMPLOYEE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="202" Margin="756,649,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="50" FontSize="24" Click="NewEmployee_Click"/>
+                <Button x:Name="CSVEButton" Content="EXPORT EMPLOYEES TO CSV" HorizontalAlignment="Left" Height="50" Margin="388,648,0,0" VerticalAlignment="Top" Width="336" FontWeight="Bold" Click="CSVEButton_Click" FontSize="24"/>
+                <ListView Margin="131,65,26,181.6" Name="Users" SelectionChanged="Users_SelectionChanged" BorderBrush="Black">
                     <ListView.View>
                         <GridView>
                             <!--<GridViewColumn Header="UserID" Width="200" DisplayMemberBinding="{Binding Id}" />-->
@@ -22,16 +22,19 @@
                             <GridViewColumn>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <StackPanel Margin="6,2,6,2">
-                                            <Button Name="EditButton" Content="Edit"
+                                        <!--<StackPanel Margin="6,2,6,2">
+                                            -->
+                                        <!--<Button Name="EditButton" Content="Edit"
                                                     Click="edit_Click"
                                                     Command="{Binding 
                                                     Path=DataContext.RunCommand,
                                                     RelativeSource=
                                                     {RelativeSource FindAncestor, 
                                                     AncestorType={x:Type ItemsControl}}}"
-                                                    IsEnabled="{Binding ElementName=Users, Path=SelectedItems.Count}"/>
-                                        </StackPanel>
+                                                    IsEnabled="{Binding ElementName=Users, Path=SelectedItems.Count}"/>-->
+                                        <!--
+                                        </StackPanel>-->
+
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -39,9 +42,12 @@
                     </ListView.View>
 
                 </ListView>
-                <Button x:Name="PrintEButton" Content="PRINT EMPLOYEES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="120,659,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="22" Click="PrintEButton_Click"/>
+                <Button x:Name="PrintEButton" Content="PRINT EMPLOYEES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="209" Margin="143,649,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="50" FontSize="22" Click="PrintEButton_Click"/>
+                <Button x:Name="EditButton" Content="EDIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="412,568,0,0" Height="50" IsEnabled="False" FontSize="20" Click="edit_Click" FontWeight="Bold" Visibility="Hidden"/>
+                <Button x:Name="DeleteButton" Content="DELETE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="584,568,0,0" Height="50" IsEnabled="False" FontSize="20" Click="DeleteButton_Click" FontWeight="Bold" Visibility="Hidden"/>
             </Grid>
         </Grid>
+
     </Grid>
 
 </Page>

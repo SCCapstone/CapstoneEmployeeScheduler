@@ -19,6 +19,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.IO;
 using Microsoft.Win32;
+using System.Windows.Forms;
 //using System.Windows.Forms;
 
 namespace CapstoneEmployeeScheduler.Views
@@ -71,12 +72,36 @@ namespace CapstoneEmployeeScheduler.Views
             ShowTable();
         }
 
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            //method to delete user from the database
+            UserController uc = new UserController();
+            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete this user? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                User u = (User)Users.SelectedItem;
+                int userID = u.Id;
+                uc.deleteUserById(userID);
+                System.Windows.MessageBox.Show("User has been deleted.");
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+            
+        }
+
         private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
-            if (Users.SelectedIndex >= 0)
+            if (Users.SelectedIndex > 0)
             {
-                //dunno why this is here
+                DeleteButton.Visibility = Visibility.Visible;
+                DeleteButton.IsEnabled = true;
+                EditButton.Visibility = Visibility.Visible;
+                EditButton.IsEnabled = true;
+
             }
         }
 
@@ -195,6 +220,7 @@ namespace CapstoneEmployeeScheduler.Views
             }
             sw.Close();
         }
+
     }
 
 
