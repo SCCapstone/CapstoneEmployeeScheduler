@@ -8,18 +8,17 @@
         Title="Role Selection" Height="400" Width="600">
     
     <Grid>
-        <ListView Margin="50,50,50,100" x:Name="role"  SelectionChanged="role_SelectionChanged" BorderBrush="Black">
+        <ListView Margin="50,50,50,100" x:Name="Role"  SelectionChanged="role_SelectionChanged" BorderBrush="Black">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="200" DisplayMemberBinding= "{Binding RoleName}"/>
-                    <GridViewColumn Header="Number required" Width="150">
+                    <GridViewColumn x:Name="rolecount" Header="Number required" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Margin="6,2,6,2">
-                                    <TextBox Name="RoleCount" Width="25" SelectionChanged="RoleCount_SelectionChanged" 
-                                         
-                                         IsEnabled="{Binding ElementName=Users, Path=SelectedItems.Count}"/>
-                                         
+                                    <TextBox x:Name="count" Text = "{Binding RoleCount, Mode=TwoWay}"  Width="25" TextChanged="Count_TextChanged" MaxLength="32" 
+                                             PreviewTextInput="NumberValidation" IsReadOnly="False"/>
+
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

@@ -8,7 +8,7 @@
       d:DesignHeight="349.6" d:DesignWidth="367.2"
       Title="admin">
     <Grid>
-        <CheckBox x:Name="employee" Content="Employee Page" HorizontalAlignment="Left" Margin="130,80,0,0" VerticalAlignment="Top" />
+        <CheckBox x:Name="employee" Content="Employee Page" HorizontalAlignment="Left" Margin="130,80,0,0" VerticalAlignment="Top" IsChecked="{Binding }"/>
         <CheckBox x:Name="roles" Content="Roles Page" HorizontalAlignment="Left" Margin="130,105,0,0" VerticalAlignment="Top" />
         <CheckBox x:Name="history" Content="View Previous Schedules" HorizontalAlignment="Left" Margin="130,130,0,0" VerticalAlignment="Top" />
         <CheckBox x:Name="view" Content="View Today's Schedule" HorizontalAlignment="Left" Margin="130,155,0,0" VerticalAlignment="Top" />

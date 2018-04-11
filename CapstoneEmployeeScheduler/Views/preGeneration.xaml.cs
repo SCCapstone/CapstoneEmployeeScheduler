@@ -11,10 +11,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 using CapstoneEmployeeScheduler.Algorithm;
 using CapstoneEmployeeScheduler.Controllers;
 using CapstoneEmployeeScheduler.Models;
 namespace CapstoneEmployeeScheduler.Views
+
 {
     /// <summary>
     /// Interaction logic for preGeneration.xaml
@@ -27,7 +29,12 @@ namespace CapstoneEmployeeScheduler.Views
             RoleController r = new RoleController();
             List<Role> item = new List<Role>();
             item = r.getAllRoles();
-            role.ItemsSource = item;
+            Role.ItemsSource = item;
+        }
+        private void NumberValidation(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)
@@ -44,12 +51,13 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void start_Click(object sender, RoutedEventArgs e)//this will generate the schedule with the given numbers for each role
         {
-            
+            /*
             ScheduleController sc = new ScheduleController();
             if (sc.getScheduleByDate(DateTime.Today).Id != null)
             {
                 System.Windows.MessageBox.Show("There was already a schedule made today.");
             }
+
 
             Schedule s = new Schedule();
             MakeSchedule ms = new MakeSchedule();
@@ -58,17 +66,22 @@ namespace CapstoneEmployeeScheduler.Views
             users = uc.getAllUsersWithRoleId();
             ms.Generate(users);
             Content = new Views.ShowSchedule();
+            */
+            
         }
 
         private void role_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
-        private void RoleCount_SelectionChanged(object sender, RoutedEventArgs e)
+        private void Count_TextChanged(object sender, RoutedEventArgs e)
         {
-            //use role in corresponding row to update count, then pass scheduling algorithm
+            Role r = (Role)Role.SelectedItem;
+            var binding = ((TextBox)sender).GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateSource();
+            
         }
 
-       
+        
     }
 }

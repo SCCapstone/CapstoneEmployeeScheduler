@@ -27,7 +27,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
 
             int roleid;
             int count;
-            
+            //int priority;
             foreach (User u in users)
             {
                 if (u.Disabled == false)
@@ -42,7 +42,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
                     }
                     else
                     {
-                        goto Start;//hopefully find a better way to do this.
+                        goto Start;//possibly find a better way to do this.
                     }
                 }
             }
@@ -97,6 +97,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
             int? role1 = user.RoleOneDayAgo;
             int? role2 = user.RoleTwoDaysAgo;
             int? role3 = user.RoleThreeDaysAgo;
+            //int priority = 1;
             //int roleNum = 0;
             List<Role> roles = user.Roles;
             List<int> roleNums = new List<int>();
