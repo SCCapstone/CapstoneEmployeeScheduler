@@ -81,7 +81,7 @@ namespace CapstoneEmployeeScheduler.Views
             users = uc.getAllUsersWithRoleId();
             ms.Generate(users);
             ProgressIndicator.IsBusy = false;
-            System.Windows.MessageBox.Show("Loading screen should be done and schedule should appear");
+            //System.Windows.MessageBox.Show("Loading screen should be done and schedule should appear");
             //Thread.Sleep(1000);
             
             Content = new Views.ShowSchedule();

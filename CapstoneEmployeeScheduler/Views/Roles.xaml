@@ -26,6 +26,8 @@
                     <TextBlock FontWeight="Bold" FontSize="14" HorizontalAlignment="Center"><Run Text="Add Role"/></TextBlock>
                 </StackPanel>
             </Button>
+            <Button x:Name="EditButton" Content="EDIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="380,619,0,0" Height="50" IsEnabled="False" FontSize="20" Click="edit_Click" FontWeight="Bold" Visibility="Hidden"/>
+            <Button x:Name="DeleteButton" Content="DELETE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="551,619,0,0" Height="50" IsEnabled="False" FontSize="20" Click="DeleteButton_Click" FontWeight="Bold" Visibility="Hidden"/>
         </Grid>
 
     </Grid>

@@ -18,6 +18,7 @@ using CapstoneEmployeeScheduler.Models;
 using System.Data.SqlClient;
 using System.Data;
 using System.IO;
+using System.Windows.Forms;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -36,22 +37,69 @@ namespace CapstoneEmployeeScheduler.Views
             role.ItemsSource = item;
             
         }
-                
-        private void NewRole_Click(object sender, RoutedEventArgs e)
+
+        public void ShowTable()
         {
-            RolesModal m = new Views.RolesModal();
-            m.ShowDialog();
-            //Make button work with form
-            InitializeComponent();
+            //method to show the table of users and emails since every method uses it
             RoleController r = new RoleController();
             List<Role> item = new List<Role>();
             item = r.getAllRoles();
             role.ItemsSource = item;
         }
 
+        private void NewRole_Click(object sender, RoutedEventArgs e)
+        {
+            RolesModal m = new Views.RolesModal();
+            m.ShowDialog();
+            //Make button work with form
+            InitializeComponent();
+            ShowTable();
+           
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            //method to delete role from the database
+            RoleController rc = new RoleController();
+            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete this Role? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Role r = (Role)role.SelectedItem ;
+                int roleID = r.Id;
+                rc.deleteRole(roleID);
+                System.Windows.MessageBox.Show("Role has been deleted.");
+                ShowTable();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+
+        }
+
+        private void edit_Click(object sender, RoutedEventArgs e)
+        {
+            //This method is called when the edit button is pressed on one of the employees
+
+            Role r = (Role)role.SelectedItem;
+            int id = r.Id;
+            //gets the id of the role being edited and sends it to the modal
+            //editEmployeeModal em = new Views.editEmployeeModal(id);
+            //em.ShowDialog();
+            System.Windows.MessageBox.Show("Display Role Modal");
+            ShowTable();
+        }
+
         private void role_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (role.SelectedIndex >= 0)
+            {
+                DeleteButton.Visibility = Visibility.Visible;
+                DeleteButton.IsEnabled = true;
+                EditButton.Visibility = Visibility.Visible;
+                EditButton.IsEnabled = true;
 
+            }
         }
        
     }
