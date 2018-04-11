@@ -57,6 +57,13 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 listItems.Add(role);
             }
+            if(listItems.Count == 0)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Stop;
+                MessageBox.Show("Employee Must be assigned at least one role!", "Capstone Employee Scheduler", button, icon);
+                return;
+            }
             user.Roles = listItems;
             
 
