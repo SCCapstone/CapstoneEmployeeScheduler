@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CapstoneEmployeeScheduler.Models;
 using System.Data;
 using CapstoneEmployeeScheduler.Controllers;
+using System.Windows;
 
 namespace CapstoneEmployeeScheduler.Algorithm
 {
@@ -30,9 +31,11 @@ namespace CapstoneEmployeeScheduler.Algorithm
             //int priority;
             foreach (User u in users)
             {
+                
                 if (u.Disabled == false)
                 {
                     Start: roleid = pickRole(u);
+                    
                     count = checkCount(rc.getRoleById(roleid));//check to see if there are still spots open for that role
                     if (count > 0)
                     {
@@ -66,7 +69,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
                 array[k] = temp;
             }
         }
-
+       
         private int readList(User user)//reads the user_roles list for a specific user
         {
             List<Role> roles = user.Roles;
@@ -77,12 +80,17 @@ namespace CapstoneEmployeeScheduler.Algorithm
             }
             if (count == 0)
             {
-                System.Console.WriteLine("Error: Employee has no assigned roles,cannot schedule");//TODO: Add error codes
-                return count;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBox.Show("Error: " + user.UserName + " has no assigned roles,cannot schedule. Application must exit.","Capstone Employee Scheduler",button,icon);
+                Environment.Exit(0);
+                return 0;
             }
             else if (count == 1)
             {
-                System.Console.WriteLine("Warning: Employee is only trained in one role");
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBox.Show("Warning: "+user.userName + " is only trained in one role", "Capstone Employee Scheduler",button,icon);
                 return count;
             }
             else

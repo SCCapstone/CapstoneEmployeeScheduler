@@ -33,7 +33,7 @@ namespace CapstoneEmployeeScheduler.Views
         public ShowSchedule()
         {
             InitializeComponent();
-            showTheSchedule.ItemsSource = CreateTable().DefaultView;
+            schedule.ItemsSource = CreateTable().DefaultView;
         }
 
         public DataTable CreateTable()
@@ -82,7 +82,7 @@ namespace CapstoneEmployeeScheduler.Views
             fd.Blocks.Add(l);
             //Now add the data from the Listview
             Paragraph u = new Paragraph();
-            foreach (User item in showTheSchedule.Items)
+            foreach (User item in schedule.Items)
             {
                 //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
                 u = new Paragraph(new Run(item.userName + "\t\t" + item.shift + "\t\t" + item.Roles));
