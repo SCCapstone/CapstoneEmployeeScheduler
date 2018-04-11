@@ -46,10 +46,26 @@ namespace CapstoneEmployeeScheduler.Views
             user.UserName = name.Text;
             user.Email = email.Text;
            
-            user.Shift = " ";
+            user.Shift = ShiftBox.Text;
             user.OutOfWork = false;
-            user.Disabled = false;
-            user.Admin = false;
+            if (isDisabled.IsChecked.Value)
+            {
+                //if checkbox for disabled is true, set field
+                user.Disabled = true;
+            }
+            else
+            {
+                user.Disabled = false;
+            }
+            if (isAdmin.IsChecked.Value)
+            {
+                //if checkbox for disabled is true, set field
+                user.Admin = true;
+            }
+            else
+            {
+                user.Admin = false;
+            }
             user.Password = " ";
             
             List<Role> listItems = new List<Role>();

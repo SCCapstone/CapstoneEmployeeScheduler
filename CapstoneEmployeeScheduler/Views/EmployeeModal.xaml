@@ -6,8 +6,12 @@
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
         xmlns:DAO="clr-namespace:CapstoneEmployeeScheduler.DAO" x:Class="CapstoneEmployeeScheduler.Views.EmployeeModal"
         mc:Ignorable="d"
-        Title="Capstone Employee Scheduler - Employee Modal" Height="357.704" Width="587.611" FontSize="10">
-    <Grid Margin="0,0,4,3">
+        Title="Capstone Employee Scheduler - Employee Modal" Height="501.704" Width="587.611" FontSize="10">
+    <Grid Margin="0,0,4,-119">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="441*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
         <Grid.Background>
             <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
@@ -25,6 +29,11 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <CheckBox x:Name="isDisabled" Content="DISABLED" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,320,457,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow"/>
+        <CheckBox x:Name="isAdmin" Content="ADMIN" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,365,477,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow"/>
+        <CheckBox x:Name="isOutofWork" Content="OUT OF WORK" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,407,396,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow" Width="157"/>
+        <TextBox x:Name="ShiftBox" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" Margin="142,447,0,0" FontSize="18"/>
+        <Label Content="SHIFT:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,448,0,0" Width="67" FontSize="16" FontWeight="Bold" Foreground="White"/>
 
     </Grid>
 </Window>
