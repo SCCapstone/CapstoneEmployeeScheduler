@@ -43,7 +43,7 @@ namespace CapstoneEmployeeScheduler.Views
             //We can set it to quit once the schedule is generated
             ProgressIndicator.IsBusy = true;
             ProgressIndicator.BusyContent = string.Format("Generating Schedule...");
-            //System.Windows.MessageBox.Show("Starting schedule building process");
+            System.Windows.MessageBox.Show("Starting schedule building process");
 
             /*
             Task.Factory.StartNew(() =>
@@ -81,7 +81,7 @@ namespace CapstoneEmployeeScheduler.Views
             users = uc.getAllUsersWithRoleId();
             ms.Generate(users);
             ProgressIndicator.IsBusy = false;
-            System.Windows.MessageBox.Show("Loading screen should be done and schedule should appear");
+            //System.Windows.MessageBox.Show("Loading screen should be done and schedule should appear");
             //Thread.Sleep(1000);
             
             Content = new Views.ShowSchedule();

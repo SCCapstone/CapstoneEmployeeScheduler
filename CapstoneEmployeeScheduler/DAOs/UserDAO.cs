@@ -61,6 +61,28 @@ namespace CapstoneEmployeeScheduler.DAO
 
         public void deleteUserById(int id)
         {
+            deleteUserRoles(id);
+            SqlConnection connection = new SqlConnection(con);
+            connection.Open();
+            SqlCommand command = new SqlCommand(null, connection);
+
+            
+            command.CommandText =
+                "DELETE FROM Users WHERE ID = @id";
+
+            SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 32);
+            
+            idParam.Value = id;
+
+            command.Parameters.Add(idParam);
+
+            // Call Prepare after setting the Commandtext and Parameters.
+            command.Prepare();
+            command.ExecuteNonQuery();
+        }
+
+        private void deleteUserRoles(int id)
+        {
             SqlConnection connection = new SqlConnection(con);
             connection.Open();
             SqlCommand command = new SqlCommand(null, connection);
@@ -70,19 +92,6 @@ namespace CapstoneEmployeeScheduler.DAO
                 "DELETE FROM User_Roles WHERE User_ID = @id";
 
             SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 20);
-            
-            idParam.Value = id;
-            
-            command.Parameters.Add(idParam);
-
-            // Call Prepare after setting the Commandtext and Parameters.
-            command.Prepare();
-            command.ExecuteNonQuery();
-
-            command.CommandText =
-                "DELETE FROM Users WHERE ID = @id";
-
-            idParam = new SqlParameter("@id", SqlDbType.Int, 20);
 
             idParam.Value = id;
 
