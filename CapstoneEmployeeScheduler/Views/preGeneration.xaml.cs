@@ -76,9 +76,7 @@ namespace CapstoneEmployeeScheduler.Views
         }
         private void Count_TextChanged(object sender, RoutedEventArgs e)
         {
-            Role r = (Role)Role.SelectedItem;
-            var binding = ((TextBox)sender).GetBindingExpression(TextBox.TextProperty);
-            binding.UpdateSource();
+            
             
         }
 
