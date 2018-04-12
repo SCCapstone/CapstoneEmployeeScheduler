@@ -12,7 +12,7 @@
 
                 <Label x:Name="Title" Content="Company Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="193,87,0,0" Width="703" Height="101" FontWeight="Bold" FontSize="48" BorderThickness="0" SnapsToDevicePixels="True" Foreground="White"/>
 
-                <ListView HorizontalAlignment="Left" Name="showTheSchedule" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="600">
+                <ListView HorizontalAlignment="Left" Name="showTheSchedule" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="600" SelectionChanged="showTheSchedule_SelectionChanged">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Employee Name" Width="200" DisplayMemberBinding= "{Binding Employee}"/>
