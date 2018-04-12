@@ -94,12 +94,13 @@
         </Menu>
         <Rectangle Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="346" Margin="32,375,0,-0.2"  VerticalAlignment="Top" Width="124" Grid.RowSpan="2" />
         <Rectangle Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="41" Margin="124,24,0,0" VerticalAlignment="Top" Width="761"/>
-        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="65" Margin="159,59,0,0" TextWrapping="Wrap" Text="Capstone Employee Scheduler" FontSize="45"  VerticalAlignment="Top" Width="749" FontStyle="Oblique" TextDecorations="{x:Null}" FontWeight="Bold" Foreground="#FFF0F0F0" OpacityMask="Black">
+        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="49" Margin="10,29,0,0" TextWrapping="Wrap" FontSize="30"  VerticalAlignment="Top" Width="447" FontStyle="Oblique" TextDecorations="{x:Null}" FontWeight="Bold" Foreground="#FFF0F0F0" OpacityMask="Black">
             <TextBlock.Effect>
                 <DropShadowEffect/>
-            </TextBlock.Effect>
-        </TextBlock>
-        <Button x:Name="admin" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="0,62.8,0,0" Height="64" Click="Admin_Click" Background="#FFD1D1D1" BorderBrush="#FFA2A9EC" Foreground="Black" FontWeight="Bold" RenderTransformOrigin="0.476,0.473" FontSize="16" Grid.Row="1">
+            </TextBlock.Effect><Run Text="Capstone Employee Scheduler"/><InlineUIContainer>
+                <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+            </InlineUIContainer></TextBlock>
+        <Button x:Name="admin" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="0,64.8,0,0" Height="64" Click="Admin_Click" Background="#FFD1D1D1" BorderBrush="#FFA2A9EC" Foreground="Black" FontWeight="Bold" RenderTransformOrigin="0.476,0.473" FontSize="16" Grid.Row="1">
             <StackPanel>
                 <Image Source ="/CapstoneEmployeeScheduler;component/Images/admin_icon.png" Height="37" Width="75" />
                 <TextBlock FontWeight="Bold" FontSize="14" HorizontalAlignment="Center"><Run Text="Admin"/></TextBlock>
