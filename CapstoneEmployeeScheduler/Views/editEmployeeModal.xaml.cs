@@ -51,12 +51,13 @@ namespace CapstoneEmployeeScheduler.Views
             items = r.getAllRoles();
             roleList.ItemsSource = items;
             //items = r.getAllRoles();
-            //roleList.ItemsSource = items;
-            foreach (Role role in user.Roles)
+            roleList.ItemsSource = items;
+            /*foreach (Role role in user.Roles)
             {
                 MessageBox.Show("Selected Role: " + role.RoleName);
                 roleList.SelectedItems.Add(role);
             }
+            */
 
         }
 
@@ -106,6 +107,7 @@ namespace CapstoneEmployeeScheduler.Views
                 }
                 else
                 {
+                    MessageBox.Show("Added role: " + role.RoleName);
                     listItems.Add(role);
                 }
             }

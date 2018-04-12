@@ -28,7 +28,14 @@ namespace CapstoneEmployeeScheduler.Views
             RoleController rc = new RoleController();
             List<Role> items = new List<Role>();
             items = rc.getAllRoles();
+            roleList.Items.Clear();
             roleList.ItemsSource = items;
+            /*foreach (Role role in items)
+            {
+                roleList.Items.Add(role);
+            }
+            */
+            //roleList.ItemsSource = items;
             
         }
 

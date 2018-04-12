@@ -70,6 +70,7 @@ namespace CapstoneEmployeeScheduler.Views
             editEmployeeModal em = new Views.editEmployeeModal(id);
             em.ShowDialog();
             ShowTable();
+            //rehide the buttons so it doesnt crash the program
             DeleteButton.Visibility = Visibility.Hidden;
             EditButton.Visibility = Visibility.Hidden;
         }

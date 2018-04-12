@@ -22,18 +22,13 @@
         <Button x:Name="cancel" Content="CANCEL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Margin="122,262,0,0" Click="Button_Click" IsCancel="True" Height="30" FontSize="15"/>
         <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="402,263,0,0" Click="submit_Click" Height="30" FontSize="15" FontWeight="Bold"/>
         <Label Content="EMAIL:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,100,0,0" FontSize="16" FontWeight="Bold" Foreground="White"/>
-        <ListBox x:Name="roleList" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="376" Margin="122,165,0,0" SelectionChanged="ListBox_SelectionChanged" FontSize="12" SelectionMode="Multiple">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding RoleName}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
         <CheckBox x:Name="isDisabled" Content="DISABLED" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,320,457,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow"/>
         <CheckBox x:Name="isAdmin" Content="ADMIN" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,365,477,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow"/>
         <CheckBox x:Name="isOutofWork" Content="OUT OF WORK" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,407,396,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow" Width="157"/>
         <TextBox x:Name="ShiftBox" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" Margin="142,447,0,0" FontSize="18"/>
         <Label Content="SHIFT:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,448,0,0" Width="67" FontSize="16" FontWeight="Bold" Foreground="White"/>
+        <DataGrid x:Name="roleList" HorizontalAlignment="Left" Height="97" VerticalAlignment="Top" Width="376" Margin="122,146,0,0" FontSize="18" />
+
 
     </Grid>
 </Window>
