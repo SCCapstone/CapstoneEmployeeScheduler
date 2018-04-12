@@ -70,6 +70,8 @@ namespace CapstoneEmployeeScheduler.Views
             editEmployeeModal em = new Views.editEmployeeModal(id);
             em.ShowDialog();
             ShowTable();
+            DeleteButton.Visibility = Visibility.Hidden;
+            EditButton.Visibility = Visibility.Hidden;
         }
 
 
@@ -85,6 +87,8 @@ namespace CapstoneEmployeeScheduler.Views
                 uc.deleteUserById(userID);
                 System.Windows.MessageBox.Show("User has been deleted.");
                 ShowTable();
+                DeleteButton.Visibility = Visibility.Hidden;
+                EditButton.Visibility = Visibility.Hidden;
             }
             else if (dialogResult == DialogResult.No)
             {
