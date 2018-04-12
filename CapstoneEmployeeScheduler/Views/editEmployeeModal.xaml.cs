@@ -91,7 +91,6 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 user.OutOfWork = false;
             }
-            uc.editUser(user);
             //add roles the user selected
             List<Role> listItems = new List<Role>();
             foreach (Role role in roleList.SelectedItems)
@@ -99,6 +98,7 @@ namespace CapstoneEmployeeScheduler.Views
                 listItems.Add(role);
             }
             user.Roles = listItems;
+            uc.editUser(user);
             MessageBox.Show("Edit Successful!", "Edit Successful");
             this.Close();
         }
