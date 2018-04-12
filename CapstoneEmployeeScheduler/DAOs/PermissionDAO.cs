@@ -20,7 +20,7 @@ namespace CapstoneEmployeeScheduler.DAOs
             SqlCommand command = new SqlCommand(null, connection);
 
             command.CommandText =
-                "UPDATE Permissions SET EmployeePage = @employeepage, RolePage = @rolepage, HistoryPage = @historypage, TodaysSchedule = @todaysschedule, GenerateSchedule = @generateSchedule";
+                "UPDATE Permission SET Employee_Page = @employeepage, Role_Page = @rolepage, History_Page = @historypage, Todays_Schedule = @todaysschedule, Generate_Schedule = @generateSchedule";
 
             SqlParameter employeePageParam = new SqlParameter("@employeepage", SqlDbType.Bit, 5);
             SqlParameter rolePageParam = new SqlParameter("@rolepage", SqlDbType.Bit, 5);
