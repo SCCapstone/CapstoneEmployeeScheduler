@@ -7,10 +7,10 @@
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="1000"
       Title="ShowSchedule" MinHeight="750" MinWidth="1000">
-    <Grid x:Name="Page" Margin="0,-10,0,10.4">
+    <Grid x:Name="Page" Margin="0,0,0,0">
 
         <Grid>
-            <DataGrid Name="schedule" ItemsSource ="{Binding Schedule}" AutoGenerateColumns="True">
+            <DataGrid Margin="0,0,0,0" Name="schedule" ItemsSource ="{Binding Schedule}" AutoGenerateColumns="True" MaxColumnWidth="50">
              
             </DataGrid>
             <Button x:Name="PrintEButton" Content="Print Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="451,624,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="22" Click="PrintSButton_Click"/>

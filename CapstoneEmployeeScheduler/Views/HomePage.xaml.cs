@@ -68,9 +68,15 @@ namespace CapstoneEmployeeScheduler.Views
             ScheduleController sc = new ScheduleController();
             if (sc.getScheduleByDate(DateTime.Today).Id != null)
             {
-                System.Windows.MessageBox.Show("There was already a schedule made today.");
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxButton button = MessageBoxButton.YesNo;
+                MessageBoxResult result = System.Windows.MessageBox.Show("There was already a schedule made today. Would you like to overwrite it?","Capstone Employee Scheduler", button,icon);
+                if (result == MessageBoxResult.No)
+                {
+                    return;
+                }
                 ProgressIndicator.IsBusy = false;
-                return;
+                
             }
 
             
