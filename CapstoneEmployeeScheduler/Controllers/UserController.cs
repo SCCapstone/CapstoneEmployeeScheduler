@@ -27,15 +27,30 @@ namespace CapstoneEmployeeScheduler.Controllers
         
         public void editUser(User user)
         {
+            User oldUser = getUserById(user.Id);
             userDAO.editUser(user);
             if (user.Roles != null)
             {
                 List<Role> roles = user.Roles;
                 foreach (Role role in roles)
                 {
-                    addRoleToUser(user.Id, role.Id);
+                    if (oldUser.Roles == null || !oldUser.Roles.Any(r => r.Id == role.Id))
+                        addRoleToUser(user.Id, role.Id);
                 }
             }
+            if (oldUser.Roles != null)
+            {
+                foreach (Role role in oldUser.Roles)
+                {
+                    if (user.Roles == null || !user.Roles.Any(r => r.Id == role.Id))
+                        deleteRoleFromUser(user.Id, role.Id);
+                }
+            }
+        }
+
+        private void deleteRoleFromUser(int userId, int roleId)
+        {
+            userDAO.deleteRoleFromUser(userId, roleId);
         }
 
         public User getUserById(int id)
