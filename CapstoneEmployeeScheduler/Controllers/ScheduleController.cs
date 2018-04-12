@@ -10,44 +10,26 @@ namespace CapstoneEmployeeScheduler.Controllers
 {
     class ScheduleController
     {
+        ScheduleDAO scheduleDAO = new ScheduleDAO();
+
         public void createSchedule(Schedule schedule)
         {
-            ScheduleDAO scheduleDAO = null;
-            try
-            {
-                scheduleDAO = new ScheduleDAO();
-            }
-            catch (System.TypeInitializationException)
-            {
-            }
             scheduleDAO.createSchedule(schedule);
         }
 
         public Schedule getScheduleByDate(DateTime date)
         {
-            ScheduleDAO scheduleDAO = null;
-            try
-            {
-                scheduleDAO = new ScheduleDAO();
-            }
-            catch (System.TypeInitializationException)
-            {
-            }
             return scheduleDAO.getScheduleByDate(date);
         }
 
         public Schedule getLastSchedule(int daysPassed)
         {
-            ScheduleDAO scheduleDAO = null;
-            try
-            {
-                scheduleDAO = new ScheduleDAO();
-            }
-            catch (System.TypeInitializationException)
-            {
-
-            }
             return scheduleDAO.getLastSchedule(daysPassed);
+        }
+
+        public void deleteSchedule(int id)
+        {
+            scheduleDAO.deleteSchedule(id);
         }
     }
 }
