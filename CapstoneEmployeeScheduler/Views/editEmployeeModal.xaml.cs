@@ -32,6 +32,19 @@ namespace CapstoneEmployeeScheduler.Views
             user = uc.getUserById(passedID);
             name.Text = user.userName;
             email.Text = user.email;
+            ShiftBox.Text = user.shift;
+            if(user.Disabled == true)
+            {
+                isDisabled.IsChecked =  true;
+            }
+            if(user.Admin == true)
+            {
+                isAdmin.IsChecked = true;
+            }
+            if(user.OutOfWork == true)
+            {
+                isOutofWork.IsChecked = true;
+            }
             //displays role that are able to be selected
             List<Role> items = new List<Role>();
             RoleController r = new RoleController();
@@ -49,8 +62,35 @@ namespace CapstoneEmployeeScheduler.Views
             //Once the submit button is selected, updates database values
             user.userName = name.Text;
             user.email = email.Text;
-            user.shift = "something";
+            user.shift = ShiftBox.Text;
             user.Password = " ";
+            if (isDisabled.IsChecked.Value)
+            {
+                //if checkbox for disabled is true, set field
+                user.Disabled = true;
+            }
+            else
+            {
+                user.Disabled = false;
+            }
+            if (isAdmin.IsChecked.Value)
+            {
+                //if checkbox for disabled is true, set field
+                user.Admin = true;
+            }
+            else
+            {
+                user.Admin = false;
+            }
+            if (isOutofWork.IsChecked.Value)
+            {
+                //if checkbox for disabled is true, set field
+                user.OutOfWork = true;
+            }
+            else
+            {
+                user.OutOfWork = false;
+            }
             uc.editUser(user);
             //add roles the user selected
             List<Role> listItems = new List<Role>();

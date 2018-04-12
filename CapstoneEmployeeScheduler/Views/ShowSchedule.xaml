@@ -13,7 +13,7 @@
             <DataGrid Name="schedule" ItemsSource ="{Binding Schedule}" AutoGenerateColumns="True">
              
             </DataGrid>
-            <Button x:Name="PrintEButton" Content="Print Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="354,651,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="22" Click="PrintSButton_Click"/>
+            <Button x:Name="PrintEButton" Content="Print Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="451,624,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="22" Click="PrintSButton_Click"/>
             
         </Grid>
     </Grid>

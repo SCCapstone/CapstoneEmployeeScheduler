@@ -26,15 +26,36 @@ namespace CapstoneEmployeeScheduler.Views
         public admin()
         {
             InitializeComponent();
+            //Set the checkbox values to the current permission values
+            List <bool> perms = checkPerms();
+            employee.IsChecked = perms[0];
+            roles.IsChecked = perms[1];
+            history.IsChecked = perms[2];
+            view.IsChecked = perms[3];
+            generate.IsChecked = perms[4];
             
         }
 
+        private List<bool> checkPerms()
+        {
+            List<bool> perms = new List<bool>();
+            PermissionController pc = new PermissionController();
+            Permission p = pc.getPermissions();
+            perms.Add(p.EmployeePage);//add to list in order to keep checkboxes checked/unchecked
+            perms.Add(p.RolePage);
+            perms.Add(p.HistoryPage);
+            perms.Add(p.TodaysSchedule);
+            perms.Add(p.GenerateSchedule);
+
+            return perms;
+        }
         private void update()
         {
             PermissionController pc = new PermissionController();
             Permission p = new Permission();
+            List<bool> perms = new List<bool>();
            
-             if (employee.IsChecked == true)
+             if (employee.IsChecked == true)//check all the checkboxes and update database tables accordingly
              {
                     p.EmployeePage = true; 
              }
@@ -74,7 +95,9 @@ namespace CapstoneEmployeeScheduler.Views
              {
                 p.GenerateSchedule = false;
              }
-             pc.editPermissions(p);
+            pc.editPermissions(p);
+           
+            
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
@@ -91,6 +114,9 @@ namespace CapstoneEmployeeScheduler.Views
             }          
         }
 
-        
+        private void BoxChanged(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
