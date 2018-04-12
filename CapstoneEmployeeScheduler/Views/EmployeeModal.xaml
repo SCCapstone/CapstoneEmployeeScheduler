@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CapstoneEmployeeScheduler.Views"
         xmlns:DAO="clr-namespace:CapstoneEmployeeScheduler.DAO" x:Class="CapstoneEmployeeScheduler.Views.EmployeeModal"
         mc:Ignorable="d"
-        Title="Capstone Employee Scheduler - Employee Modal" Height="501.704" Width="587.611" FontSize="10">
+        Title="Capstone Employee Scheduler - Employee Modal" Height="622" Width="586.611" FontSize="10">
     <Grid Margin="0,0,4,-119">
         <Grid.RowDefinitions>
             <RowDefinition Height="441*"/>
