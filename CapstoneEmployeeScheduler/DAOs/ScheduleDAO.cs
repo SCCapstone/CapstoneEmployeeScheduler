@@ -52,6 +52,26 @@ namespace CapstoneEmployeeScheduler.DAOs
             return schedule;
         }
 
+        public void deleteSchedule(int id)
+        {
+            SqlConnection connection = new SqlConnection(con);
+            connection.Open();
+            SqlCommand command = new SqlCommand(null, connection);
+
+            command.CommandText =
+                "DELETE FROM Permission WHERE ID = @id";
+
+            SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 32);
+
+            idParam.Value = id;
+
+            command.Parameters.Add(idParam);
+
+            // Call Prepare after setting the Commandtext and Parameters.
+            command.Prepare();
+            command.ExecuteNonQuery();
+        }
+
         public Schedule getScheduleByDate(DateTime date)
         {
             SqlConnection connection = new SqlConnection(con);

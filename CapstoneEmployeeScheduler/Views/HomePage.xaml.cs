@@ -43,7 +43,7 @@ namespace CapstoneEmployeeScheduler.Views
             //We can set it to quit once the schedule is generated
             ProgressIndicator.IsBusy = true;
             ProgressIndicator.BusyContent = string.Format("Generating Schedule...");
-            System.Windows.MessageBox.Show("Starting schedule building process");
+            //System.Windows.MessageBox.Show("Starting schedule building process");
 
             /*
             Task.Factory.StartNew(() =>
@@ -73,9 +73,10 @@ namespace CapstoneEmployeeScheduler.Views
                 MessageBoxResult result = System.Windows.MessageBox.Show("There was already a schedule made today. Would you like to overwrite it?","Capstone Employee Scheduler", button,icon);
                 if (result == MessageBoxResult.No)
                 {
+                    ProgressIndicator.IsBusy = false;
                     return;
                 }
-                ProgressIndicator.IsBusy = false;
+                
                 
             }
 
@@ -89,16 +90,17 @@ namespace CapstoneEmployeeScheduler.Views
             ProgressIndicator.IsBusy = false;
             //System.Windows.MessageBox.Show("Loading screen should be done and schedule should appear");
             //Thread.Sleep(1000);
-            
-            Content = new Views.ShowSchedule();
+
+            ScheduleWindow x = new ScheduleWindow();
+            x.ShowDialog();
             
         }
 
-        private void ShowButton_Click(object sender, RoutedEventArgs e)
+       /* private void ShowButton_Click(object sender, RoutedEventArgs e)
         {
             Content = new Views.ShowSchedule();
         }
-
+        */
         private void test_Click(object sender, RoutedEventArgs e)
         {
             preGeneration x = new Views.preGeneration();
