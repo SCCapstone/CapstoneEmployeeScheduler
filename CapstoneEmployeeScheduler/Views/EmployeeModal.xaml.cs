@@ -47,7 +47,15 @@ namespace CapstoneEmployeeScheduler.Views
             user.Email = email.Text;
            
             user.Shift = ShiftBox.Text;
-            user.OutOfWork = false;
+            if (isOutofWork.IsChecked.Value)
+            {
+                //if checkbox for disabled is true, set field
+                user.OutOfWork = true;
+            }
+            else
+            {
+                user.OutOfWork = false;
+            }
             if (isDisabled.IsChecked.Value)
             {
                 //if checkbox for disabled is true, set field
