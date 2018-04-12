@@ -50,9 +50,13 @@ namespace CapstoneEmployeeScheduler.Views
             RoleController r = new RoleController();
             items = r.getAllRoles();
             roleList.ItemsSource = items;
-            items = r.getAllRoles();
-            roleList.ItemsSource = items;
-            
+            //items = r.getAllRoles();
+            //roleList.ItemsSource = items;
+            foreach (Role role in user.Roles)
+            {
+                MessageBox.Show("Selected Role: " + role.RoleName);
+                roleList.SelectedItems.Add(role);
+            }
 
         }
 
@@ -91,14 +95,22 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 user.OutOfWork = false;
             }
-            uc.editUser(user);
             //add roles the user selected
             List<Role> listItems = new List<Role>();
             foreach (Role role in roleList.SelectedItems)
             {
-                listItems.Add(role);
+                MessageBox.Show("Role: " + role.RoleName);
+                if (user.Roles.Contains(role))
+                {
+                    MessageBox.Show("Already assigned role");
+                }
+                else
+                {
+                    listItems.Add(role);
+                }
             }
             user.Roles = listItems;
+            uc.editUser(user);
             MessageBox.Show("Edit Successful!", "Edit Successful");
             this.Close();
         }
