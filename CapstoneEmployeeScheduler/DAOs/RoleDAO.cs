@@ -106,7 +106,7 @@ namespace CapstoneEmployeeScheduler.DAO
                 "UPDATE Roles SET RoleName = @rolename, RoleDescription = @roledescription, Count = @count WHERE ID = @id";
 
             SqlParameter roleNameParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
-            SqlParameter roleDescriptionParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
+            SqlParameter roleDescriptionParam = new SqlParameter("@roledescription", SqlDbType.Text, 255);
             SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 10);
             SqlParameter countParam = new SqlParameter("@count", SqlDbType.Int, 10);
 
