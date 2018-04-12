@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="Capstone Employee Scheduler - Home" Height="750" Width="1000" MinHeight="750" MinWidth="1000" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="447*"/>
+            <RowDefinition Height="274*"/>
+        </Grid.RowDefinitions>
         <Grid.Background>
             <ImageBrush ImageSource="/Images/blue.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
@@ -17,39 +21,39 @@
         </Grid.ColumnDefinitions>
 
 
-        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Navigated="Main_Navigated" Margin="0,10,-0.4,-10.2" Padding="0" FontSize="16">
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Navigated="Main_Navigated" Margin="0,10,-0.4,-10.2" Padding="0" FontSize="16" Grid.RowSpan="2">
             <Frame.Background>
                 <ImageBrush/>
             </Frame.Background>
         </Frame>
 
-        <Button x:Name="Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="0,159,0,0" Height="66" Click="Employees_Click_1" Grid.Column="1" RenderTransformOrigin="-2.887,0.683" Background="#FFA2A9EC" BorderBrush="#FFA2A9EC" Foreground="Black" >
+        <Button x:Name="Employees" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="0,293,0,0" Height="66" Click="Employees_Click_1" Grid.Column="1" RenderTransformOrigin="-2.887,0.683" Background="#FFD1D1D1" BorderBrush="#FFA2A9EC" Foreground="Black" >
             <StackPanel>
                 <Image Source ="/Images/employee.jpg" Height="37" Width="75" ></Image>
                 <TextBlock FontWeight="Bold" FontSize="14" HorizontalAlignment="Center">Employee</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="Roles" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="0,225,0,0" Height="65" Click="Button_Click_1" Background="#FFA2A9EC" BorderBrush="#FFA2A9EC" Foreground="Black" FontWeight="Bold" RenderTransformOrigin="0.476,0.473" FontSize="16">
+        <Button x:Name="Roles" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="0,359,0,0" Height="65" Click="Button_Click_1" Background="#FFD1D1D1" BorderBrush="#FFA2A9EC" Foreground="Black" FontWeight="Bold" RenderTransformOrigin="0.476,0.473" FontSize="16">
             <StackPanel>
                 <Image Source ="/Images/role.jpg" Height="37" Width="75" ></Image>
                 <TextBlock FontWeight="Bold" FontSize="14" HorizontalAlignment="Center">Roles</TextBlock>
             </StackPanel>
         </Button>
         <!--<Button x:Name="Test" VerticalAlignment="Top" Width="135" Margin="0,284,284,0" Height="66" Click="TestingBackend_Click" Grid.Column="1" RenderTransformOrigin="-2.887,0.683" Background="#FFDDDDDD" BorderBrush="#FF888888" Foreground="Black" FontWeight="Bold"/>-->
-        <Button x:Name="History" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,94,0,0" VerticalAlignment="Top" Width="124" Height="65" Click="History_Click_1" BorderBrush="#FFA2A9EC" Foreground="Black" Background ="#FFA2A9EC" >
+        <Button x:Name="History" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,228,0,0" VerticalAlignment="Top" Width="124" Height="65" Click="History_Click_1" BorderBrush="#FFA2A9EC" Foreground="Black" Background ="#FFD1D1D1" >
             <StackPanel>
                 <Image Source ="/Images/history.png" Height="37" Width="75" ></Image>
                 <TextBlock FontWeight="Bold" FontSize="14" HorizontalAlignment="Center">History</TextBlock>
             </StackPanel>
         </Button>
         <Button x:Name="logout" Grid.ColumnSpan="3" Content="LOGOUT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="885,24,-0.4,0" Height="41" Click="logout_Click_1" BorderBrush="#FF888888" Background="#FFF0F0F0" FontSize="18" FontWeight="Bold"/>
-        <Button x:Name="home" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,24,0,0" VerticalAlignment="Top" Width="124" Height="70" Click="home_Click" Background="#FFA2A9EC" BorderBrush="#FFA2A9EC">
+        <Button x:Name="home" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,158,0,0" VerticalAlignment="Top" Width="124" Height="70" Click="home_Click" Background="#FFD1D1C8" BorderBrush="#FFA2A9EC">
             <StackPanel>
                 <Image Source ="/Images/home.jpg" Height="37" Width="75" ></Image>
                 <TextBlock FontWeight="Bold" FontSize="14" HorizontalAlignment="Center">Home</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="schedule" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124"  Margin="0,290,0,0" Click="schedule_Click" Background="#FFA2A9EC" Height="85" BorderBrush="#FFA2A9EC">
+        <Button x:Name="schedule" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124"  Margin="0,424,0,0" Click="schedule_Click" Background="#FFD1D1D1" Height="86" BorderBrush="#FFA2A9EC" Grid.RowSpan="2">
             <StackPanel>
                 <Image Source ="/Images/schedule.jpg" Height="37" Width="82" />
                 <TextBlock FontWeight="Bold" FontSize="14" ><Run Text="Today's Schedule"/></TextBlock>
@@ -88,10 +92,14 @@
                 <MenuItem Header="_Schedule" Click="ExportSchedule_Click"/>
             </MenuItem>
         </Menu>
-        <Rectangle Grid.ColumnSpan="2" Fill="#FFA2A9EC" HorizontalAlignment="Left" Height="346" Margin="0,375,0,0"  VerticalAlignment="Top" Width="124" />
-        <Rectangle Grid.ColumnSpan="2" Fill="#FFA2A9EC" HorizontalAlignment="Left" Height="41" Margin="124,24,0,0" VerticalAlignment="Top" Width="761"/>
-        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="36" Margin="129,29,0,0" TextWrapping="Wrap" Text="Capstone Employee Scheduler" FontSize="20" FontStyle="Italic" FontWeight="Bold"  VerticalAlignment="Top" Width="649"/>
-        <Button x:Name="admin" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="0,375,0,0" Height="65" Click="Admin_Click" Background="#FFA2A9EC" BorderBrush="#FFA2A9EC" Foreground="Black" FontWeight="Bold" RenderTransformOrigin="0.476,0.473" FontSize="16">
+        <Rectangle Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="346" Margin="32,375,0,-0.2"  VerticalAlignment="Top" Width="124" Grid.RowSpan="2" />
+        <Rectangle Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="41" Margin="124,24,0,0" VerticalAlignment="Top" Width="761"/>
+        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="65" Margin="159,59,0,0" TextWrapping="Wrap" Text="Capstone Employee Scheduler" FontSize="45"  VerticalAlignment="Top" Width="749" FontStyle="Oblique" TextDecorations="{x:Null}" FontWeight="Bold" Foreground="#FFF0F0F0" OpacityMask="Black">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <Button x:Name="admin" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="0,62.8,0,0" Height="64" Click="Admin_Click" Background="#FFD1D1D1" BorderBrush="#FFA2A9EC" Foreground="Black" FontWeight="Bold" RenderTransformOrigin="0.476,0.473" FontSize="16" Grid.Row="1">
             <StackPanel>
                 <Image Source ="/CapstoneEmployeeScheduler;component/Images/admin_icon.png" Height="37" Width="75" />
                 <TextBlock FontWeight="Bold" FontSize="14" HorizontalAlignment="Center"><Run Text="Admin"/></TextBlock>
