@@ -50,6 +50,11 @@ namespace CapstoneEmployeeScheduler.Views
             //Not sure what this method does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
         public void ShowTable()
         {
             //method to show the table of users and emails since every method uses it
@@ -159,7 +164,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         }
 
-        private void CSVEButton_Click(object sender, RoutedEventArgs e)
+        public void CSVEButton_Click(object sender, RoutedEventArgs e)
         {
             //Employee Export
             string connection = (string)System.Windows.Application.Current.FindResource("Connection");

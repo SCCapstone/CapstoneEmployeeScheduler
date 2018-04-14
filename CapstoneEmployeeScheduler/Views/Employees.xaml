@@ -11,9 +11,14 @@
 
         <Grid>
             <Grid Margin="0,0,0,0.4">
-                <Button x:Name="NewEmployee" Content="NEW EMPLOYEE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="202" Margin="756,649,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="50" FontSize="24" Click="NewEmployee_Click"/>
-                <Button x:Name="CSVEButton" Content="EXPORT EMPLOYEES TO CSV" HorizontalAlignment="Left" Height="50" Margin="388,648,0,0" VerticalAlignment="Top" Width="336" FontWeight="Bold" Click="CSVEButton_Click" FontSize="24"/>
-                <ListView Margin="124,65,26,181.6" Name="Users" SelectionChanged="Users_SelectionChanged" BorderBrush="Black">
+                <TextBox HorizontalAlignment="Left" Height="50" Margin="175,82,0,0" TextWrapping="Wrap" Text="EMPLOYEES" VerticalAlignment="Top" Width="262" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold">
+                    <TextBox.Effect>
+                        <DropShadowEffect/>
+                    </TextBox.Effect>
+                </TextBox>
+
+                <Button x:Name="CSVEButton" Content="EXPORT EMPLOYEES TO CSV" HorizontalAlignment="Left" Height="50" Margin="536,630,0,0" VerticalAlignment="Top" Width="336" FontWeight="Bold" Click="CSVEButton_Click" FontSize="24"/>
+                <ListView Margin="175,155,125,195" Name="Users" SelectionChanged="Users_SelectionChanged" BorderBrush="Black" Width="700">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding UserName}" />
@@ -23,7 +28,13 @@
                     </ListView.View>
 
                 </ListView>
-                <Button x:Name="PrintEButton" Content="PRINT EMPLOYEES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="209" Margin="143,649,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="50" FontSize="22" Click="PrintEButton_Click"/>
+                <Button x:Name="NewEmployee"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="175,575,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="24" Click="NewEmployee_Click">
+                    <StackPanel>
+                        <Image Source ="/Images/plus.png" Height="37" Width="75" />
+                        <TextBlock FontWeight="Bold" FontSize="14" HorizontalAlignment="Center"><Run Text="Add Employee"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="PrintEButton" Content="PRINT EMPLOYEES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="209" Margin="663,575,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="50" FontSize="22" Click="PrintEButton_Click"/>
                 <Button x:Name="EditButton" Content="EDIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="412,568,0,0" Height="50" IsEnabled="False" FontSize="20" Click="edit_Click" FontWeight="Bold" Visibility="Hidden"/>
                 <Button x:Name="DeleteButton" Content="DELETE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="584,568,0,0" Height="50" IsEnabled="False" FontSize="20" Click="DeleteButton_Click" FontWeight="Bold" Visibility="Hidden"/>
             </Grid>

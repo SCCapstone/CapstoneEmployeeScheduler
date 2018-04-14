@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
-
+using CapstoneEmployeeScheduler.Views;
 
 namespace CapstoneEmployeeScheduler
 {
@@ -31,7 +31,7 @@ namespace CapstoneEmployeeScheduler
             //con.Open();
         }
         
-private void Employees_Click_1(object sender, RoutedEventArgs e)
+        private void Employees_Click_1(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.Employees();
         }
@@ -105,6 +105,8 @@ private void Employees_Click_1(object sender, RoutedEventArgs e)
         private void NewRolesRole_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.Roles();
+            RolesModal m = new Views.RolesModal();
+            m.ShowDialog();
         }
 
         private void ViewRole_Click(object sender, RoutedEventArgs e)
@@ -115,6 +117,8 @@ private void Employees_Click_1(object sender, RoutedEventArgs e)
         private void NewEmployeesEmployee_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.Employees();
+            EmployeeModal m = new Views.EmployeeModal();
+            m.ShowDialog();
         }
 
         private void ViewEmployees_Click(object sender, RoutedEventArgs e)
@@ -124,12 +128,16 @@ private void Employees_Click_1(object sender, RoutedEventArgs e)
 
         private void ExportEmployees_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Views.Roles();
+            Main.Content = new Views.Employees();
+            Employees em = new Views.Employees();
+            em.CSVEButton_Click(null, null);
+            
         }
 
         private void ExportRoles_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.Roles();
+            Roles ro = new Views.Roles();
         }
 
         private void ExportSchedule_Click(object sender, RoutedEventArgs e)
