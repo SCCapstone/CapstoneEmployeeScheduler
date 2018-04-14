@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -29,14 +31,34 @@ namespace CapstoneEmployeeScheduler.Views
             List<Role> items = new List<Role>();
             items = rc.getAllRoles();
             roleList.Items.Clear();
-            roleList.ItemsSource = items;
-            /*foreach (Role role in items)
+            //populating the datagrid with roles
+            var bindingList = new BindingList<Role>();
+            foreach (Role role in items)
             {
-                roleList.Items.Add(role);
+                bindingList.Add(role);
             }
-            */
+            var source = new BindingSource(bindingList, null);
+            roleList.ItemsSource = source;
+            roleList.IsReadOnly = true;
+            //attempt to hide column names. Unsuccessful
+            /*foreach (DataGridColumn col in roleList.Columns)
+            {
+                if (col.Header.Equals("Id"))
+                {
+                    col.Visibility = Visibility.Hidden;
+                }
+                if (col.Header.Equals("RoleDescription"))
+                {
+                    col.Visibility = Visibility.Hidden;
+                }
+                if (col.Header.Equals("RoleCount"))
+                {
+                    col.Visibility = Visibility.Hidden;
+                }
+
+            }
             //roleList.ItemsSource = items;
-            
+            */
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -92,7 +114,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Stop;
-                MessageBox.Show("Employee Must be assigned at least one role!", "Capstone Employee Scheduler", button, icon);
+                System.Windows.MessageBox.Show("Employee Must be assigned at least one role!", "Capstone Employee Scheduler", button, icon);
                 return;
             }
             user.Roles = listItems;
