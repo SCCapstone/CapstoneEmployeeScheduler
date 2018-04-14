@@ -13,7 +13,7 @@
             <ListView  Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged" Margin="175,155,0,1014" BorderBrush="Black" HorizontalAlignment="Left" Width="700" Height="400">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Date and Time Created" Width="300" DisplayMemberBinding="{Binding Date}"/>
+                        <GridViewColumn Header="Date Created" Width="300" DisplayMemberBinding="{Binding Date , StringFormat=D}" />
                     </GridView>
                 </ListView.View>
             </ListView>
