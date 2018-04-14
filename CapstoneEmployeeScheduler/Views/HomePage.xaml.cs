@@ -66,7 +66,8 @@ namespace CapstoneEmployeeScheduler.Views
 
 
             ScheduleController sc = new ScheduleController();
-            if (sc.getScheduleByDate(DateTime.Today).Id != null)
+            Schedule t = sc.getScheduleByDate(DateTime.Today);
+            if (t.Id != null)
             {
                 MessageBoxImage icon = MessageBoxImage.Warning;
                 MessageBoxButton button = MessageBoxButton.YesNo;
@@ -76,7 +77,10 @@ namespace CapstoneEmployeeScheduler.Views
                     ProgressIndicator.IsBusy = false;
                     return;
                 }
-                
+                else if (result == MessageBoxResult.Yes)
+                {
+                    sc.deleteSchedule(t.Id);
+                }
                 
             }
 

@@ -89,16 +89,16 @@ namespace CapstoneEmployeeScheduler.DAOs
             return schedule;*/
         }
 
-        public void deleteSchedule(int id)
+        public void deleteSchedule(string id)
         {
             SqlConnection connection = new SqlConnection(con);
             connection.Open();
             SqlCommand command = new SqlCommand(null, connection);
 
             command.CommandText =
-                "DELETE FROM Permission WHERE ID = @id";
+                "DELETE FROM Schedule WHERE ID = @id";
 
-            SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 32);
+            SqlParameter idParam = new SqlParameter("@id", SqlDbType.VarChar, 255);
 
             idParam.Value = id;
 
