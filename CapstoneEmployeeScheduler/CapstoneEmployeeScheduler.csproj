@@ -50,6 +50,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Delacro-Id-Recent-Documents.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CsvHelper, Version=6.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>..\packages\CsvHelper.6.0.0\lib\net45\CsvHelper.dll</HintPath>
@@ -276,6 +279,7 @@
     <Resource Include="Images\plus.png" />
     <Resource Include="Images\forum_administrator-512.png" />
     <Resource Include="Images\admin_icon.png" />
+    <Resource Include="Delacro-Id-Recent-Documents.ico" />
     <Content Include="Dependencies\Xceed.Wpf.Toolkit.dll" />
     <Content Include="RoleDescription.sql" />
     <Content Include="SettingUpInitialTables.sql" />
