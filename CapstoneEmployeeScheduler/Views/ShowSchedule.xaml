@@ -15,7 +15,7 @@
                     <DropShadowEffect/>
                 </TextBox.Effect>
             </TextBox>
-            <DataGrid Margin="175,155,100,180" Name="schedule" ItemsSource ="{Binding Schedule}" AutoGenerateColumns="True" MaxColumnWidth="50" SelectionChanged="schedule_SelectionChanged">
+            <DataGrid Margin="175,155,100,180" Name="schedule" ItemsSource ="{Binding Schedule}" AutoGenerateColumns="True" ColumnWidth="*" SelectionChanged="schedule_SelectionChanged">
              
             </DataGrid>
             <Button x:Name="PrintEButton" Content="PRINT SCHEDULE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="692,621,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="22" Click="PrintSButton_Click"/>

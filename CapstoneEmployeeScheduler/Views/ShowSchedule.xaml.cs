@@ -55,6 +55,7 @@ namespace CapstoneEmployeeScheduler.Views
                 Role r = rc.getRoleById(s.UserRoles.ElementAt(i).Value);
                 dt.Rows.Add(u.UserName, u.Shift, r.RoleName);
             }
+            
             return dt;
 
         }
