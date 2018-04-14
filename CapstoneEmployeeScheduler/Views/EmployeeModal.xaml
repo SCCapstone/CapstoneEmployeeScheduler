@@ -27,7 +27,7 @@
         <CheckBox x:Name="isOutofWork" Content="OUT OF WORK" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,407,396,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow" Width="157"/>
         <TextBox x:Name="ShiftBox" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" Margin="142,447,0,0" FontSize="18"/>
         <Label Content="SHIFT:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,448,0,0" Width="67" FontSize="16" FontWeight="Bold" Foreground="White"/>
-        <DataGrid x:Name="roleList" HorizontalAlignment="Left" Height="164" VerticalAlignment="Top" Width="376" Margin="122,146,0,0" FontSize="14" IsSynchronizedWithCurrentItem="True" GridLinesVisibility="Vertical" IsReadOnly="True" >
+        <DataGrid x:Name="roleList" HorizontalAlignment="Left" Height="164" VerticalAlignment="Top" Width="376" Margin="122,146,0,0" FontSize="14" IsSynchronizedWithCurrentItem="True" GridLinesVisibility="Vertical" IsReadOnly="True" SelectionChanged="roleList_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn x:Name="isAssigned" IsReadOnly="False"/>
             </DataGrid.Columns>

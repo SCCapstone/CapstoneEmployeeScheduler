@@ -39,7 +39,7 @@ namespace CapstoneEmployeeScheduler.Views
             }
             var source = new BindingSource(bindingList, null);
             roleList.ItemsSource = source;
-            roleList.IsReadOnly = true;
+            roleList.IsReadOnly = false;
             //attempt to hide column names. Unsuccessful
             /*foreach (DataGridColumn col in roleList.Columns)
             {
@@ -136,6 +136,11 @@ namespace CapstoneEmployeeScheduler.Views
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void roleList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

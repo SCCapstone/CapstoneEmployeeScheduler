@@ -51,7 +51,7 @@ namespace CapstoneEmployeeScheduler.Views
             items = r.getAllRoles();
             roleList.ItemsSource = items;
             //items = r.getAllRoles();
-            roleList.ItemsSource = items;
+            //roleList.ItemsSource = items;
             /*foreach (Role role in user.Roles)
             {
                 MessageBox.Show("Selected Role: " + role.RoleName);
@@ -59,6 +59,18 @@ namespace CapstoneEmployeeScheduler.Views
             }
             */
 
+       
+            for (int index = 0; index < roleList.Items.Count; index++)
+            {
+                Role rol = (Role)roleList.Items[index];
+                for (int k = 0; k < user.Roles.Count; k++)
+                {
+                    if (rol == user.Roles[k])
+                    {
+                        roleList.SelectedItem = index;
+                    }
+                }
+            }
         }
 
         private void submit_Click(object sender, RoutedEventArgs e)
