@@ -27,7 +27,7 @@ namespace CapstoneEmployeeScheduler.Controllers
             return scheduleDAO.getLastSchedule(daysPassed);
         }
 
-        public void deleteSchedule(int id)
+        public void deleteSchedule(string id)
         {
             scheduleDAO.deleteSchedule(id);
         }
