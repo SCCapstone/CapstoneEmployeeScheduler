@@ -10,10 +10,15 @@
     <Grid x:Name="Page" Margin="0,0,0,0">
 
         <Grid>
-            <DataGrid Margin="0,0,0,0" Name="schedule" ItemsSource ="{Binding Schedule}" AutoGenerateColumns="True" MaxColumnWidth="50">
+            <TextBox HorizontalAlignment="Left" Height="50" Margin="175,75,0,0" TextWrapping="Wrap" Text="TODAY'S SCHEDULE" VerticalAlignment="Top" Width="406" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold">
+                <TextBox.Effect>
+                    <DropShadowEffect/>
+                </TextBox.Effect>
+            </TextBox>
+            <DataGrid Margin="175,155,100,180" Name="schedule" ItemsSource ="{Binding Schedule}" AutoGenerateColumns="True" MaxColumnWidth="50" SelectionChanged="schedule_SelectionChanged">
              
             </DataGrid>
-            <Button x:Name="PrintEButton" Content="Print Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="451,624,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="22" Click="PrintSButton_Click"/>
+            <Button x:Name="PrintEButton" Content="PRINT SCHEDULE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="692,621,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="68" FontSize="22" Click="PrintSButton_Click"/>
             
         </Grid>
     </Grid>

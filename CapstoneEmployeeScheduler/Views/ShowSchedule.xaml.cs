@@ -96,5 +96,14 @@ namespace CapstoneEmployeeScheduler.Views
             printDlg.PrintDocument(idpSource.DocumentPaginator, "Today's Schedule");
             System.Windows.MessageBox.Show("The Print method completed!");
         }
+
+        private void schedule_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
