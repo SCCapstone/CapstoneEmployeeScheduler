@@ -30,7 +30,7 @@ namespace CapstoneEmployeeScheduler.Views
             InitializeComponent();
             RoleController rc = new RoleController();
             List<Role> items = new List<Role>();
-            roleList.ItemsSource = rc.getAllRoles();
+            roleListBox.ItemsSource = rc.getAllRoles();
 
             
 
@@ -127,10 +127,13 @@ namespace CapstoneEmployeeScheduler.Views
             user.Password = " ";
           
             List<Role> listItems = new List<Role>();
-            foreach (Role role in roleList.SelectedItems)
+            foreach (Role role in roleListBox.SelectedItems)
             {
                 listItems.Add(role);
             }
+
+
+
             if(listItems.Count == 0)
             {
                 MessageBoxButton button = MessageBoxButton.OK;
