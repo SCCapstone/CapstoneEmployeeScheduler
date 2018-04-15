@@ -52,12 +52,12 @@ namespace CapstoneEmployeeScheduler.Views
             roleList.ItemsSource = items;
             //items = r.getAllRoles();
             //roleList.ItemsSource = items;
-            /*foreach (Role role in user.Roles)
+            foreach (Role role in user.Roles)
             {
-                MessageBox.Show("Selected Role: " + role.RoleName);
+                //MessageBox.Show("Selected Role: " + role.RoleName);
                 roleList.SelectedItems.Add(role);
             }
-            */
+            
 
        
             for (int index = 0; index < roleList.Items.Count; index++)

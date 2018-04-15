@@ -30,9 +30,9 @@ namespace CapstoneEmployeeScheduler.Views
             InitializeComponent();
             RoleController rc = new RoleController();
             List<Role> items = new List<Role>();
-            roles.ItemsSource = CreateTable().DefaultView;
+            roleList.ItemsSource = rc.getAllRoles();
 
-            //items = rc.getAllRoles();
+            
 
             /*roleList.Items.Clear();
             //populating the datagrid with roles
@@ -64,7 +64,7 @@ namespace CapstoneEmployeeScheduler.Views
 
 
         }
-        public DataTable CreateTable ()
+       /* public DataTable CreateTable ()
         {
 
             DataTable dt = new DataTable();
@@ -81,6 +81,7 @@ namespace CapstoneEmployeeScheduler.Views
             }
             return dt;
         }
+        */
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -90,8 +91,8 @@ namespace CapstoneEmployeeScheduler.Views
         {
             UserController uc = new UserController();
             User user = new User();
-            //RoleController rc = new RoleController();
-            
+            RoleController rc = new RoleController();
+           
             user.UserName = name.Text;
             user.Email = email.Text;
            
@@ -124,9 +125,9 @@ namespace CapstoneEmployeeScheduler.Views
                 user.Admin = false;
             }
             user.Password = " ";
-            
+          
             List<Role> listItems = new List<Role>();
-            foreach (Role role in roles.SelectedItems)
+            foreach (Role role in roleList.SelectedItems)
             {
                 listItems.Add(role);
             }
@@ -142,11 +143,11 @@ namespace CapstoneEmployeeScheduler.Views
 
             uc.createUser(user);
 
-            /*RoleController rc = new RoleController();
-            Role role = new Role();
+            
+            
             //int roleId = role.Id;
             int userId = user.Id;
-            */
+            
             this.Close();
         }
 
