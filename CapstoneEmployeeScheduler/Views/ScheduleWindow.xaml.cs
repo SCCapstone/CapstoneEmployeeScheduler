@@ -77,10 +77,10 @@ namespace CapstoneEmployeeScheduler.Views
             fd.Blocks.Add(l);
             //Now add the data from the Listview
             Paragraph u = new Paragraph();
-            foreach (User item in schedule.Items)
+            foreach (DataRowView item in schedule.ItemsSource)
             {
                 //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
-                u = new Paragraph(new Run(item.userName + "\t\t" + item.shift + "\t\t" + item.Roles));
+                u = new Paragraph(new Run(item[0] + "\t\t" + item[1] + "\t\t" + item[2]));
                 u.TextAlignment = TextAlignment.Left;
                 fd.Blocks.Add(u);
             }
