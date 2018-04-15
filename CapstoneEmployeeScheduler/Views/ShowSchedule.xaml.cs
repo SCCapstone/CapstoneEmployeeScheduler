@@ -64,38 +64,43 @@ namespace CapstoneEmployeeScheduler.Views
         {
             //Print method for the schedule
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
-            FlowDocument fd = new FlowDocument();
-            //Title of Page
-            Paragraph t = new Paragraph(new Run("Today's Schedule"));
-            t.FontSize = 36;
-            t.TextAlignment = TextAlignment.Center;
-            fd.Blocks.Add(t);
-
-            fd.ColumnWidth = printDlg.PrintableAreaWidth;
-            fd.ColumnGap = 10.0;
-
-            int padding = 40;
-            string name = "Name";
-            string shift = "Shift";
-            Paragraph l = new Paragraph(new Run(String.Format("{0}{1}{2}", name.PadRight(padding), shift.PadRight(padding), "Role")));
-            l.FontSize = 24;
-            l.TextAlignment = TextAlignment.Left;
-            fd.Blocks.Add(l);
-            //Now add the data from the Listview
-            Paragraph u = new Paragraph();
-            foreach (User item in schedule.Items)
+            Nullable<bool> result = printDlg.ShowDialog();
+            //Process print file dialog box results
+            if (result == true)
             {
-                //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
-                u = new Paragraph(new Run(item.userName + "\t\t" + item.shift + "\t\t" + item.Roles));
-                u.TextAlignment = TextAlignment.Left;
-                fd.Blocks.Add(u);
-            }
+                FlowDocument fd = new FlowDocument();
+                //Title of Page
+                Paragraph t = new Paragraph(new Run("Today's Schedule"));
+                t.FontSize = 36;
+                t.TextAlignment = TextAlignment.Center;
+                fd.Blocks.Add(t);
 
-            fd.Name = "Schedule";
-            IDocumentPaginatorSource idpSource = fd;
-            printDlg.ShowDialog();
-            printDlg.PrintDocument(idpSource.DocumentPaginator, "Today's Schedule");
-            System.Windows.MessageBox.Show("The Print method completed!");
+                fd.ColumnWidth = printDlg.PrintableAreaWidth;
+                fd.ColumnGap = 10.0;
+
+                int padding = 40;
+                string name = "Name";
+                string shift = "Shift";
+                Paragraph l = new Paragraph(new Run(String.Format("{0}{1}{2}", name.PadRight(padding), shift.PadRight(padding), "Role")));
+                l.FontSize = 24;
+                l.TextAlignment = TextAlignment.Left;
+                fd.Blocks.Add(l);
+                //Now add the data from the Listview
+                Paragraph u = new Paragraph();
+                foreach (User item in schedule.Items)
+                {
+                    //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
+                    u = new Paragraph(new Run(item.userName + "\t\t" + item.shift + "\t\t" + item.Roles));
+                    u.TextAlignment = TextAlignment.Left;
+                    fd.Blocks.Add(u);
+                }
+
+                fd.Name = "Schedule";
+                IDocumentPaginatorSource idpSource = fd;
+                printDlg.ShowDialog();
+                printDlg.PrintDocument(idpSource.DocumentPaginator, "Today's Schedule");
+                System.Windows.MessageBox.Show("The Print method completed!");
+            }
         }
 
         private void schedule_SelectionChanged(object sender, SelectionChangedEventArgs e)
