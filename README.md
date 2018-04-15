@@ -1,10 +1,8 @@
 # CapstoneEmployeeScheduler
 Windows Application to assign Employees and Roles in an efficient manner
 
-All features implemented for "Beta Release" milestone. 
-
 #### To login to the application: 
-##### username = "admin" password = "admin" 
+##### username = "admin"; password = "admin" 
 
 There may be a short wait after you hit submit because the login gets all the users information from the database. There may also be a short delay when displaying the schedule and displaying the employees. If a schedule has already been created for the current day, the generate schedule button will fail. This is a known bug that we will fix in the next release.
 
