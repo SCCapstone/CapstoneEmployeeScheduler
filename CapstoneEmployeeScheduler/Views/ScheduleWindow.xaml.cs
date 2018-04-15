@@ -70,17 +70,34 @@ namespace CapstoneEmployeeScheduler.Views
 
             int padding = 40;
             string name = "Name";
-            string shift = "Shift";
-            Paragraph l = new Paragraph(new Run(String.Format("{0}{1}{2}", name.PadRight(padding), shift.PadRight(padding), "Role")));
+            string role = "Role";
+            Paragraph l = new Paragraph(new Run(String.Format("{0}{1}{2}", name.PadRight(padding), role.PadRight(padding), "Shift")));
             l.FontSize = 24;
             l.TextAlignment = TextAlignment.Left;
             fd.Blocks.Add(l);
+            int maxLength = 20;
             //Now add the data from the Listview
             Paragraph u = new Paragraph();
             foreach (DataRowView item in schedule.ItemsSource)
             {
+                string employeeName = (string)item[0];
+                if (employeeName.Length == 0)
+                {
+                    continue;
+                    
+                }
+
+                name = employeeName.Substring(0, employeeName.Length);
+                if (employeeName.Length >= 20)
+                {
+                    name = employeeName.Substring(0, 20);
+                }
+                else
+                {
+                    employeeName = employeeName.PadRight(maxLength - employeeName.Length);
+                }
                 //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
-                u = new Paragraph(new Run(item[0] + "\t\t" + item[1] + "\t\t" + item[2]));
+                u = new Paragraph(new Run(name + "\t\t" + item[1] + "\t\t" + item[2]));
                 u.TextAlignment = TextAlignment.Left;
                 fd.Blocks.Add(u);
             }
