@@ -140,9 +140,9 @@ namespace CapstoneEmployeeScheduler
             Roles ro = new Views.Roles();
         }
 
-        private void ExportSchedule_Click(object sender, RoutedEventArgs e)
+        private void PrintSchedule_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Views.Roles();
+            Main.Content = new Views.ShowSchedule();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
