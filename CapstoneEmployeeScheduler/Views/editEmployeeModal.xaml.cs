@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.Models;
 using CapstoneEmployeeScheduler.Controllers;
+using System.Data;
+
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
@@ -23,6 +25,8 @@ namespace CapstoneEmployeeScheduler.Views
         private int passedID;
         UserController uc = new UserController();
         User user;
+
+        
         public editEmployeeModal(int id)
         {
 
@@ -30,6 +34,7 @@ namespace CapstoneEmployeeScheduler.Views
             InitializeComponent();
             passedID = id;
             user = uc.getUserById(passedID);
+            
             name.Text = user.userName;
             email.Text = user.email;
             ShiftBox.Text = user.shift;
@@ -52,14 +57,29 @@ namespace CapstoneEmployeeScheduler.Views
             roleList.ItemsSource = items;
             //items = r.getAllRoles();
             //roleList.ItemsSource = items;
-            foreach (Role role in user.Roles)
-            {
-                //MessageBox.Show("Selected Role: " + role.RoleName);
-                roleList.SelectedItems.Add(role);
-            }
-            
+            // foreach (Role role in user.Roles)
+            //    {
+            //MessageBox.Show("Selected Role: " + role.RoleName);
+            //    roleList.SelectedItems.Add(role);
+            //  }
 
-       
+            //roleList.SelectedItems.Add(roleList.Items[1]);
+            for (int k = 0; k < roleList.Items.Count; k++)
+            {
+                Role aRole = (Role) roleList.Items[k];
+                if (user.Roles.Any(rol => rol.Id == aRole.Id))
+                {
+                    roleList.SelectedItems.Add(roleList.Items[k]);
+                }
+            }
+      /*     foreach (Role rol in roleList.Items)
+            {
+              //  if (user.Roles.Contains(rol))
+                //{
+                  //  roleList.SelectedItems.Add(rol);
+                //}
+            //}
+            
             for (int index = 0; index < roleList.Items.Count; index++)
             {
                 Role rol = (Role)roleList.Items[index];
@@ -67,11 +87,12 @@ namespace CapstoneEmployeeScheduler.Views
                 {
                     if (rol == user.Roles[k])
                     {
-                        roleList.SelectedItem = index;
+                        DataRowView row = (DataRowView)roleList.Items[index];
+                        roleList.SelectedItems.Add(row);
                     }
                 }
-            }
-        }
+            } */
+        } 
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
@@ -112,14 +133,14 @@ namespace CapstoneEmployeeScheduler.Views
             List<Role> listItems = new List<Role>();
             foreach (Role role in roleList.SelectedItems)
             {
-                MessageBox.Show("Role: " + role.RoleName);
+                
                 if (user.Roles.Contains(role))
                 {
-                    MessageBox.Show("Already assigned role");
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Added role: " + role.RoleName);
+                   
                     listItems.Add(role);
                 }
             }
