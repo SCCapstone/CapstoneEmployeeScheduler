@@ -41,6 +41,7 @@ namespace CapstoneEmployeeScheduler.Views
             //Progress Indicator
             //Currently only runs for 10 seconds then quits
             //We can set it to quit once the schedule is generated
+           
             ProgressIndicator.IsBusy = true;
             ProgressIndicator.BusyContent = string.Format("Generating Schedule...");
             //System.Windows.MessageBox.Show("Starting schedule building process");
@@ -90,6 +91,19 @@ namespace CapstoneEmployeeScheduler.Views
             List<User> users = new List<User>();
             UserController uc = new UserController();
             users = uc.getAllUsersWithRoleId();
+            List<int> rolecounts = new List<int>();
+            int q;
+            foreach (User u in users)
+            {
+                q = u.Roles.Count();
+                rolecounts.Add(q);
+            }
+            if (rolecounts.Contains(1))
+            {
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxButton button = MessageBoxButton.OK;
+                System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
+            }
             ms.Generate(users);
             ProgressIndicator.IsBusy = false;
             //System.Windows.MessageBox.Show("Loading screen should be done and schedule should appear");
