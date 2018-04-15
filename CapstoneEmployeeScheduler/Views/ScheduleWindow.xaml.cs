@@ -28,9 +28,9 @@ namespace CapstoneEmployeeScheduler.Views
         {
             InitializeComponent();
             RoleController rc = new RoleController();
-            schedule.ItemsSource = rc.getAllRoles();
+            schedule.ItemsSource = CreateTable().DefaultView;
         }
-       /* public DataTable CreateTable()
+       public DataTable CreateTable()
         {
             DataTable dt = new DataTable();
             Schedule s = new Schedule();
@@ -52,7 +52,7 @@ namespace CapstoneEmployeeScheduler.Views
             return dt;
 
         }
-        */
+        
 
         private void PrintSButton_Click(object sender, RoutedEventArgs e)
         {
