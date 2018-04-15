@@ -69,13 +69,12 @@
                 </MenuItem>
                 <MenuItem Header="_Print">
                     <MenuItem Header="Employees" Click="PrintEmployees_Click"/>
-                    <MenuItem Header="Roles" Click="PrintRoles_Click"/>
                     <MenuItem Header="Schedule" Click="PrintSchedule_Click"/>
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="_Logout" Click="Logout_Click"/>
             </MenuItem>
-            <MenuItem Header="Schedules" Height="24" Width="65" RenderTransformOrigin="0.32,-2.067">
+            <MenuItem Header="Schedule" Height="24" Width="65" RenderTransformOrigin="0.32,-2.067" Click="MenuItem_Click_1">
                 <MenuItem Header="_Generate" Click="Generate_Click"/>
                 <MenuItem Header="_View" Click="ViewSchedule_Click"/>
             </MenuItem>

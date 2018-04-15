@@ -116,7 +116,7 @@ namespace CapstoneEmployeeScheduler.Views
             }
         }
 
-        private void PrintEButton_Click(object sender, RoutedEventArgs e)
+        public void PrintEButton_Click(object sender, RoutedEventArgs e)
         {
             //Method for printing table of employees
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();

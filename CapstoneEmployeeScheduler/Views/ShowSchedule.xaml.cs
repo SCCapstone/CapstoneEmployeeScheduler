@@ -60,7 +60,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         }
 
-        private void PrintSButton_Click(object sender, RoutedEventArgs e)
+        public void PrintSButton_Click(object sender, RoutedEventArgs e)
         {
             //Print method for the schedule
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();

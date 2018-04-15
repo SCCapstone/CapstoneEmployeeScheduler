@@ -36,7 +36,7 @@ namespace CapstoneEmployeeScheduler.Views
             
         }
 
-        private void GenerateButton_Click(object sender, RoutedEventArgs e)
+        public void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
             //Progress Indicator
             //Currently only runs for 10 seconds then quits

@@ -94,7 +94,10 @@ namespace CapstoneEmployeeScheduler
 
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Views.ShowSchedule();
+            Main.Content = new Views.HomePage();
+            HomePage hp = new Views.HomePage();
+            hp.GenerateButton_Click(null, null);
+
         }
 
         private void ViewSchedule_Click(object sender, RoutedEventArgs e)
@@ -143,6 +146,8 @@ namespace CapstoneEmployeeScheduler
         private void PrintSchedule_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.ShowSchedule();
+            ShowSchedule ss = new Views.ShowSchedule();
+            ss.PrintSButton_Click(null, null);
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -152,21 +157,20 @@ namespace CapstoneEmployeeScheduler
 
         private void PrintEmployees_Click(object sender, RoutedEventArgs e)
         {
-            PrintDialog printDlg = new PrintDialog();
-            if (printDlg.ShowDialog() == true)
-            {
-            //    printDlg.PrintVisual(Users, "List of Employees");
-            }
+            Main.Content = new Views.Employees();
+            Employees em = new Views.Employees();
+            em.PrintEButton_Click(null, null);
         }
 
-        private void PrintRoles_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        
         private void Admin_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.admin();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
