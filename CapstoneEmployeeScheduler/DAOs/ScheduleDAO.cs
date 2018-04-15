@@ -52,11 +52,13 @@ namespace CapstoneEmployeeScheduler.DAOs
             return schedule;
         }
 
-        internal void editSchedule(int id)
+        internal void editSchedule(Schedule schedule)
         {
             SqlConnection connection = new SqlConnection(con);
             connection.Open();
             SqlCommand command = new SqlCommand(null, connection);
+            deleteSchedule(schedule.Id);
+            createSchedule(schedule);
             /*SqlParameter userIDParam = null;
             SqlParameter roleIDParam = null;
             SqlParameter idParam = null;
