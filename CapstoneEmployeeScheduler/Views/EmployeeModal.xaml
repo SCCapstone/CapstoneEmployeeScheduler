@@ -25,7 +25,6 @@
         <CheckBox x:Name="isDisabled" Content="DISABLED" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,320,457,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow"/>
         <CheckBox x:Name="isAdmin" Content="ADMIN" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,365,477,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow"/>
         <CheckBox x:Name="isOutofWork" Content="OUT OF WORK" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,407,396,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow" Width="157"/>
-        <TextBox x:Name="ShiftBox" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" Margin="142,447,0,0" FontSize="18"/>
         <Label Content="SHIFT:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,448,0,0" Width="67" FontSize="16" FontWeight="Bold" Foreground="White"/>
         <ListBox x:Name="roleListBox" HorizontalAlignment="Left" Height="132" VerticalAlignment="Top" Width="376" Margin="122,165,0,0" SelectionChanged="ListBox_SelectionChanged" FontSize="12" SelectionMode="Multiple" ItemsSource="{Binding roleList}">
             <ListBox.ItemTemplate>
@@ -36,6 +35,11 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <ComboBox x:Name="ShiftBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="167" Margin="122,448,0,0" FontSize="12" FontWeight="Bold">
+            <ComboBoxItem Content="Day Shift" HorizontalAlignment="Left" Width="165" FontWeight="Bold"/>
+            <ComboBoxItem Content="Night Shift" HorizontalAlignment="Left" Width="165" FontWeight="Bold"/>
+        </ComboBox>
+
 
 
     </Grid>
