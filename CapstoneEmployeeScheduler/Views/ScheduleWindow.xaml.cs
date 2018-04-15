@@ -27,6 +27,7 @@ namespace CapstoneEmployeeScheduler.Views
         public ScheduleWindow()
         {
             InitializeComponent();
+            schedule.ItemsSource = CreateTable().DefaultView;
         }
         public DataTable CreateTable()
         {

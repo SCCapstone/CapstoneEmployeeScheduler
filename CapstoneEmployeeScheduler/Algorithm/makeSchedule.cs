@@ -39,11 +39,12 @@ namespace CapstoneEmployeeScheduler.Algorithm
                     count = checkCount(rc.getRoleById(roleid));//check to see if there are still spots open for that role
                     if (count > 0)
                     {
-                        count--;//take one spot away from the role
+                        
                         addToSchedule(u, roleid);//add role/user pair to the schedule
                         updateRole(u, roleid);//used for next day scheduling
+                        count--;//take one spot away from the role
                     }
-                    else
+                    else if (count == 0)
                     {
                         goto Start;//possibly find a better way to do this.
                     }
@@ -90,7 +91,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
             {
                 MessageBoxImage icon = MessageBoxImage.Warning;
                 MessageBoxButton button = MessageBoxButton.OK;
-                MessageBox.Show("Warning: "+user.userName + " is only trained in one role", "Capstone Employee Scheduler",button,icon);
+                MessageBox.Show("Warning: "+user.userName + " is only trained in one role. This may cause scheduling issues", "Capstone Employee Scheduler",button,icon);
                 return count;
             }
             else
