@@ -81,7 +81,7 @@ namespace CapstoneEmployeeScheduler.Views
             user.email = email.Text;
             user.shift = ShiftBox.Text;
             user.Password = " ";
-            if (isDisabled.IsChecked.Value)
+            if (isDisabled.IsChecked == true)
             {
                 //if checkbox for disabled is true, set field
                 user.Disabled = true;
@@ -90,7 +90,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 user.Disabled = false;
             }
-            if (isAdmin.IsChecked.Value)
+            if (isAdmin.IsChecked == true)
             {
                 //if checkbox for disabled is true, set field
                 user.Admin = true;
@@ -99,7 +99,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 user.Admin = false;
             }
-            if (isOutofWork.IsChecked.Value)
+            if (isOutofWork.IsChecked == true)
             {
                 //if checkbox for disabled is true, set field
                 user.OutOfWork = true;
