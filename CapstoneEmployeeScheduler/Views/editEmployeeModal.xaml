@@ -17,7 +17,12 @@
         <Button x:Name="cancel" Content="CANCEL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Margin="122,528,0,0" Click="Button_Click" IsCancel="True" Height="30" FontSize="15"/>
         <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="402,529,0,0" Click="submit_Click" Height="30" FontSize="15" FontWeight="Bold"/>
         <Label Content="EMAIL:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,100,0,0" FontSize="16" FontWeight="Bold" Foreground="White"/>
-        <ListBox x:Name="roleList" HorizontalAlignment="Left" Height="144" VerticalAlignment="Top" Width="376" Margin="122,165,0,0" SelectionChanged="ListBox_SelectionChanged" FontSize="12" SelectionMode="Multiple" ItemsSource="{Binding roleList}">
+        <ListBox x:Name="roleList" HorizontalAlignment="Left" Height="144" VerticalAlignment="Top" Width="376" Margin="131,165,0,0" SelectionChanged="ListBox_SelectionChanged" FontSize="12" SelectionMode="Multiple" ItemsSource="{Binding roleList}">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="IsSelected" Value="{Binding Selected}" />
+                </Style>
+            </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

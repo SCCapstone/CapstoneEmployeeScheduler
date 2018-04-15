@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.Models;
 using CapstoneEmployeeScheduler.Controllers;
+using System.Data;
+
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
@@ -23,6 +25,8 @@ namespace CapstoneEmployeeScheduler.Views
         private int passedID;
         UserController uc = new UserController();
         User user;
+
+        
         public editEmployeeModal(int id)
         {
 
@@ -52,14 +56,21 @@ namespace CapstoneEmployeeScheduler.Views
             roleList.ItemsSource = items;
             //items = r.getAllRoles();
             //roleList.ItemsSource = items;
-            foreach (Role role in user.Roles)
-            {
+           // foreach (Role role in user.Roles)
+        //    {
                 //MessageBox.Show("Selected Role: " + role.RoleName);
-                roleList.SelectedItems.Add(role);
+            //    roleList.SelectedItems.Add(role);
+          //  }
+
+            //roleList.SelectedItems.Add(role);
+            foreach (Role rol in roleList.Items)
+            {
+                if (user.Roles.Contains(rol))
+                {
+                    roleList.SelectedItems.Add(rol);
+                }
             }
             
-
-       
             for (int index = 0; index < roleList.Items.Count; index++)
             {
                 Role rol = (Role)roleList.Items[index];
@@ -67,7 +78,8 @@ namespace CapstoneEmployeeScheduler.Views
                 {
                     if (rol == user.Roles[k])
                     {
-                        roleList.SelectedItem = index;
+                        DataRowView row = (DataRowView)roleList.Items[index];
+                        roleList.SelectedItems.Add(row);
                     }
                 }
             }
