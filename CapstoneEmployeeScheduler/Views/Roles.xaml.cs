@@ -69,10 +69,16 @@ namespace CapstoneEmployeeScheduler.Views
                 rc.deleteRole(roleID);
                 System.Windows.MessageBox.Show("Role has been deleted.");
                 ShowTable();
+                //rehide the buttons so it doesnt crash the program
+                DeleteButton.Visibility = Visibility.Hidden;
+                EditButton.Visibility = Visibility.Hidden;
             }
             else if (dialogResult == DialogResult.No)
             {
                 //do something else
+                //rehide the buttons so it doesnt crash the program
+                DeleteButton.Visibility = Visibility.Hidden;
+                EditButton.Visibility = Visibility.Hidden;
             }
 
         }
@@ -88,6 +94,9 @@ namespace CapstoneEmployeeScheduler.Views
             rm.ShowDialog();
             //System.Windows.MessageBox.Show("Display Role Modal");
             ShowTable();
+            //rehide the buttons so it doesnt crash the program
+            DeleteButton.Visibility = Visibility.Hidden;
+            EditButton.Visibility = Visibility.Hidden;
         }
 
         private void role_SelectionChanged(object sender, SelectionChangedEventArgs e)
