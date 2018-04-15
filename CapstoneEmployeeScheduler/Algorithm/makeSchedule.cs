@@ -28,30 +28,49 @@ namespace CapstoneEmployeeScheduler.Algorithm
 
             int roleid;
             int count;
+            Dictionary<int, int> rolecount = new Dictionary<int, int>();
+
+            foreach (Role r in rc.getAllRoles())
+            {
+                rolecount.Add(r.Id, r.RoleCount);
+            }
             //int priority;
+            bool warning = false;
+            users.Sort((x, y) => x.Roles.Count().CompareTo(y.Roles.Count()));//orders list prioritizing users with less roles assigned to be scheduled first
             foreach (User u in users)
             {
                 
                 if (u.Disabled == false)
                 {
+                    int loopCount = 0;
                     Start: roleid = pickRole(u);
-                    
-                    count = checkCount(rc.getRoleById(roleid));//check to see if there are still spots open for that role
-                    if (count > 0)
-                    {
-                        
+                    loopCount++;
+                    count = rolecount[roleid];//check to see if there are still spots open for that role
+                   switch(count)
+                   {
+                        case 0:
+                            if (loopCount >= 5)
+                            {
+                                warning = true;
+                                goto default;
+                            }
+                            goto Start;
+                        default:
                         addToSchedule(u, roleid);//add role/user pair to the schedule
                         updateRole(u, roleid);//used for next day scheduling
-                        count--;//take one spot away from the role
-                    }
-                    else if (count == 0)
-                    {
-                        goto Start;//possibly find a better way to do this.
-                    }
+                        rolecount[roleid] = rolecount[roleid]-1;//take one spot away from the role
+                            break;
+                  
+                   }
+                    
+                    
                 }
             }
-
+            
             sc.createSchedule(s);//add schedule to the database
+            MessageBoxButton button = MessageBoxButton.OK;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBox.Show("There are more employees than desired role assignments.\n There will be at least one role's \"count\" that is exceeded.", "Capstone Employee Scheduler", button, icon);
             return s;
             
         }
@@ -89,9 +108,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
             }
             else if (count == 1)
             {
-                MessageBoxImage icon = MessageBoxImage.Warning;
-                MessageBoxButton button = MessageBoxButton.OK;
-                MessageBox.Show("Warning: "+user.userName + " is only trained in one role. This may cause scheduling issues", "Capstone Employee Scheduler",button,icon);
+                
                 return count;
             }
             else
@@ -241,10 +258,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
             user.RoleTwoDaysAgo = user.RoleOneDayAgo;
             user.RoleOneDayAgo = roleID;
         }
-        public int checkCount(Role r)
-        {
-            return r.RoleCount;
-        }
+        
     }
     
 }
