@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using CapstoneEmployeeScheduler.Controllers;
 using CapstoneEmployeeScheduler.DAO;
 using CapstoneEmployeeScheduler.Models;
+using System.Data;
 
 namespace CapstoneEmployeeScheduler.Views
 {
@@ -29,8 +30,11 @@ namespace CapstoneEmployeeScheduler.Views
             InitializeComponent();
             RoleController rc = new RoleController();
             List<Role> items = new List<Role>();
-            items = rc.getAllRoles();
-            roleList.Items.Clear();
+            roles.ItemsSource = CreateTable().DefaultView;
+
+            //items = rc.getAllRoles();
+
+            /*roleList.Items.Clear();
             //populating the datagrid with roles
             var bindingList = new BindingList<Role>();
             foreach (Role role in items)
@@ -56,11 +60,27 @@ namespace CapstoneEmployeeScheduler.Views
                     col.Visibility = Visibility.Hidden;
                 }
 
-            }
-            //roleList.ItemsSource = items;
-            */
-        }
+            }*/
 
+
+        }
+        public DataTable CreateTable ()
+        {
+
+            DataTable dt = new DataTable();
+            UserController uc = new UserController();
+            RoleController rc = new RoleController();
+            List<Role> allRoles = new List<Role>();
+            allRoles = rc.getAllRoles();
+            dt.Columns.Add("Role", typeof(string));
+            dt.Columns.Add("Count", typeof(int));
+            foreach(Role r in allRoles)
+            {
+                dt.Rows.Add(r.RoleName,r.RoleCount);
+               
+            }
+            return dt;
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -106,7 +126,7 @@ namespace CapstoneEmployeeScheduler.Views
             user.Password = " ";
             
             List<Role> listItems = new List<Role>();
-            foreach (Role role in roleList.SelectedItems)
+            foreach (Role role in roles.SelectedItems)
             {
                 listItems.Add(role);
             }
