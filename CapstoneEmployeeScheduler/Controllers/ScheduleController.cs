@@ -32,9 +32,9 @@ namespace CapstoneEmployeeScheduler.Controllers
             scheduleDAO.deleteSchedule(id);
         }
 
-        public void editSchedule(int id)
+        public void editSchedule(Schedule schedule)
         {
-            scheduleDAO.editSchedule(id);
+            scheduleDAO.editSchedule(schedule);
         }
     }
 }

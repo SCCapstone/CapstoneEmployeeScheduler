@@ -120,46 +120,52 @@ namespace CapstoneEmployeeScheduler.Views
         {
             //Method for printing table of employees
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
-            FlowDocument fd = new FlowDocument();
-            //Title of Page
-            Paragraph t = new Paragraph(new Run("Current Employees"));
-            t.FontSize = 36;
-            t.TextAlignment = TextAlignment.Center;
-            fd.Blocks.Add(t);
 
-            fd.ColumnWidth = printDlg.PrintableAreaWidth;
-            fd.ColumnGap = 10.0;
-            //int padding = 40;
-
-            /*string name = "Name";
-            Paragraph l = new Paragraph(new Run(String.Format("{0}{1}", name.PadRight(padding), "Email")));
-            l.FontSize = 24;
-            l.TextAlignment = TextAlignment.Left;
-            fd.Blocks.Add(l);
-            */
-
-            //Now add the users and emails
-            Paragraph u = new Paragraph();
-            string username = " ";
-            string email = " ";
-            
-            foreach (User item in Users.Items)
+            Nullable<bool> result = printDlg.ShowDialog();
+            //Process save file dialog box results
+            if (result == true)
             {
-                //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
-                username = item.userName;
-                email = item.email;
-                u = new Paragraph(new Run(String.Format("{0}{1}", username.PadRight(200 - username.Length), email)));
-                //u = new Paragraph(new Run(String.Format("{0,-20}", username
-                // + "\t" + String.Format("{0,40}", email))));
-                u.TextAlignment = TextAlignment.Left;
-                fd.Blocks.Add(u);
+                FlowDocument fd = new FlowDocument();
+                //Title of Page
+                Paragraph t = new Paragraph(new Run("Current Employees"));
+                t.FontSize = 36;
+                t.TextAlignment = TextAlignment.Center;
+                fd.Blocks.Add(t);
+
+                fd.ColumnWidth = printDlg.PrintableAreaWidth;
+                fd.ColumnGap = 10.0;
+                //int padding = 40;
+
+                /*string name = "Name";
+                Paragraph l = new Paragraph(new Run(String.Format("{0}{1}", name.PadRight(padding), "Email")));
+                l.FontSize = 24;
+                l.TextAlignment = TextAlignment.Left;
+                fd.Blocks.Add(l);
+                */
+
+                //Now add the users and emails
+                Paragraph u = new Paragraph();
+                string username = " ";
+                string email = " ";
+
+                foreach (User item in Users.Items)
+                {
+                    //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
+                    username = item.userName;
+                    email = item.email;
+                    u = new Paragraph(new Run(String.Format("{0}{1}", username.PadRight(200 - username.Length), email)));
+                    //u = new Paragraph(new Run(String.Format("{0,-20}", username
+                    // + "\t" + String.Format("{0,40}", email))));
+                    u.TextAlignment = TextAlignment.Left;
+                    fd.Blocks.Add(u);
+                }
+
+                fd.Name = "Employees";
+                IDocumentPaginatorSource idpSource = fd;
+                printDlg.ShowDialog();
+                printDlg.PrintDocument(idpSource.DocumentPaginator, "List of Employees");
+                System.Windows.MessageBox.Show("The Print method completed!");
             }
-            
-            fd.Name = "Employees";
-            IDocumentPaginatorSource idpSource = fd;
-            printDlg.ShowDialog();
-            printDlg.PrintDocument(idpSource.DocumentPaginator, "List of Employees");
-            System.Windows.MessageBox.Show("The Print method completed!");
 
 
         }
@@ -180,48 +186,35 @@ namespace CapstoneEmployeeScheduler.Views
             dlg.FileName = "Users"; // Default file name
             dlg.DefaultExt = ".csv"; // Default file extension
             dlg.Filter = "csv Files (.csv)|*.csv"; // Filter files by extension
+            filename = dlg.FileName;
 
-            // Show save file dialog box
             Nullable<bool> result = dlg.ShowDialog();
-
-            // Process save file dialog box results
+            //Process save file dialog box results
             if (result == true)
             {
-                // Save document
+                //Save document
                 filename = dlg.FileName;
+                CreateCSVFile(data, filename);
             }
-            CreateCSVFile(data, filename);
-            System.Windows.MessageBox.Show("CSV File created!", "Created!");
         }
 
         void CreateCSVFile(DataTable dtDataTablesList, string strFilePath)
         {
-            // Create the CSV file to which grid data will be exported.
-            StreamWriter sw = new StreamWriter(strFilePath, false);
-            sw.Write("sep = \t");
-            sw.Write(sw.NewLine);
-            //First we will write the headers.
-            int iColCount = dtDataTablesList.Columns.Count;
-            for (int i = 1; i < iColCount; i++)
+            if (strFilePath.Equals(""))
             {
-                sw.Write(dtDataTablesList.Columns[i]);
-                if (i < iColCount - 1)
-                {
-                    sw.Write(" ");
-                    sw.Write("\t");
-                }
+                //Do nothing if there is no file name(i.e. they hit cancel)
             }
-            sw.Write(sw.NewLine);
-
-            // Now write all the rows.
-            foreach (DataRow dr in dtDataTablesList.Rows)
+            else
             {
+                // Create the CSV file to which grid data will be exported.
+                StreamWriter sw = new StreamWriter(strFilePath, false);
+                sw.Write("sep = \t");
+                sw.Write(sw.NewLine);
+                //First we will write the headers.
+                int iColCount = dtDataTablesList.Columns.Count;
                 for (int i = 1; i < iColCount; i++)
                 {
-                    if (!Convert.IsDBNull(dr[i]))
-                    {
-                        sw.Write(dr[i].ToString());
-                    }
+                    sw.Write(dtDataTablesList.Columns[i]);
                     if (i < iColCount - 1)
                     {
                         sw.Write(" ");
@@ -229,10 +222,28 @@ namespace CapstoneEmployeeScheduler.Views
                     }
                 }
                 sw.Write(sw.NewLine);
-            }
-            sw.Close();
-        }
 
+                // Now write all the rows.
+                foreach (DataRow dr in dtDataTablesList.Rows)
+                {
+                    for (int i = 1; i < iColCount; i++)
+                    {
+                        if (!Convert.IsDBNull(dr[i]))
+                        {
+                            sw.Write(dr[i].ToString());
+                        }
+                        if (i < iColCount - 1)
+                        {
+                            sw.Write(" ");
+                            sw.Write("\t");
+                        }
+                    }
+                    sw.Write(sw.NewLine);
+                }
+                sw.Close();
+                System.Windows.MessageBox.Show("CSV File created!", "Created!");
+            }
+        }
     }
 
 

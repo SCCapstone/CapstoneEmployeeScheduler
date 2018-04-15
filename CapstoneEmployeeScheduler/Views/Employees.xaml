@@ -17,7 +17,7 @@
                     </TextBox.Effect>
                 </TextBox>
 
-                <Button x:Name="CSVEButton" Content="EXPORT EMPLOYEES TO CSV" HorizontalAlignment="Left" Height="50" Margin="536,630,0,0" VerticalAlignment="Top" Width="336" FontWeight="Bold" Click="CSVEButton_Click" FontSize="24"/>
+                <Button x:Name="CSVEButton" Content="EXPORT EMPLOYEES TO CSV" HorizontalAlignment="Left" Height="50" Margin="536,644,0,0" VerticalAlignment="Top" Width="336" FontWeight="Bold" Click="CSVEButton_Click" FontSize="24"/>
                 <ListView Margin="175,155,125,195" Name="Users" SelectionChanged="Users_SelectionChanged" BorderBrush="Black" Width="700">
                     <ListView.View>
                         <GridView>
@@ -35,8 +35,8 @@
                     </StackPanel>
                 </Button>
                 <Button x:Name="PrintEButton" Content="PRINT EMPLOYEES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="209" Margin="663,575,0,0" FontWeight="Bold" Background="#FFDDDDDD" Height="50" FontSize="22" Click="PrintEButton_Click"/>
-                <Button x:Name="EditButton" Content="EDIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="412,568,0,0" Height="50" IsEnabled="False" FontSize="20" Click="edit_Click" FontWeight="Bold" Visibility="Hidden"/>
-                <Button x:Name="DeleteButton" Content="DELETE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="584,568,0,0" Height="50" IsEnabled="False" FontSize="20" Click="DeleteButton_Click" FontWeight="Bold" Visibility="Hidden"/>
+                <Button x:Name="EditButton" Content="EDIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="312,575,0,0" Height="50" IsEnabled="False" FontSize="20" Click="edit_Click" FontWeight="Bold" RenderTransformOrigin="-0.5,0.51" Visibility="Hidden"/>
+                <Button x:Name="DeleteButton" Content="DELETE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="491,575,0,0" Height="50" IsEnabled="False" FontSize="20" Click="DeleteButton_Click" FontWeight="Bold" Visibility="Hidden"/>
             </Grid>
         </Grid>
 
