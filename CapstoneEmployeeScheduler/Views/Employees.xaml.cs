@@ -39,10 +39,21 @@ namespace CapstoneEmployeeScheduler.Views
         private void NewEmployee_Click(object sender, RoutedEventArgs e)
         {
             //calls popup to create a new employee
-            EmployeeModal m = new Views.EmployeeModal();
-            m.ShowDialog();
-            InitializeComponent();
-            ShowTable();
+            RoleController r = new RoleController();
+
+            if (r.getAllRoles().Count == 0)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("There are no Roles in the database. Please create a Role and then try again.", "Error", button, icon);
+            }
+            else
+            {
+                EmployeeModal m = new Views.EmployeeModal();
+                m.ShowDialog();
+                InitializeComponent();
+                ShowTable();
+            }
         }
 
         private void EmployeeTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -164,7 +175,8 @@ namespace CapstoneEmployeeScheduler.Views
                 IDocumentPaginatorSource idpSource = fd;
                 printDlg.ShowDialog();
                 printDlg.PrintDocument(idpSource.DocumentPaginator, "List of Employees");
-                System.Windows.MessageBox.Show("The Print method completed!");
+                MessageBoxButton button = MessageBoxButton.OK;
+                System.Windows.MessageBox.Show("The Print method completed!", "Capstone Employee Scheduler", button);
             }
 
 
@@ -241,7 +253,8 @@ namespace CapstoneEmployeeScheduler.Views
                     sw.Write(sw.NewLine);
                 }
                 sw.Close();
-                System.Windows.MessageBox.Show("CSV File created!", "Created!");
+                MessageBoxButton button = MessageBoxButton.OK;
+                System.Windows.MessageBox.Show("CSV File created!", "Created!", button);
             }
         }
     }
