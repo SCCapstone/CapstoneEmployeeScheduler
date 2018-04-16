@@ -1,6 +1,13 @@
 # CapstoneEmployeeScheduler
 Windows Application to assign Employees and Roles in an efficient manner
 
+This is our RC1 release. Download:
+CapstoneEmployeeScheduler_setup.msi
+This will install under:
+C:\Program Files (x86)\Default Company Name\CapstoneEmployeeScheduler_setup
+Then use:
+Username = "admin" Password = "admin"
+to login. This is the release for the team that is finding bugs in our program.
 #### To login to the application: 
 ##### username = "admin" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; password = "admin" 
 
