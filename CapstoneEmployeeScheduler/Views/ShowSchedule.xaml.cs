@@ -78,28 +78,51 @@ namespace CapstoneEmployeeScheduler.Views
                 fd.ColumnWidth = printDlg.PrintableAreaWidth;
                 fd.ColumnGap = 10.0;
 
-                int padding = 40;
+                int padding = 45;
                 string name = "Name";
+                string shift = "Shift";
                 string role = "Role";
-                Paragraph l = new Paragraph(new Run(String.Format("{0}{1}{2}", name.PadRight(padding), role.PadRight(padding), "Shift")));
+                Paragraph l = new Paragraph(new Run(String.Format("{0}{1}{2}", name.PadRight(padding), shift.PadRight(padding), role)));
                 l.FontSize = 24;
                 l.TextAlignment = TextAlignment.Left;
                 fd.Blocks.Add(l);
+                int maxLength = 20;
                 //Now add the data from the Listview
                 Paragraph u = new Paragraph();
                 foreach (DataRowView item in schedule.ItemsSource)
                 {
+                    string employeeName = (string)item[0];
+                    shift = (string)item[1];
+                    role = (string)item[2];
+                    if (employeeName.Length == 0)
+                    {
+                        continue;
+
+                    }
+
+                    name = employeeName.Substring(0, employeeName.Length);
+                    if (employeeName.Length >= maxLength)
+                    {
+                        employeeName = employeeName.Substring(0, maxLength);
+                        name = employeeName.PadRight(maxLength - employeeName.Length);
+
+                    }
+                    else
+                    {
+                        name = employeeName.PadRight(maxLength - employeeName.Length);
+                        name = name + "\t";
+                    }
                     //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
-                    u = new Paragraph(new Run(item[0] + "\t\t" + item[1] + "\t\t" + item[2]));
+                    u = new Paragraph(new Run(name+ "\t\t\t" + shift + "\t\t\t" + role));
                     u.TextAlignment = TextAlignment.Left;
                     fd.Blocks.Add(u);
                 }
 
                 fd.Name = "Schedule";
                 IDocumentPaginatorSource idpSource = fd;
-                printDlg.ShowDialog();
+                //printDlg.ShowDialog();
                 printDlg.PrintDocument(idpSource.DocumentPaginator, "Today's Schedule");
-                System.Windows.MessageBox.Show("The Print method completed!");
+                System.Windows.MessageBox.Show("The Print completed!");
             }
         }
 
