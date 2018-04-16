@@ -68,10 +68,14 @@ namespace CapstoneEmployeeScheduler.Algorithm
             }
             
             sc.createSchedule(s);//add schedule to the database
-            MessageBoxButton button = MessageBoxButton.OK;
-            MessageBoxImage icon = MessageBoxImage.Warning;
-            MessageBox.Show("There are more employees than desired role assignments.\n There will be at least one role's \"count\" that is exceeded.", "Capstone Employee Scheduler", button, icon);
-            return s;
+            if (warning == true)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBox.Show("There are more employees than desired role assignments.\n There will be at least one role's \"count\" that is exceeded.", "Capstone Employee Scheduler", button, icon);
+            }
+                return s;
+
             
         }
 
