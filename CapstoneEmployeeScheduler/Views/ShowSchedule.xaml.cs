@@ -78,7 +78,7 @@ namespace CapstoneEmployeeScheduler.Views
                 fd.ColumnWidth = printDlg.PrintableAreaWidth;
                 fd.ColumnGap = 10.0;
 
-                int padding = 40;
+                int padding = 45;
                 string name = "Name";
                 string shift = "Shift";
                 string role = "Role";

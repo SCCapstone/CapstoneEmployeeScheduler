@@ -68,7 +68,7 @@ namespace CapstoneEmployeeScheduler.Views
             fd.ColumnWidth = printDlg.PrintableAreaWidth;
             fd.ColumnGap = 10.0;
 
-            int padding = 40;
+            int padding = 45;
             string name = "Name";
             string shift = "Shift";
             string role = "Role";
@@ -112,7 +112,7 @@ namespace CapstoneEmployeeScheduler.Views
             IDocumentPaginatorSource idpSource = fd;
             printDlg.ShowDialog();
             printDlg.PrintDocument(idpSource.DocumentPaginator, "Today's Schedule");
-            System.Windows.MessageBox.Show("The Print method completed!");
+            //System.Windows.MessageBox.Show("The Print method completed!");
         }
     }
 }
