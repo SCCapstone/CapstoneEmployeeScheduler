@@ -102,7 +102,7 @@ namespace CapstoneEmployeeScheduler
 
         private void ViewSchedule_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Views.PastSchedule();
+            Main.Content = new Views.ShowSchedule();
         }
 
         private void NewRolesRole_Click(object sender, RoutedEventArgs e)
