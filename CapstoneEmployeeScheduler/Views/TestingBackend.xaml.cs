@@ -28,31 +28,63 @@ namespace CapstoneEmployeeScheduler.Views
             InitializeComponent();
         }
 
+        //This method is used for testing all of the backend methods
+        //To use, uncomment out the button from TestingBackend.xaml and
+        //add the method you want to test to this method then
+        //run the app and click the testing button
+        //This is mainly used by Chance when the front end for the method he wants
+        //to test has not been created yet
         public void UserDAO_Click(object sender, RoutedEventArgs e)
         {
-            ScheduleController sc = new ScheduleController();
-            Schedule s = new Schedule();
-            s.ScheduleDate = DateTime.Today;
-            s.UserRoles.Add(123, 123);
-            s.UserRoles.Add(1234, 123);
-            sc.createSchedule(s);
-            s = sc.getScheduleByDate(DateTime.Today);
-            Console.WriteLine(s.Id);
-            
+            //Test code in here
         }
 
-        public string TestGet()
+        //Tests Creating, Getting, and Deleting a Role
+        public string TestCreateGetDelete()
         {
             RoleController rc = new RoleController();
-            List<Role> roles = rc.getAllRoles();
-            for(int i=0;i<roles.Count;i++)
+            Role role = new Models.Role();
+            role.RoleName = "Testing Role";
+            role.RoleCount = 7;
+            role.RoleDescription = "Role for testing purposes";
+            try
             {
-                if(roles.ElementAt(i).RoleName.Equals("Testing Role"))
-                {
-                    return "Testing Role";
-                }
+                role = rc.createRole(role);
             }
-            return "Failure";
+            catch (System.Data.SqlClient.SqlException)
+            {
+
+            }
+            try
+            {
+                int test = role.Id;
+            }
+            catch (NullReferenceException)
+            {
+                return "Create Role Failed";
+            }
+            Role getRole = rc.getRoleById(role.Id);
+            if (!(getRole.Id >= 0))
+            {
+                return "Get Role Failed";
+            }
+            try
+            {
+                rc.deleteRole(role.Id);
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+
+            }
+            catch (NullReferenceException)
+            {
+
+            }
+            if (!(rc.getRoleById(role.Id).Id >= 0))
+            {
+                return "Delete Role Failed";
+            }
+            return "Success";
         }
     }
 }

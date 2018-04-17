@@ -11,7 +11,7 @@ namespace CapstoneEmployeeScheduler.Controllers
     class RoleController
     {
 
-        public void createRole(Role role)
+        public Role createRole(Role role)
         {
             RoleDAO roleDAO = null;
             try
@@ -24,7 +24,7 @@ namespace CapstoneEmployeeScheduler.Controllers
 
             }
 
-            roleDAO.createRole(role);
+            return roleDAO.createRole(role);
         }
 
         public void editRole(Role role)

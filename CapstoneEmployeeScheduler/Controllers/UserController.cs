@@ -12,7 +12,7 @@ namespace CapstoneEmployeeScheduler.Controllers
     {
         UserDAO userDAO = new UserDAO();
 
-        public void createUser(User user)
+        public User createUser(User user)
         {
             user = userDAO.createUser(user);
             if (user.Roles != null)
@@ -23,6 +23,7 @@ namespace CapstoneEmployeeScheduler.Controllers
                     addRoleToUser(user.Id, role.Id);
                 }
             }
+            return user;
         }
         
         public void editUser(User user)

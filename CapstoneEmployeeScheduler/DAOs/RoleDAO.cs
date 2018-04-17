@@ -32,7 +32,7 @@ namespace CapstoneEmployeeScheduler.DAO
             // Create and prepare an SQL statement.
             command.CommandText =
                         "INSERT INTO Roles (RoleName, RoleDescription, Count) " +
-                "VALUES (@rolename, @roledescription, @count)";
+                "VALUES (@rolename, @roledescription, @count); SELECT CAST(scope_identity() AS int)";
 
             SqlParameter roleNameParam = new SqlParameter("@rolename", SqlDbType.Text, 255);
             SqlParameter roleDescriptionParam = new SqlParameter("@roledescription", SqlDbType.Text, 255);
@@ -48,8 +48,8 @@ namespace CapstoneEmployeeScheduler.DAO
 
             // Call Prepare after setting the Commandtext and Parameters.
             command.Prepare();
-            command.ExecuteNonQuery();
-
+            int id = (Int32)command.ExecuteScalar();
+            role.Id = id;
             return role;
         }
 
