@@ -145,28 +145,37 @@ namespace CapstoneEmployeeScheduler.Views
 
                 fd.ColumnWidth = printDlg.PrintableAreaWidth;
                 fd.ColumnGap = 10.0;
-                //int padding = 40;
+                int padding = 45;
 
-                /*string name = "Name";
+                string name = "Name";
                 Paragraph l = new Paragraph(new Run(String.Format("{0}{1}", name.PadRight(padding), "Email")));
                 l.FontSize = 24;
                 l.TextAlignment = TextAlignment.Left;
                 fd.Blocks.Add(l);
-                */
+                
 
                 //Now add the users and emails
                 Paragraph u = new Paragraph();
                 string username = " ";
                 string email = " ";
-
+                int maxLength = 20;
                 foreach (User item in Users.Items)
                 {
-                    //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
                     username = item.userName;
                     email = item.email;
-                    u = new Paragraph(new Run(String.Format("{0}{1}", username.PadRight(200 - username.Length), email)));
-                    //u = new Paragraph(new Run(String.Format("{0,-20}", username
-                    // + "\t" + String.Format("{0,40}", email))));
+                    if (username.Length >= maxLength)
+                    {
+                        username = username.Substring(0, maxLength);
+                        username = username.PadRight(maxLength - username.Length);
+
+                    }
+                    else
+                    {
+                        username = username.PadRight(maxLength - username.Length);
+                        username = username + "\t";
+                    }
+                    //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
+                    u = new Paragraph(new Run(username + "\t\t\t" + email));
                     u.TextAlignment = TextAlignment.Left;
                     fd.Blocks.Add(u);
                 }
