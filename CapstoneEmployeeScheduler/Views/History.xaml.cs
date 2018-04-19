@@ -80,6 +80,8 @@ namespace CapstoneEmployeeScheduler.Views
             Schedule s = sc.getScheduleByDate(date);//date);
             string id = s.Id;
             sc.deleteSchedule(id);
+            MessageBoxButton button = MessageBoxButton.OK;
+            System.Windows.MessageBox.Show("Schedule deleted successfully.", "Schedule Deleted", button);
         }
     }
 }
