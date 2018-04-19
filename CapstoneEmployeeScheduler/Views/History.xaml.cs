@@ -73,13 +73,13 @@ namespace CapstoneEmployeeScheduler.Views
         private void deleteSchedule_Click(object sender, RoutedEventArgs e)
         {
             //deletes schedule when selected
-            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete this schedule? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete this schedule? This action cannot be undone!", "WARNING", MessageBoxButtons.YesNo);
             DataRowView drv = GeneratedSchedules.Items.GetItemAt(GeneratedSchedules.SelectedIndex) as DataRowView;
             DateTime date = Convert.ToDateTime(drv["Date"]);
             ScheduleController sc = new ScheduleController();
             Schedule s = sc.getScheduleByDate(date);//date);
-            //string date =
-            //sc.deleteSchedule(date);
+            string id = s.Id;
+            sc.deleteSchedule(id);
         }
     }
 }
