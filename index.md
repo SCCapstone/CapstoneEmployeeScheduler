@@ -2,16 +2,16 @@ This application is used to save your company time by scheduling employees for y
 
 
 
-#### Here is a video to demostrate what this application can do:
+## Here is a video to demostrate what this application can do:
 
-#### Here are some pictures of the application:
+## Here are some pictures of the application:
 
-## Employee's Page
+#### Employee's Page
 
-## Role's Page
+#### Role's Page
 
-## Schedule
+#### Schedule
 
-## History Page
+#### History Page
 
 
