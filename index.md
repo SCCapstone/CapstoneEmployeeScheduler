@@ -12,8 +12,13 @@ This application is used to save your company time by scheduling employees for y
 
 #### Role's Page
 
+![rolespage](https://user-images.githubusercontent.com/31494550/39018216-6963e018-43f3-11e8-8b8d-151000511f34.PNG)
+
 #### Schedule
+
+![schedulepage](https://user-images.githubusercontent.com/31494550/39018264-8e63c2b6-43f3-11e8-9275-1501dc765f0f.PNG)
 
 #### History Page
 
+![historypage](https://user-images.githubusercontent.com/31494550/39018247-80f3a1e6-43f3-11e8-9eb4-7d97fbee2c94.PNG)
 
