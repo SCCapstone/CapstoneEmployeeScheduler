@@ -28,6 +28,10 @@
                     Command="{Binding Path=DataContext.RunCommand, RelativeSource={RelativeSource FindAncestor,
                     AncestorType= {x:Type ItemsControl}}}"
                     IsEnabled="{Binding ElementName=GeneratedSchedules, Path=SelectedItems.Count}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Width="353" Margin="532,587,0,0" Height="57"/>
+            <Button Content="DELETE SCHEDULE
+                    " x:Name="deleteSchedule" Click ="deleteSchedule_Click"
+                Command="{Binding DataContext.RunCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}"
+                IsEnabled="{Binding SelectedItems.Count, ElementName=GeneratedSchedules}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Width="229" Margin="246,587,0,0" Height="57"/>
         </Grid>
     </Grid>
 </Page>
