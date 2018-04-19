@@ -22,3 +22,4 @@ This application is used to save your company time by scheduling employees for y
 
 ![historypage](https://user-images.githubusercontent.com/31494550/39018247-80f3a1e6-43f3-11e8-9eb4-7d97fbee2c94.PNG)
 
+Visit our About Page: CapstoneEmployeeScheduler/aboutpage.md
