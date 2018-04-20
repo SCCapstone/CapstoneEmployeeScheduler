@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapstoneEmployeeScheduler",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehaviorTests", "BehaviorTests\BehaviorTests.csproj", "{89F05EAA-721C-4410-BA03-C416D064660E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeSchedulerUnitTests", "UnitTestProject1\EmployeeSchedulerUnitTests.csproj", "{E197A481-7F7C-449E-B6B9-4F5357564C22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{E90FE5B1-18C7-4377-A6C7-ADA7E972183E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +22,10 @@ Global
 		{89F05EAA-721C-4410-BA03-C416D064660E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{89F05EAA-721C-4410-BA03-C416D064660E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89F05EAA-721C-4410-BA03-C416D064660E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E197A481-7F7C-449E-B6B9-4F5357564C22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E197A481-7F7C-449E-B6B9-4F5357564C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E197A481-7F7C-449E-B6B9-4F5357564C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E197A481-7F7C-449E-B6B9-4F5357564C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E90FE5B1-18C7-4377-A6C7-ADA7E972183E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E90FE5B1-18C7-4377-A6C7-ADA7E972183E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E90FE5B1-18C7-4377-A6C7-ADA7E972183E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E90FE5B1-18C7-4377-A6C7-ADA7E972183E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

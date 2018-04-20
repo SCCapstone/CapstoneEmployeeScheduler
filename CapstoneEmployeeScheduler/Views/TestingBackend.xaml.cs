@@ -40,7 +40,7 @@ namespace CapstoneEmployeeScheduler.Views
         }
 
         //Tests Creating, Getting, and Deleting a Role
-        public string TestCreateGetDelete()
+        public string CreateGetDeleteRole()
         {
             RoleController rc = new RoleController();
             Role role = new Models.Role();
