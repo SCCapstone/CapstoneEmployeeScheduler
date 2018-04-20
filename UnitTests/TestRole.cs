@@ -6,7 +6,7 @@ using CapstoneEmployeeScheduler;
 namespace UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class TestRole
     {
         TestingBackend tb = new TestingBackend();
 
@@ -17,6 +17,21 @@ namespace UnitTests
             try
             {
                 test = tb.CreateGetDeleteRole();
+            }
+            catch
+            {
+                Assert.IsFalse(true);
+            }
+            Assert.AreEqual("Success", test);
+        }
+
+        [TestMethod]
+        public void TestEditRole()
+        {
+            string test = null;
+            try
+            {
+                test = tb.EditRole();
             }
             catch
             {

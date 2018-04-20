@@ -10,10 +10,18 @@ namespace CapstoneEmployeeScheduler.Controllers
 {
     class UserController
     {
-        UserDAO userDAO = new UserDAO();
+        UserDAO userDAO = null;//new UserDAO();
 
         public User createUser(User user)
         {
+            try
+            {
+                userDAO = new UserDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             user = userDAO.createUser(user);
             if (user.Roles != null)
             {
@@ -28,6 +36,14 @@ namespace CapstoneEmployeeScheduler.Controllers
         
         public void editUser(User user)
         {
+            try
+            {
+                userDAO = new UserDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             User oldUser = getUserById(user.Id);
             userDAO.editUser(user);
             if (user.Roles != null)
@@ -51,11 +67,27 @@ namespace CapstoneEmployeeScheduler.Controllers
 
         private void deleteRoleFromUser(int userId, int roleId)
         {
+            try
+            {
+                userDAO = new UserDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             userDAO.deleteRoleFromUser(userId, roleId);
         }
 
         public User getUserById(int id)
         {
+            try
+            {
+                userDAO = new UserDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             User user = userDAO.getUserById(id);
             user.Roles = getRolesForUser(user);
             return user;
@@ -63,6 +95,14 @@ namespace CapstoneEmployeeScheduler.Controllers
 
         public List<User> getAllUsersWithoutRoles()
         {
+            try
+            {
+                userDAO = new UserDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             List<User> users = new List<User>();
             users = userDAO.getAllUsers();
             return users;
@@ -70,6 +110,14 @@ namespace CapstoneEmployeeScheduler.Controllers
 
         public List<User> getAllUsersWithEntireRole()
         {
+            try
+            {
+                userDAO = new UserDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             List<User> users = new List<User>();
             users = userDAO.getAllUsers();
             foreach(User user in users)
@@ -81,6 +129,14 @@ namespace CapstoneEmployeeScheduler.Controllers
 
         public List<User> getAllUsersWithRoleId()
         {
+            try
+            {
+                userDAO = new UserDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             List<User> users = new List<User>();
             users = userDAO.getAllUsers();
             foreach (User user in users)
@@ -92,21 +148,53 @@ namespace CapstoneEmployeeScheduler.Controllers
 
         public void deleteUserById(int id)
         {
+            try
+            {
+                userDAO = new UserDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             userDAO.deleteUserById(id);
         }
 
         private void addRoleToUser(int userID, int roleID)
         {
+            try
+            {
+                userDAO = new UserDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             userDAO.addRoleToUser(userID, roleID);
         }
 
         private List<Role> getRolesForUser(User user)
         {
+            try
+            {
+                userDAO = new UserDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             return userDAO.getRolesForUser(user);
         }
 
         private List<Role> getRoleIdForUser(User user)
         {
+            try
+            {
+                userDAO = new UserDAO();
+            }
+            catch (System.TypeInitializationException)
+            {
+
+            }
             return userDAO.getRoleIdForUser(user);
         }
     }
