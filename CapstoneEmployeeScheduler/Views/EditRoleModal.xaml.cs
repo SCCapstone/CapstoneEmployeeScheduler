@@ -39,14 +39,47 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-            role.RoleName = name.Text;
+            //need way to check for empty fields
+            int x = 0;
+            Int32.TryParse(RoleCountBox.Text, out x);
+            if (x <= 0)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Can't have a count of < 0. Please enter a valid count", "Error", button, icon);
+            }
+            else if (name.Text.Equals(""))
+            {
+
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("The name field is empty. Please enter a name for the role", "Error", button, icon);
+            }
+            else if (description.Text.Equals(""))
+            {
+
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("The description field is empty. Please enter a description", "Error", button, icon);
+            }
+            else
+            {
+                role.RoleName = name.Text;
+                role.RoleDescription = description.Text;
+
+                role.RoleCount = x;
+                rc.editRole(role);
+                MessageBox.Show("Edit Successful!", "Edit Successful");
+                this.Close();
+            }
+            /*role.RoleName = name.Text;
             role.RoleDescription = description.Text;
             int x = 0;
             Int32.TryParse(RoleCountBox.Text, out x);
             role.RoleCount = x;
-            rc.editRole(role);
-            MessageBox.Show("Edit Successful!", "Edit Successful");
-            this.Close();
+             */
+            
+            //this.Close();
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)

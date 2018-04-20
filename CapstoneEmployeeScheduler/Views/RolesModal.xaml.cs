@@ -32,13 +32,39 @@ namespace CapstoneEmployeeScheduler.Views
         {
             RoleController r = new RoleController();
             Role role = new Role();
-            role.RoleName = name.Text;
-            role.RoleDescription = description.Text;
+            //need way to check for empty fields
             int x = 0;
             Int32.TryParse(RoleCountBox.Text, out x);
-            role.RoleCount = x;
-            r.createRole(role);
-            this.Close();
+            if(x <= 0)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Can't have a count of < 0. Please enter a valid count", "Error", button, icon);
+            }
+            else if (name.Text.Equals(""))
+            {
+
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("The name field is empty. Please enter a name for the role", "Error", button, icon);
+            }
+            else if (description.Text.Equals(""))
+            {
+
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("The description field is empty. Please enter a description", "Error", button, icon);
+            }
+            else
+            {
+                role.RoleName = name.Text;
+                role.RoleDescription = description.Text;
+                
+                role.RoleCount = x;
+                r.createRole(role);
+                this.Close();
+            }
+            
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)
