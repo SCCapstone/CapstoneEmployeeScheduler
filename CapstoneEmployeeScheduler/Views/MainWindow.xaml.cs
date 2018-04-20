@@ -80,11 +80,15 @@ namespace CapstoneEmployeeScheduler
         private void NewEmployee_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.Employees();
+            EmployeeModal m = new Views.EmployeeModal();
+            m.ShowDialog();
         }
 
         private void NewRole_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.Roles();
+            RolesModal m = new Views.RolesModal();
+            m.ShowDialog();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
