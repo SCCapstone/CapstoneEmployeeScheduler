@@ -14,15 +14,18 @@ namespace UnitTests
         public void TestCreateGetDeleteUser()
         {
             string test = null;
-            //try
-            //{
+            try
+            {
+                //Sets test equal to whatever this method returns
                 test = tb.CreateGetDeleteUser();
-            //}
-            //catch
-            //{
-            //    Assert.IsFalse(true);
-            //}
-    Assert.AreEqual("Success", test);
+            }
+            catch
+            {
+                //If any exception is caught the test fails
+                Assert.IsFalse(true);
+            }
+            //If the method returns success then the test passes
+            Assert.AreEqual("Success", test);
         }
 
         [TestMethod]
@@ -31,12 +34,15 @@ namespace UnitTests
             string test = null;
             try
             {
+                //Sets test equal to whatever this method returns
                 test = tb.EditUser();
             }
             catch
             {
+                //If any exception is caught the test fails
                 Assert.IsFalse(true);
             }
+            //If the method returns success then the test passes
             Assert.AreEqual("Success", test);
         }
     }

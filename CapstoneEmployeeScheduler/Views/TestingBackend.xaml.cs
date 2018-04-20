@@ -39,14 +39,20 @@ namespace CapstoneEmployeeScheduler.Views
             //Test code in here
         }
 
+        /*
+         * Controller and DAO Level Role Method Tests
+         */
+
         //Tests Creating, Getting, and Deleting a Role
         public string CreateGetDeleteRole()
         {
+            //Create a role
             RoleController rc = new RoleController();
             Role role = new Models.Role();
             role.RoleName = "Testing Role";
             role.RoleCount = 7;
             role.RoleDescription = "Role for testing purposes";
+            //First test creating a role
             try
             {
                 role = rc.createRole(role);
@@ -55,6 +61,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
 
             }
+            //If the role id is null then return "Create Role Failed"
             try
             {
                 int test = role.Id;
@@ -63,11 +70,14 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 return "Create Role Failed";
             }
+            //Second test get role
             Role getRole = rc.getRoleById(role.Id);
+            //If the returned role doesn't have an id then return "Get Role Failed"
             if (!(getRole.Id >= 0))
             {
                 return "Get Role Failed";
             }
+            //Third test delete role
             try
             {
                 rc.deleteRole(role.Id);
@@ -80,15 +90,19 @@ namespace CapstoneEmployeeScheduler.Views
             {
 
             }
+            //If the role isn't deleted return "Delete Role Failed"
             if (!(rc.getRoleById(role.Id).Id >= 0))
             {
                 return "Delete Role Failed";
             }
+            //Return "Success" if nothing failed
             return "Success";
         }
 
+        //This method tests to make sure edit role works correctly
         public string EditRole()
         {
+            //Create a role
             RoleController rc = new RoleController();
             Role role = new Models.Role();
             role.RoleName = "Testing Role";
@@ -115,6 +129,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 return "Get Role Failed";
             }
+            //Edit the role
             getRole.RoleName = "Edit Name of Role!";
             try
             {
@@ -124,10 +139,10 @@ namespace CapstoneEmployeeScheduler.Views
             {
 
             }
-            Role getRole2 = rc.getRoleById(getRole.Id);
-            if (!(getRole2.Id >= 0))
+            //Test to see if the Role was edited
+            if (!getRole.RoleName.Equals("Edit Name of Role!"))
             {
-                return "Get Role Failed";
+                return "Edit Role Failed";
             }
             try
             {
@@ -148,11 +163,14 @@ namespace CapstoneEmployeeScheduler.Views
             return "Success";
         }
 
+        /*
+         * Controller and DAO Level User Method Tests
+         */
 
-
-
+        //Tests create get delete User
         public string CreateGetDeleteUser()
         {
+            //Create a User
             User user = new Models.User();
             UserController uc = new UserController();
             user.UserName = "Testing User";
@@ -170,6 +188,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
 
             }
+            //Tests to make sure a user was created
             try
             {
                 int test = user.Id;
@@ -178,6 +197,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 return "Create User Failed";
             }
+            //Get a user
             User getUser = null;
             try
             {
@@ -187,6 +207,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
 
             }
+            //Delete a user
             try
             {
                 uc.deleteUserById(user.Id);
@@ -199,6 +220,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
 
             }
+            //Tests to make sure the user was deleted
             try
             {
                 if (!(uc.getUserById(user.Id).Id >= 0))
@@ -210,9 +232,11 @@ namespace CapstoneEmployeeScheduler.Views
             {
 
             }
+            //Return "Success" if nothing failed
             return "Success";
         }
 
+        //Test Editing a User
         public string EditUser()
         {
             User user = new Models.User();
@@ -240,6 +264,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 return "Create User Failed";
             }
+            //Edits a User
             User editUser = new Models.User();
             editUser.UserName = "Edit User Name";
             try
@@ -250,6 +275,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
 
             }
+            //Tests to see if editUser works
             if (!editUser.UserName.Equals("Edit User Name"))
             {
                 return "Edit User Failed";
