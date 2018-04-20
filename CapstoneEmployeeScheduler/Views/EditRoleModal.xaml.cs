@@ -25,6 +25,7 @@ namespace CapstoneEmployeeScheduler.Views
         private int passedID;
         Role role = new Role();
         RoleController rc = new RoleController();
+
         public EditRoleModal(int id)
         {
             InitializeComponent();
@@ -40,6 +41,9 @@ namespace CapstoneEmployeeScheduler.Views
         private void submit_Click(object sender, RoutedEventArgs e)
         {
             //need way to check for empty fields
+            Boolean isTaken = false;
+            List<Role> roleList = new List<Role>();
+            roleList = rc.getAllRoles();
             int x = 0;
             Int32.TryParse(RoleCountBox.Text, out x);
             if (x <= 0)
@@ -70,13 +74,56 @@ namespace CapstoneEmployeeScheduler.Views
             }
             else
             {
-                role.RoleName = name.Text;
-                role.RoleDescription = description.Text;
+                foreach (Role u in roleList)
+                {
+                    if (name.Text.Equals(u.RoleName))
+                    {
+                        if (u.Id == passedID)
+                        {
+                            //it is the one being edited
+                        }
+                        else
+                        {
+                            MessageBoxButton button = MessageBoxButton.OK;
+                            MessageBoxImage icon = MessageBoxImage.Error;
+                            System.Windows.MessageBox.Show("This role has already been entered in the database", "Error", button, icon);
+                            isTaken = true;
+                        }
+                    }
+                    else if (description.Text.Equals(u.RoleDescription))
+                    {
+                        if (u.Id == passedID)
+                        {
+                            //it is the one being edited
+                        }
+                        else
+                        {
+                            MessageBoxButton button = MessageBoxButton.OK;
+                            MessageBoxImage icon = MessageBoxImage.Error;
+                            System.Windows.MessageBox.Show("This description has already been entered in the database", "Error", button, icon);
+                            isTaken = true;
+                        }
+                    }
+                }
+                if (isTaken == true)
+                {
+                    //dont add
+                }
+                else
+                {
+                    role.RoleName = name.Text;
+                    role.RoleDescription = description.Text;
 
-                role.RoleCount = x;
-                rc.editRole(role);
-                MessageBox.Show("Edit Successful!", "Edit Successful");
-                this.Close();
+                    role.RoleCount = x;
+                    rc.editRole(role);
+                    MessageBox.Show("Edit Successful!", "Edit Successful");
+                    this.Close();
+                }
+                //role.RoleName = name.Text;
+                //role.RoleDescription = description.Text;
+
+                //role.RoleCount = x;
+                
             }
             /*role.RoleName = name.Text;
             role.RoleDescription = description.Text;

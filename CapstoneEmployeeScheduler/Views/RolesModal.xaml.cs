@@ -32,6 +32,9 @@ namespace CapstoneEmployeeScheduler.Views
         {
             RoleController r = new RoleController();
             Role role = new Role();
+            List<Role> roleList = new List<Role>();
+            roleList = r.getAllRoles();
+            Boolean isTaken = false;
             //need way to check for empty fields
             int x = 0;
             Int32.TryParse(RoleCountBox.Text, out x);
@@ -63,12 +66,36 @@ namespace CapstoneEmployeeScheduler.Views
             }
             else
             {
-                role.RoleName = name.Text;
-                role.RoleDescription = description.Text;
-                
-                role.RoleCount = x;
-                r.createRole(role);
-                this.Close();
+                foreach (Role u in roleList)
+                {
+                    if (name.Text.Equals(u.RoleName))
+                    {
+                        MessageBoxButton button = MessageBoxButton.OK;
+                        MessageBoxImage icon = MessageBoxImage.Error;
+                        System.Windows.MessageBox.Show("This role has already been entered in the database", "Error", button, icon);
+                        isTaken = true;
+                    }
+                    else if (description.Text.Equals(u.RoleDescription))
+                    {
+                        MessageBoxButton button = MessageBoxButton.OK;
+                        MessageBoxImage icon = MessageBoxImage.Error;
+                        System.Windows.MessageBox.Show("This description has already been entered in the database", "Error", button, icon);
+                        isTaken = true;
+                    }
+                }
+                if (isTaken == true)
+                {
+                    //dont add
+                }
+                else
+                {
+                    role.RoleName = name.Text;
+                    role.RoleDescription = description.Text;
+
+                    role.RoleCount = x;
+                    r.createRole(role);
+                    this.Close();
+                }
             }
             
         }
