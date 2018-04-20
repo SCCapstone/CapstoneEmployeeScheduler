@@ -32,27 +32,29 @@ namespace CapstoneEmployeeScheduler.Views
         {
             RoleController r = new RoleController();
             Role role = new Role();
+            //Creates a list of all Roles already in table
             List<Role> roleList = new List<Role>();
             roleList = r.getAllRoles();
             Boolean isTaken = false;
-            //need way to check for empty fields
             int x = 0;
             Int32.TryParse(RoleCountBox.Text, out x);
+            //Make sure Role isn't a negative number or 0
             if(x <= 0)
             {
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Error;
                 System.Windows.MessageBox.Show("Can't have a count of < 0. Please enter a valid count", "Error", button, icon);
             }
+            //Make sure Role isn't greater than 999
             else if (x > 999)
             {
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Error;
                 System.Windows.MessageBox.Show("Can't have a count of > 999. Please enter a valid count", "Error", button, icon);
             }
+            //Make sure the name or description fields are not blank
             else if (name.Text.Equals(""))
             {
-
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Error;
                 System.Windows.MessageBox.Show("The name field is empty. Please enter a name for the role", "Error", button, icon);
@@ -66,6 +68,7 @@ namespace CapstoneEmployeeScheduler.Views
             }
             else
             {
+                //Check to see if name or description is already in the role list
                 foreach (Role u in roleList)
                 {
                     if (name.Text.Equals(u.RoleName))
@@ -73,6 +76,7 @@ namespace CapstoneEmployeeScheduler.Views
                         MessageBoxButton button = MessageBoxButton.OK;
                         MessageBoxImage icon = MessageBoxImage.Error;
                         System.Windows.MessageBox.Show("This role has already been entered in the database", "Error", button, icon);
+                        //Cant have the same name
                         isTaken = true;
                     }
                     else if (description.Text.Equals(u.RoleDescription))
@@ -80,24 +84,24 @@ namespace CapstoneEmployeeScheduler.Views
                         MessageBoxButton button = MessageBoxButton.OK;
                         MessageBoxImage icon = MessageBoxImage.Error;
                         System.Windows.MessageBox.Show("This description has already been entered in the database", "Error", button, icon);
+                        //Can't have the same description
                         isTaken = true;
                     }
                 }
                 if (isTaken == true)
                 {
-                    //dont add
+                    //If it is already in the table, don't allow the user to add it a second time
                 }
                 else
                 {
+                    //Once we have made sure it isn't in the table, we can add the data and create a new Role
                     role.RoleName = name.Text;
                     role.RoleDescription = description.Text;
-
                     role.RoleCount = x;
                     r.createRole(role);
                     this.Close();
                 }
             }
-            
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)
@@ -107,21 +111,22 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
 
         private void name_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
 
         private void RoleCountBox_TextChanged(object sender, EventArgs e)
         {
+            //Check to make sure they entered a number into role count. No letters or symbols allowed!
             if (System.Text.RegularExpressions.Regex.IsMatch(RoleCountBox.Text, "[^0-9]"))
                 {
                 MessageBox.Show("Please enter only numbers greater than zero.");

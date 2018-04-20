@@ -29,35 +29,39 @@ namespace CapstoneEmployeeScheduler.Views
         public EditRoleModal(int id)
         {
             InitializeComponent();
+            //Get the ID of the role that is being edited
             passedID = id;
             role = (Role)rc.getRoleById(passedID);
+            //Fills the boxes with values already in database
             name.Text = role.RoleName;
             description.Text = role.RoleDescription;
             RoleCountBox.Text = role.RoleCount.ToString();
             role.RoleDescription = description.Text;
-
         }
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-            //need way to check for empty fields
             Boolean isTaken = false;
+            //Creates a list of all Roles already in table
             List<Role> roleList = new List<Role>();
             roleList = rc.getAllRoles();
             int x = 0;
             Int32.TryParse(RoleCountBox.Text, out x);
+            //Make sure Role isn't a negative number or 0
             if (x <= 0)
             {
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Error;
                 System.Windows.MessageBox.Show("Can't have a count of < 0. Please enter a valid count", "Error", button, icon);
             }
+            //Make sure Role isn't greater than 999
             else if (x > 999)
             {
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Error;
                 System.Windows.MessageBox.Show("Can't have a count of > 999. Please enter a valid count", "Error", button, icon);
             }
+            //Make sure the name or description fields are not blank
             else if (name.Text.Equals(""))
             {
 
@@ -74,19 +78,21 @@ namespace CapstoneEmployeeScheduler.Views
             }
             else
             {
+                //Check to see if name or description is already in the role list
                 foreach (Role u in roleList)
                 {
                     if (name.Text.Equals(u.RoleName))
                     {
                         if (u.Id == passedID)
                         {
-                            //it is the one being edited
+                            //It is the one being edited, so we are still good
                         }
                         else
                         {
                             MessageBoxButton button = MessageBoxButton.OK;
                             MessageBoxImage icon = MessageBoxImage.Error;
                             System.Windows.MessageBox.Show("This role has already been entered in the database", "Error", button, icon);
+                            //Cant have the same role name
                             isTaken = true;
                         }
                     }
@@ -94,45 +100,33 @@ namespace CapstoneEmployeeScheduler.Views
                     {
                         if (u.Id == passedID)
                         {
-                            //it is the one being edited
+                            //It is the one being edited, so we are still good
                         }
                         else
                         {
                             MessageBoxButton button = MessageBoxButton.OK;
                             MessageBoxImage icon = MessageBoxImage.Error;
                             System.Windows.MessageBox.Show("This description has already been entered in the database", "Error", button, icon);
+                            //Cant have the same role description
                             isTaken = true;
                         }
                     }
                 }
                 if (isTaken == true)
                 {
-                    //dont add
+                    //If it is already in the table, don't allow the user to add it a second time
                 }
                 else
                 {
+                    //Once we have made sure it isn't in the table, we can update the Role being edited
                     role.RoleName = name.Text;
                     role.RoleDescription = description.Text;
-
                     role.RoleCount = x;
                     rc.editRole(role);
                     MessageBox.Show("Edit Successful!", "Edit Successful");
                     this.Close();
                 }
-                //role.RoleName = name.Text;
-                //role.RoleDescription = description.Text;
-
-                //role.RoleCount = x;
-                
             }
-            /*role.RoleName = name.Text;
-            role.RoleDescription = description.Text;
-            int x = 0;
-            Int32.TryParse(RoleCountBox.Text, out x);
-            role.RoleCount = x;
-             */
-            
-            //this.Close();
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)
@@ -142,21 +136,22 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
 
         private void name_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
 
         private void RoleCountBox_TextChanged(object sender, EventArgs e)
         {
+            //Check to make sure they entered a number into role count. No letters or symbols allowed!
             if (System.Text.RegularExpressions.Regex.IsMatch(RoleCountBox.Text, "[^0-9]"))
             {
                 MessageBox.Show("Please enter only numbers greater than zero.");

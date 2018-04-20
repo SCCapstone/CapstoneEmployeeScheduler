@@ -31,70 +31,25 @@ namespace CapstoneEmployeeScheduler.Views
             RoleController rc = new RoleController();
             List<Role> items = new List<Role>();
             roleListBox.ItemsSource = rc.getAllRoles();
-
-            
-
-            /*roleList.Items.Clear();
-            //populating the datagrid with roles
-            var bindingList = new BindingList<Role>();
-            foreach (Role role in items)
-            {
-                bindingList.Add(role);
-            }
-            var source = new BindingSource(bindingList, null);
-            roleList.ItemsSource = source;
-            roleList.IsReadOnly = false;
-            //attempt to hide column names. Unsuccessful
-            /*foreach (DataGridColumn col in roleList.Columns)
-            {
-                if (col.Header.Equals("Id"))
-                {
-                    col.Visibility = Visibility.Hidden;
-                }
-                if (col.Header.Equals("RoleDescription"))
-                {
-                    col.Visibility = Visibility.Hidden;
-                }
-                if (col.Header.Equals("RoleCount"))
-                {
-                    col.Visibility = Visibility.Hidden;
-                }
-
-            }*/
-
-
         }
-       /* public DataTable CreateTable ()
-        {
 
-            DataTable dt = new DataTable();
-            UserController uc = new UserController();
-            RoleController rc = new RoleController();
-            List<Role> allRoles = new List<Role>();
-            allRoles = rc.getAllRoles();
-            dt.Columns.Add("Role", typeof(string));
-            dt.Columns.Add("Count", typeof(int));
-            foreach(Role r in allRoles)
-            {
-                dt.Rows.Add(r.RoleName,r.RoleCount);
-               
-            }
-            return dt;
-        }
-        */
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //Closes the modal if they hit close
             this.Close();
         }
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
+            //Method ran when the user tries to submit the new Employee
             UserController uc = new UserController();
             User user = new User();
+            //Get list of Users already in table so we don't have a duplicate name
             List<User> userList = new List<User>();
             userList = uc.getAllUsersWithoutRoles();
             RoleController rc = new RoleController();
             Boolean isTaken = false;
+            //Check to see if any fields are empty. If they are, throw an error and don't let them proceed
             if (name.Text.Equals(""))
             {
 
@@ -118,6 +73,7 @@ namespace CapstoneEmployeeScheduler.Views
             }
             else
             {
+                //Check Name and email versus all users already in the table. If they are, don't let them proceed
                 foreach(User u in userList)
                 {
                     if(name.Text.Equals(u.userName))
@@ -125,6 +81,7 @@ namespace CapstoneEmployeeScheduler.Views
                         MessageBoxButton button = MessageBoxButton.OK;
                         MessageBoxImage icon = MessageBoxImage.Error;
                         System.Windows.MessageBox.Show("This name has already been entered in the database", "Error", button, icon);
+                        //Keep track of if it is taken
                         isTaken = true;
                     }
                     else if (email.Text.Equals(u.email))
@@ -132,23 +89,24 @@ namespace CapstoneEmployeeScheduler.Views
                         MessageBoxButton button = MessageBoxButton.OK;
                         MessageBoxImage icon = MessageBoxImage.Error;
                         System.Windows.MessageBox.Show("This email has already been entered in the database", "Error", button, icon);
+                        //Keep track of if it is taken
                         isTaken = true;
                     }
                 }
                 if (isTaken == true)
                 {
-                    //dont add
+                    //If it is taken, don't add it until they change it
                 }
                 else
                 {
-
+                    //It isn't taken, so we can add it!
                     user.UserName = name.Text;
                     user.Email = email.Text;
-
                     user.Shift = ShiftBox.Text;
+
                     if (isOutofWork.IsChecked == true)
                     {
-                        //if checkbox for disabled is true, set field
+                        //If checkbox for out of work is true, set field
                         user.OutOfWork = true;
                     }
                     else
@@ -157,7 +115,7 @@ namespace CapstoneEmployeeScheduler.Views
                     }
                     if (isDisabled.IsChecked == true)
                     {
-                        //if checkbox for disabled is true, set field
+                        //If checkbox for disabled is true, set field
                         user.Disabled = true;
                     }
                     else
@@ -166,21 +124,22 @@ namespace CapstoneEmployeeScheduler.Views
                     }
                     if (isAdmin.IsChecked == true)
                     {
-                        //if checkbox for disabled is true, set field
+                        //If checkbox for admin is true, set field
                         user.Admin = true;
                     }
                     else
                     {
                         user.Admin = false;
                     }
-                    user.Password = " ";
 
+                    user.Password = " ";
+                    //Create a list to keep track of all the Roles they selected for their employee
                     List<Role> listItems = new List<Role>();
                     foreach (Role role in roleListBox.SelectedItems)
                     {
                         listItems.Add(role);
                     }
-
+                    //If they don't select one, force them to
                     if (listItems.Count == 0)
                     {
                         MessageBoxButton button = MessageBoxButton.OK;
@@ -188,16 +147,11 @@ namespace CapstoneEmployeeScheduler.Views
                         System.Windows.MessageBox.Show("Employee Must be assigned at least one role!", "Capstone Employee Scheduler", button, icon);
                         return;
                     }
+                    //Assign the roles to the User and call the createUser method to finish adding them
                     user.Roles = listItems;
-
-
                     uc.createUser(user);
-
-
-
-                    //int roleId = role.Id;
                     int userId = user.Id;
-
+                    //Close the popup
                     this.Close();
                 }
             }
@@ -205,17 +159,17 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void name_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
 
         private void roleList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
     }
 }
