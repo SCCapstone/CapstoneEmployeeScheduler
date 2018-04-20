@@ -80,11 +80,18 @@ namespace CapstoneEmployeeScheduler.Views
         {
             //This method is called when the edit button is pressed on one of the employees
 
-            User u = (User)Users.SelectedItem;
-            int id = u.Id;
-            //gets the id of the employee being edited and sends it to the modal
-            editEmployeeModal em = new Views.editEmployeeModal(id);
-            em.ShowDialog();
+            if (Users.SelectedItems.Count >= 1)
+            {
+                foreach (User user in Users.SelectedItems)
+                {
+
+                    //User u = (User)Users.SelectedItem;
+                    int id = user.Id;
+                    //gets the id of the employee being edited and sends it to the modal
+                    editEmployeeModal em = new Views.editEmployeeModal(id);
+                    em.ShowDialog();
+                }
+            }
             ShowTable();
             //rehide the buttons so it doesnt crash the program
             DeleteButton.Visibility = Visibility.Hidden;
@@ -96,13 +103,18 @@ namespace CapstoneEmployeeScheduler.Views
         {
             //method to delete user from the database
             UserController uc = new UserController();
-            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete this user? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
+            
+            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete user(s)? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                User u = (User)Users.SelectedItem;
-                int userID = u.Id;
-                uc.deleteUserById(userID);
-                System.Windows.MessageBox.Show("User has been deleted.");
+                foreach (User user in Users.SelectedItems)
+                {
+                    //if Multiple users are selected, delete them all
+                    //User u = (User)Users.SelectedItem;
+                    int userID = user.Id;
+                    uc.deleteUserById(userID);
+                }
+                System.Windows.MessageBox.Show("User(s) has been deleted.");
                 ShowTable();
                 DeleteButton.Visibility = Visibility.Hidden;
                 EditButton.Visibility = Visibility.Hidden;
@@ -171,8 +183,10 @@ namespace CapstoneEmployeeScheduler.Views
                     }
                     else
                     {
-                        username = username.PadRight(maxLength - username.Length);
+                        username = username.PadRight((maxLength - username.Length)-1);
+                        //username = username.Substring(0, username.Length);
                         username = username + "\t";
+
                     }
                     //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
                     u = new Paragraph(new Run(username + "\t\t\t" + email));

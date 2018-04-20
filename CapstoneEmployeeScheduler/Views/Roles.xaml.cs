@@ -61,13 +61,17 @@ namespace CapstoneEmployeeScheduler.Views
         {
             //method to delete role from the database
             RoleController rc = new RoleController();
-            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete this Role? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete Role(s)? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Role r = (Role)role.SelectedItem ;
-                int roleID = r.Id;
-                rc.deleteRole(roleID);
-                System.Windows.MessageBox.Show("Role has been deleted.");
+                foreach (Role roles  in role.SelectedItems)
+                {
+                    //if Multiple users are selected, delete them all
+                    //Role r = (Role)role.SelectedItem;
+                    int roleID = roles.Id;
+                    rc.deleteRole(roleID);
+                }
+                System.Windows.MessageBox.Show("Role(s) has been deleted.");
                 ShowTable();
                 //rehide the buttons so it doesnt crash the program
                 DeleteButton.Visibility = Visibility.Hidden;
@@ -86,17 +90,24 @@ namespace CapstoneEmployeeScheduler.Views
         private void edit_Click(object sender, RoutedEventArgs e)
         {
             //This method is called when the edit button is pressed on one of the employees
+            if (role.SelectedItems.Count >= 1)
+            {
+                foreach (Role roles in role.SelectedItems)
+                {
 
-            Role r = (Role)role.SelectedItem;
-            int id = r.Id;
-            //gets the id of the role being edited and sends it to the modal
-            EditRoleModal rm = new Views.EditRoleModal(id);
-            rm.ShowDialog();
-            //System.Windows.MessageBox.Show("Display Role Modal");
-            ShowTable();
-            //rehide the buttons so it doesnt crash the program
-            DeleteButton.Visibility = Visibility.Hidden;
-            EditButton.Visibility = Visibility.Hidden;
+
+                    //Role r = (Role)role.SelectedItem;
+                    int id = roles.Id;
+                    //gets the id of the role being edited and sends it to the modal
+                    EditRoleModal rm = new Views.EditRoleModal(id);
+                    rm.ShowDialog();
+                    //System.Windows.MessageBox.Show("Display Role Modal");
+                }
+                ShowTable();
+                //rehide the buttons so it doesnt crash the program
+                DeleteButton.Visibility = Visibility.Hidden;
+                EditButton.Visibility = Visibility.Hidden;
+            }
         }
 
         private void role_SelectionChanged(object sender, SelectionChangedEventArgs e)
