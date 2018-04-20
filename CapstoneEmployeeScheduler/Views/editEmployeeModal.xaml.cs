@@ -26,15 +26,14 @@ namespace CapstoneEmployeeScheduler.Views
         UserController uc = new UserController();
         User user;
 
-        
         public editEmployeeModal(int id)
         {
-
-            //Fills the boxes with values already in database
             InitializeComponent();
+            //Gets the ID of the User that is being edited
             passedID = id;
             user = uc.getUserById(passedID);
-            
+
+            //Fills the boxes with values already in database
             name.Text = user.userName;
             email.Text = user.email;
             ShiftBox.Text = user.shift;
@@ -50,20 +49,13 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 isOutofWork.IsChecked = true;
             }
-            //displays role that are able to be selected
+            //Displays role that are able to be selected
             List<Role> items = new List<Role>();
             RoleController r = new RoleController();
             items = r.getAllRoles();
             roleList.ItemsSource = items;
-            //items = r.getAllRoles();
-            //roleList.ItemsSource = items;
-            // foreach (Role role in user.Roles)
-            //    {
-            //MessageBox.Show("Selected Role: " + role.RoleName);
-            //    roleList.SelectedItems.Add(role);
-            //  }
-
-            //roleList.SelectedItems.Add(roleList.Items[1]);
+            
+            //Pre-select the roles that the User already has
             for (int k = 0; k < roleList.Items.Count; k++)
             {
                 Role aRole = (Role) roleList.Items[k];
@@ -76,10 +68,11 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-            //Once the submit button is selected, updates database values
+            //Once the submit button is selected, update database values
             List<User> userList = new List<User>();
             userList = uc.getAllUsersWithoutRoles();
             Boolean isTaken = false;
+            //Check to see if any of the boxes are empty. If any are, throw a warning and don't let them proceed
             if (name.Text.Equals(""))
             {
 
@@ -103,19 +96,21 @@ namespace CapstoneEmployeeScheduler.Views
             }
             else
             {
+                //Check to make sure the employee isn't already in the database
                 foreach (User u in userList)
                 {
                     if (name.Text.Equals(u.userName))
                     {
                         if (u.Id == passedID)
                         {
-                            //it is the one being edited
+                            //It is the one being edited, so we are still good
                         }
                         else
                         {
                             MessageBoxButton button = MessageBoxButton.OK;
                             MessageBoxImage icon = MessageBoxImage.Error;
                             System.Windows.MessageBox.Show("This name has already been entered in the database", "Error", button, icon);
+                            //Can't have the same name as someone already there
                             isTaken = true;
                         }
                     }
@@ -123,31 +118,32 @@ namespace CapstoneEmployeeScheduler.Views
                     {
                         if (u.Id == passedID)
                         {
-                            //it is the one being edited
+                            //It is the one being edited, so we are still good
                         }
                         else
                         {
                             MessageBoxButton button = MessageBoxButton.OK;
                             MessageBoxImage icon = MessageBoxImage.Error;
                             System.Windows.MessageBox.Show("This email has already been entered in the database", "Error", button, icon);
+                            //Can't have the same email as someone already there
                             isTaken = true;
                         }
                     }
                 }
                 if (isTaken == true)
                 {
-                    //dont add
+                    //If there is a same value, don't add to the database
                 }
                 else
                 {
-
+                    //We are sure there are no duplicates so update the employee
                     user.UserName = name.Text;
                     user.Email = email.Text;
-
                     user.Shift = ShiftBox.Text;
+
                     if (isOutofWork.IsChecked == true)
                     {
-                        //if checkbox for disabled is true, set field
+                        //If checkbox for out of work is true, set field
                         user.OutOfWork = true;
                     }
                     else
@@ -156,7 +152,7 @@ namespace CapstoneEmployeeScheduler.Views
                     }
                     if (isDisabled.IsChecked == true)
                     {
-                        //if checkbox for disabled is true, set field
+                        //If checkbox for disabled is true, set field
                         user.Disabled = true;
                     }
                     else
@@ -165,7 +161,7 @@ namespace CapstoneEmployeeScheduler.Views
                     }
                     if (isAdmin.IsChecked == true)
                     {
-                        //if checkbox for disabled is true, set field
+                        //If checkbox for admin is true, set field
                         user.Admin = true;
                     }
                     else
@@ -174,11 +170,13 @@ namespace CapstoneEmployeeScheduler.Views
                     }
                     user.Password = " ";
 
+                    //Add each role selected to that employee
                     List<Role> listItems = new List<Role>();
                     foreach (Role role in roleList.SelectedItems)
                     {
                         listItems.Add(role);
                     }
+                    //The user must have at least one role before proceeding
                     if (listItems.Count == 0)
                     {
                         MessageBoxButton button = MessageBoxButton.OK;
@@ -196,16 +194,16 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void email_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
+            //Nothing goes here
         }
 
         private void name_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
+            //Nothing goes here
         }
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
+            //Nothing goes here
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

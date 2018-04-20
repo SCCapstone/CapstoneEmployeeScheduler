@@ -31,20 +31,28 @@ namespace CapstoneEmployeeScheduler.Views
     {
         public Employees()
         {
-            //code to display the table with all the employees
             InitializeComponent();
             ShowTable();
         }
 
+        public void ShowTable()
+        {
+            //method to show the table of users and emails since every method uses it
+            UserController u = new UserController();
+            List<User> items = new List<User>();
+            items = u.getAllUsersWithoutRoles();
+            Users.ItemsSource = items;
+        }
+
         private void NewEmployee_Click(object sender, RoutedEventArgs e)
         {
-            //calls popup to create a new employee
+            //Calls popup to create a new employee
             RoleController r = new RoleController();
-
             if (r.getAllRoles().Count == 0)
             {
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Error;
+                //Does not let user create employee if no roles have been created
                 System.Windows.MessageBox.Show("There are no Roles in the database. Please create a Role and then try again.", "Error", button, icon);
             }
             else
@@ -58,23 +66,13 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void EmployeeTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Not sure what this method does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
+            //Nothing goes here
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
-
-        public void ShowTable()
-        {
-            //method to show the table of users and emails since every method uses it
-            UserController u = new UserController();
-            List<User> items = new List<User>();
-            items = u.getAllUsersWithoutRoles();
-            Users.ItemsSource = items;
-        }
-
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
@@ -84,16 +82,15 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 foreach (User user in Users.SelectedItems)
                 {
-
-                    //User u = (User)Users.SelectedItem;
+                    //If multiple users have been selected, edit each individually
+                    //Gets the id of the employee being edited and sends it to the modal
                     int id = user.Id;
-                    //gets the id of the employee being edited and sends it to the modal
                     editEmployeeModal em = new Views.editEmployeeModal(id);
                     em.ShowDialog();
                 }
             }
             ShowTable();
-            //rehide the buttons so it doesnt crash the program
+            //Rehide the buttons so it doesnt crash the program
             DeleteButton.Visibility = Visibility.Hidden;
             EditButton.Visibility = Visibility.Hidden;
         }
@@ -101,7 +98,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            //method to delete user from the database
+            //Method to delete user from the database
             UserController uc = new UserController();
             
             DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete user(s)? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
@@ -109,26 +106,26 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 foreach (User user in Users.SelectedItems)
                 {
-                    //if Multiple users are selected, delete them all
-                    //User u = (User)Users.SelectedItem;
+                    //If Multiple users are selected, delete them all
                     int userID = user.Id;
                     uc.deleteUserById(userID);
                 }
                 System.Windows.MessageBox.Show("User(s) has been deleted.");
                 ShowTable();
+                //Rehide edit and delete buttons
                 DeleteButton.Visibility = Visibility.Hidden;
                 EditButton.Visibility = Visibility.Hidden;
             }
             else if (dialogResult == DialogResult.No)
             {
-                //do something else
+                //Do nothing if they do not want to delete user
             }
             
         }
 
         private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Not sure what this does, but the application crashes without this method for some reason ¯\_(ツ)_/¯
+            //If the user selects something in the table, make the edit and delete buttons visible and selectable
             if (Users.SelectedIndex >= 0)
             {
                 DeleteButton.Visibility = Visibility.Visible;
@@ -158,7 +155,7 @@ namespace CapstoneEmployeeScheduler.Views
                 fd.ColumnWidth = printDlg.PrintableAreaWidth;
                 fd.ColumnGap = 10.0;
                 int padding = 45;
-
+                //Create the titles at the top of the printed page
                 string name = "Name";
                 Paragraph l = new Paragraph(new Run(String.Format("{0}{1}", name.PadRight(padding), "Email")));
                 l.FontSize = 24;
@@ -196,7 +193,7 @@ namespace CapstoneEmployeeScheduler.Views
 
                 fd.Name = "Employees";
                 IDocumentPaginatorSource idpSource = fd;
-                printDlg.ShowDialog();
+                //printDlg.ShowDialog();
                 printDlg.PrintDocument(idpSource.DocumentPaginator, "List of Employees");
                 MessageBoxButton button = MessageBoxButton.OK;
                 System.Windows.MessageBox.Show("The Print method completed!", "Capstone Employee Scheduler", button);

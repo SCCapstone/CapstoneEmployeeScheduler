@@ -40,7 +40,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         public void ShowTable()
         {
-            //method to show the table of roles and stuff since every method uses it
+            //Method to show the table of roles since every method uses it
             RoleController r = new RoleController();
             List<Role> item = new List<Role>();
             item = r.getAllRoles();
@@ -49,9 +49,9 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void NewRole_Click(object sender, RoutedEventArgs e)
         {
+            //Open the popup for creating a role 
             RolesModal m = new Views.RolesModal();
             m.ShowDialog();
-            //Make button work with form
             InitializeComponent();
             ShowTable();
            
@@ -59,28 +59,27 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            //method to delete role from the database
+            //Method to delete role from the database
             RoleController rc = new RoleController();
             DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete Role(s)? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 foreach (Role roles  in role.SelectedItems)
                 {
-                    //if Multiple users are selected, delete them all
-                    //Role r = (Role)role.SelectedItem;
+                    //If Multiple users are selected, delete them all
                     int roleID = roles.Id;
                     rc.deleteRole(roleID);
                 }
                 System.Windows.MessageBox.Show("Role(s) has been deleted.");
                 ShowTable();
-                //rehide the buttons so it doesnt crash the program
+                //Rehide the buttons so it doesnt crash the program
                 DeleteButton.Visibility = Visibility.Hidden;
                 EditButton.Visibility = Visibility.Hidden;
             }
             else if (dialogResult == DialogResult.No)
             {
-                //do something else
-                //rehide the buttons so it doesnt crash the program
+                //If they select no, nothing happens
+                //Rehide the buttons so it doesnt crash the program
                 DeleteButton.Visibility = Visibility.Hidden;
                 EditButton.Visibility = Visibility.Hidden;
             }
@@ -95,16 +94,13 @@ namespace CapstoneEmployeeScheduler.Views
                 foreach (Role roles in role.SelectedItems)
                 {
 
-
-                    //Role r = (Role)role.SelectedItem;
+                    //Gets the id of the role being edited and sends it to the modal
                     int id = roles.Id;
-                    //gets the id of the role being edited and sends it to the modal
                     EditRoleModal rm = new Views.EditRoleModal(id);
                     rm.ShowDialog();
-                    //System.Windows.MessageBox.Show("Display Role Modal");
                 }
                 ShowTable();
-                //rehide the buttons so it doesnt crash the program
+                //Rehide the buttons so it doesnt crash the program
                 DeleteButton.Visibility = Visibility.Hidden;
                 EditButton.Visibility = Visibility.Hidden;
             }
@@ -114,6 +110,7 @@ namespace CapstoneEmployeeScheduler.Views
         {
             if (role.SelectedIndex >= 0)
             {
+                //If they select something in the table, make the edit and delete buttons appear
                 DeleteButton.Visibility = Visibility.Visible;
                 DeleteButton.IsEnabled = true;
                 EditButton.Visibility = Visibility.Visible;
@@ -124,7 +121,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
 
     }
