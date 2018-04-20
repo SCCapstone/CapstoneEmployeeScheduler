@@ -41,6 +41,12 @@ namespace CapstoneEmployeeScheduler.Views
                 MessageBoxImage icon = MessageBoxImage.Error;
                 System.Windows.MessageBox.Show("Can't have a count of < 0. Please enter a valid count", "Error", button, icon);
             }
+            else if (x > 999)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Can't have a count of > 999. Please enter a valid count", "Error", button, icon);
+            }
             else if (name.Text.Equals(""))
             {
 
