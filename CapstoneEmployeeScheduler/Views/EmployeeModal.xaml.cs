@@ -91,7 +91,10 @@ namespace CapstoneEmployeeScheduler.Views
         {
             UserController uc = new UserController();
             User user = new User();
+            List<User> userList = new List<User>();
+            userList = uc.getAllUsersWithoutRoles();
             RoleController rc = new RoleController();
+            Boolean isTaken = false;
             if (name.Text.Equals(""))
             {
 
@@ -115,66 +118,88 @@ namespace CapstoneEmployeeScheduler.Views
             }
             else
             {
-
-                user.UserName = name.Text;
-                user.Email = email.Text;
-
-                user.Shift = ShiftBox.Text;
-                if (isOutofWork.IsChecked == true)
+                foreach(User u in userList)
                 {
-                    //if checkbox for disabled is true, set field
-                    user.OutOfWork = true;
+                    if(name.Text.Equals(u.userName))
+                    {
+                        MessageBoxButton button = MessageBoxButton.OK;
+                        MessageBoxImage icon = MessageBoxImage.Error;
+                        System.Windows.MessageBox.Show("This name has already been entered in the database", "Error", button, icon);
+                        isTaken = true;
+                    }
+                    else if (email.Text.Equals(u.email))
+                    {
+                        MessageBoxButton button = MessageBoxButton.OK;
+                        MessageBoxImage icon = MessageBoxImage.Error;
+                        System.Windows.MessageBox.Show("This email has already been entered in the database", "Error", button, icon);
+                        isTaken = true;
+                    }
+                }
+                if (isTaken == true)
+                {
+                    //dont add
                 }
                 else
                 {
-                    user.OutOfWork = false;
+
+                    user.UserName = name.Text;
+                    user.Email = email.Text;
+
+                    user.Shift = ShiftBox.Text;
+                    if (isOutofWork.IsChecked == true)
+                    {
+                        //if checkbox for disabled is true, set field
+                        user.OutOfWork = true;
+                    }
+                    else
+                    {
+                        user.OutOfWork = false;
+                    }
+                    if (isDisabled.IsChecked == true)
+                    {
+                        //if checkbox for disabled is true, set field
+                        user.Disabled = true;
+                    }
+                    else
+                    {
+                        user.Disabled = false;
+                    }
+                    if (isAdmin.IsChecked == true)
+                    {
+                        //if checkbox for disabled is true, set field
+                        user.Admin = true;
+                    }
+                    else
+                    {
+                        user.Admin = false;
+                    }
+                    user.Password = " ";
+
+                    List<Role> listItems = new List<Role>();
+                    foreach (Role role in roleListBox.SelectedItems)
+                    {
+                        listItems.Add(role);
+                    }
+
+                    if (listItems.Count == 0)
+                    {
+                        MessageBoxButton button = MessageBoxButton.OK;
+                        MessageBoxImage icon = MessageBoxImage.Stop;
+                        System.Windows.MessageBox.Show("Employee Must be assigned at least one role!", "Capstone Employee Scheduler", button, icon);
+                        return;
+                    }
+                    user.Roles = listItems;
+
+
+                    uc.createUser(user);
+
+
+
+                    //int roleId = role.Id;
+                    int userId = user.Id;
+
+                    this.Close();
                 }
-                if (isDisabled.IsChecked == true)
-                {
-                    //if checkbox for disabled is true, set field
-                    user.Disabled = true;
-                }
-                else
-                {
-                    user.Disabled = false;
-                }
-                if (isAdmin.IsChecked == true)
-                {
-                    //if checkbox for disabled is true, set field
-                    user.Admin = true;
-                }
-                else
-                {
-                    user.Admin = false;
-                }
-                user.Password = " ";
-
-                List<Role> listItems = new List<Role>();
-                foreach (Role role in roleListBox.SelectedItems)
-                {
-                    listItems.Add(role);
-                }
-
-
-
-                if (listItems.Count == 0)
-                {
-                    MessageBoxButton button = MessageBoxButton.OK;
-                    MessageBoxImage icon = MessageBoxImage.Stop;
-                    System.Windows.MessageBox.Show("Employee Must be assigned at least one role!", "Capstone Employee Scheduler", button, icon);
-                    return;
-                }
-                user.Roles = listItems;
-
-
-                uc.createUser(user);
-
-
-
-                //int roleId = role.Id;
-                int userId = user.Id;
-
-                this.Close();
             }
         }
 
