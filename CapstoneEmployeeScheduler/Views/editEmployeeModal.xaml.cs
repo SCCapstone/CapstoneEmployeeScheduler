@@ -96,58 +96,81 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-           
             //Once the submit button is selected, updates database values
-            user.userName = name.Text;
-            user.email = email.Text;
-            user.shift = ShiftBox.Text;
-            user.Password = " ";
-            if (isDisabled.IsChecked == true)
+            if (name.Text.Equals(""))
             {
-                //if checkbox for disabled is true, set field
-                user.Disabled = true;
+
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("The name field is empty. Please enter a name for the user", "Error", button, icon);
+            }
+            else if (email.Text.Equals(""))
+            {
+
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("The email field is empty. Please enter an email for the user", "Error", button, icon);
+            }
+            else if (ShiftBox.Text.Equals(""))
+            {
+
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("The shift field is empty. Please select night or day shift", "Error", button, icon);
             }
             else
             {
-                user.Disabled = false;
-            }
-            if (isAdmin.IsChecked == true)
-            {
-                //if checkbox for disabled is true, set field
-                user.Admin = true;
-            }
-            else
-            {
-                user.Admin = false;
-            }
-            if (isOutofWork.IsChecked == true)
-            {
-                //if checkbox for disabled is true, set field
-                user.OutOfWork = true;
-            }
-            else
-            {
-                user.OutOfWork = false;
-            }
-            //add roles the user selected
-            List<Role> listItems = new List<Role>();
-            foreach (Role role in roleList.SelectedItems)
-            {
-                
-                if (user.Roles.Contains(role))
+
+                user.UserName = name.Text;
+                user.Email = email.Text;
+
+                user.Shift = ShiftBox.Text;
+                if (isOutofWork.IsChecked == true)
                 {
-                    
+                    //if checkbox for disabled is true, set field
+                    user.OutOfWork = true;
                 }
                 else
                 {
-                   
+                    user.OutOfWork = false;
+                }
+                if (isDisabled.IsChecked == true)
+                {
+                    //if checkbox for disabled is true, set field
+                    user.Disabled = true;
+                }
+                else
+                {
+                    user.Disabled = false;
+                }
+                if (isAdmin.IsChecked == true)
+                {
+                    //if checkbox for disabled is true, set field
+                    user.Admin = true;
+                }
+                else
+                {
+                    user.Admin = false;
+                }
+                user.Password = " ";
+
+                List<Role> listItems = new List<Role>();
+                foreach (Role role in roleList.SelectedItems)
+                {
                     listItems.Add(role);
                 }
+                if (listItems.Count == 0)
+                {
+                    MessageBoxButton button = MessageBoxButton.OK;
+                    MessageBoxImage icon = MessageBoxImage.Stop;
+                    System.Windows.MessageBox.Show("Employee Must be assigned at least one role!", "Capstone Employee Scheduler", button, icon);
+                    return;
+                }
+                user.Roles = listItems;
+                uc.editUser(user);
+                MessageBox.Show("Edit Successful!", "Edit Successful");
+                this.Close();
             }
-            user.Roles = listItems;
-            uc.editUser(user);
-            MessageBox.Show("Edit Successful!", "Edit Successful");
-            this.Close();
         }
 
         private void email_TextChanged(object sender, TextChangedEventArgs e)
