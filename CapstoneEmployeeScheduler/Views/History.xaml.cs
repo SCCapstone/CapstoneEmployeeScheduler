@@ -29,6 +29,11 @@ namespace CapstoneEmployeeScheduler.Views
     {
         public History()
         {
+            ShowTable();
+        }
+
+        private void ShowTable()
+        {
             DataTable dt = new DataTable();
             List<Schedule> items = new List<Schedule>();
             ScheduleController sc = new ScheduleController();
@@ -42,7 +47,6 @@ namespace CapstoneEmployeeScheduler.Views
             dt.Rows.Add(DateTime.Today.AddDays(-5));
 
             GeneratedSchedules.ItemsSource = dt.DefaultView;
-            
         }
 
         private void view_Click(object sender, RoutedEventArgs e)
@@ -82,6 +86,8 @@ namespace CapstoneEmployeeScheduler.Views
             sc.deleteSchedule(id);
             MessageBoxButton button = MessageBoxButton.OK;
             System.Windows.MessageBox.Show("Schedule deleted successfully.", "Schedule Deleted", button);
+            ShowTable();
+
         }
     }
 }
