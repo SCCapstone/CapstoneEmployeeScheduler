@@ -11,7 +11,7 @@
 
         <Grid>
             <Grid Margin="0,0,0,0.4">
-                <TextBox HorizontalAlignment="Left" Height="50" Margin="175,82,0,0" TextWrapping="Wrap" Text="EMPLOYEES" VerticalAlignment="Top" Width="262" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold" IsReadOnly="True">
+                <TextBox HorizontalAlignment="Left" Height="50" Margin="175,82,0,0" TextWrapping="Wrap" Text="EMPLOYEES" VerticalAlignment="Top" Width="262" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold" IsReadOnly="True" Focusable="False" BorderThickness="0">
                     <TextBox.Effect>
                         <DropShadowEffect/>
                     </TextBox.Effect>

@@ -9,7 +9,7 @@
 
     <Grid Margin="0,0,0,0" Height="941" VerticalAlignment="Top">
         <Grid Margin="570,10,194,881"/>
-        <TextBox HorizontalAlignment="Left" Height="50" Margin="175,75,0,0" TextWrapping="Wrap" Text="ROLES" VerticalAlignment="Top" Width="262" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold" IsReadOnly="True">
+        <TextBox HorizontalAlignment="Left" Height="50" Margin="175,75,0,0" TextWrapping="Wrap" Text="ROLES" VerticalAlignment="Top" Width="262" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold" IsReadOnly="True" Focusable ="False" BorderThickness="0">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
