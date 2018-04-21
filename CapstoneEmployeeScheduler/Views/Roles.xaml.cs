@@ -133,6 +133,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void ReorderColumn(GridViewColumnHeader headerClicked)
         {
+            //Main method to reorder the columns as each on uses the same thing
             ListSortDirection direction;
 
             if (headerClicked != null)
