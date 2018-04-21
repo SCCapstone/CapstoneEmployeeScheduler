@@ -19,9 +19,21 @@
                 <ListView.View>
 
                     <GridView>
-                        <GridViewColumn Header="Name" Width="200" DisplayMemberBinding= "{Binding RoleName}"/>
-                        <GridViewColumn Header="Role Count" Width="100" DisplayMemberBinding="{Binding RoleCount}"/>
-                        <GridViewColumn Header="Description" Width="400" DisplayMemberBinding= "{Binding RoleDescription}"/>
+                        <GridViewColumn Width="200" DisplayMemberBinding= "{Binding RoleName}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Name" Click="NameColumn_Click">Name</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn Width="100" DisplayMemberBinding="{Binding RoleCount}">
+                        <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="RoleCount" Click="CountColumn_Click">RoleCount</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn Width="400" DisplayMemberBinding= "{Binding RoleDescription}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="Decription" Click="DescriptionColumn_Click">Description</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
