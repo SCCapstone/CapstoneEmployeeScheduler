@@ -37,6 +37,7 @@ namespace CapstoneEmployeeScheduler.Views
             name.Text = user.userName;
             email.Text = user.email;
             ShiftBox.Text = user.shift;
+            user.OutOfWork = false;
             if(user.Disabled == true)
             {
                 isDisabled.IsChecked =  true;
@@ -45,10 +46,10 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 isAdmin.IsChecked = true;
             }
-            if(user.OutOfWork == true)
-            {
-                isOutofWork.IsChecked = true;
-            }
+            //if(user.OutOfWork == true)
+            //{
+            //    isOutofWork.IsChecked = true;
+            //}
             //Displays role that are able to be selected
             List<Role> items = new List<Role>();
             RoleController r = new RoleController();
@@ -141,15 +142,15 @@ namespace CapstoneEmployeeScheduler.Views
                     user.Email = email.Text;
                     user.Shift = ShiftBox.Text;
 
-                    if (isOutofWork.IsChecked == true)
-                    {
-                        //If checkbox for out of work is true, set field
-                        user.OutOfWork = true;
-                    }
-                    else
-                    {
-                        user.OutOfWork = false;
-                    }
+                    //if (isOutofWork.IsChecked == true)
+                    //{
+                    //    //If checkbox for out of work is true, set field
+                    //    user.OutOfWork = true;
+                    //}
+                    //else
+                    //{
+                    //    user.OutOfWork = false;
+                    //}
                     if (isDisabled.IsChecked == true)
                     {
                         //If checkbox for disabled is true, set field
