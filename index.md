@@ -3,7 +3,7 @@ This application is used to save your company time by scheduling employees for y
 
 
 ## Here is a video to demostrate what this application can do:
-
+https://www.youtube.com/watch?v=YHd-Nr7Imis
 ## Here are some pictures of the application:
 
 #### Employee's Page
