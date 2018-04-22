@@ -10,8 +10,14 @@ namespace CapstoneEmployeeScheduler.Controllers
 {
     class UserController
     {
-        UserDAO userDAO = null;//new UserDAO();
-
+        UserDAO userDAO = null;
+        
+        /// <summary>
+        /// This method takes in a User and creates a user in our database, any roles attached to this user are also
+        /// linked to the user in the database
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>User</returns>
         public User createUser(User user)
         {
             try
@@ -34,6 +40,12 @@ namespace CapstoneEmployeeScheduler.Controllers
             return user;
         }
         
+        /// <summary>
+        /// This method takes in a User and finds that user in the database,
+        /// then adds any new roles that were assigned to this user, 
+        /// then deletes any roles that were unassigned from the user
+        /// </summary>
+        /// <param name="user"></param>
         public void editUser(User user)
         {
             try
@@ -64,7 +76,11 @@ namespace CapstoneEmployeeScheduler.Controllers
                 }
             }
         }
-
+        /// <summary>
+        /// This removes a role from a User
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="roleId"></param>
         private void deleteRoleFromUser(int userId, int roleId)
         {
             try
@@ -78,6 +94,11 @@ namespace CapstoneEmployeeScheduler.Controllers
             userDAO.deleteRoleFromUser(userId, roleId);
         }
 
+        /// <summary>
+        /// This is our default method for getting a User
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>User</returns>
         public User getUserById(int id)
         {
             try
@@ -93,6 +114,12 @@ namespace CapstoneEmployeeScheduler.Controllers
             return user;
         }
 
+        /// <summary>
+        /// This method was created to speed up pages because
+        /// it returns a list of users without any roles 
+        /// attached to them so that not near as many database
+        /// </summary>
+        /// <returns>List<User></returns>
         public List<User> getAllUsersWithoutRoles()
         {
             try
@@ -108,6 +135,13 @@ namespace CapstoneEmployeeScheduler.Controllers
             return users;
         }
 
+        /// <summary>
+        /// This method is the best way to get all the users,
+        /// however if the database has a lot of users in it,
+        /// this method takes a long to because it has to make
+        /// a lot of database calls
+        /// </summary>
+        /// <returns>List<User></returns>
         public List<User> getAllUsersWithEntireRole()
         {
             try
@@ -127,6 +161,12 @@ namespace CapstoneEmployeeScheduler.Controllers
             return users;
         }
 
+        /// <summary>
+        /// This method doesn't take as long as getting the entire role,
+        /// but it still gets the role id so it's the ideal method to use
+        /// for making the schedule
+        /// </summary>
+        /// <returns>List<User></returns>
         public List<User> getAllUsersWithRoleId()
         {
             try
@@ -146,6 +186,10 @@ namespace CapstoneEmployeeScheduler.Controllers
             return users;
         }
 
+        /// <summary>
+        /// This is our default way to delete a User from the database
+        /// </summary>
+        /// <param name="id"></param>
         public void deleteUserById(int id)
         {
             try
@@ -159,6 +203,11 @@ namespace CapstoneEmployeeScheduler.Controllers
             userDAO.deleteUserById(id);
         }
 
+        /// <summary>
+        /// This method adds a role to a User
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="roleID"></param>
         private void addRoleToUser(int userID, int roleID)
         {
             try
@@ -172,6 +221,11 @@ namespace CapstoneEmployeeScheduler.Controllers
             userDAO.addRoleToUser(userID, roleID);
         }
 
+        /// <summary>
+        /// This method is used to retrieve all the current roles for a User
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         private List<Role> getRolesForUser(User user)
         {
             try
@@ -185,6 +239,12 @@ namespace CapstoneEmployeeScheduler.Controllers
             return userDAO.getRolesForUser(user);
         }
 
+        /// <summary>
+        /// This method is a faster way to get a role for a user
+        /// because it just gets the role id
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         private List<Role> getRoleIdForUser(User user)
         {
             try
