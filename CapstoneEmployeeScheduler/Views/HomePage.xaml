@@ -8,9 +8,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="Home">
-    <xctk:BusyIndicator
+    <!--<xctk:BusyIndicator
         x:Name="ProgressIndicator"
-    IsBusy="False">
+    IsBusy="False">-->
         <Grid>
         <Grid Margin="-331,-132,-735,-342" HorizontalAlignment="Left" Width="1366" Height="774" VerticalAlignment="Top">
             <Button x:Name="GenerateButton"  HorizontalAlignment="Left" Width="127" Margin="487,235,0,463" FontWeight="Bold" FontSize="32" Click="GenerateButton_Click" RenderTransformOrigin="0.5,0.505" Background="AliceBlue">
@@ -23,5 +23,5 @@
         </Grid>
         <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
         </Grid>
-    </xctk:BusyIndicator>
+    <!--</xctk:BusyIndicator>-->
 </Page>

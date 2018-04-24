@@ -42,8 +42,8 @@ namespace CapstoneEmployeeScheduler.Views
             //Currently only runs for 10 seconds then quits
             //We can set it to quit once the schedule is generated
            
-            ProgressIndicator.IsBusy = true;
-            ProgressIndicator.BusyContent = string.Format("Generating Schedule...");
+            //ProgressIndicator.IsBusy = true;
+            //ProgressIndicator.BusyContent = string.Format("Generating Schedule...");
             //System.Windows.MessageBox.Show("Starting schedule building process");
 
             /*
@@ -65,7 +65,6 @@ namespace CapstoneEmployeeScheduler.Views
             );*/
 
 
-
             ScheduleController sc = new ScheduleController();
             Schedule t = sc.getScheduleByDate(DateTime.Today);
             if (t.Id != null)
@@ -75,7 +74,7 @@ namespace CapstoneEmployeeScheduler.Views
                 MessageBoxResult result = System.Windows.MessageBox.Show("There was already a schedule made today. Would you like to overwrite it?","Capstone Employee Scheduler", button,icon);
                 if (result == MessageBoxResult.No)
                 {
-                    ProgressIndicator.IsBusy = false;
+                    //ProgressIndicator.IsBusy = false;
                     return;
                 }
                 else if (result == MessageBoxResult.Yes)
@@ -105,7 +104,7 @@ namespace CapstoneEmployeeScheduler.Views
                 System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
             }
             ms.Generate(users);
-            ProgressIndicator.IsBusy = false;
+            //ProgressIndicator.IsBusy = false;
             //System.Windows.MessageBox.Show("Loading screen should be done and schedule should appear");
             //Thread.Sleep(1000);
 
