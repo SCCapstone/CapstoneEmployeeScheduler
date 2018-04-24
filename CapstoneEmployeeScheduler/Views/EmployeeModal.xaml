@@ -7,7 +7,7 @@
         xmlns:DAO="clr-namespace:CapstoneEmployeeScheduler.DAO" x:Class="CapstoneEmployeeScheduler.Views.EmployeeModal"
         mc:Ignorable="d"
         Title="Capstone Employee Scheduler - Employee Modal" Height="622" Width="586.611" FontSize="10">
-    <Grid Margin="0,-1,4,-118">
+    <Grid Margin="0,-1,4,-31">
         <Grid.RowDefinitions>
             <RowDefinition Height="441*"/>
             <RowDefinition Height="5*"/>
@@ -19,13 +19,12 @@
         <Label Content="NAME:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,34,0,0" FontSize="16" FontWeight="Bold" Foreground="White"/>
         <TextBox x:Name="name" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" Margin="122,34,0,0" FontSize="18" TextChanged="name_TextChanged"/>
         <TextBox x:Name="email" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" Margin="122,100,0,0" FontSize="18"/>
-        <Button x:Name="cancel" Content="CANCEL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Margin="122,540,0,0" Click="Button_Click" IsCancel="True" Height="30" FontSize="15"/>
-        <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="402,541,0,0" Click="submit_Click" Height="30" FontSize="15" FontWeight="Bold"/>
+        <Button x:Name="cancel" Content="CANCEL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Margin="122,507,0,0" Click="Button_Click" IsCancel="True" Height="30" FontSize="15"/>
+        <Button x:Name="submit" Content="SUBMIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="402,508,0,0" Click="submit_Click" Height="30" FontSize="15" FontWeight="Bold"/>
         <Label Content="EMAIL:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,100,0,0" FontSize="16" FontWeight="Bold" Foreground="White"/>
         <CheckBox x:Name="isDisabled" Content="DISABLED" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,320,457,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow"/>
         <CheckBox x:Name="isAdmin" Content="ADMIN" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,365,477,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow"/>
-        <CheckBox x:Name="isOutofWork" Content="OUT OF WORK" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,407,396,0" FontSize="16" FontWeight="Bold" Foreground="White" Cursor="Arrow" Width="157"/>
-        <Label Content="SHIFT:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,448,0,0" Width="67" FontSize="16" FontWeight="Bold" Foreground="White"/>
+        <Label Content="SHIFT:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,410,0,0" Width="67" FontSize="16" FontWeight="Bold" Foreground="White"/>
         <ListBox x:Name="roleListBox" HorizontalAlignment="Left" Height="132" VerticalAlignment="Top" Width="376" Margin="122,165,0,0" SelectionChanged="ListBox_SelectionChanged" FontSize="12" SelectionMode="Multiple" ItemsSource="{Binding roleList}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -35,7 +34,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ComboBox x:Name="ShiftBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="167" Margin="122,448,0,0" FontSize="12" FontWeight="Bold">
+        <ComboBox x:Name="ShiftBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="167" Margin="122,410,0,0" FontSize="12" FontWeight="Bold">
             <ComboBoxItem Content="Day Shift" HorizontalAlignment="Left" Width="165" FontWeight="Bold"/>
             <ComboBoxItem Content="Night Shift" HorizontalAlignment="Left" Width="165" FontWeight="Bold"/>
         </ComboBox>

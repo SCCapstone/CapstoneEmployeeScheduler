@@ -11,7 +11,7 @@
 
         <Grid>
             <Grid Margin="0,0,0,0.4">
-                <TextBox HorizontalAlignment="Left" Height="50" Margin="175,82,0,0" TextWrapping="Wrap" Text="EMPLOYEES" VerticalAlignment="Top" Width="262" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold" IsReadOnly="True">
+                <TextBox HorizontalAlignment="Left" Height="50" Margin="175,82,0,0" TextWrapping="Wrap" Text="EMPLOYEES" VerticalAlignment="Top" Width="262" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold" IsReadOnly="True" Focusable="False" BorderThickness="0">
                     <TextBox.Effect>
                         <DropShadowEffect/>
                     </TextBox.Effect>
@@ -21,9 +21,24 @@
                 <ListView Margin="175,155,125,195" Name="Users" SelectionChanged="Users_SelectionChanged" BorderBrush="Black" Width="700">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding UserName}" />
+                            <!--<GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding UserName}" />
                             <GridViewColumn Header="Email" Width="200" DisplayMemberBinding="{Binding Email}" />
-                            <GridViewColumn Header="Shift" Width= "200" DisplayMemberBinding="{Binding Shift}" />
+                            <GridViewColumn Header="Shift" Width= "200" DisplayMemberBinding="{Binding Shift}" />-->
+                            <GridViewColumn Width="200" DisplayMemberBinding= "{Binding UserName}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Name" Click="NameColumn_Click">Name</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn Width="200" DisplayMemberBinding="{Binding Email}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Email" Click="EmailColumn_Click">Email</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn Width="200" DisplayMemberBinding= "{Binding Shift}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Shift" Click="ShiftColumn_Click">Shift</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
 

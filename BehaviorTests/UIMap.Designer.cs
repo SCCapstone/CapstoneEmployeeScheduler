@@ -348,6 +348,170 @@ namespace BehaviorTests
             Mouse.Click(uISUBMITButton, new Point(37, 14));
         }
         
+        /// <summary>
+        /// Edits a role in the database
+        /// </summary>
+        public void EditRole()
+        {
+            #region Variable Declarations
+            WpfEdit uITxtUsernameEdit = this.UICapstoneEmployeeScheWindow.UITxtUsernameEdit;
+            WpfEdit uITxtPasswordEdit = this.UICapstoneEmployeeScheWindow.UITxtPasswordEdit;
+            WpfButton uIROLESButton = this.UICapstoneEmployeeScheWindow1.UIROLESButton;
+            WpfControl uIItemDataItem = this.UICapstoneEmployeeScheWindow1.UIMainPane.UIRoleTable.UIItemDataItem;
+            WpfButton uIEDITButton = this.UICapstoneEmployeeScheWindow1.UIMainPane.UIEDITButton;
+            WpfEdit uINameEdit = this.UICapstoneEmployeeScheWindow23.UINameEdit;
+            WpfButton uISUBMITButton = this.UICapstoneEmployeeScheWindow23.UISUBMITButton;
+            WinButton uIOKButton = this.UIErrorWindow.UIOKWindow.UIOKButton;
+            WpfEdit uIRoleCountBoxEdit = this.UICapstoneEmployeeScheWindow23.UIRoleCountBoxEdit;
+            WinControl uIErrorDialog = this.UIErrorWindow.UIErrorDialog;
+            WinButton uIOKButton1 = this.UIEditSuccessfulWindow.UIOKWindow.UIOKButton;
+            WpfControl uIItemDataItem1 = this.UICapstoneEmployeeScheWindow1.UIMainPane.UIRoleTable.UIItemDataItem1;
+            #endregion
+
+            // Launch 'E:\Documents\source\repos\CapstoneEmployeeScheduler\CapstoneEmployeeScheduler\bin\Debug\CapstoneEmployeeScheduler.exe'
+            ApplicationUnderTest uICapstoneEmployeeScheWindow = ApplicationUnderTest.Launch(this.EditRoleParams.UICapstoneEmployeeScheWindowExePath, this.EditRoleParams.UICapstoneEmployeeScheWindowAlternateExePath);
+
+            // Type 'admin' in 'txtUsername' text box
+            uITxtUsernameEdit.Text = this.EditRoleParams.UITxtUsernameEditText;
+
+            // Type '{Tab}' in 'txtUsername' text box
+            Keyboard.SendKeys(uITxtUsernameEdit, this.EditRoleParams.UITxtUsernameEditSendKeys, ModifierKeys.None);
+
+            // Type '********' in 'txtPassword' text box
+            Keyboard.SendKeys(uITxtPasswordEdit, this.EditRoleParams.UITxtPasswordEditSendKeys, true);
+
+            // Click 'ROLES' button
+            Mouse.Click(uIROLESButton, new Point(60, 29));
+
+            // Click DataItem
+            Mouse.Click(uIItemDataItem, new Point(81, 8));
+
+            // Click 'EDIT' button
+            Mouse.Click(uIEDITButton, new Point(70, 29));
+
+            // Type '' in 'name' text box
+            uINameEdit.Text = this.EditRoleParams.UINameEditText;
+
+            // Type '{Enter}' in 'name' text box
+            Keyboard.SendKeys(uINameEdit, this.EditRoleParams.UINameEditSendKeys, ModifierKeys.None);
+
+            // Click 'SUBMIT' button
+            Mouse.Click(uISUBMITButton, new Point(65, 20));
+
+            // Click 'OK' button
+            Mouse.Click(uIOKButton, new Point(51, 20));
+
+            // Type 'Janitor' in 'name' text box
+            uINameEdit.Text = this.EditRoleParams.UINameEditText1;
+
+            // Type '0' in 'RoleCountBox' text box
+            uIRoleCountBoxEdit.Text = this.EditRoleParams.UIRoleCountBoxEditText;
+
+            // Click 'SUBMIT' button
+            Mouse.Click(uISUBMITButton, new Point(42, 19));
+
+            // Click 'Error' Dialog
+            Mouse.Click(uIErrorDialog, new Point(314, 111));
+
+            // Click 'OK' button
+            Mouse.Click(uIOKButton, new Point(41, 13));
+
+            // Type '999' in 'RoleCountBox' text box
+            uIRoleCountBoxEdit.Text = this.EditRoleParams.UIRoleCountBoxEditText1;
+
+            // Click 'SUBMIT' button
+            Mouse.Click(uISUBMITButton, new Point(52, 28));
+
+            // Click 'OK' button
+            Mouse.Click(uIOKButton1, new Point(60, 8));
+
+            // Click DataItem
+            Mouse.Click(uIItemDataItem1, new Point(161, 16));
+        }
+        
+        /// <summary>
+        /// Edits an Employee in the database
+        /// </summary>
+        public void EditEmployee()
+        {
+            #region Variable Declarations
+            WpfEdit uITxtUsernameEdit = this.UICapstoneEmployeeScheWindow.UITxtUsernameEdit;
+            WpfEdit uITxtPasswordEdit = this.UICapstoneEmployeeScheWindow.UITxtPasswordEdit;
+            WpfButton uIEMPLOYEESButton = this.UICapstoneEmployeeScheWindow1.UIEMPLOYEESButton;
+            WpfControl uIItemDataItem = this.UICapstoneEmployeeScheWindow1.UIMainPane.UIUsersTable.UIItemDataItem;
+            WpfButton uIEDITButton = this.UICapstoneEmployeeScheWindow1.UIMainPane.UIEDITButton;
+            WpfEdit uINameEdit = this.UICapstoneEmployeeScheWindow24.UINameEdit;
+            WpfEdit uIEmailEdit = this.UICapstoneEmployeeScheWindow24.UIEmailEdit;
+            WpfButton uISUBMITButton = this.UICapstoneEmployeeScheWindow24.UISUBMITButton;
+            WinButton uIOKButton = this.UIErrorWindow.UIOKWindow.UIOKButton;
+            WinButton uIOKButton1 = this.UICapstoneEmployeeScheWindow31.UIOKWindow.UIOKButton;
+            WpfCheckBox uIJanitorCheckBox = this.UICapstoneEmployeeScheWindow24.UIRoleListList.UICapstoneEmployeeScheListItem.UIJanitorCheckBox;
+            WinButton uIOKButton2 = this.UIEditSuccessfulWindow.UIOKWindow.UIOKButton;
+            WpfButton uILOGOUTButton = this.UICapstoneEmployeeScheWindow1.UILOGOUTButton;
+            WinButton uIOKButton3 = this.UILogoutSuccessfulWindow.UIOKWindow.UIOKButton;
+            #endregion
+
+            // Launch 'E:\Documents\source\repos\CapstoneEmployeeScheduler\CapstoneEmployeeScheduler\bin\Debug\CapstoneEmployeeScheduler.exe'
+            ApplicationUnderTest uICapstoneEmployeeScheWindow = ApplicationUnderTest.Launch(this.EditEmployeeParams.UICapstoneEmployeeScheWindowExePath, this.EditEmployeeParams.UICapstoneEmployeeScheWindowAlternateExePath);
+
+            // Type 'admin' in 'txtUsername' text box
+            uITxtUsernameEdit.Text = this.EditEmployeeParams.UITxtUsernameEditText;
+
+            // Type '{Tab}' in 'txtUsername' text box
+            Keyboard.SendKeys(uITxtUsernameEdit, this.EditEmployeeParams.UITxtUsernameEditSendKeys, ModifierKeys.None);
+
+            // Type '********' in 'txtPassword' text box
+            Keyboard.SendKeys(uITxtPasswordEdit, this.EditEmployeeParams.UITxtPasswordEditSendKeys, true);
+
+            // Click 'EMPLOYEES' button
+            Mouse.Click(uIEMPLOYEESButton, new Point(79, 21));
+
+            // Click DataItem numbered 6 in 'Users' table
+            Mouse.Click(uIItemDataItem, new Point(47, 13));
+
+            // Click 'EDIT' button
+            Mouse.Click(uIEDITButton, new Point(59, 27));
+
+            // Type 'Steve Smith' in 'name' text box
+            uINameEdit.Text = this.EditEmployeeParams.UINameEditText;
+
+            // Type '' in 'email' text box
+            uIEmailEdit.Text = this.EditEmployeeParams.UIEmailEditText;
+
+            // Type '{Back}' in 'email' text box
+            Keyboard.SendKeys(uIEmailEdit, this.EditEmployeeParams.UIEmailEditSendKeys, ModifierKeys.None);
+
+            // Click 'SUBMIT' button
+            Mouse.Click(uISUBMITButton, new Point(50, 12));
+
+            // Click 'OK' button
+            Mouse.Click(uIOKButton, new Point(36, 15));
+
+            // Type 'ssmith@gmail.com' in 'email' text box
+            uIEmailEdit.Text = this.EditEmployeeParams.UIEmailEditText1;
+
+            // Click 'SUBMIT' button
+            Mouse.Click(uISUBMITButton, new Point(61, 18));
+
+            // Click 'OK' button
+            Mouse.Click(uIOKButton1, new Point(71, 7));
+
+            // Select 'Janitor' check box
+            uIJanitorCheckBox.Checked = this.EditEmployeeParams.UIJanitorCheckBoxChecked;
+
+            // Click 'SUBMIT' button
+            Mouse.Click(uISUBMITButton, new Point(50, 27));
+
+            // Click 'OK' button
+            Mouse.Click(uIOKButton2, new Point(49, 5));
+
+            // Click 'LOGOUT' button
+            Mouse.Click(uILOGOUTButton, new Point(61, 24));
+
+            // Click 'OK' button
+            Mouse.Click(uIOKButton3, new Point(33, 10));
+        }
+        
         #region Properties
         public virtual LoginTestParams LoginTestParams
         {
@@ -406,6 +570,30 @@ namespace BehaviorTests
                     this.mCreateRoleParams = new CreateRoleParams();
                 }
                 return this.mCreateRoleParams;
+            }
+        }
+        
+        public virtual EditRoleParams EditRoleParams
+        {
+            get
+            {
+                if ((this.mEditRoleParams == null))
+                {
+                    this.mEditRoleParams = new EditRoleParams();
+                }
+                return this.mEditRoleParams;
+            }
+        }
+        
+        public virtual EditEmployeeParams EditEmployeeParams
+        {
+            get
+            {
+                if ((this.mEditEmployeeParams == null))
+                {
+                    this.mEditEmployeeParams = new EditEmployeeParams();
+                }
+                return this.mEditEmployeeParams;
             }
         }
         
@@ -540,6 +728,66 @@ namespace BehaviorTests
                 return this.mUICapstoneEmployeeScheWindow22;
             }
         }
+        
+        public UICapstoneEmployeeScheWindow23 UICapstoneEmployeeScheWindow23
+        {
+            get
+            {
+                if ((this.mUICapstoneEmployeeScheWindow23 == null))
+                {
+                    this.mUICapstoneEmployeeScheWindow23 = new UICapstoneEmployeeScheWindow23();
+                }
+                return this.mUICapstoneEmployeeScheWindow23;
+            }
+        }
+        
+        public UIErrorWindow UIErrorWindow
+        {
+            get
+            {
+                if ((this.mUIErrorWindow == null))
+                {
+                    this.mUIErrorWindow = new UIErrorWindow();
+                }
+                return this.mUIErrorWindow;
+            }
+        }
+        
+        public UIEditSuccessfulWindow UIEditSuccessfulWindow
+        {
+            get
+            {
+                if ((this.mUIEditSuccessfulWindow == null))
+                {
+                    this.mUIEditSuccessfulWindow = new UIEditSuccessfulWindow();
+                }
+                return this.mUIEditSuccessfulWindow;
+            }
+        }
+        
+        public UICapstoneEmployeeScheWindow24 UICapstoneEmployeeScheWindow24
+        {
+            get
+            {
+                if ((this.mUICapstoneEmployeeScheWindow24 == null))
+                {
+                    this.mUICapstoneEmployeeScheWindow24 = new UICapstoneEmployeeScheWindow24();
+                }
+                return this.mUICapstoneEmployeeScheWindow24;
+            }
+        }
+        
+        public UICapstoneEmployeeScheWindow31 UICapstoneEmployeeScheWindow31
+        {
+            get
+            {
+                if ((this.mUICapstoneEmployeeScheWindow31 == null))
+                {
+                    this.mUICapstoneEmployeeScheWindow31 = new UICapstoneEmployeeScheWindow31();
+                }
+                return this.mUICapstoneEmployeeScheWindow31;
+            }
+        }
         #endregion
         
         #region Fields
@@ -552,6 +800,10 @@ namespace BehaviorTests
         private AddEmployeeParams mAddEmployeeParams;
         
         private CreateRoleParams mCreateRoleParams;
+        
+        private EditRoleParams mEditRoleParams;
+        
+        private EditEmployeeParams mEditEmployeeParams;
         
         private UIWpfWindow mUIWpfWindow;
         
@@ -574,6 +826,16 @@ namespace BehaviorTests
         private UICapstoneEmployeeScheWindow21 mUICapstoneEmployeeScheWindow21;
         
         private UICapstoneEmployeeScheWindow22 mUICapstoneEmployeeScheWindow22;
+        
+        private UICapstoneEmployeeScheWindow23 mUICapstoneEmployeeScheWindow23;
+        
+        private UIErrorWindow mUIErrorWindow;
+        
+        private UIEditSuccessfulWindow mUIEditSuccessfulWindow;
+        
+        private UICapstoneEmployeeScheWindow24 mUICapstoneEmployeeScheWindow24;
+        
+        private UICapstoneEmployeeScheWindow31 mUICapstoneEmployeeScheWindow31;
         #endregion
     }
     
@@ -759,6 +1021,130 @@ namespace BehaviorTests
         /// Type 'Cleans the floors and entire store' in 'description' text box
         /// </summary>
         public string UIDescriptionEditText = "Cleans the floors and entire store";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'EditRole'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class EditRoleParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Launch 'E:\Documents\source\repos\CapstoneEmployeeScheduler\CapstoneEmployeeScheduler\bin\Debug\CapstoneEmployeeScheduler.exe'
+        /// </summary>
+        public string UICapstoneEmployeeScheWindowExePath = "E:\\Documents\\source\\repos\\CapstoneEmployeeScheduler\\CapstoneEmployeeScheduler\\bin" +
+            "\\Debug\\CapstoneEmployeeScheduler.exe";
+        
+        /// <summary>
+        /// Launch 'E:\Documents\source\repos\CapstoneEmployeeScheduler\CapstoneEmployeeScheduler\bin\Debug\CapstoneEmployeeScheduler.exe'
+        /// </summary>
+        public string UICapstoneEmployeeScheWindowAlternateExePath = "E:\\Documents\\source\\repos\\CapstoneEmployeeScheduler\\CapstoneEmployeeScheduler\\bin" +
+            "\\Debug\\CapstoneEmployeeScheduler.exe";
+        
+        /// <summary>
+        /// Type 'admin' in 'txtUsername' text box
+        /// </summary>
+        public string UITxtUsernameEditText = "admin";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'txtUsername' text box
+        /// </summary>
+        public string UITxtUsernameEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '********' in 'txtPassword' text box
+        /// </summary>
+        public string UITxtPasswordEditSendKeys = "5xSDELIxxXx145f01l/EovhmFYRmKaAyG91B0n13RpM=";
+        
+        /// <summary>
+        /// Type '' in 'name' text box
+        /// </summary>
+        public string UINameEditText = "";
+        
+        /// <summary>
+        /// Type '{Enter}' in 'name' text box
+        /// </summary>
+        public string UINameEditSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Type 'Janitor' in 'name' text box
+        /// </summary>
+        public string UINameEditText1 = "Janitor";
+        
+        /// <summary>
+        /// Type '0' in 'RoleCountBox' text box
+        /// </summary>
+        public string UIRoleCountBoxEditText = "0";
+        
+        /// <summary>
+        /// Type '999' in 'RoleCountBox' text box
+        /// </summary>
+        public string UIRoleCountBoxEditText1 = "999";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'EditEmployee'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class EditEmployeeParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Launch 'E:\Documents\source\repos\CapstoneEmployeeScheduler\CapstoneEmployeeScheduler\bin\Debug\CapstoneEmployeeScheduler.exe'
+        /// </summary>
+        public string UICapstoneEmployeeScheWindowExePath = "E:\\Documents\\source\\repos\\CapstoneEmployeeScheduler\\CapstoneEmployeeScheduler\\bin" +
+            "\\Debug\\CapstoneEmployeeScheduler.exe";
+        
+        /// <summary>
+        /// Launch 'E:\Documents\source\repos\CapstoneEmployeeScheduler\CapstoneEmployeeScheduler\bin\Debug\CapstoneEmployeeScheduler.exe'
+        /// </summary>
+        public string UICapstoneEmployeeScheWindowAlternateExePath = "E:\\Documents\\source\\repos\\CapstoneEmployeeScheduler\\CapstoneEmployeeScheduler\\bin" +
+            "\\Debug\\CapstoneEmployeeScheduler.exe";
+        
+        /// <summary>
+        /// Type 'admin' in 'txtUsername' text box
+        /// </summary>
+        public string UITxtUsernameEditText = "admin";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'txtUsername' text box
+        /// </summary>
+        public string UITxtUsernameEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '********' in 'txtPassword' text box
+        /// </summary>
+        public string UITxtPasswordEditSendKeys = "5xSDELIxxXx145f01l/EovhmFYRmKaAyG91B0n13RpM=";
+        
+        /// <summary>
+        /// Type 'Steve Smith' in 'name' text box
+        /// </summary>
+        public string UINameEditText = "Steve Smith";
+        
+        /// <summary>
+        /// Type '' in 'email' text box
+        /// </summary>
+        public string UIEmailEditText = "";
+        
+        /// <summary>
+        /// Type '{Back}' in 'email' text box
+        /// </summary>
+        public string UIEmailEditSendKeys = "{Back}";
+        
+        /// <summary>
+        /// Type 'ssmith@gmail.com' in 'email' text box
+        /// </summary>
+        public string UIEmailEditText1 = "ssmith@gmail.com";
+        
+        /// <summary>
+        /// Select 'Janitor' check box
+        /// </summary>
+        public bool UIJanitorCheckBoxChecked = true;
         #endregion
     }
     
@@ -1288,6 +1674,46 @@ namespace BehaviorTests
                 return this.mUINewRoleButton;
             }
         }
+        
+        public UIRoleTable UIRoleTable
+        {
+            get
+            {
+                if ((this.mUIRoleTable == null))
+                {
+                    this.mUIRoleTable = new UIRoleTable(this);
+                }
+                return this.mUIRoleTable;
+            }
+        }
+        
+        public WpfButton UIEDITButton
+        {
+            get
+            {
+                if ((this.mUIEDITButton == null))
+                {
+                    this.mUIEDITButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIEDITButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "EditButton";
+                    this.mUIEDITButton.WindowTitles.Add("Capstone Employee Scheduler - Home");
+                    #endregion
+                }
+                return this.mUIEDITButton;
+            }
+        }
+        
+        public UIUsersTable UIUsersTable
+        {
+            get
+            {
+                if ((this.mUIUsersTable == null))
+                {
+                    this.mUIUsersTable = new UIUsersTable(this);
+                }
+                return this.mUIUsersTable;
+            }
+        }
         #endregion
         
         #region Fields
@@ -1296,6 +1722,103 @@ namespace BehaviorTests
         private WpfButton mUINewEmployeeButton;
         
         private WpfButton mUINewRoleButton;
+        
+        private UIRoleTable mUIRoleTable;
+        
+        private WpfButton mUIEDITButton;
+        
+        private UIUsersTable mUIUsersTable;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIRoleTable : WpfTable
+    {
+        
+        public UIRoleTable(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WpfTable.PropertyNames.AutomationId] = "role";
+            this.WindowTitles.Add("Capstone Employee Scheduler - Home");
+            #endregion
+        }
+        
+        #region Properties
+        public WpfControl UIItemDataItem
+        {
+            get
+            {
+                if ((this.mUIItemDataItem == null))
+                {
+                    this.mUIItemDataItem = new WpfControl(this);
+                    #region Search Criteria
+                    this.mUIItemDataItem.SearchProperties[WpfControl.PropertyNames.ControlType] = "DataItem";
+                    this.mUIItemDataItem.WindowTitles.Add("Capstone Employee Scheduler - Home");
+                    #endregion
+                }
+                return this.mUIItemDataItem;
+            }
+        }
+        
+        public WpfControl UIItemDataItem1
+        {
+            get
+            {
+                if ((this.mUIItemDataItem1 == null))
+                {
+                    this.mUIItemDataItem1 = new WpfControl(this);
+                    #region Search Criteria
+                    this.mUIItemDataItem1.SearchProperties[WpfControl.PropertyNames.ControlType] = "DataItem";
+                    this.mUIItemDataItem1.WindowTitles.Add("Capstone Employee Scheduler - Home");
+                    #endregion
+                }
+                return this.mUIItemDataItem1;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WpfControl mUIItemDataItem;
+        
+        private WpfControl mUIItemDataItem1;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIUsersTable : WpfTable
+    {
+        
+        public UIUsersTable(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WpfTable.PropertyNames.AutomationId] = "Users";
+            this.WindowTitles.Add("Capstone Employee Scheduler - Home");
+            #endregion
+        }
+        
+        #region Properties
+        public WpfControl UIItemDataItem
+        {
+            get
+            {
+                if ((this.mUIItemDataItem == null))
+                {
+                    this.mUIItemDataItem = new WpfControl(this);
+                    #region Search Criteria
+                    this.mUIItemDataItem.SearchProperties[WpfControl.PropertyNames.ControlType] = "DataItem";
+                    this.mUIItemDataItem.SearchProperties[WpfControl.PropertyNames.Instance] = "6";
+                    this.mUIItemDataItem.WindowTitles.Add("Capstone Employee Scheduler - Home");
+                    #endregion
+                }
+                return this.mUIItemDataItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WpfControl mUIItemDataItem;
         #endregion
     }
     
@@ -2193,6 +2716,455 @@ namespace BehaviorTests
         private WpfEdit mUIDescriptionEdit;
         
         private WpfButton mUISUBMITButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UICapstoneEmployeeScheWindow23 : WpfWindow
+    {
+        
+        public UICapstoneEmployeeScheWindow23()
+        {
+            #region Search Criteria
+            this.SearchProperties[WpfWindow.PropertyNames.Name] = "Capstone Employee Scheduler - Edit Role Modal";
+            this.SearchProperties.Add(new PropertyExpression(WpfWindow.PropertyNames.ClassName, "HwndWrapper", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Capstone Employee Scheduler - Edit Role Modal");
+            #endregion
+        }
+        
+        #region Properties
+        public WpfEdit UINameEdit
+        {
+            get
+            {
+                if ((this.mUINameEdit == null))
+                {
+                    this.mUINameEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUINameEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "name";
+                    this.mUINameEdit.WindowTitles.Add("Capstone Employee Scheduler - Edit Role Modal");
+                    #endregion
+                }
+                return this.mUINameEdit;
+            }
+        }
+        
+        public WpfButton UISUBMITButton
+        {
+            get
+            {
+                if ((this.mUISUBMITButton == null))
+                {
+                    this.mUISUBMITButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUISUBMITButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "submit";
+                    this.mUISUBMITButton.WindowTitles.Add("Capstone Employee Scheduler - Edit Role Modal");
+                    #endregion
+                }
+                return this.mUISUBMITButton;
+            }
+        }
+        
+        public WpfEdit UIRoleCountBoxEdit
+        {
+            get
+            {
+                if ((this.mUIRoleCountBoxEdit == null))
+                {
+                    this.mUIRoleCountBoxEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUIRoleCountBoxEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "RoleCountBox";
+                    this.mUIRoleCountBoxEdit.WindowTitles.Add("Capstone Employee Scheduler - Edit Role Modal");
+                    #endregion
+                }
+                return this.mUIRoleCountBoxEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WpfEdit mUINameEdit;
+        
+        private WpfButton mUISUBMITButton;
+        
+        private WpfEdit mUIRoleCountBoxEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIErrorWindow : WinWindow
+    {
+        
+        public UIErrorWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Error";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            this.WindowTitles.Add("Error");
+            #endregion
+        }
+        
+        #region Properties
+        public UIOKWindow3 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow3(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        
+        public WinControl UIErrorDialog
+        {
+            get
+            {
+                if ((this.mUIErrorDialog == null))
+                {
+                    this.mUIErrorDialog = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIErrorDialog.SearchProperties[UITestControl.PropertyNames.Name] = "Error";
+                    this.mUIErrorDialog.SearchProperties[UITestControl.PropertyNames.ControlType] = "Dialog";
+                    this.mUIErrorDialog.WindowTitles.Add("Error");
+                    #endregion
+                }
+                return this.mUIErrorDialog;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIOKWindow3 mUIOKWindow;
+        
+        private WinControl mUIErrorDialog;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIOKWindow3 : WinWindow
+    {
+        
+        public UIOKWindow3(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "2";
+            this.WindowTitles.Add("Error");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Error");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIEditSuccessfulWindow : WinWindow
+    {
+        
+        public UIEditSuccessfulWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Edit Successful";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            this.WindowTitles.Add("Edit Successful");
+            #endregion
+        }
+        
+        #region Properties
+        public UIOKWindow4 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow4(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIOKWindow4 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIOKWindow4 : WinWindow
+    {
+        
+        public UIOKWindow4(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "2";
+            this.WindowTitles.Add("Edit Successful");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Edit Successful");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UICapstoneEmployeeScheWindow24 : WpfWindow
+    {
+        
+        public UICapstoneEmployeeScheWindow24()
+        {
+            #region Search Criteria
+            this.SearchProperties[WpfWindow.PropertyNames.Name] = "Capstone Employee Scheduler - Edit Employee";
+            this.SearchProperties.Add(new PropertyExpression(WpfWindow.PropertyNames.ClassName, "HwndWrapper", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Capstone Employee Scheduler - Edit Employee");
+            #endregion
+        }
+        
+        #region Properties
+        public WpfEdit UINameEdit
+        {
+            get
+            {
+                if ((this.mUINameEdit == null))
+                {
+                    this.mUINameEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUINameEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "name";
+                    this.mUINameEdit.WindowTitles.Add("Capstone Employee Scheduler - Edit Employee");
+                    #endregion
+                }
+                return this.mUINameEdit;
+            }
+        }
+        
+        public WpfEdit UIEmailEdit
+        {
+            get
+            {
+                if ((this.mUIEmailEdit == null))
+                {
+                    this.mUIEmailEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUIEmailEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "email";
+                    this.mUIEmailEdit.WindowTitles.Add("Capstone Employee Scheduler - Edit Employee");
+                    #endregion
+                }
+                return this.mUIEmailEdit;
+            }
+        }
+        
+        public WpfButton UISUBMITButton
+        {
+            get
+            {
+                if ((this.mUISUBMITButton == null))
+                {
+                    this.mUISUBMITButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUISUBMITButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "submit";
+                    this.mUISUBMITButton.WindowTitles.Add("Capstone Employee Scheduler - Edit Employee");
+                    #endregion
+                }
+                return this.mUISUBMITButton;
+            }
+        }
+        
+        public UIRoleListList UIRoleListList
+        {
+            get
+            {
+                if ((this.mUIRoleListList == null))
+                {
+                    this.mUIRoleListList = new UIRoleListList(this);
+                }
+                return this.mUIRoleListList;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WpfEdit mUINameEdit;
+        
+        private WpfEdit mUIEmailEdit;
+        
+        private WpfButton mUISUBMITButton;
+        
+        private UIRoleListList mUIRoleListList;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIRoleListList : WpfList
+    {
+        
+        public UIRoleListList(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WpfList.PropertyNames.AutomationId] = "roleList";
+            this.WindowTitles.Add("Capstone Employee Scheduler - Edit Employee");
+            #endregion
+        }
+        
+        #region Properties
+        public UICapstoneEmployeeScheListItem4 UICapstoneEmployeeScheListItem
+        {
+            get
+            {
+                if ((this.mUICapstoneEmployeeScheListItem == null))
+                {
+                    this.mUICapstoneEmployeeScheListItem = new UICapstoneEmployeeScheListItem4(this);
+                }
+                return this.mUICapstoneEmployeeScheListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UICapstoneEmployeeScheListItem4 mUICapstoneEmployeeScheListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UICapstoneEmployeeScheListItem4 : WpfListItem
+    {
+        
+        public UICapstoneEmployeeScheListItem4(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WpfListItem.PropertyNames.Name] = "CapstoneEmployeeScheduler.Models.Role";
+            this.WindowTitles.Add("Capstone Employee Scheduler - Edit Employee");
+            #endregion
+        }
+        
+        #region Properties
+        public WpfCheckBox UIJanitorCheckBox
+        {
+            get
+            {
+                if ((this.mUIJanitorCheckBox == null))
+                {
+                    this.mUIJanitorCheckBox = new WpfCheckBox(this);
+                    #region Search Criteria
+                    this.mUIJanitorCheckBox.SearchProperties[WpfCheckBox.PropertyNames.Name] = "Janitor";
+                    this.mUIJanitorCheckBox.WindowTitles.Add("Capstone Employee Scheduler - Edit Employee");
+                    #endregion
+                }
+                return this.mUIJanitorCheckBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WpfCheckBox mUIJanitorCheckBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UICapstoneEmployeeScheWindow31 : WinWindow
+    {
+        
+        public UICapstoneEmployeeScheWindow31()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Capstone Employee Scheduler";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            this.WindowTitles.Add("Capstone Employee Scheduler");
+            #endregion
+        }
+        
+        #region Properties
+        public UIOKWindow5 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow5(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIOKWindow5 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIOKWindow5 : WinWindow
+    {
+        
+        public UIOKWindow5(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "2";
+            this.WindowTitles.Add("Capstone Employee Scheduler");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Capstone Employee Scheduler");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
         #endregion
     }
 }

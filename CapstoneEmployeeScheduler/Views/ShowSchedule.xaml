@@ -10,7 +10,7 @@
     <Grid x:Name="Page" Margin="0,0,0,0">
 
         <Grid>
-            <TextBox HorizontalAlignment="Left" Height="50" Margin="175,75,0,0" TextWrapping="Wrap" Text="TODAY'S SCHEDULE" VerticalAlignment="Top" Width="406" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold" IsReadOnly="True">
+            <TextBox HorizontalAlignment="Left" Height="50" Margin="175,75,0,0" TextWrapping="Wrap" Text="TODAY'S SCHEDULE" VerticalAlignment="Top" Width="406" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold" Focusable="False" BorderThickness="0" IsReadOnly="True">
                 <TextBox.Effect>
                     <DropShadowEffect/>
                 </TextBox.Effect>

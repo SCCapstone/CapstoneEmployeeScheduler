@@ -9,7 +9,7 @@
 
     <Grid Margin="0,0,0,0" Height="941" VerticalAlignment="Top">
         <Grid Margin="570,10,194,881"/>
-        <TextBox HorizontalAlignment="Left" Height="50" Margin="175,75,0,0" TextWrapping="Wrap" Text="ROLES" VerticalAlignment="Top" Width="262" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold" IsReadOnly="True">
+        <TextBox HorizontalAlignment="Left" Height="50" Margin="175,75,0,0" TextWrapping="Wrap" Text="ROLES" VerticalAlignment="Top" Width="262" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold" IsReadOnly="True" Focusable ="False" BorderThickness="0">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -19,9 +19,21 @@
                 <ListView.View>
 
                     <GridView>
-                        <GridViewColumn Header="Name" Width="200" DisplayMemberBinding= "{Binding RoleName}"/>
-                        <GridViewColumn Header="Role Count" Width="100" DisplayMemberBinding="{Binding RoleCount}"/>
-                        <GridViewColumn Header="Description" Width="400" DisplayMemberBinding= "{Binding RoleDescription}"/>
+                        <GridViewColumn Width="200" DisplayMemberBinding= "{Binding RoleName}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Name" Click="NameColumn_Click">Name</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn Width="100" DisplayMemberBinding="{Binding RoleCount}">
+                        <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="RoleCount" Click="CountColumn_Click">RoleCount</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn Width="400" DisplayMemberBinding= "{Binding RoleDescription}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="Decription" Click="DescriptionColumn_Click">Description</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

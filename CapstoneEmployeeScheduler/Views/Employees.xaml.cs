@@ -20,6 +20,7 @@ using System.Data;
 using System.IO;
 using Microsoft.Win32;
 using System.Windows.Forms;
+using System.ComponentModel;
 //using System.Windows.Forms;
 
 namespace CapstoneEmployeeScheduler.Views
@@ -277,6 +278,98 @@ namespace CapstoneEmployeeScheduler.Views
                 System.Windows.MessageBox.Show("CSV File created!", "Created!", button);
             }
         }
+
+        GridViewColumnHeader _lastHeaderClicked = null;
+        ListSortDirection _lastDirection = ListSortDirection.Ascending;
+        private void NameColumn_Click(object sender, RoutedEventArgs e)
+        {
+            //When clicked, sort the ListView by name
+            var headerClicked = e.OriginalSource as GridViewColumnHeader;
+            ReorderColumn(headerClicked);
+        }
+
+        private void EmailColumn_Click(object sender, RoutedEventArgs e)
+        {
+            //When clicked, sort the ListView by email
+            var headerClicked = e.OriginalSource as GridViewColumnHeader;
+            ReorderColumn(headerClicked);
+        }
+
+        private void ShiftColumn_Click(object sender, RoutedEventArgs e)
+        {
+            //When clicked, sort the ListView by shift
+            var headerClicked = e.OriginalSource as GridViewColumnHeader;
+            ReorderColumn(headerClicked);
+        }
+
+        private void ReorderColumn(GridViewColumnHeader headerClicked)
+        {
+            //Main method to reorder the columns as each on uses the same thing
+            ListSortDirection direction;
+
+            if (headerClicked != null)
+            {
+                if (headerClicked.Role != GridViewColumnHeaderRole.Padding)
+                {
+                    if (headerClicked != _lastHeaderClicked)
+                    {
+                        direction = ListSortDirection.Ascending;
+                    }
+                    else
+                    {
+                        if (_lastDirection == ListSortDirection.Ascending)
+                        {
+                            direction = ListSortDirection.Descending;
+                        }
+                        else
+                        {
+                            direction = ListSortDirection.Ascending;
+                        }
+                    }
+
+                    var columnBinding = headerClicked.Column.DisplayMemberBinding as System.Windows.Data.Binding;
+                    var sortBy = columnBinding?.Path.Path ?? headerClicked.Column.Header as string;
+
+                    //Call method to sort data
+                    Sort(sortBy, direction);
+
+                    if (direction == ListSortDirection.Ascending)
+                    {
+                        headerClicked.Column.HeaderTemplate =
+                          Resources["HeaderTemplateArrowUp"] as DataTemplate;
+                    }
+                    else
+                    {
+                        headerClicked.Column.HeaderTemplate =
+                          Resources["HeaderTemplateArrowDown"] as DataTemplate;
+                    }
+
+                    // Remove arrow from previously sorted header  
+                    if (_lastHeaderClicked != null && _lastHeaderClicked != headerClicked)
+                    {
+                        _lastHeaderClicked.Column.HeaderTemplate = null;
+                    }
+
+                    //Keeps track of the last header and direction
+                    _lastHeaderClicked = headerClicked;
+                    _lastDirection = direction;
+                }
+            }
+        }
+
+        private void Sort(string sortBy, ListSortDirection direction)
+        {
+            //Method to sort columns depending on direction received
+            ICollectionView dataView =
+              CollectionViewSource.GetDefaultView(Users.ItemsSource);
+
+            dataView.SortDescriptions.Clear();
+            SortDescription sd = new SortDescription(sortBy, direction);
+            dataView.SortDescriptions.Add(sd);
+            dataView.Refresh();
+        }
+
+
     }
 
 

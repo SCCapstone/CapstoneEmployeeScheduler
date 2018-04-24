@@ -29,6 +29,12 @@ namespace CapstoneEmployeeScheduler.Views
     {
         public History()
         {
+            ShowTable();
+        }
+
+        private void ShowTable()
+        {
+            //Method to show past schedules
             DataTable dt = new DataTable();
             List<Schedule> items = new List<Schedule>();
             ScheduleController sc = new ScheduleController();
@@ -42,15 +48,17 @@ namespace CapstoneEmployeeScheduler.Views
             dt.Rows.Add(DateTime.Today.AddDays(-5));
 
             GeneratedSchedules.ItemsSource = dt.DefaultView;
-            
         }
 
         private void view_Click(object sender, RoutedEventArgs e)
         {
+            //Method to display schedule when picked in the table
             DataRowView drv = GeneratedSchedules.Items.GetItemAt(GeneratedSchedules.SelectedIndex) as DataRowView;
             DateTime date = Convert.ToDateTime(drv["Date"]);
             ScheduleController sc = new ScheduleController();
-            Schedule s = sc.getScheduleByDate(date);//date);
+            //Get the correct date of the schedule to be deleted
+            Schedule s = sc.getScheduleByDate(date);
+            //If there is no schedule on that date, throw an error
             if (s == null)
             {
                 System.Windows.MessageBox.Show("No Schedule Generated", "Error");
@@ -62,12 +70,12 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void History_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
 
         private void deleteSchedule_Click(object sender, RoutedEventArgs e)
@@ -77,11 +85,16 @@ namespace CapstoneEmployeeScheduler.Views
             DataRowView drv = GeneratedSchedules.Items.GetItemAt(GeneratedSchedules.SelectedIndex) as DataRowView;
             DateTime date = Convert.ToDateTime(drv["Date"]);
             ScheduleController sc = new ScheduleController();
-            Schedule s = sc.getScheduleByDate(date);//date);
+            //Get the correct date of the schedule to be deleted
+            Schedule s = sc.getScheduleByDate(date);
             string id = s.Id;
+            //Call delete schedule method to remove it
             sc.deleteSchedule(id);
             MessageBoxButton button = MessageBoxButton.OK;
             System.Windows.MessageBox.Show("Schedule deleted successfully.", "Schedule Deleted", button);
+            //Once it is deleted, refresh the table so it doesn't appear in the table despite being deleted.
+            ShowTable();
+
         }
     }
 }

@@ -28,8 +28,7 @@ namespace CapstoneEmployeeScheduler.Views
     
     public partial class ShowSchedule : Page
     {
-        
-
+ 
         public ShowSchedule()
         {
             InitializeComponent();
@@ -38,6 +37,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         public DataTable CreateTable()
         {
+            //Method for getting the schedule and displaying it in a datagrid
             DataTable dt = new DataTable();
             Schedule s = new Schedule();
             ScheduleController sc = new ScheduleController();
@@ -45,19 +45,19 @@ namespace CapstoneEmployeeScheduler.Views
             RoleController rc = new RoleController();
             s = sc.getScheduleByDate(DateTime.Today);
 
+            //Create the 3 columns in the schedule
             dt.Columns.Add("Employee", typeof(string));
             dt.Columns.Add("Shift", typeof(string));
             dt.Columns.Add("Role", typeof(string));
 
+            //Iterate through the UserRoles table and get all the schedule data
             for (int i = 0; i < s.UserRoles.Count; i++)
             {
                 User u = uc.getUserById(s.UserRoles.ElementAt(i).Key);
                 Role r = rc.getRoleById(s.UserRoles.ElementAt(i).Value);
                 dt.Rows.Add(u.UserName, u.Shift, r.RoleName);
             }
-            
             return dt;
-
         }
 
         public void PrintSButton_Click(object sender, RoutedEventArgs e)
@@ -71,6 +71,7 @@ namespace CapstoneEmployeeScheduler.Views
                 FlowDocument fd = new FlowDocument();
                 //Title of Page
                 Paragraph t = new Paragraph(new Run("Today's Schedule"));
+                //Set the font size and text alignment of the title of the page and add it
                 t.FontSize = 36;
                 t.TextAlignment = TextAlignment.Center;
                 fd.Blocks.Add(t);
@@ -79,6 +80,7 @@ namespace CapstoneEmployeeScheduler.Views
                 fd.ColumnGap = 10.0;
 
                 int padding = 45;
+                //Create the Columns for the printed report
                 string name = "Name";
                 string shift = "Shift";
                 string role = "Role";
@@ -94,21 +96,24 @@ namespace CapstoneEmployeeScheduler.Views
                     string employeeName = (string)item[0];
                     shift = (string)item[1];
                     role = (string)item[2];
+                    //If employee name is somehow empty, skip it
                     if (employeeName.Length == 0)
                     {
                         continue;
 
                     }
-
                     name = employeeName.Substring(0, employeeName.Length);
+                    
                     if (employeeName.Length >= maxLength)
                     {
+                        //If the name is longer than the preset max length, cut it off at the max to line up columns
                         employeeName = employeeName.Substring(0, maxLength);
                         name = employeeName.PadRight(maxLength - employeeName.Length);
 
                     }
                     else
                     {
+                        //If under the max length, pad right with blank spaces until it reaches the max and add a tab for column lining up
                         name = employeeName.PadRight(maxLength - employeeName.Length);
                         name = name + "\t";
                     }
@@ -120,7 +125,7 @@ namespace CapstoneEmployeeScheduler.Views
 
                 fd.Name = "Schedule";
                 IDocumentPaginatorSource idpSource = fd;
-                //printDlg.ShowDialog();
+                //Print the dialog to the specific location
                 printDlg.PrintDocument(idpSource.DocumentPaginator, "Today's Schedule");
                 System.Windows.MessageBox.Show("The Print completed!");
             }
@@ -128,11 +133,11 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void schedule_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //Nothing goes here
         }
     }
 }

@@ -25,7 +25,6 @@ namespace BehaviorTests
         [TestMethod]
         public void AppWalkthrough()
         {
-            // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
             this.UIMap.Walkthrough();
         }
         [TestMethod]
@@ -41,6 +40,16 @@ namespace BehaviorTests
 
             this.UIMap.CreateRole();
 
+        }
+        [TestMethod]
+        public void EditRole()
+        {
+            this.UIMap.EditRole();
+        }
+        [TestMethod]
+        public void EditEmployee()
+        {
+            this.UIMap.EditEmployee();
         }
         #region Additional test attributes
 
