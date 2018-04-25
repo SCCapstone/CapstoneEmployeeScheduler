@@ -12,11 +12,22 @@ namespace CapstoneEmployeeScheduler.Controllers
     {
         PermissionDAO permDAO = new PermissionDAO();
 
+        /// <summary>
+        /// Edits the permissions, make sure to set all the properties of a permission before
+        /// calling editPermissions
+        /// </summary>
+        /// <param name="perm"></param>
         public void editPermissions(Permission perm)
         {
             permDAO.editPermission(perm);
         }
 
+        /// <summary>
+        /// Gets the currently set permissions
+        /// This has no arguments because there is only
+        /// one row in the permissions table
+        /// </summary>
+        /// <returns></returns>
         public Permission getPermissions()
         {
             return permDAO.getPermission();

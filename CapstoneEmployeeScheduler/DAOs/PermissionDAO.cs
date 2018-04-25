@@ -11,8 +11,13 @@ namespace CapstoneEmployeeScheduler.DAOs
 {
     class PermissionDAO
     {
+        //This variable gets the connection to the current database which should be the one in Azure
         private static string con = (string)System.Windows.Application.Current.FindResource("Connection");
 
+        /// <summary>
+        /// Uses an update sql statement to edit the Permissions table in the database
+        /// </summary>
+        /// <param name="perm"></param>
         public void editPermission(Permission perm)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -45,6 +50,10 @@ namespace CapstoneEmployeeScheduler.DAOs
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Uses a select sql statement to get the permissions from the database
+        /// </summary>
+        /// <returns></returns>
         public Permission getPermission()
         {
             SqlConnection connection = new SqlConnection(con);
