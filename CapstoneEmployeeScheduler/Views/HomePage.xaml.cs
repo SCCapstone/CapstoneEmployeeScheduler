@@ -38,10 +38,13 @@ namespace CapstoneEmployeeScheduler.Views
 
         public void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
+
+            System.Windows.Controls.ProgressBar pBar = new System.Windows.Controls.ProgressBar();
+
             //Progress Indicator
             //Currently only runs for 10 seconds then quits
             //We can set it to quit once the schedule is generated
-           
+
             //ProgressIndicator.IsBusy = true;
             //ProgressIndicator.BusyContent = string.Format("Generating Schedule...");
             //System.Windows.MessageBox.Show("Starting schedule building process");
@@ -83,8 +86,8 @@ namespace CapstoneEmployeeScheduler.Views
                 }
                 
             }
+            this.pBar.Value = 25;
 
-            
             Schedule s = new Schedule();
             MakeSchedule ms = new MakeSchedule();
             List<User> users = new List<User>();
@@ -92,6 +95,7 @@ namespace CapstoneEmployeeScheduler.Views
             users = uc.getAllUsersWithRoleId();
             List<int> rolecounts = new List<int>();
             int q;
+            this.pBar.Value = 50;
             foreach (User u in users)
             {
                 q = u.Roles.Count();
@@ -103,11 +107,12 @@ namespace CapstoneEmployeeScheduler.Views
                 MessageBoxButton button = MessageBoxButton.OK;
                 System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
             }
+            this.pBar.Value = 75;
             ms.Generate(users);
             //ProgressIndicator.IsBusy = false;
             //System.Windows.MessageBox.Show("Loading screen should be done and schedule should appear");
             //Thread.Sleep(1000);
-
+            this.pBar.Value = 100;
             ScheduleWindow x = new ScheduleWindow();
             x.ShowDialog();
             
@@ -122,6 +127,11 @@ namespace CapstoneEmployeeScheduler.Views
         {
             preGeneration x = new Views.preGeneration();
             x.Show();
+        }
+
+        private void ProgressBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            //Do nothing
         }
     }
 }
