@@ -40,6 +40,7 @@ namespace CapstoneEmployeeScheduler.Views
         {
 
             System.Windows.Controls.ProgressBar pBar = new System.Windows.Controls.ProgressBar();
+            pBar.Visibility = Visibility.Visible;
 
             //Progress Indicator
             //Currently only runs for 10 seconds then quits
@@ -70,6 +71,7 @@ namespace CapstoneEmployeeScheduler.Views
 
             ScheduleController sc = new ScheduleController();
             Schedule t = sc.getScheduleByDate(DateTime.Today);
+            this.pBar.Value = 20;
             if (t.Id != null)
             {
                 MessageBoxImage icon = MessageBoxImage.Warning;
@@ -86,28 +88,29 @@ namespace CapstoneEmployeeScheduler.Views
                 }
                 
             }
-            this.pBar.Value = 25;
+            this.pBar.Value = 40;
 
             Schedule s = new Schedule();
             MakeSchedule ms = new MakeSchedule();
             List<User> users = new List<User>();
             UserController uc = new UserController();
             users = uc.getAllUsersWithRoleId();
+            this.pBar.Value = 60;
             List<int> rolecounts = new List<int>();
             int q;
-            this.pBar.Value = 50;
             foreach (User u in users)
             {
                 q = u.Roles.Count();
                 rolecounts.Add(q);
             }
+            this.pBar.Value = 75;
             if (rolecounts.Contains(1))
             {
                 MessageBoxImage icon = MessageBoxImage.Warning;
                 MessageBoxButton button = MessageBoxButton.OK;
                 System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
             }
-            this.pBar.Value = 75;
+            this.pBar.Value = 80;
             ms.Generate(users);
             //ProgressIndicator.IsBusy = false;
             //System.Windows.MessageBox.Show("Loading screen should be done and schedule should appear");
@@ -115,7 +118,8 @@ namespace CapstoneEmployeeScheduler.Views
             this.pBar.Value = 100;
             ScheduleWindow x = new ScheduleWindow();
             x.ShowDialog();
-            
+            this.pBar.Value = 0;
+
         }
 
        /* private void ShowButton_Click(object sender, RoutedEventArgs e)

@@ -22,7 +22,7 @@
             <Button x:Name="test" Visibility="Hidden" Content="windowtest"  HorizontalAlignment="Left" Height ="20" Width="60" Margin="523,351,0,403" FontWeight="Bold" FontSize="12" Click="test_Click" />
         </Grid>
         <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-        <ProgressBar x:Name="pBar" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="304" Margin="262,234,-266,0" ValueChanged="ProgressBar_ValueChanged"/>
+        <ProgressBar x:Name="pBar" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="304" Margin="362,156,-366,0" ValueChanged="ProgressBar_ValueChanged"/>
     </Grid>
     <!--</xctk:BusyIndicator>-->
 </Page>
