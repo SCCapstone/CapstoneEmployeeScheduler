@@ -69,30 +69,71 @@ namespace CapstoneEmployeeScheduler.Views
             if (result == true)
             {
                 FlowDocument fd = new FlowDocument();
+                Table table = new Table();
+                fd.Blocks.Add(table);
+                
+
                 //Title of Page
                 Paragraph t = new Paragraph(new Run("Today's Schedule"));
                 //Set the font size and text alignment of the title of the page and add it
                 t.FontSize = 36;
                 t.TextAlignment = TextAlignment.Center;
-                fd.Blocks.Add(t);
 
-                fd.ColumnWidth = printDlg.PrintableAreaWidth;
-                fd.ColumnGap = 10.0;
-
-                int padding = 45;
+                int padding = 40;
                 //Create the Columns for the printed report
                 string name = "Name";
                 string shift = "Shift";
                 string role = "Role";
-                Paragraph l = new Paragraph(new Run(String.Format("{0}{1}{2}", name.PadRight(padding), shift.PadRight(padding), role)));
-                l.FontSize = 24;
-                l.TextAlignment = TextAlignment.Left;
-                fd.Blocks.Add(l);
-                int maxLength = 20;
+                //Paragraph l = new Paragraph(new Run(String.Format("{0}{1}{2}", name, shift, role)));
+                //l.FontSize = 24;
+                //l.TextAlignment = TextAlignment.Left;
+                //fd.Blocks.Add(l);
+
+
+                table.RowGroups.Add(new TableRowGroup());
+                table.RowGroups[0].Rows.Add(new TableRow());
+                TableRow row = table.RowGroups[0].Rows[0];
+                row.Cells.Add(new TableCell(t));
+                row.Cells[0].Padding = new Thickness(5);
+                table.RowGroups[0].Rows.Add(new TableRow());
+                row.Cells[0].ColumnSpan = 3;
+                // fd.Blocks.Add(t);
+
+                fd.ColumnWidth = printDlg.PrintableAreaWidth;
+                fd.ColumnGap = 10.0;
+
+                table.RowGroups[0].Rows.Add(new TableRow());
+                row = table.RowGroups[0].Rows[1];
+                
+                //row.Cells.Add(new TableCell(l));
+                //row.Cells[0].ColumnSpan = 3;
+                Paragraph n = new Paragraph(new Run(name));
+                row.Cells.Add(new TableCell(n));
+                n.TextAlignment = TextAlignment.Left;
+                n.FontSize = 24;
+                row.Cells[0].Padding = new Thickness(10);
+                Paragraph s = new Paragraph(new Run(shift));
+                row.Cells.Add(new TableCell(s));
+                //row.Cells[0].Padding = new Thickness(10);
+                s.TextAlignment = TextAlignment.Left;
+                s.FontSize = 24;
+                Paragraph r = new Paragraph(new Run(role));
+                row.Cells.Add(new TableCell(r));
+                r.TextAlignment = TextAlignment.Left;
+                //row.Cells[0].Padding = new Thickness(10);
+                r.FontSize = 24;
+                //row.Cells.Add(new TableCell(new Paragraph(new Run(shift))));
+                //row.Cells.Add(new TableCell(new Paragraph(new Run(role))));
+
+                //int maxLength = 20;
                 //Now add the data from the Listview
+                table.RowGroups[0].Rows.Add(new TableRow());
                 Paragraph u = new Paragraph();
+                int currentRow = 2;
+                
                 foreach (DataRowView item in schedule.ItemsSource)
                 {
+ 
                     string employeeName = (string)item[0];
                     shift = (string)item[1];
                     role = (string)item[2];
@@ -100,27 +141,39 @@ namespace CapstoneEmployeeScheduler.Views
                     if (employeeName.Length == 0)
                     {
                         continue;
-
                     }
-                    name = employeeName.Substring(0, employeeName.Length);
-                    
+
+                    table.RowGroups.Add(new TableRowGroup());
+                    table.RowGroups[0].Rows.Add(new TableRow());
+                    row = table.RowGroups[0].Rows[currentRow];
+                    /*
+                    name = employeeName;
                     if (employeeName.Length >= maxLength)
                     {
                         //If the name is longer than the preset max length, cut it off at the max to line up columns
                         employeeName = employeeName.Substring(0, maxLength);
-                        name = employeeName.PadRight(maxLength - employeeName.Length);
+                        //name = employeeName.PadRight((maxLength - employeeName.Length),'x');
+                        name = employeeName;
 
                     }
                     else
                     {
                         //If under the max length, pad right with blank spaces until it reaches the max and add a tab for column lining up
-                        name = employeeName.PadRight(maxLength - employeeName.Length);
-                        name = name + "\t";
+                        //name = employeeName.PadRight((maxLength - employeeName.Length),'y') ;
+                        name = employeeName.PadRight(maxLength, '_');
+                        
+                        //name = name + "\t";
                     }
+                    */
+                    row.Cells.Add(new TableCell(new Paragraph(new Run(employeeName))));
+                    row.Cells.Add(new TableCell(new Paragraph(new Run(shift))));
+                    row.Cells.Add(new TableCell(new Paragraph(new Run(role))));
+
                     //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
-                    u = new Paragraph(new Run(name+ "\t\t\t" + shift + "\t\t\t" + role));
-                    u.TextAlignment = TextAlignment.Left;
-                    fd.Blocks.Add(u);
+                    //u = new Paragraph(new Run(name+ "\t\t\t" + shift + "\t\t\t" + role));
+                    //u.TextAlignment = TextAlignment.Left;
+                    //fd.Blocks.Add(u);
+                    currentRow++;
                 }
 
                 fd.Name = "Schedule";
