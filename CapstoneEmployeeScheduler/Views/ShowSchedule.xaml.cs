@@ -32,6 +32,7 @@ namespace CapstoneEmployeeScheduler.Views
         public ShowSchedule()
         {
             InitializeComponent();
+            //Call CreateTable() to build the datagrid
             schedule.ItemsSource = CreateTable().DefaultView;
         }
 
@@ -69,25 +70,20 @@ namespace CapstoneEmployeeScheduler.Views
             if (result == true)
             {
                 FlowDocument fd = new FlowDocument();
+                //Create a table to store all the values from datagrid
                 Table table = new Table();
                 fd.Blocks.Add(table);
                 
-
                 //Title of Page
                 Paragraph t = new Paragraph(new Run("Today's Schedule"));
                 //Set the font size and text alignment of the title of the page and add it
                 t.FontSize = 36;
                 t.TextAlignment = TextAlignment.Center;
 
-                int padding = 40;
                 //Create the Columns for the printed report
                 string name = "Name";
                 string shift = "Shift";
                 string role = "Role";
-                //Paragraph l = new Paragraph(new Run(String.Format("{0}{1}{2}", name, shift, role)));
-                //l.FontSize = 24;
-                //l.TextAlignment = TextAlignment.Left;
-                //fd.Blocks.Add(l);
 
 
                 table.RowGroups.Add(new TableRowGroup());
@@ -97,35 +93,31 @@ namespace CapstoneEmployeeScheduler.Views
                 row.Cells[0].Padding = new Thickness(5);
                 table.RowGroups[0].Rows.Add(new TableRow());
                 row.Cells[0].ColumnSpan = 3;
-                // fd.Blocks.Add(t);
 
                 fd.ColumnWidth = printDlg.PrintableAreaWidth;
                 fd.ColumnGap = 10.0;
 
+                //Create a new row for the column headers
                 table.RowGroups[0].Rows.Add(new TableRow());
                 row = table.RowGroups[0].Rows[1];
                 
-                //row.Cells.Add(new TableCell(l));
-                //row.Cells[0].ColumnSpan = 3;
+                //Create a new entry for name column and then position it correctly in the table
                 Paragraph n = new Paragraph(new Run(name));
                 row.Cells.Add(new TableCell(n));
-                n.TextAlignment = TextAlignment.Left;
                 n.FontSize = 24;
-                row.Cells[0].Padding = new Thickness(10);
+                row.Cells[0].Padding = new Thickness(0,10,0,10);
+
+                //Create a new entry for shift column and then position it correctly in the table
                 Paragraph s = new Paragraph(new Run(shift));
                 row.Cells.Add(new TableCell(s));
-                //row.Cells[0].Padding = new Thickness(10);
-                s.TextAlignment = TextAlignment.Left;
+                row.Cells[1].Padding = new Thickness(0,10,0,10);
                 s.FontSize = 24;
+
+                //Create a new entry for role column and then position it correctly in the table
                 Paragraph r = new Paragraph(new Run(role));
                 row.Cells.Add(new TableCell(r));
-                r.TextAlignment = TextAlignment.Left;
-                //row.Cells[0].Padding = new Thickness(10);
+                row.Cells[2].Padding = new Thickness(0,10,0,10);
                 r.FontSize = 24;
-                //row.Cells.Add(new TableCell(new Paragraph(new Run(shift))));
-                //row.Cells.Add(new TableCell(new Paragraph(new Run(role))));
-
-                //int maxLength = 20;
                 //Now add the data from the Listview
                 table.RowGroups[0].Rows.Add(new TableRow());
                 Paragraph u = new Paragraph();
@@ -133,7 +125,7 @@ namespace CapstoneEmployeeScheduler.Views
                 
                 foreach (DataRowView item in schedule.ItemsSource)
                 {
- 
+                    //Get the name, shift, and role from the datagrid
                     string employeeName = (string)item[0];
                     shift = (string)item[1];
                     role = (string)item[2];
@@ -146,36 +138,14 @@ namespace CapstoneEmployeeScheduler.Views
                     table.RowGroups.Add(new TableRowGroup());
                     table.RowGroups[0].Rows.Add(new TableRow());
                     row = table.RowGroups[0].Rows[currentRow];
-                    /*
-                    name = employeeName;
-                    if (employeeName.Length >= maxLength)
-                    {
-                        //If the name is longer than the preset max length, cut it off at the max to line up columns
-                        employeeName = employeeName.Substring(0, maxLength);
-                        //name = employeeName.PadRight((maxLength - employeeName.Length),'x');
-                        name = employeeName;
-
-                    }
-                    else
-                    {
-                        //If under the max length, pad right with blank spaces until it reaches the max and add a tab for column lining up
-                        //name = employeeName.PadRight((maxLength - employeeName.Length),'y') ;
-                        name = employeeName.PadRight(maxLength, '_');
-                        
-                        //name = name + "\t";
-                    }
-                    */
+                    
+                    //Add each field to the cell in the table
                     row.Cells.Add(new TableCell(new Paragraph(new Run(employeeName))));
                     row.Cells.Add(new TableCell(new Paragraph(new Run(shift))));
                     row.Cells.Add(new TableCell(new Paragraph(new Run(role))));
 
-                    //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
-                    //u = new Paragraph(new Run(name+ "\t\t\t" + shift + "\t\t\t" + role));
-                    //u.TextAlignment = TextAlignment.Left;
-                    //fd.Blocks.Add(u);
                     currentRow++;
                 }
-
                 fd.Name = "Schedule";
                 IDocumentPaginatorSource idpSource = fd;
                 //Print the dialog to the specific location
