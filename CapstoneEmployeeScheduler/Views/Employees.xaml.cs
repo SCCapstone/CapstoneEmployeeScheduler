@@ -140,56 +140,86 @@ namespace CapstoneEmployeeScheduler.Views
         public void PrintEButton_Click(object sender, RoutedEventArgs e)
         {
             //Method for printing table of employees
+            int currentRow = 2;//Print method for the schedule
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
-
             Nullable<bool> result = printDlg.ShowDialog();
-            //Process save file dialog box results
+            //Process print file dialog box results
             if (result == true)
             {
                 FlowDocument fd = new FlowDocument();
+                //Create a table to store all the values from datagrid
+                Table table = new Table();
+                fd.Blocks.Add(table);
+
                 //Title of Page
                 Paragraph t = new Paragraph(new Run("Current Employees"));
+                //Set the font size and text alignment of the title of the page and add it
                 t.FontSize = 36;
                 t.TextAlignment = TextAlignment.Center;
-                fd.Blocks.Add(t);
+
+                //Create the Columns for the printed report
+                string name = "Name";
+                string email = "Email";
+                string shift = "Shift";
+
+
+                table.RowGroups.Add(new TableRowGroup());
+                table.RowGroups[0].Rows.Add(new TableRow());
+                TableRow row = table.RowGroups[0].Rows[0];
+                row.Cells.Add(new TableCell(t));
+                row.Cells[0].Padding = new Thickness(5);
+                table.RowGroups[0].Rows.Add(new TableRow());
+                row.Cells[0].ColumnSpan = 3;
 
                 fd.ColumnWidth = printDlg.PrintableAreaWidth;
                 fd.ColumnGap = 10.0;
-                int padding = 45;
-                //Create the titles at the top of the printed page
-                string name = "Name";
-                Paragraph l = new Paragraph(new Run(String.Format("{0}{1}", name.PadRight(padding), "Email")));
-                l.FontSize = 24;
-                l.TextAlignment = TextAlignment.Left;
-                fd.Blocks.Add(l);
-                
 
-                //Now add the users and emails
+                //Create a new row for the column headers
+                table.RowGroups[0].Rows.Add(new TableRow());
+                row = table.RowGroups[0].Rows[1];
+
+                //Create a new entry for name column and then position it correctly in the table
+                Paragraph n = new Paragraph(new Run(name));
+                row.Cells.Add(new TableCell(n));
+                n.FontSize = 24;
+                row.Cells[0].Padding = new Thickness(0, 10, 0, 10);
+
+                //Create a new entry for email column and then position it correctly in the table
+                Paragraph em = new Paragraph(new Run(email));
+                row.Cells.Add(new TableCell(em));
+                row.Cells[1].Padding = new Thickness(0, 10, 0, 10);
+                em.FontSize = 24;
+
+                //Create a new entry for shift column and then position it correctly in the table
+                Paragraph s = new Paragraph(new Run(shift));
+                row.Cells.Add(new TableCell(s));
+                row.Cells[2].Padding = new Thickness(0, 10, 0, 10);
+                s.FontSize = 24;
+                //Now add the data from the Listview
+                table.RowGroups[0].Rows.Add(new TableRow());
                 Paragraph u = new Paragraph();
-                string username = " ";
-                string email = " ";
-                int maxLength = 20;
                 foreach (User item in Users.Items)
                 {
-                    username = item.userName;
+                    string username = item.userName;
                     email = item.email;
-                    if (username.Length >= maxLength)
-                    {
-                        username = username.Substring(0, maxLength);
-                        username = username.PadRight(maxLength - username.Length);
+                    shift = item.shift;
 
-                    }
-                    else
+                    //If employee name is somehow empty, skip it
+                    if (username.Length == 0)
                     {
-                        username = username.PadRight((maxLength - username.Length)-1);
-                        //username = username.Substring(0, username.Length);
-                        username = username + "\t";
-
+                        continue;
                     }
-                    //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
-                    u = new Paragraph(new Run(username + "\t\t\t" + email));
-                    u.TextAlignment = TextAlignment.Left;
-                    fd.Blocks.Add(u);
+
+                    table.RowGroups.Add(new TableRowGroup());
+                    table.RowGroups[0].Rows.Add(new TableRow());
+                    row = table.RowGroups[0].Rows[currentRow];
+
+                    //Add each field to the cell in the table
+                    row.Cells.Add(new TableCell(new Paragraph(new Run(username))));
+                    row.Cells.Add(new TableCell(new Paragraph(new Run(email))));
+                    row.Cells.Add(new TableCell(new Paragraph(new Run(shift))));
+
+                    currentRow++;
                 }
 
                 fd.Name = "Employees";

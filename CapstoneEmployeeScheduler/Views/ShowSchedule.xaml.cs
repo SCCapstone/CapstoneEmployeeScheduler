@@ -63,7 +63,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         public void PrintSButton_Click(object sender, RoutedEventArgs e)
         {
-            //Print method for the schedule
+            int currentRow = 2;//Print method for the schedule
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
             Nullable<bool> result = printDlg.ShowDialog();
             //Process print file dialog box results
@@ -121,7 +121,6 @@ namespace CapstoneEmployeeScheduler.Views
                 //Now add the data from the Listview
                 table.RowGroups[0].Rows.Add(new TableRow());
                 Paragraph u = new Paragraph();
-                int currentRow = 2;
                 
                 foreach (DataRowView item in schedule.ItemsSource)
                 {

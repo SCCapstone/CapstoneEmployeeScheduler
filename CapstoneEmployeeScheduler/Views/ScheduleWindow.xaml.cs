@@ -56,71 +56,98 @@ namespace CapstoneEmployeeScheduler.Views
             return dt;
 
         }
-        
+
 
         private void PrintSButton_Click(object sender, RoutedEventArgs e)
         {
-            //Print method for the schedule
+            int currentRow = 2;//Print method for the schedule
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
-            FlowDocument fd = new FlowDocument();
-            //Title of Page
-            Paragraph t = new Paragraph(new Run("Today's Schedule"));
-            //Set the font size and text alignment of the title of the page and add it
-            t.FontSize = 36;
-            t.TextAlignment = TextAlignment.Center;
-            fd.Blocks.Add(t);
-
-            fd.ColumnWidth = printDlg.PrintableAreaWidth;
-            fd.ColumnGap = 10.0;
-            //Create the Columns for the printed report
-            int padding = 45;
-            string name = "Name";
-            string shift = "Shift";
-            string role = "Role";
-            Paragraph l = new Paragraph(new Run(String.Format("{0}{1}{2}", name.PadRight(padding), shift.PadRight(padding), role)));
-            l.FontSize = 24;
-            l.TextAlignment = TextAlignment.Left;
-            fd.Blocks.Add(l);
-            int maxLength = 20;
-            //Now add the data from the Listview
-            Paragraph u = new Paragraph();
-            foreach (DataRowView item in schedule.ItemsSource)
+            Nullable<bool> result = printDlg.ShowDialog();
+            //Process print file dialog box results
+            if (result == true)
             {
-                string employeeName = (string)item[0];
-                shift = (string)item[1];
-                role = (string)item[2];
-                //If employee name is somehow empty, skip it
-                if (employeeName.Length == 0)
-                {
-                    continue;
+                FlowDocument fd = new FlowDocument();
+                //Create a table to store all the values from datagrid
+                Table table = new Table();
+                fd.Blocks.Add(table);
 
-                }
-                name = employeeName.Substring(0, employeeName.Length);
-                if (employeeName.Length >= maxLength)
-                {
-                    //If the name is longer than the preset max length, cut it off at the max to line up columns
-                    employeeName = employeeName.Substring(0, maxLength);
-                    name = employeeName.PadRight(maxLength - employeeName.Length);
+                //Title of Page
+                Paragraph t = new Paragraph(new Run("Today's Schedule"));
+                //Set the font size and text alignment of the title of the page and add it
+                t.FontSize = 36;
+                t.TextAlignment = TextAlignment.Center;
 
-                }
-                else
+                //Create the Columns for the printed report
+                string name = "Name";
+                string shift = "Shift";
+                string role = "Role";
+
+
+                table.RowGroups.Add(new TableRowGroup());
+                table.RowGroups[0].Rows.Add(new TableRow());
+                TableRow row = table.RowGroups[0].Rows[0];
+                row.Cells.Add(new TableCell(t));
+                row.Cells[0].Padding = new Thickness(5);
+                table.RowGroups[0].Rows.Add(new TableRow());
+                row.Cells[0].ColumnSpan = 3;
+
+                fd.ColumnWidth = printDlg.PrintableAreaWidth;
+                fd.ColumnGap = 10.0;
+
+                //Create a new row for the column headers
+                table.RowGroups[0].Rows.Add(new TableRow());
+                row = table.RowGroups[0].Rows[1];
+
+                //Create a new entry for name column and then position it correctly in the table
+                Paragraph n = new Paragraph(new Run(name));
+                row.Cells.Add(new TableCell(n));
+                n.FontSize = 24;
+                row.Cells[0].Padding = new Thickness(0, 10, 0, 10);
+
+                //Create a new entry for shift column and then position it correctly in the table
+                Paragraph s = new Paragraph(new Run(shift));
+                row.Cells.Add(new TableCell(s));
+                row.Cells[1].Padding = new Thickness(0, 10, 0, 10);
+                s.FontSize = 24;
+
+                //Create a new entry for role column and then position it correctly in the table
+                Paragraph r = new Paragraph(new Run(role));
+                row.Cells.Add(new TableCell(r));
+                row.Cells[2].Padding = new Thickness(0, 10, 0, 10);
+                r.FontSize = 24;
+                //Now add the data from the Listview
+                table.RowGroups[0].Rows.Add(new TableRow());
+                Paragraph u = new Paragraph();
+
+                foreach (DataRowView item in schedule.ItemsSource)
                 {
-                    //If under the max length, pad right with blank spaces until it reaches the max and add a tab for column lining u
-                     name = employeeName.PadRight(maxLength - employeeName.Length);
-                    name = name + "\t";
+                    //Get the name, shift, and role from the datagrid
+                    string employeeName = (string)item[0];
+                    shift = (string)item[1];
+                    role = (string)item[2];
+                    //If employee name is somehow empty, skip it
+                    if (employeeName.Length == 0)
+                    {
+                        continue;
+                    }
+
+                    table.RowGroups.Add(new TableRowGroup());
+                    table.RowGroups[0].Rows.Add(new TableRow());
+                    row = table.RowGroups[0].Rows[currentRow];
+
+                    //Add each field to the cell in the table
+                    row.Cells.Add(new TableCell(new Paragraph(new Run(employeeName))));
+                    row.Cells.Add(new TableCell(new Paragraph(new Run(shift))));
+                    row.Cells.Add(new TableCell(new Paragraph(new Run(role))));
+
+                    currentRow++;
                 }
-                //fd.Blocks.Add(new Paragraph(new Run(item.userName)));
-                u = new Paragraph(new Run(name + "\t\t\t" + shift + "\t\t\t" + role));
-                u.TextAlignment = TextAlignment.Left;
-                fd.Blocks.Add(u);
+                fd.Name = "Schedule";
+                IDocumentPaginatorSource idpSource = fd;
+                //Print the dialog to the specific location
+                printDlg.PrintDocument(idpSource.DocumentPaginator, "Today's Schedule");
+                System.Windows.MessageBox.Show("The Print completed!");
             }
-
-            fd.Name = "Schedule";
-            IDocumentPaginatorSource idpSource = fd;
-            printDlg.ShowDialog();
-            //Print the dialog to the specific location
-            printDlg.PrintDocument(idpSource.DocumentPaginator, "Today's Schedule");
-            System.Windows.MessageBox.Show("The Print completed!");
         }
     }
 }
