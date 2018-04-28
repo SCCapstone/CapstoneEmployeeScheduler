@@ -167,7 +167,7 @@ namespace CapstoneEmployeeScheduler.Views
                 table.RowGroups[0].Rows.Add(new TableRow());
                 TableRow row = table.RowGroups[0].Rows[0];
                 row.Cells.Add(new TableCell(t));
-                row.Cells[0].Padding = new Thickness(5);
+                row.Cells[0].Padding = new Thickness(0,5,0,10);
                 table.RowGroups[0].Rows.Add(new TableRow());
                 row.Cells[0].ColumnSpan = 3;
 

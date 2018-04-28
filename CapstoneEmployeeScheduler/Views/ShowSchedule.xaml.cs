@@ -63,7 +63,8 @@ namespace CapstoneEmployeeScheduler.Views
 
         public void PrintSButton_Click(object sender, RoutedEventArgs e)
         {
-            int currentRow = 2;//Print method for the schedule
+            //Print method for the schedule
+            int currentRow = 2;
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
             Nullable<bool> result = printDlg.ShowDialog();
             //Process print file dialog box results
@@ -78,7 +79,7 @@ namespace CapstoneEmployeeScheduler.Views
                 Paragraph t = new Paragraph(new Run("Today's Schedule"));
                 //Set the font size and text alignment of the title of the page and add it
                 t.FontSize = 36;
-                t.TextAlignment = TextAlignment.Center;
+                t.TextAlignment = TextAlignment.Left;
 
                 //Create the Columns for the printed report
                 string name = "Name";
@@ -90,7 +91,7 @@ namespace CapstoneEmployeeScheduler.Views
                 table.RowGroups[0].Rows.Add(new TableRow());
                 TableRow row = table.RowGroups[0].Rows[0];
                 row.Cells.Add(new TableCell(t));
-                row.Cells[0].Padding = new Thickness(5);
+                row.Cells[0].Padding = new Thickness(0,5,0,10);
                 table.RowGroups[0].Rows.Add(new TableRow());
                 row.Cells[0].ColumnSpan = 3;
 
