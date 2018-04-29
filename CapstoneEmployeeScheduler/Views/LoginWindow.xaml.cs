@@ -106,6 +106,15 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 if (u.Email.Equals(txtUsername.Text) && txtPassword.Password.Equals("Password"))
                 {
+                    //MainWindow m = new MainWindow();
+                    //m.Show();
+                    CreatePassword cp = new CreatePassword(u.Id);
+                    cp.Show();
+                    this.Close();
+                    success = true;
+                }
+                else if (u.Email.Equals(txtUsername.Text) && txtPassword.Password.Equals(u.Password))
+                {
                     MainWindow m = new MainWindow();
                     m.Show();
                     this.Close();
