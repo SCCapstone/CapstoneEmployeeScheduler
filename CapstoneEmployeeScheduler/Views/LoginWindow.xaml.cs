@@ -97,6 +97,7 @@ namespace CapstoneEmployeeScheduler.Views
             {
 
                 //MessageBox.Show("Login Successful!", "Success!");
+                App.ISADMIN = true;
                 MainWindow m = new MainWindow();
                 m.Show();
                 this.Close();
