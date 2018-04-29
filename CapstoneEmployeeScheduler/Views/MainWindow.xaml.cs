@@ -79,16 +79,34 @@ namespace CapstoneEmployeeScheduler
 
         private void NewEmployee_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Views.Employees();
-            EmployeeModal m = new Views.EmployeeModal();
-            m.ShowDialog();
+            if (App.ISADMIN == false)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to create an employee", "Error", button, icon);
+            }
+            else
+            {
+                Main.Content = new Views.Employees();
+                EmployeeModal m = new Views.EmployeeModal();
+                m.ShowDialog();
+            }
         }
 
         private void NewRole_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Views.Roles();
-            RolesModal m = new Views.RolesModal();
-            m.ShowDialog();
+            if (App.ISADMIN == false)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to create a role", "Error", button, icon);
+            }
+            else
+            {
+                Main.Content = new Views.Roles();
+                RolesModal m = new Views.RolesModal();
+                m.ShowDialog();
+            }
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -98,9 +116,18 @@ namespace CapstoneEmployeeScheduler
 
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Views.HomePage();
-            HomePage hp = new Views.HomePage();
-            hp.GenerateButton_Click(null, null);
+            if (App.ISADMIN == false)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to edit an employee", "Error", button, icon);
+            }
+            else
+            {
+                Main.Content = new Views.HomePage();
+                HomePage hp = new Views.HomePage();
+                hp.GenerateButton_Click(null, null);
+            }
 
         }
 
@@ -111,9 +138,18 @@ namespace CapstoneEmployeeScheduler
 
         private void NewRolesRole_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Views.Roles();
-            RolesModal m = new Views.RolesModal();
-            m.ShowDialog();
+            if (App.ISADMIN == false)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to create a role", "Error", button, icon);
+            }
+            else
+            {
+                Main.Content = new Views.Roles();
+                RolesModal m = new Views.RolesModal();
+                m.ShowDialog();
+            }
         }
 
         private void ViewRole_Click(object sender, RoutedEventArgs e)
@@ -123,9 +159,18 @@ namespace CapstoneEmployeeScheduler
 
         private void NewEmployeesEmployee_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Views.Employees();
-            EmployeeModal m = new Views.EmployeeModal();
-            m.ShowDialog();
+            if (App.ISADMIN == false)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to create an employee", "Error", button, icon);
+            }
+            else
+            {
+                Main.Content = new Views.Employees();
+                EmployeeModal m = new Views.EmployeeModal();
+                m.ShowDialog();
+            }
         }
 
         private void ViewEmployees_Click(object sender, RoutedEventArgs e)
@@ -163,7 +208,16 @@ namespace CapstoneEmployeeScheduler
       
         private void Admin_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Views.admin();
+            if (App.ISADMIN == false)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to edit an employee", "Error", button, icon);
+            }
+            else
+            {
+                Main.Content = new Views.admin();
+            }
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
