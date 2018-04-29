@@ -22,18 +22,12 @@ namespace CapstoneEmployeeScheduler
     public partial class FirstPassword : Window
     {
         //bool IsOld = App.ISOLD;
-        public FirstPassword(bool b)
+        public FirstPassword()
         {
-            bool IsOld = App.ISOLD;
-            if (IsOld == false)
-            {
+           
                 InitializeComponent();
-            }
-            else if (IsOld == true)
-            {
-                LoginWindow lw = new LoginWindow();
-                lw.Show();
-            }
+            
+            
         }
 
        
@@ -72,7 +66,7 @@ namespace CapstoneEmployeeScheduler
                 u.email = "";
                 u.shift = "";
                 
-                App.ISOLD = true;
+                //App.ISOLD = true;
                 uc.createUser(u);
                
                 MainWindow m = new MainWindow();

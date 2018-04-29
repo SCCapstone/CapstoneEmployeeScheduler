@@ -17,20 +17,6 @@ namespace CapstoneEmployeeScheduler
     {
 
         public static bool ISADMIN;
-        public static bool ISOLD;
-       
-        
-
-        
-
-        private void Application_Startup(object sender, StartupEventArgs e)
-        {
-            bool IsOld = App.ISOLD;
-            FirstPassword fp = new FirstPassword(IsOld);
-            fp.Show();
-               
-            
-        }
     }
     
 }
