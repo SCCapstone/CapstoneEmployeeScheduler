@@ -48,62 +48,112 @@ namespace CapstoneEmployeeScheduler.Views
             role.ItemsSource = item;
         }
 
+        private bool CanEdit()
+        {
+            if (App.ISADMIN == false)
+            {
+                PermissionController pc = new PermissionController();
+                Permission p = pc.getPermissions();
+                if (p.EmployeePage == false)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void NewRole_Click(object sender, RoutedEventArgs e)
         {
             //Open the popup for creating a role 
-            RolesModal m = new Views.RolesModal();
-            m.ShowDialog();
-            InitializeComponent();
-            ShowTable();
-           
+            Boolean canEdit = CanEdit();
+            if (canEdit == false)
+            {
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to make changes to the role page", "Error", button, icon);
+            }
+            else
+            {
+                RolesModal m = new Views.RolesModal();
+                m.ShowDialog();
+                InitializeComponent();
+                ShowTable();
+            }
         }
+
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            //Method to delete role from the database
-            RoleController rc = new RoleController();
-            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete Role(s)? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            Boolean canEdit = CanEdit();
+            if (canEdit == false)
             {
-                foreach (Role roles  in role.SelectedItems)
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to make changes to the role page", "Error", button, icon);
+            }
+            else
+            {
+                //Method to delete role from the database
+                RoleController rc = new RoleController();
+                DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete Role(s)? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    //If Multiple users are selected, delete them all
-                    int roleID = roles.Id;
-                    rc.deleteRole(roleID);
+                    foreach (Role roles in role.SelectedItems)
+                    {
+                        //If Multiple users are selected, delete them all
+                        int roleID = roles.Id;
+                        rc.deleteRole(roleID);
+                    }
+                    System.Windows.MessageBox.Show("Role(s) has been deleted.");
+                    ShowTable();
+                    //Rehide the buttons so it doesnt crash the program
+                    DeleteButton.Visibility = Visibility.Hidden;
+                    EditButton.Visibility = Visibility.Hidden;
                 }
-                System.Windows.MessageBox.Show("Role(s) has been deleted.");
-                ShowTable();
-                //Rehide the buttons so it doesnt crash the program
-                DeleteButton.Visibility = Visibility.Hidden;
-                EditButton.Visibility = Visibility.Hidden;
+                else if (dialogResult == DialogResult.No)
+                {
+                    //If they select no, nothing happens
+                    //Rehide the buttons so it doesnt crash the program
+                    DeleteButton.Visibility = Visibility.Hidden;
+                    EditButton.Visibility = Visibility.Hidden;
+                }
             }
-            else if (dialogResult == DialogResult.No)
-            {
-                //If they select no, nothing happens
-                //Rehide the buttons so it doesnt crash the program
-                DeleteButton.Visibility = Visibility.Hidden;
-                EditButton.Visibility = Visibility.Hidden;
-            }
-
         }
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
-            //This method is called when the edit button is pressed on one of the employees
-            if (role.SelectedItems.Count >= 1)
+            Boolean canEdit = CanEdit();
+            if (canEdit == false)
             {
-                foreach (Role roles in role.SelectedItems)
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to make changes to the employee page", "Error", button, icon);
+            }
+            else
+            {
+                //This method is called when the edit button is pressed on one of the employees
+                if (role.SelectedItems.Count >= 1)
                 {
+                    foreach (Role roles in role.SelectedItems)
+                    {
 
-                    //Gets the id of the role being edited and sends it to the modal
-                    int id = roles.Id;
-                    EditRoleModal rm = new Views.EditRoleModal(id);
-                    rm.ShowDialog();
+                        //Gets the id of the role being edited and sends it to the modal
+                        int id = roles.Id;
+                        EditRoleModal rm = new Views.EditRoleModal(id);
+                        rm.ShowDialog();
+                    }
+                    ShowTable();
+                    //Rehide the buttons so it doesnt crash the program
+                    DeleteButton.Visibility = Visibility.Hidden;
+                    EditButton.Visibility = Visibility.Hidden;
                 }
-                ShowTable();
-                //Rehide the buttons so it doesnt crash the program
-                DeleteButton.Visibility = Visibility.Hidden;
-                EditButton.Visibility = Visibility.Hidden;
             }
         }
 
@@ -207,7 +257,6 @@ namespace CapstoneEmployeeScheduler.Views
                 DeleteButton.IsEnabled = true;
                 EditButton.Visibility = Visibility.Visible;
                 EditButton.IsEnabled = true;
-
             }
         }
 
