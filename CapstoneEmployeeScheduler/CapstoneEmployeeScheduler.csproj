@@ -107,6 +107,9 @@
     <Compile Include="DAOs\PermissionDAO.cs" />
     <Compile Include="DAOs\ScheduleDAO.cs" />
     <Compile Include="DAOs\UserDAO.cs" />
+    <Compile Include="Views\FirstPassword.xaml.cs">
+      <DependentUpon>FirstPassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Views\CreatePassword.xaml.cs">
@@ -160,6 +163,10 @@
     <Compile Include="Views\TestingBackend.xaml.cs">
       <DependentUpon>TestingBackend.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\FirstPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CreatePassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
