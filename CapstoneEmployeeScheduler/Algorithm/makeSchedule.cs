@@ -21,7 +21,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
         ScheduleController sc = new ScheduleController();
 
        
-
+     
         //THIS IS THE MAIN METHOD////////////////////////////////////////////////////////////////////////////////////////////////////
         public Schedule Generate(List<User> users)
         {

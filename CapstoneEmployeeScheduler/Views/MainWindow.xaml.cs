@@ -152,7 +152,7 @@ namespace CapstoneEmployeeScheduler
         {
 
         }
-
+      
         private void PrintEmployees_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.Employees();
@@ -160,7 +160,7 @@ namespace CapstoneEmployeeScheduler
             em.PrintEButton_Click(null, null);
         }
 
-        
+      
         private void Admin_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.admin();

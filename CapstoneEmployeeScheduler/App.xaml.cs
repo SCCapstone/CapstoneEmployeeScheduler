@@ -5,14 +5,32 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-
+using CapstoneEmployeeScheduler.Views;
 namespace CapstoneEmployeeScheduler
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
+
+
     public partial class App : Application
     {
+
         public static bool ISADMIN;
+        public static bool ISOLD;
+       
+        
+
+        
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            bool IsOld = App.ISOLD;
+            FirstPassword fp = new FirstPassword(IsOld);
+            fp.Show();
+               
+            
+        }
     }
+    
 }
