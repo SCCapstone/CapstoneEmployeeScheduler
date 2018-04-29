@@ -41,7 +41,7 @@ namespace CapstoneEmployeeScheduler.Views
             if (App.ISADMIN == false)
             {
                 PermissionController pc = new PermissionController();
-                Permission p = new Permission();
+                Permission p = pc.getPermissions();
                 if (p.GenerateSchedule == false)
                 {
                     MessageBoxButton button = MessageBoxButton.OK;
