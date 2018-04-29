@@ -38,95 +38,75 @@ namespace CapstoneEmployeeScheduler.Views
 
         public void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
-
-            System.Windows.Controls.ProgressBar pBar = new System.Windows.Controls.ProgressBar();
-            pBar.Visibility = Visibility.Visible;
-
-            //Progress Indicator
-            //Currently only runs for 10 seconds then quits
-            //We can set it to quit once the schedule is generated
-
-            //ProgressIndicator.IsBusy = true;
-            //ProgressIndicator.BusyContent = string.Format("Generating Schedule...");
-            //System.Windows.MessageBox.Show("Starting schedule building process");
-
-            /*
-            Task.Factory.StartNew(() =>
+            if (App.ISADMIN == false)
+            {
+                PermissionController pc = new PermissionController();
+                Permission p = pc.getPermissions();
+                if (p.GenerateSchedule == false)
                 {
-                    for(int i=0; i<10; i++)
+                    MessageBoxButton button = MessageBoxButton.OK;
+                    MessageBoxImage icon = MessageBoxImage.Error;
+                    System.Windows.MessageBox.Show("Sorry! You do not have permission to generate a schedule", "Error", button, icon);
+                }
+            }
+            else
+            {
+
+                System.Windows.Controls.ProgressBar pBar = new System.Windows.Controls.ProgressBar();
+                pBar.Visibility = Visibility.Visible;
+
+
+                ScheduleController sc = new ScheduleController();
+                Schedule t = sc.getScheduleByDate(DateTime.Today);
+                this.pBar.Value = 20;
+                if (t.Id != null)
+                {
+                    MessageBoxImage icon = MessageBoxImage.Warning;
+                    MessageBoxButton button = MessageBoxButton.YesNo;
+                    MessageBoxResult result = System.Windows.MessageBox.Show("There was already a schedule made today. Would you like to overwrite it?", "Capstone Employee Scheduler", button, icon);
+                    if (result == MessageBoxResult.No)
                     {
-                        Dispatcher.Invoke(DispatcherPriority.Normal, new Action(() =>
-                        {
-                            ProgressIndicator.BusyContent = string.Format("generating schedule");
-                        }));
-                        Thread.Sleep(1000);
+                        //ProgressIndicator.IsBusy = false;
+                        return;
                     }
-                }
-            ).ContinueWith((task) =>
-                {
-                    ProgressIndicator.IsBusy = false;
-                }, TaskScheduler.FromCurrentSynchronizationContext()
-            );*/
+                    else if (result == MessageBoxResult.Yes)
+                    {
+                        sc.deleteSchedule(t.Id);
+                    }
 
-
-            ScheduleController sc = new ScheduleController();
-            Schedule t = sc.getScheduleByDate(DateTime.Today);
-            this.pBar.Value = 20;
-            if (t.Id != null)
-            {
-                MessageBoxImage icon = MessageBoxImage.Warning;
-                MessageBoxButton button = MessageBoxButton.YesNo;
-                MessageBoxResult result = System.Windows.MessageBox.Show("There was already a schedule made today. Would you like to overwrite it?","Capstone Employee Scheduler", button,icon);
-                if (result == MessageBoxResult.No)
-                {
-                    //ProgressIndicator.IsBusy = false;
-                    return;
                 }
-                else if (result == MessageBoxResult.Yes)
-                {
-                    sc.deleteSchedule(t.Id);
-                }
-                
-            }
-            this.pBar.Value = 40;
+                this.pBar.Value = 40;
 
-            Schedule s = new Schedule();
-            MakeSchedule ms = new MakeSchedule();
-            List<User> users = new List<User>();
-            UserController uc = new UserController();
-            users = uc.getAllUsersWithRoleId();
-            this.pBar.Value = 60;
-            List<int> rolecounts = new List<int>();
-            int q;
-            foreach (User u in users)
-            {
-                q = u.Roles.Count();
-                rolecounts.Add(q);
+                Schedule s = new Schedule();
+                MakeSchedule ms = new MakeSchedule();
+                List<User> users = new List<User>();
+                UserController uc = new UserController();
+                users = uc.getAllUsersWithRoleId();
+                this.pBar.Value = 60;
+                List<int> rolecounts = new List<int>();
+                int q;
+                foreach (User u in users)
+                {
+                    q = u.Roles.Count();
+                    rolecounts.Add(q);
+                }
+                this.pBar.Value = 75;
+                if (rolecounts.Contains(1))
+                {
+                    MessageBoxImage icon = MessageBoxImage.Warning;
+                    MessageBoxButton button = MessageBoxButton.OK;
+                    System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
+                }
+                this.pBar.Value = 80;
+                ms.Generate(users);
+                this.pBar.Value = 100;
+                ScheduleWindow x = new ScheduleWindow();
+                x.ShowDialog();
+                this.pBar.Value = 0;
             }
-            this.pBar.Value = 75;
-            if (rolecounts.Contains(1))
-            {
-                MessageBoxImage icon = MessageBoxImage.Warning;
-                MessageBoxButton button = MessageBoxButton.OK;
-                System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
-            }
-            this.pBar.Value = 80;
-            ms.Generate(users);
-            //ProgressIndicator.IsBusy = false;
-            //System.Windows.MessageBox.Show("Loading screen should be done and schedule should appear");
-            //Thread.Sleep(1000);
-            this.pBar.Value = 100;
-            ScheduleWindow x = new ScheduleWindow();
-            x.ShowDialog();
-            this.pBar.Value = 0;
 
         }
 
-       /* private void ShowButton_Click(object sender, RoutedEventArgs e)
-        {
-            Content = new Views.ShowSchedule();
-        }
-        */
         private void test_Click(object sender, RoutedEventArgs e)
         {
             preGeneration x = new Views.preGeneration();

@@ -47,21 +47,53 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void NewEmployee_Click(object sender, RoutedEventArgs e)
         {
-            //Calls popup to create a new employee
-            RoleController r = new RoleController();
-            if (r.getAllRoles().Count == 0)
+            //Check that they have the permission to create a new employee
+            Boolean canEdit = CanEdit();
+            if(canEdit == false)
             {
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Error;
-                //Does not let user create employee if no roles have been created
-                System.Windows.MessageBox.Show("There are no Roles in the database. Please create a Role and then try again.", "Error", button, icon);
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to edit an employee", "Error", button, icon);
             }
             else
             {
-                EmployeeModal m = new Views.EmployeeModal();
-                m.ShowDialog();
-                InitializeComponent();
-                ShowTable();
+                //Calls popup to create a new employee
+                RoleController r = new RoleController();
+                if (r.getAllRoles().Count == 0)
+                {
+                    MessageBoxButton button = MessageBoxButton.OK;
+                    MessageBoxImage icon = MessageBoxImage.Error;
+                    //Does not let user create employee if no roles have been created
+                    System.Windows.MessageBox.Show("There are no Roles in the database. Please create a Role and then try again.", "Error", button, icon);
+                }
+                else
+                {
+                    EmployeeModal m = new Views.EmployeeModal();
+                    m.ShowDialog();
+                    InitializeComponent();
+                    ShowTable();
+                }
+            }
+        }
+
+        private bool CanEdit()
+        {
+            if (App.ISADMIN == false)
+            {
+                PermissionController pc = new PermissionController();
+                Permission p = pc.getPermissions();
+                if (p.EmployeePage == false)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return true;
             }
         }
 
@@ -78,50 +110,67 @@ namespace CapstoneEmployeeScheduler.Views
         private void edit_Click(object sender, RoutedEventArgs e)
         {
             //This method is called when the edit button is pressed on one of the employees
-
-            if (Users.SelectedItems.Count >= 1)
+            Boolean canEdit = CanEdit();
+            if (canEdit == false)
             {
-                foreach (User user in Users.SelectedItems)
-                {
-                    //If multiple users have been selected, edit each individually
-                    //Gets the id of the employee being edited and sends it to the modal
-                    int id = user.Id;
-                    editEmployeeModal em = new Views.editEmployeeModal(id);
-                    em.ShowDialog();
-                }
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to make changes to the employee page", "Error", button, icon);
             }
-            ShowTable();
-            //Rehide the buttons so it doesnt crash the program
-            DeleteButton.Visibility = Visibility.Hidden;
-            EditButton.Visibility = Visibility.Hidden;
+            else
+            {
+                if (Users.SelectedItems.Count >= 1)
+                {
+                    foreach (User user in Users.SelectedItems)
+                    {
+                        //If multiple users have been selected, edit each individually
+                        //Gets the id of the employee being edited and sends it to the modal
+                        int id = user.Id;
+                        editEmployeeModal em = new Views.editEmployeeModal(id);
+                        em.ShowDialog();
+                    }
+                }
+                ShowTable();
+                //Rehide the buttons so it doesnt crash the program
+                DeleteButton.Visibility = Visibility.Hidden;
+                EditButton.Visibility = Visibility.Hidden;
+            }
         }
 
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             //Method to delete user from the database
-            UserController uc = new UserController();
-            
-            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete user(s)? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            Boolean canEdit = CanEdit();
+            if (canEdit == false)
             {
-                foreach (User user in Users.SelectedItems)
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to edit an employee", "Error", button, icon);
+            }
+            else
+            {
+                UserController uc = new UserController();
+                DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete user(s)? This can not be undone!", "WARNING", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    //If Multiple users are selected, delete them all
-                    int userID = user.Id;
-                    uc.deleteUserById(userID);
+                    foreach (User user in Users.SelectedItems)
+                    {
+                        //If Multiple users are selected, delete them all
+                        int userID = user.Id;
+                        uc.deleteUserById(userID);
+                    }
+                    System.Windows.MessageBox.Show("User(s) has been deleted.");
+                    ShowTable();
+                    //Rehide edit and delete buttons
+                    DeleteButton.Visibility = Visibility.Hidden;
+                    EditButton.Visibility = Visibility.Hidden;
                 }
-                System.Windows.MessageBox.Show("User(s) has been deleted.");
-                ShowTable();
-                //Rehide edit and delete buttons
-                DeleteButton.Visibility = Visibility.Hidden;
-                EditButton.Visibility = Visibility.Hidden;
+                else if (dialogResult == DialogResult.No)
+                {
+                    //Do nothing if they do not want to delete user
+                }
             }
-            else if (dialogResult == DialogResult.No)
-            {
-                //Do nothing if they do not want to delete user
-            }
-            
         }
 
         private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)

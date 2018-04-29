@@ -95,8 +95,7 @@ namespace CapstoneEmployeeScheduler.Views
 
             if ((this.txtUsername.Text == "admin") && (this.txtPassword.Password == "admin"))
             {
-
-                //MessageBox.Show("Login Successful!", "Success!");
+                App.ISADMIN = true;
                 MainWindow m = new MainWindow();
                 m.Show();
                 this.Close();
@@ -106,8 +105,10 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 if (u.Email.Equals(txtUsername.Text) && txtPassword.Password.Equals("Password"))
                 {
-                    //MainWindow m = new MainWindow();
-                    //m.Show();
+                    if (u.Admin)
+                        App.ISADMIN = true;
+                    else
+                        App.ISADMIN = false;
                     CreatePassword cp = new CreatePassword(u.Id);
                     cp.Show();
                     this.Close();
@@ -115,6 +116,10 @@ namespace CapstoneEmployeeScheduler.Views
                 }
                 else if (u.Email.Equals(txtUsername.Text) && txtPassword.Password.Equals(u.Password))
                 {
+                    if (u.Admin)
+                        App.ISADMIN = true;
+                    else
+                        App.ISADMIN = false;
                     MainWindow m = new MainWindow();
                     m.Show();
                     this.Close();
