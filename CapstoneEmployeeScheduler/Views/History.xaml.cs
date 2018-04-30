@@ -119,7 +119,7 @@ namespace CapstoneEmployeeScheduler.Views
             //Get the correct date of the schedule to be deleted
             Schedule s = sc.getScheduleByDate(date);
             //If there is no schedule on that date, throw an error
-            if (s == null)
+            if (s.Id == null)
             {
                 System.Windows.MessageBox.Show("No Schedule Generated", "Error");
             }
