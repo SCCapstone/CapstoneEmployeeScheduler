@@ -98,7 +98,7 @@ namespace CapstoneEmployeeScheduler.Views
                     System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
                 }
                 this.pBar.Value = 80;
-                ms.Generate(users);
+                ms.Generate(users, DateTime.Today);
                 this.pBar.Value = 100;
                 ScheduleWindow x = new ScheduleWindow(DateTime.Today);
                 x.ShowDialog();
@@ -120,7 +120,11 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void FutureSchedules_Click(object sender, RoutedEventArgs e)
         {
-            for(int i=0; i < 7; i++)
+            List<User> users = new List<User>();
+            UserController uc = new UserController();
+            users = uc.getAllUsersWithRoleId();
+         
+            for (int i=0; i < 7; i++)
             {
                 ScheduleController sc = new ScheduleController();
                 Schedule t = sc.getScheduleByDate(DateTime.Today.AddDays(i));//view the 7 future schedules to see if any schedules have already been made that interfere with the weeks worth of schedules being generated.
@@ -146,9 +150,9 @@ namespace CapstoneEmployeeScheduler.Views
                 Schedule s = new Schedule();
                 s.ScheduleDate = DateTime.Today.AddDays(i);
                 MakeSchedule ms = new MakeSchedule();
-                List<User> users = new List<User>();
-                UserController uc = new UserController();
-                users = uc.getAllUsersWithRoleId();
+                //List<User> users = new List<User>();
+                //UserController uc = new UserController();
+                //users = uc.getAllUsersWithRoleId();
                 //this.pBar.Value = 60;
                 List<int> rolecounts = new List<int>();
                 int q;
@@ -165,7 +169,7 @@ namespace CapstoneEmployeeScheduler.Views
                     System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
                 }
                 //this.pBar.Value = 80;
-                ms.Generate(users);//here pass in 2nd argument
+                ms.Generate(users, DateTime.Today.AddDays(i));//here pass in 2nd argument
                 //ms.Generate(users, );
                 //this.pBar.Value = 100;
             }

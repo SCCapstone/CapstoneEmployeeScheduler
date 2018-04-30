@@ -5,7 +5,7 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              StartupUri="Views/LoginWindow.xaml">
     <Application.Resources>
-        <system:String x:Key="Connection">Data Source=employeescheduler.database.windows.net;Initial Catalog=Dev;User ID=CapstoneEmployeeSchedule;Password=EmployeeSchedule123; Timeout=120</system:String>
+        <system:String x:Key="Connection">Data Source=employeescheduler.database.windows.net;Initial Catalog=Dev;User ID=CapstoneEmployeeSchedule;Password=EmployeeSchedule123; Timeout=500</system:String>
     </Application.Resources>
 
 </Application>
