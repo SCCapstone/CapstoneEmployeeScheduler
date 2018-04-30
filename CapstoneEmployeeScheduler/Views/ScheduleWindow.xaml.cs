@@ -12,9 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using System.Windows.Navigation;
 using CapstoneEmployeeScheduler.Models;
 using CapstoneEmployeeScheduler.Controllers;
 using CapstoneEmployeeScheduler.Algorithm;
+using CapstoneEmployeeScheduler.Views;
 using System.Data;
 
 namespace CapstoneEmployeeScheduler.Views
@@ -149,6 +151,18 @@ namespace CapstoneEmployeeScheduler.Views
                 printDlg.PrintDocument(idpSource.DocumentPaginator, "Today's Schedule");
                 System.Windows.MessageBox.Show("The Print completed!");
             }
+        }
+
+        private void printschedule_click(object sender, RoutedEventArgs e)
+        {
+            //Page. = new Views.ShowSchedule();
+            ShowSchedule ss = new Views.ShowSchedule();
+            ss.PrintSButton_Click(null, null);
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -14,6 +14,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using CapstoneEmployeeScheduler.Views;
+using CapstoneEmployeeScheduler.Models;
+using CapstoneEmployeeScheduler.Controllers;
+using CapstoneEmployeeScheduler.Algorithm;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace CapstoneEmployeeScheduler
 {
@@ -224,5 +229,55 @@ namespace CapstoneEmployeeScheduler
         {
 
         }
+
+        /*private void FutureSchedules_click(object sender, RoutedEventArgs e)
+        {
+            /*for(int i=0; i < 10; i++)
+            {
+                ScheduleController sc = new ScheduleController();
+                Schedule t = sc.getScheduleByDate(DateTime.Today);
+                //this.pBar.Value = 20;
+                if (t.Id != null)
+                {
+                    MessageBoxImage icon = MessageBoxImage.Warning;
+                    MessageBoxButton button = MessageBoxButton.YesNo;
+                    MessageBoxResult result = System.Windows.MessageBox.Show("There was already a schedule made today. Would you like to overwrite it?", "Capstone Employee Scheduler", button, icon);
+                    if (result == MessageBoxResult.No)
+                    {
+                        //ProgressIndicator.IsBusy = false;
+                        return;
+                    }
+                    else if (result == MessageBoxResult.Yes)
+                    {
+                        sc.deleteSchedule(t.Id);
+                    }
+
+                }
+                //this.pBar.Value = 40;
+
+                Schedule s = new Schedule();
+                MakeSchedule ms = new MakeSchedule();
+                List<User> users = new List<User>();
+                UserController uc = new UserController();
+                users = uc.getAllUsersWithRoleId();
+                //this.pBar.Value = 60;
+                List<int> rolecounts = new List<int>();
+                int q;
+                foreach (User u in users)
+                {
+                    q = u.Roles.Count();
+                    rolecounts.Add(q);
+                }
+                //this.pBar.Value = 75;
+                if (rolecounts.Contains(1))
+                {
+                    MessageBoxImage icon = MessageBoxImage.Warning;
+                    MessageBoxButton button = MessageBoxButton.OK;
+                    System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
+                }
+                //this.pBar.Value = 80;
+                ms.Generate(users);
+                //this.pBar.Value = 100;
+            }*/
+        }
     }
-}
