@@ -10,15 +10,15 @@
         <Grid x:Name="Page" Margin="0,0,0,0">
 
             <Grid>
-                <DataGrid Margin="0,0,0,0" Name="schedule" ItemsSource ="{Binding Schedule}" AutoGenerateColumns="True" ColumnWidth="*" IsReadOnly="True">
+                <DataGrid Margin="0,28,0,0" Name="schedule" ItemsSource ="{Binding Schedule}" AutoGenerateColumns="True" ColumnWidth="*" IsReadOnly="True">
 
                 </DataGrid>
 
             </Grid>
         </Grid>
         <Menu Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0">
-            <MenuItem Header="Print" Click="MenuItem_Click">
-                <MenuItem Header="Schedule" Click="printschedule_click"/>
+            <MenuItem Header="File" Click="MenuItem_Click">
+                <MenuItem Header="Print Schedule" Click="printschedule_click"/>
             </MenuItem>
         </Menu>
 

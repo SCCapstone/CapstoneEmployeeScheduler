@@ -6,13 +6,13 @@ This is our RC1 release for the team that is finding bugs in our program.
 Download:
 CapstoneEmployeeScheduler_setup.msi
 
-This will install under:
+If the user does not specify, this will install under:
 C:\Program Files (x86)\Default Company Name\CapstoneEmployeeScheduler_setup
 
 
-Then use:
-Username = "admin" Password = "admin"
-to login. 
+Login:
+To login as a generic admin, you can use the fields Username = "admin" Password = "admin"
+To login as a user in the database, you can use the email of that user and set the password as "Password1". This will prompt them to make a new password for them. 
 
 
 #### To login to the application: 
