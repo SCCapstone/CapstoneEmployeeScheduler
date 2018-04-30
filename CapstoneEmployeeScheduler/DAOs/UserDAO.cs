@@ -14,6 +14,11 @@ namespace CapstoneEmployeeScheduler.DAO
     {
         private static string con = (string)System.Windows.Application.Current.FindResource("Connection");
         
+        /// <summary>
+        /// Creates a user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public User createUser(User user)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -59,6 +64,11 @@ namespace CapstoneEmployeeScheduler.DAO
             return user;
         }
 
+        /// <summary>
+        /// Deletes role from user
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="roleId"></param>
         public void deleteRoleFromUser(int userId, int roleId)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -83,6 +93,10 @@ namespace CapstoneEmployeeScheduler.DAO
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Deletes a user by id
+        /// </summary>
+        /// <param name="id"></param>
         public void deleteUserById(int id)
         {
             deleteUserRoles(id);
@@ -105,6 +119,10 @@ namespace CapstoneEmployeeScheduler.DAO
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Delete a user from the user roles table
+        /// </summary>
+        /// <param name="id"></param>
         private void deleteUserRoles(int id)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -126,6 +144,11 @@ namespace CapstoneEmployeeScheduler.DAO
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Edits a user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public User editUser(User user)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -170,6 +193,11 @@ namespace CapstoneEmployeeScheduler.DAO
             return user;// = new Models.User();
         }
 
+        /// <summary>
+        /// Gets user by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public User getUserById(int id)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -235,6 +263,10 @@ namespace CapstoneEmployeeScheduler.DAO
             return user;
         }
 
+        /// <summary>
+        /// Gets all users
+        /// </summary>
+        /// <returns></returns>
         public List<User> getAllUsers()
         {
             SqlConnection connection = new SqlConnection(con);
@@ -298,6 +330,11 @@ namespace CapstoneEmployeeScheduler.DAO
             return users;
         }
 
+        /// <summary>
+        /// Adds a role to a user
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="roleID"></param>
         public void addRoleToUser(int userID, int roleID)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -321,6 +358,11 @@ namespace CapstoneEmployeeScheduler.DAO
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Gets all role ids for user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public List<Role> getRoleIdForUser(User user)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -356,6 +398,11 @@ namespace CapstoneEmployeeScheduler.DAO
             return roles;
         }
 
+        /// <summary>
+        /// Gets all roles for user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public List<Role> getRolesForUser(User user)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -391,6 +438,11 @@ namespace CapstoneEmployeeScheduler.DAO
             return getNameForRoles(roles);
         }
 
+        /// <summary>
+        /// Gets the name for roles
+        /// </summary>
+        /// <param name="roles"></param>
+        /// <returns></returns>
         private List<Role> getNameForRoles(List<Role> roles)
         {
             List<Role> returnRoles = new List<Role>();

@@ -14,6 +14,11 @@ namespace CapstoneEmployeeScheduler.DAO
 
         //public string con = (string)System.Windows.Application.Current.FindResource("Connection");
 
+        /// <summary>
+        /// Creates a Role
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
         public Role createRole(Role role)
         {
             string con = null;
@@ -53,6 +58,10 @@ namespace CapstoneEmployeeScheduler.DAO
             return role;
         }
 
+        /// <summary>
+        /// Deletes a role
+        /// </summary>
+        /// <param name="id"></param>
         public void deleteRole(int id)
         {
             deleteRoleFromUsers(id);
@@ -74,6 +83,10 @@ namespace CapstoneEmployeeScheduler.DAO
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Deletes a role from a user based on userId
+        /// </summary>
+        /// <param name="id"></param>
         private void deleteRoleFromUsers(int id)
         {
             string con = (string)System.Windows.Application.Current.FindResource("Connection");
@@ -95,6 +108,11 @@ namespace CapstoneEmployeeScheduler.DAO
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Edits a role
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
         public Role editRole(Role role)
         {
             string con = null;
@@ -136,6 +154,11 @@ namespace CapstoneEmployeeScheduler.DAO
             return role;
         }
 
+        /// <summary>
+        /// Get Roles by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Role getRoleById(int id)
         {
             string con = null;
@@ -187,6 +210,10 @@ namespace CapstoneEmployeeScheduler.DAO
             return role;
         }
 
+        /// <summary>
+        /// Gets all roles
+        /// </summary>
+        /// <returns></returns>
         public List<Role> getAllRoles()
         {
             string con = null;

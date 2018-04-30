@@ -14,7 +14,7 @@ namespace CapstoneEmployeeScheduler.DAOs
         private static string con = (string)System.Windows.Application.Current.FindResource("Connection");
 
         /// <summary>
-        /// Creates 
+        /// Creates a schedule
         /// </summary>
         /// <param name="schedule"></param>
         /// <returns></returns>
@@ -65,6 +65,10 @@ namespace CapstoneEmployeeScheduler.DAOs
             return schedule;
         }
 
+        /// <summary>
+        /// Edits a schedule
+        /// </summary>
+        /// <param name="schedule"></param>
         public void editSchedule(Schedule schedule)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -74,6 +78,10 @@ namespace CapstoneEmployeeScheduler.DAOs
             createSchedule(schedule);
         }
 
+        /// <summary>
+        /// Deletes a schedule
+        /// </summary>
+        /// <param name="id"></param>
         public void deleteSchedule(string id)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -94,6 +102,11 @@ namespace CapstoneEmployeeScheduler.DAOs
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Gets a schedule based on the date
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
         public Schedule getScheduleByDate(DateTime date)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -129,6 +142,11 @@ namespace CapstoneEmployeeScheduler.DAOs
             return schedule;
         }
 
+        /// <summary>
+        /// Gets the last schedule based on the past days
+        /// </summary>
+        /// <param name="daysPassed"></param>
+        /// <returns></returns>
         public Schedule getLastSchedule(int daysPassed)
         {
             SqlConnection conn = new SqlConnection(con);
