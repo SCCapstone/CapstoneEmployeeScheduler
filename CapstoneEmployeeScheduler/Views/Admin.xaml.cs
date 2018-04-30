@@ -19,7 +19,8 @@ using CapstoneEmployeeScheduler.Models;
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for admin.xaml
+    ///Admin checks a list of permissions stored in the SQL database. Each value in the checkboxes edits the permissons. After editing,
+    ///A non-admin user will only be able to access the pages they are allowed to. They will be prompted that they are unable to access the page
     /// </summary>
     public partial class admin : Page
     {

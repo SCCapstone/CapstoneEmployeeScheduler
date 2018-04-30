@@ -18,7 +18,8 @@ using System.Data;
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for editEmployeeModal.xaml
+    /// Takes in employee id and populates modal with current values associated with it. After submitting, the values update the SQL tables
+    /// for the user in question.
     /// </summary>
     public partial class editEmployeeModal : Window
     {

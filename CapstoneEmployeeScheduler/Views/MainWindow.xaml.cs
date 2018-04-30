@@ -236,7 +236,7 @@ namespace CapstoneEmployeeScheduler
             /*for(int i=0; i < 10; i++)
             {
                 ScheduleController sc = new ScheduleController();
-                Schedule t = sc.getScheduleByDate(DateTime.Today);
+                Schedule t = sc.getScheduleByDate(DateTime.Today.adddays(1));
                 //this.pBar.Value = 20;
                 if (t.Id != null)
                 {

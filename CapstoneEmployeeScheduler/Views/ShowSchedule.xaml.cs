@@ -151,7 +151,6 @@ namespace CapstoneEmployeeScheduler.Views
                 IDocumentPaginatorSource idpSource = fd;
                 //Print the dialog to the specific location
                 printDlg.PrintDocument(idpSource.DocumentPaginator, "Today's Schedule");
-                System.Windows.MessageBox.Show("The Print completed!");
             }
         }
 

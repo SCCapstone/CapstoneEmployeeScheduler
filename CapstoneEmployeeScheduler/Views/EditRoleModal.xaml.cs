@@ -17,7 +17,8 @@ using CapstoneEmployeeScheduler.Controllers;
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for EditRoleModal.xaml
+    /// Takes in role id and populates modal with current values associated with it. After submitting, the values update the SQL tables
+    /// for the role in question.
     /// </summary>
     public partial class EditRoleModal : Window
     {
