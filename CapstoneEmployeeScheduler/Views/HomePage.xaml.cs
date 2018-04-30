@@ -120,16 +120,16 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void FutureSchedules_Click(object sender, RoutedEventArgs e)
         {
-            for(int i=0; i < 10; i++)
+            for(int i=0; i < 7; i++)
             {
                 ScheduleController sc = new ScheduleController();
-                Schedule t = sc.getScheduleByDate(DateTime.Today);
+                Schedule t = sc.getScheduleByDate(DateTime.Today.AddDays(i));//view the 7 future schedules to see if any schedules have already been made that interfere with the weeks worth of schedules being generated.
                 //this.pBar.Value = 20;
                 if (t.Id != null)
                 {
                     MessageBoxImage icon = MessageBoxImage.Warning;
                     MessageBoxButton button = MessageBoxButton.YesNo;
-                    MessageBoxResult result = System.Windows.MessageBox.Show("There was already a schedule made today. Would you like to overwrite it?", "Capstone Employee Scheduler", button, icon);
+                    MessageBoxResult result = System.Windows.MessageBox.Show("There was already a schedule made today. All schedules already created will be overwritten.", "Capstone Employee Scheduler", button, icon);
                     if (result == MessageBoxResult.No)
                     {
                         //ProgressIndicator.IsBusy = false;
@@ -144,6 +144,7 @@ namespace CapstoneEmployeeScheduler.Views
                 //this.pBar.Value = 40;
 
                 Schedule s = new Schedule();
+                s.ScheduleDate = DateTime.Today.AddDays(i);
                 MakeSchedule ms = new MakeSchedule();
                 List<User> users = new List<User>();
                 UserController uc = new UserController();
@@ -164,7 +165,8 @@ namespace CapstoneEmployeeScheduler.Views
                     System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
                 }
                 //this.pBar.Value = 80;
-                ms.Generate(users);
+                ms.Generate(users);//here pass in 2nd argument
+                //ms.Generate(users, );
                 //this.pBar.Value = 100;
             }
         }
