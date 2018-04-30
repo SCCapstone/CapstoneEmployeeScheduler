@@ -105,7 +105,6 @@
                 <TextBlock FontWeight="Bold" FontSize="14" HorizontalAlignment="Center"><Run Text="Admin"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.ColumnSpan="2" Name="FutureSchedules" Content="Generate Future Schedules" HorizontalAlignment="Left" Margin="506,228,0,0" VerticalAlignment="Top" Width="170" Height="41" Click="FutureSchedules_click"/>
 
     </Grid>
 </Window>

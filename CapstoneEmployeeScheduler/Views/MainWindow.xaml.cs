@@ -230,9 +230,9 @@ namespace CapstoneEmployeeScheduler
 
         }
 
-        private void FutureSchedules_click(object sender, RoutedEventArgs e)
+        /*private void FutureSchedules_click(object sender, RoutedEventArgs e)
         {
-            for(int i=0; i < 10; i++)
+            /*for(int i=0; i < 10; i++)
             {
                 ScheduleController sc = new ScheduleController();
                 Schedule t = sc.getScheduleByDate(DateTime.Today);
@@ -278,7 +278,6 @@ namespace CapstoneEmployeeScheduler
                 //this.pBar.Value = 80;
                 ms.Generate(users);
                 //this.pBar.Value = 100;
-            }
+            }*/
         }
     }
-}
