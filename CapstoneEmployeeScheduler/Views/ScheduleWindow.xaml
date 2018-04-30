@@ -17,8 +17,8 @@
             </Grid>
         </Grid>
         <Menu Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0">
-            <MenuItem Header="Print" Click="MenuItem_Click">
-                <MenuItem Header="Schedule" Click="printschedule_click"/>
+            <MenuItem Header="File" Click="MenuItem_Click">
+                <MenuItem Header="Print Schedule" Click="printschedule_click"/>
             </MenuItem>
         </Menu>
 
