@@ -14,7 +14,7 @@ To login as a user in the database, you can use the email of that user and set t
 # Using the Application 
 If the user is an admin, all the pages should be able to be accessed, and they should be able to generate schedules and edit employees and roles.
 
-If the user is not an admin, they will only be able to access the pages specified by the admin. 
+If the user is not an admin, they will only be able to access the pages specified by the admin. The admin can change these permission on the specified admin page in the application.
 
 
 # Testing
