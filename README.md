@@ -1,7 +1,5 @@
-## Capstone Employee Scheduler
+# Capstone Employee Scheduler
 Windows Application to assign Employees and Roles in an efficient manner
-
-This is our RC1 release for the team that is finding bugs in our program.
 
 # Download:
 CapstoneEmployeeScheduler_setup.msi
