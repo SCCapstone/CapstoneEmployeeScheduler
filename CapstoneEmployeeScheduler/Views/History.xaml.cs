@@ -39,6 +39,7 @@ namespace CapstoneEmployeeScheduler.Views
             List<Schedule> items = new List<Schedule>();
             ScheduleController sc = new ScheduleController();
             InitializeComponent();
+            
             dt.Columns.Add("Date", typeof(DateTime));
             dt.Rows.Add(DateTime.Today);
             dt.Rows.Add(DateTime.Today.AddDays(-1));
@@ -46,6 +47,12 @@ namespace CapstoneEmployeeScheduler.Views
             dt.Rows.Add(DateTime.Today.AddDays(-3));
             dt.Rows.Add(DateTime.Today.AddDays(-4));
             dt.Rows.Add(DateTime.Today.AddDays(-5));
+            dt.Rows.Add(DateTime.Today.AddDays(1));
+            dt.Rows.Add(DateTime.Today.AddDays(2));
+            dt.Rows.Add(DateTime.Today.AddDays(3));
+            dt.Rows.Add(DateTime.Today.AddDays(4));
+            dt.Rows.Add(DateTime.Today.AddDays(5));
+            dt.Rows.Add(DateTime.Today.AddDays(6));
 
             GeneratedSchedules.ItemsSource = dt.DefaultView;
         }

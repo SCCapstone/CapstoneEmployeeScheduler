@@ -10,13 +10,22 @@
 
     <Grid Margin="0,0,0,0">
         <Grid Margin="12,0,-764.2,-875.4" HorizontalAlignment="Left" Width="1873" Height="1569" VerticalAlignment="Top">
-            <ListView  Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged" Margin="175,155,0,1014" BorderBrush="Black" HorizontalAlignment="Left" Width="700" Height="400">
+            <ListView  Name= "GeneratedSchedules" SelectionChanged="History_SelectionChanged" Margin="175,167,0,1033" BorderBrush="Black" HorizontalAlignment="Left" Width="700" RenderTransformOrigin="0.5,0.5">
+                <ListView.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ListView.RenderTransform>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Date Created" Width="300" DisplayMemberBinding="{Binding Date , StringFormat=D}" />
+                        <GridViewColumn Header="Generated Schedules" Width="700" DisplayMemberBinding="{Binding Date , StringFormat=D}" />
                     </GridView>
                 </ListView.View>
             </ListView>
+            
         </Grid>
         <Grid Margin="0,0,0,0" Height="695" VerticalAlignment="Top">
             <TextBox HorizontalAlignment="Left" Height="50" Margin="186,73,0,0" TextWrapping="Wrap" Text="HISTORY" VerticalAlignment="Top" Width="262" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextChanged="TextBox_TextChanged" FontWeight="Bold" IsReadOnly="True">
