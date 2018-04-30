@@ -24,6 +24,7 @@ namespace CapstoneEmployeeScheduler.Views
     
         public LoginWindow()
         {
+            
             InitializeComponent();
             txtUsername.Focus();
         }

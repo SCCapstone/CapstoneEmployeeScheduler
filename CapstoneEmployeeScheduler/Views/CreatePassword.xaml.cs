@@ -18,7 +18,8 @@ using CapstoneEmployeeScheduler.Controllers;
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for CreatePassword.xaml
+    /// After entering a default password, a user can create a password to be associated with their email. This method receives the id
+    /// of the user that entered the default password and then sets in based on the entered values. Finally edits the user in the SQL table.
     /// </summary>
     public partial class CreatePassword : Window
     {

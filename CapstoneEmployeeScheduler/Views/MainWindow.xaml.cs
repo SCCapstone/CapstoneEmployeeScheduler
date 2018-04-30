@@ -63,8 +63,9 @@ namespace CapstoneEmployeeScheduler
 
         private void logout_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Close();
             MessageBox.Show("You have successfully logged out.", "Logout Successful");
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
@@ -235,7 +236,7 @@ namespace CapstoneEmployeeScheduler
             /*for(int i=0; i < 10; i++)
             {
                 ScheduleController sc = new ScheduleController();
-                Schedule t = sc.getScheduleByDate(DateTime.Today);
+                Schedule t = sc.getScheduleByDate(DateTime.Today.adddays(1));
                 //this.pBar.Value = 20;
                 if (t.Id != null)
                 {

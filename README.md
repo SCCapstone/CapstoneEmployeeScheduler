@@ -17,7 +17,7 @@ If the user is an admin, all the pages should be able to be accessed, and they s
 If the user is not an admin, they will only be able to access the pages specified by the admin. 
 
 
-## Testing
+# Testing
 ### Unit Tests
 We are using a built-in unit test framework in Visual Studio. To set this up we had to make a unit test C# project and add our project as a Reference. Then we were able to make unit tests for our code. In order to run our tests in Visual Studio: Click Build -> Build Solution, then click View -> Test Explorer, then click Run All Tests in the test explorer.
 
