@@ -39,20 +39,37 @@ namespace CapstoneEmployeeScheduler.Views
             List<Schedule> items = new List<Schedule>();
             ScheduleController sc = new ScheduleController();
             InitializeComponent();
-            
+            Schedule s = sc.getScheduleByDate(DateTime.Today);
             dt.Columns.Add("Date", typeof(DateTime));
-            dt.Rows.Add(DateTime.Today);
-            dt.Rows.Add(DateTime.Today.AddDays(-1));
-            dt.Rows.Add(DateTime.Today.AddDays(-2));
-            dt.Rows.Add(DateTime.Today.AddDays(-3));
-            dt.Rows.Add(DateTime.Today.AddDays(-4));
-            dt.Rows.Add(DateTime.Today.AddDays(-5));
-            dt.Rows.Add(DateTime.Today.AddDays(1));
-            dt.Rows.Add(DateTime.Today.AddDays(2));
-            dt.Rows.Add(DateTime.Today.AddDays(3));
-            dt.Rows.Add(DateTime.Today.AddDays(4));
-            dt.Rows.Add(DateTime.Today.AddDays(5));
-            dt.Rows.Add(DateTime.Today.AddDays(6));
+            if (s.UserRoles != null)
+            {
+                dt.Rows.Add(DateTime.Today);
+            }
+            s = sc.getScheduleByDate(DateTime.Today.AddDays(-1));
+            if (s != null)
+            {
+                dt.Rows.Add(DateTime.Today.AddDays(-1));
+            }
+            s = sc.getScheduleByDate(DateTime.Today.AddDays(-2));
+            if (s == null)
+            {
+                dt.Rows.Add(DateTime.Today.AddDays(-2));
+            }
+            s = sc.getScheduleByDate(DateTime.Today.AddDays(-3));
+            if (s == null)
+            {
+                dt.Rows.Add(DateTime.Today.AddDays(-3));
+            }
+            s = sc.getScheduleByDate(DateTime.Today.AddDays(-4));
+            if (s == null)
+            {
+                dt.Rows.Add(DateTime.Today.AddDays(-4));
+            }
+            s = sc.getScheduleByDate(DateTime.Today.AddDays(-5));
+            if (s == null)
+            {
+                dt.Rows.Add(DateTime.Today.AddDays(-5));
+            }
 
             GeneratedSchedules.ItemsSource = dt.DefaultView;
         }
