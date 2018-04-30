@@ -123,8 +123,8 @@ namespace CapstoneEmployeeScheduler.Views
             {
                 System.Windows.MessageBox.Show("No Schedule Generated", "Error");
             }
-            PastSchedule p = new Views.PastSchedule(date);
-            p.ShowDialog();
+           ShowSchedule ss = new Views.ShowSchedule(date);
+            ss.Show();
 
         }
 
