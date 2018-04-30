@@ -1,26 +1,23 @@
-# CapstoneEmployeeScheduler
+# Capstone Employee Scheduler
 Windows Application to assign Employees and Roles in an efficient manner
 
-This is our RC1 release for the team that is finding bugs in our program.
-
-Download:
+# Download:
 CapstoneEmployeeScheduler_setup.msi
 
-This will install under:
+If the user does not specify, this will install under:
 C:\Program Files (x86)\Default Company Name\CapstoneEmployeeScheduler_setup
 
+# Login:
+To login as a generic admin, you can use the fields Username = "admin" Password = "admin"
+To login as a user in the database, you can use the email of that user and set the password as "Password". This will prompt them to make a new password for the user.
 
-Then use:
-Username = "admin" Password = "admin"
-to login. 
+# Using the Application 
+If the user is an admin, all the pages should be able to be accessed, and they should be able to generate schedules and edit employees and roles.
+
+If the user is not an admin, they will only be able to access the pages specified by the admin. 
 
 
-#### To login to the application: 
-##### username = "admin" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; password = "admin" 
-
-
-
-## Testing
+# Testing
 ### Unit Tests
 We are using a built-in unit test framework in Visual Studio. To set this up we had to make a unit test C# project and add our project as a Reference. Then we were able to make unit tests for our code. In order to run our tests in Visual Studio: Click Build -> Build Solution, then click View -> Test Explorer, then click Run All Tests in the test explorer.
 

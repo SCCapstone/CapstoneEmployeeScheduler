@@ -26,13 +26,14 @@ namespace CapstoneEmployeeScheduler.Views
     /// </summary>
     public partial class ScheduleWindow : Window
     {
-        public ScheduleWindow()
+        //public DateTime aDate; 
+        public ScheduleWindow(DateTime aDate)
         {
             InitializeComponent();
             RoleController rc = new RoleController();
-            schedule.ItemsSource = CreateTable().DefaultView;
+            schedule.ItemsSource = CreateTable(aDate).DefaultView;
         }
-       public DataTable CreateTable()
+       public DataTable CreateTable(DateTime aDate)
         {
             //Method for getting the schedule and displaying it in a datagrid
             DataTable dt = new DataTable();
@@ -41,7 +42,7 @@ namespace CapstoneEmployeeScheduler.Views
             UserController uc = new UserController();
             RoleController rc = new RoleController();
             //Get the schedule by the specific date
-            s = sc.getScheduleByDate(DateTime.Today);
+            s = sc.getScheduleByDate(aDate);
 
             //Create the columns for the schedule
             dt.Columns.Add("Employee", typeof(string));

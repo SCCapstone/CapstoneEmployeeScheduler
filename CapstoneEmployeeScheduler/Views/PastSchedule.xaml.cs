@@ -22,7 +22,7 @@ namespace CapstoneEmployeeScheduler.Views
     /// </summary>
     public partial class PastSchedule : Window
     {
-        public PastSchedule()
+ /*       public PastSchedule()
         {
             InitializeComponent();
             DataTable dt = new DataTable();
@@ -60,15 +60,18 @@ namespace CapstoneEmployeeScheduler.Views
             dt.Columns.Add("Shift", typeof(string));
             dt.Columns.Add("Role", typeof(string));
 
-            for (int i=0; i< s.UserRoles.Count; i++)
+            List<Role> roles = rc.getAllRoles();
+            List<User> users = uc.getAllUsersWithoutRoles();
+            //Iterate through the UserRoles table and get all the schedule data
+            for (int i = 0; i < s.UserRoles.Count; i++)
             {
-                User u = uc.getUserById(s.UserRoles.ElementAt(i).Key);
-                Role r = rc.getRoleById(s.UserRoles.ElementAt(i).Value);
+                User u = (User)users.Where(uu => uu.Id == s.UserRoles.ElementAt(i).Key).ElementAt(0);
+                Role r = (Role)roles.Where(rr => rr.Id == s.UserRoles.ElementAt(i).Value).ElementAt(0);
                 dt.Rows.Add(u.UserName, u.Shift, r.RoleName);
             }
             showTheSchedule.ItemsSource = dt.DefaultView;
         }
-
+        */
         private void showTheSchedule_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

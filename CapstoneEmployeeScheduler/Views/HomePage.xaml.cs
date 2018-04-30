@@ -100,7 +100,7 @@ namespace CapstoneEmployeeScheduler.Views
                 this.pBar.Value = 80;
                 ms.Generate(users);
                 this.pBar.Value = 100;
-                ScheduleWindow x = new ScheduleWindow();
+                ScheduleWindow x = new ScheduleWindow(DateTime.Today);
                 x.ShowDialog();
                 this.pBar.Value = 0;
             }

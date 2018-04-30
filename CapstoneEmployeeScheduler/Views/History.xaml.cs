@@ -39,38 +39,74 @@ namespace CapstoneEmployeeScheduler.Views
             List<Schedule> items = new List<Schedule>();
             ScheduleController sc = new ScheduleController();
             InitializeComponent();
-            Schedule s = sc.getScheduleByDate(DateTime.Today);
             dt.Columns.Add("Date", typeof(DateTime));
-            if (s.UserRoles != null)
+            Schedule s = sc.getScheduleByDate(DateTime.Today.AddDays(6));
+            if (s.Id != null)
+            {
+                dt.Rows.Add(DateTime.Today.AddDays(6));
+            }
+            s = sc.getScheduleByDate(DateTime.Today.AddDays(5));
+            if (s.Id != null)
+            {
+                dt.Rows.Add(DateTime.Today.AddDays(5));
+            }
+            s = sc.getScheduleByDate(DateTime.Today.AddDays(4));
+            if (s.Id != null)
+            {
+                dt.Rows.Add(DateTime.Today.AddDays(4));
+            }
+            s = sc.getScheduleByDate(DateTime.Today.AddDays(3));
+            if (s.Id != null)
+            {
+                dt.Rows.Add(DateTime.Today.AddDays(3));
+            }
+            s = sc.getScheduleByDate(DateTime.Today.AddDays(2));
+            if (s.Id != null)
+            {
+                dt.Rows.Add(DateTime.Today.AddDays(2));
+            }
+            s = sc.getScheduleByDate(DateTime.Today.AddDays(1));
+            if (s.Id != null)
+            {
+                dt.Rows.Add(DateTime.Today.AddDays(1));
+            }
+            s = sc.getScheduleByDate(DateTime.Today);
+            if (s.Id != null)
             {
                 dt.Rows.Add(DateTime.Today);
             }
             s = sc.getScheduleByDate(DateTime.Today.AddDays(-1));
-            if (s != null)
+            if (s.Id != null)
             {
                 dt.Rows.Add(DateTime.Today.AddDays(-1));
             }
             s = sc.getScheduleByDate(DateTime.Today.AddDays(-2));
-            if (s == null)
+            if (s.Id != null)
             {
                 dt.Rows.Add(DateTime.Today.AddDays(-2));
             }
             s = sc.getScheduleByDate(DateTime.Today.AddDays(-3));
-            if (s == null)
+            if (s.Id != null)
             {
                 dt.Rows.Add(DateTime.Today.AddDays(-3));
             }
             s = sc.getScheduleByDate(DateTime.Today.AddDays(-4));
-            if (s == null)
+            if (s.Id != null)
             {
                 dt.Rows.Add(DateTime.Today.AddDays(-4));
             }
             s = sc.getScheduleByDate(DateTime.Today.AddDays(-5));
-            if (s == null)
+            if (s.Id != null)
             {
                 dt.Rows.Add(DateTime.Today.AddDays(-5));
             }
+            s = sc.getScheduleByDate(DateTime.Today.AddDays(-6));
+            if (s.Id != null)
+            {
+                dt.Rows.Add(DateTime.Today.AddDays(-6));
+            }
 
+            GeneratedSchedules.SelectedIndex = 0;
             GeneratedSchedules.ItemsSource = dt.DefaultView;
         }
 
@@ -83,12 +119,12 @@ namespace CapstoneEmployeeScheduler.Views
             //Get the correct date of the schedule to be deleted
             Schedule s = sc.getScheduleByDate(date);
             //If there is no schedule on that date, throw an error
-            if (s == null)
+            if (s.Id == null)
             {
                 System.Windows.MessageBox.Show("No Schedule Generated", "Error");
             }
-            PastSchedule p = new Views.PastSchedule(date);
-            p.ShowDialog();
+           ScheduleWindow ss = new ScheduleWindow(date);
+           ss.Show();
 
         }
 

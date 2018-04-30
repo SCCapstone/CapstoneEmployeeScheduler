@@ -13,6 +13,11 @@ namespace CapstoneEmployeeScheduler.DAOs
     {
         private static string con = (string)System.Windows.Application.Current.FindResource("Connection");
 
+        /// <summary>
+        /// Creates 
+        /// </summary>
+        /// <param name="schedule"></param>
+        /// <returns></returns>
         public Schedule createSchedule(Schedule schedule)
         {
             SqlConnection connection = new SqlConnection(con);
@@ -23,7 +28,15 @@ namespace CapstoneEmployeeScheduler.DAOs
             SqlParameter idParam = null;
             SqlParameter scheduleDateParam = null;
             string id = Guid.NewGuid().ToString();
-            DateTime date = DateTime.Today;
+            DateTime date;
+            if (schedule.ScheduleDate == null)
+            {
+                date = DateTime.Today;
+            }
+            else
+            {
+                date = schedule.ScheduleDate;
+            }
             int count = schedule.UserRoles.Count;
             for (int i=0;i<count;i++)
             {

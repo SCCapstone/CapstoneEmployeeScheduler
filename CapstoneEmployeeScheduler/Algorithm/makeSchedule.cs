@@ -23,7 +23,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
        
      
         //THIS IS THE MAIN METHOD////////////////////////////////////////////////////////////////////////////////////////////////////
-        public Schedule Generate(List<User> users)
+        public Schedule Generate(List<User> users, DateTime date)
         {
 
             int roleid;
@@ -66,7 +66,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
                     
                 }
             }
-            
+            s.ScheduleDate = date;
             sc.createSchedule(s);//add schedule to the database
             if (warning == true)
             {
