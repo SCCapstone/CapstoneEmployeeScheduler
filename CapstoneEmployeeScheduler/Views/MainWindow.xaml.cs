@@ -68,11 +68,11 @@ namespace CapstoneEmployeeScheduler
             Application.Current.Shutdown();
         }
 
-        private void GenerateButton_Click(object sender, RoutedEventArgs e)
+        /*private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Under Construction. Please check back at a later time :)", "Generate Schedule");
         }
-
+        */
         private void home_Click(object sender, RoutedEventArgs e)
         {
             //Based on our design, Generate schedule may have to be on its own page that we can name "Home"
@@ -126,7 +126,7 @@ namespace CapstoneEmployeeScheduler
             {
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Error;
-                System.Windows.MessageBox.Show("Sorry! You do not have permission to edit an employee", "Error", button, icon);
+                System.Windows.MessageBox.Show("Sorry! You do not have permission to generate a schedule", "Error", button, icon);
             }
             else
             {
@@ -218,7 +218,7 @@ namespace CapstoneEmployeeScheduler
             {
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Error;
-                System.Windows.MessageBox.Show("Sorry! You do not have permission to edit an employee", "Error", button, icon);
+                System.Windows.MessageBox.Show("Sorry! You cannot change employee permissions", "Error", button, icon);
             }
             else
             {
