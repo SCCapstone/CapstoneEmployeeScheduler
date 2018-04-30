@@ -10,7 +10,7 @@
         <Grid x:Name="Page" Margin="0,0,0,0">
 
             <Grid>
-                <DataGrid Margin="0,0,0,0" Name="schedule" ItemsSource ="{Binding Schedule}" AutoGenerateColumns="True" ColumnWidth="*" IsReadOnly="True">
+                <DataGrid Margin="0,28,0,0" Name="schedule" ItemsSource ="{Binding Schedule}" AutoGenerateColumns="True" ColumnWidth="*" IsReadOnly="True">
 
                 </DataGrid>
 
