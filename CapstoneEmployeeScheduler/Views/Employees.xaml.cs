@@ -275,8 +275,6 @@ namespace CapstoneEmployeeScheduler.Views
                 IDocumentPaginatorSource idpSource = fd;
                 //printDlg.ShowDialog();
                 printDlg.PrintDocument(idpSource.DocumentPaginator, "List of Employees");
-                MessageBoxButton button = MessageBoxButton.OK;
-                System.Windows.MessageBox.Show("The Print method completed!", "Capstone Employee Scheduler", button);
             }
 
 
@@ -353,8 +351,6 @@ namespace CapstoneEmployeeScheduler.Views
                     sw.Write(sw.NewLine);
                 }
                 sw.Close();
-                MessageBoxButton button = MessageBoxButton.OK;
-                System.Windows.MessageBox.Show("CSV File created!", "Created!", button);
             }
         }
 
