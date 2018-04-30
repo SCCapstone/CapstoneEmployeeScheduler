@@ -23,7 +23,7 @@
             <Button Content="Generate 10 future schedules" HorizontalAlignment="Left" Margin="826,189,0,0" VerticalAlignment="Top" Width="228" Height="74" Click="FutureSchedules_Click"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-        <ProgressBar x:Name="pBar" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="304" Margin="362,156,-366,0" ValueChanged="ProgressBar_ValueChanged"/>
+        <ProgressBar x:Name="pBar" HorizontalAlignment="Left" Height="14" VerticalAlignment="Top" Width="128" Margin="153,187,0,0" ValueChanged="ProgressBar_ValueChanged"/>
     </Grid>
     <!--</xctk:BusyIndicator>-->
 </Page>
