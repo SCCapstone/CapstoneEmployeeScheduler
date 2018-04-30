@@ -63,8 +63,9 @@ namespace CapstoneEmployeeScheduler
 
         private void logout_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Close();
             MessageBox.Show("You have successfully logged out.", "Logout Successful");
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
