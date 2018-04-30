@@ -28,8 +28,8 @@ namespace CapstoneEmployeeScheduler.Views
     
     public partial class ShowSchedule : Page
     {
-        public DateTime aDate;
-        public ShowSchedule(DateTime aDate)
+        
+        public ShowSchedule()
         {
             InitializeComponent();
             //Call CreateTable() to build the datagrid
@@ -44,7 +44,7 @@ namespace CapstoneEmployeeScheduler.Views
             ScheduleController sc = new ScheduleController();
             UserController uc = new UserController();
             RoleController rc = new RoleController();
-            s = sc.getScheduleByDate(aDate);
+            s = sc.getScheduleByDate(DateTime.Today);
 
             //Create the 3 columns in the schedule
             dt.Columns.Add("Employee", typeof(string));
