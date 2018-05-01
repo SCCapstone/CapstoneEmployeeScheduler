@@ -169,7 +169,7 @@ namespace CapstoneEmployeeScheduler.Views
                 MakeSchedule ms = new MakeSchedule();
                 //Update progress bar
                 this.futureBar.Value = 50;
-                List<int> rolecounts = new List<int>();
+                /*List<int> rolecounts = new List<int>();
                 int q;
                 foreach (User u in users)
                 {
@@ -177,7 +177,7 @@ namespace CapstoneEmployeeScheduler.Views
                     rolecounts.Add(q);
                 }
                 this.futureBar.Value = 60;
-               /* if (rolecounts.Contains(1))
+               if (rolecounts.Contains(1))
                 {
                     MessageBoxImage icon = MessageBoxImage.Warning;
                     MessageBoxButton button = MessageBoxButton.OK;
