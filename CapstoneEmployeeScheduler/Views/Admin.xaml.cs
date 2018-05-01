@@ -42,7 +42,8 @@ namespace CapstoneEmployeeScheduler.Views
             List<bool> perms = new List<bool>();
             PermissionController pc = new PermissionController();
             Permission p = pc.getPermissions();
-            perms.Add(p.EmployeePage);//add to list in order to keep checkboxes checked/unchecked
+            //Add to list in order to keep checkboxes checked/unchecked
+            perms.Add(p.EmployeePage);
             perms.Add(p.RolePage);
             perms.Add(p.HistoryPage);
             perms.Add(p.TodaysSchedule);
@@ -55,55 +56,54 @@ namespace CapstoneEmployeeScheduler.Views
             PermissionController pc = new PermissionController();
             Permission p = new Permission();
             List<bool> perms = new List<bool>();
-           
-             if (employee.IsChecked == true)//check all the checkboxes and update database tables accordingly
+            //check all the checkboxes and update database tables accordingly
+            if (employee.IsChecked == true)
              {
-                    p.EmployeePage = true; 
+                   p.EmployeePage = true; 
              }
-             else
-             {
-                    p.EmployeePage = false;
-             }
-             if (roles.IsChecked == true)
-             {
-                    p.RolePage = true;
-             }
-             else
-             {
-                p.RolePage = false;
-             }
-             if (history.IsChecked == true)
-             {
-                 p.HistoryPage = true;
-             }
-             else
-             {
-                 p.HistoryPage = false;
-             }
-             if (view.IsChecked == true)
-             {
+            else
+            {
+                   p.EmployeePage = false;
+            }
+            if (roles.IsChecked == true)
+            {
+                   p.RolePage = true;
+            }
+            else
+            {
+               p.RolePage = false;
+            }
+            if (history.IsChecked == true)
+            {
+                p.HistoryPage = true;
+            }
+            else
+            {
+                p.HistoryPage = false;
+            }
+            if (view.IsChecked == true)
+            {
                  p.TodaysSchedule = true;
-             }
-             else
-             {
-                 p.TodaysSchedule = false;
-             }
-             if (generate.IsChecked == true)
-             {
-                p.GenerateSchedule = true;
-             }
-             else
-             {
-                p.GenerateSchedule = false;
-             }
+            }
+            else
+            {
+                p.TodaysSchedule = false;
+            }
+            if (generate.IsChecked == true)
+            {
+               p.GenerateSchedule = true;
+            }
+            else
+            {
+               p.GenerateSchedule = false;
+            }
+            //Call the permission controller to edit the permissions to update the database values
             pc.editPermissions(p);
-           
-            
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-
+            //Method when clicking the submit method after changing the values of the permission in the Update method
             try
             {
                 update();
@@ -111,13 +111,13 @@ namespace CapstoneEmployeeScheduler.Views
             }
             catch (System.Exception)
             {
-
+                //Catch an exception if they are not updated successfully
             }          
         }
 
         private void BoxChanged(object sender, RoutedEventArgs e)
         {
-            
+            //Nothing goes here
         }
     }
 }
