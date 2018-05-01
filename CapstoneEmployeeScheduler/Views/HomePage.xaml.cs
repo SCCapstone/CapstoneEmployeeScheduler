@@ -25,7 +25,9 @@ using System.Windows.Threading;
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Homepage contains the Generation buttons and loading bars for scheduling. The top button generates a single schedule for the current date, and
+    /// checking for overwrites occurs here. We use our scheduleWindow() to display the schedule based on the date. The bottom button will perform
+    /// the same general task as the top one, but instead runs the scheduling algorithm 7 times, and stores these schedules in the View Schedules page
     /// </summary>
     public partial class HomePage : Page
     {

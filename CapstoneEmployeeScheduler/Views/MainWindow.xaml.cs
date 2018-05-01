@@ -23,19 +23,20 @@ using System.Windows.Threading;
 namespace CapstoneEmployeeScheduler
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Contains all the buttons on the top menu and sidebar. These are just basic links to the other windows/pages throughout the application
+    /// We also control page access permissions through this page
     /// </summary>
-   
+
     public partial class MainWindow : Window
     {
-        
+
         public MainWindow()
         {
             InitializeComponent();
             Main.Content = new Views.HomePage();
             //con.Open();
         }
-        
+
         private void Employees_Click_1(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.Employees();
@@ -68,11 +69,7 @@ namespace CapstoneEmployeeScheduler
             Application.Current.Shutdown();
         }
 
-        /*private void GenerateButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Under Construction. Please check back at a later time :)", "Generate Schedule");
-        }
-        */
+
         private void home_Click(object sender, RoutedEventArgs e)
         {
             //Based on our design, Generate schedule may have to be on its own page that we can name "Home"
@@ -189,7 +186,7 @@ namespace CapstoneEmployeeScheduler
             Main.Content = new Views.Employees();
             Employees em = new Views.Employees();
             em.CSVEButton_Click(null, null);
-            
+
         }
 
         private void PrintSchedule_Click(object sender, RoutedEventArgs e)
@@ -203,7 +200,7 @@ namespace CapstoneEmployeeScheduler
         {
 
         }
-      
+
         private void PrintEmployees_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Views.Employees();
@@ -211,7 +208,7 @@ namespace CapstoneEmployeeScheduler
             em.PrintEButton_Click(null, null);
         }
 
-      
+
         private void Admin_Click(object sender, RoutedEventArgs e)
         {
             if (App.ISADMIN == false)
@@ -231,54 +228,7 @@ namespace CapstoneEmployeeScheduler
 
         }
 
-        /*private void FutureSchedules_click(object sender, RoutedEventArgs e)
-        {
-            /*for(int i=0; i < 10; i++)
-            {
-                ScheduleController sc = new ScheduleController();
-                Schedule t = sc.getScheduleByDate(DateTime.Today.adddays(1));
-                //this.pBar.Value = 20;
-                if (t.Id != null)
-                {
-                    MessageBoxImage icon = MessageBoxImage.Warning;
-                    MessageBoxButton button = MessageBoxButton.YesNo;
-                    MessageBoxResult result = System.Windows.MessageBox.Show("There was already a schedule made today. Would you like to overwrite it?", "Capstone Employee Scheduler", button, icon);
-                    if (result == MessageBoxResult.No)
-                    {
-                        //ProgressIndicator.IsBusy = false;
-                        return;
-                    }
-                    else if (result == MessageBoxResult.Yes)
-                    {
-                        sc.deleteSchedule(t.Id);
-                    }
 
-                }
-                //this.pBar.Value = 40;
 
-                Schedule s = new Schedule();
-                MakeSchedule ms = new MakeSchedule();
-                List<User> users = new List<User>();
-                UserController uc = new UserController();
-                users = uc.getAllUsersWithRoleId();
-                //this.pBar.Value = 60;
-                List<int> rolecounts = new List<int>();
-                int q;
-                foreach (User u in users)
-                {
-                    q = u.Roles.Count();
-                    rolecounts.Add(q);
-                }
-                //this.pBar.Value = 75;
-                if (rolecounts.Contains(1))
-                {
-                    MessageBoxImage icon = MessageBoxImage.Warning;
-                    MessageBoxButton button = MessageBoxButton.OK;
-                    System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
-                }
-                //this.pBar.Value = 80;
-                ms.Generate(users);
-                //this.pBar.Value = 100;
-            }*/
-        }
     }
+}
