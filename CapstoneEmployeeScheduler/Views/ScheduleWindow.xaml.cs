@@ -23,6 +23,8 @@ namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
     /// Interaction logic for ScheduleWindow.xaml
+    /// This is the window that appears when the user views a schedule from the history page
+    /// They are able to print that schedule as well as view it
     /// </summary>
     public partial class ScheduleWindow : Window
     {
@@ -64,7 +66,8 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void PrintSButton_Click(object sender, RoutedEventArgs e)
         {
-            int currentRow = 2;//Print method for the schedule
+            //Print method for the schedule
+            int currentRow = 2;
             System.Windows.Controls.PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
             Nullable<bool> result = printDlg.ShowDialog();
             //Process print file dialog box results
@@ -155,14 +158,13 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void printschedule_click(object sender, RoutedEventArgs e)
         {
-            //Page. = new Views.ShowSchedule();
             ShowSchedule ss = new Views.ShowSchedule();
             ss.PrintSButton_Click(null, null);
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            //Nothing goes here
         }
     }
 }

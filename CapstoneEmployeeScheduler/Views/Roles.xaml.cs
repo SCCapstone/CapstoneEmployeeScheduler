@@ -25,6 +25,8 @@ namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
     /// Interaction logic for Roles.xaml
+    /// This is the main page for dealing with roles in the application
+    /// It contains all the methods for adding, deleting, and editing a role
     /// </summary>
     public partial class Roles : Page
     {
@@ -34,6 +36,7 @@ namespace CapstoneEmployeeScheduler.Views
             InitializeComponent();
             RoleController r = new RoleController();
             List<Role> item = new List<Role>();
+            //Get all roles for the table when the page is accessed
             item = r.getAllRoles();
             role.ItemsSource = item;
             
@@ -50,6 +53,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         private bool CanEdit()
         {
+            //If the user is not an admin, they do not have access to buttons such as edit, delete, and add roles
             if (App.ISADMIN == false)
             {
                 PermissionController pc = new PermissionController();
@@ -73,6 +77,7 @@ namespace CapstoneEmployeeScheduler.Views
         {
             //Open the popup for creating a role 
             Boolean canEdit = CanEdit();
+            //Check to see if they can open this modal
             if (canEdit == false)
             {
                 MessageBoxButton button = MessageBoxButton.OK;
@@ -81,9 +86,11 @@ namespace CapstoneEmployeeScheduler.Views
             }
             else
             {
+                //If they have permission, proceed to the modal as normal
                 RolesModal m = new Views.RolesModal();
                 m.ShowDialog();
                 InitializeComponent();
+                //Refresh the table once the new Role has been added or they cancel
                 ShowTable();
             }
         }
@@ -92,6 +99,7 @@ namespace CapstoneEmployeeScheduler.Views
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             Boolean canEdit = CanEdit();
+            //Is the user allowed to delete roles?
             if (canEdit == false)
             {
                 MessageBoxButton button = MessageBoxButton.OK;
@@ -129,6 +137,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
+            //Can the user edit roles?
             Boolean canEdit = CanEdit();
             if (canEdit == false)
             {

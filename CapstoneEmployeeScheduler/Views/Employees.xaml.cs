@@ -27,6 +27,8 @@ namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
     /// Interaction logic for Employees.xaml
+    /// This is the main page for dealing with employees in the application
+    /// It contains all the methods for adding, deleting, editing, exporting, and printing an employee
     /// </summary>
     public partial class Employees : Page
     {
