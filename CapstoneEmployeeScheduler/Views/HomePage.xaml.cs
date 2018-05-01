@@ -132,7 +132,7 @@ namespace CapstoneEmployeeScheduler.Views
         private void FutureSchedules_Click(object sender, RoutedEventArgs e)
         {
             //Create a progress bar to track the progress of the schedule building
-            System.Windows.Forms.MessageBox.Show("Generating 7 schedules this may take a while.");
+            System.Windows.Forms.MessageBox.Show("Generating 7 schedules. This will take a while.");
             System.Windows.Controls.ProgressBar futureBar = new System.Windows.Controls.ProgressBar();
             futureBar.Visibility = Visibility.Visible;
             List<User> users = new List<User>();
