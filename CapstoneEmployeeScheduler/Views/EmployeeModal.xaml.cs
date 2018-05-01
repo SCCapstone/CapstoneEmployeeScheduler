@@ -22,6 +22,8 @@ namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
     /// Interaction logic for EmployeeModal.xaml
+    /// This is the Modal that deals with creating a new Employee
+    /// The user enters all the required fields and then it adds a new Employee with these values to the database
     /// </summary>
     public partial class EmployeeModal : Window
     {
