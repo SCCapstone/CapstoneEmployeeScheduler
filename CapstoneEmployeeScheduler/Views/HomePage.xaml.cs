@@ -91,12 +91,13 @@ namespace CapstoneEmployeeScheduler.Views
                     rolecounts.Add(q);
                 }
                 this.pBar.Value = 75;
-                if (rolecounts.Contains(1))
+                /*if (rolecounts.Contains(1))
                 {
                     MessageBoxImage icon = MessageBoxImage.Warning;
                     MessageBoxButton button = MessageBoxButton.OK;
-                    System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
+                    System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheduling problems", "Capstone Employee Scheduler", button, icon);
                 }
+                */
                 this.pBar.Value = 80;
                 ms.Generate(users, DateTime.Today);
                 this.pBar.Value = 100;
@@ -162,12 +163,12 @@ namespace CapstoneEmployeeScheduler.Views
                     rolecounts.Add(q);
                 }
                 //this.pBar.Value = 75;
-                if (rolecounts.Contains(1))
+                /*if (rolecounts.Contains(1))
                 {
                     MessageBoxImage icon = MessageBoxImage.Warning;
                     MessageBoxButton button = MessageBoxButton.OK;
                     System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
-                }
+                }*/
                 //this.pBar.Value = 80;
                 ms.Generate(users, DateTime.Today.AddDays(i));//here pass in 2nd argument
                 //ms.Generate(users, );
