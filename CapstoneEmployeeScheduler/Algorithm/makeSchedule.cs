@@ -7,7 +7,10 @@ using CapstoneEmployeeScheduler.Models;
 using System.Data;
 using CapstoneEmployeeScheduler.Controllers;
 using System.Windows;
-
+/// <summary>
+/// Generates a schedule by first reading every user that isnt disabled, and using pickrole(), shuffles each users "rolelist", looks to avoid scheduling
+/// when the rolecount is 0, however it will be forced after 5 loop iterations, if there is no other way to assign them.
+/// </summary>
 namespace CapstoneEmployeeScheduler.Algorithm
 {
     class MakeSchedule
@@ -35,7 +38,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
                 rolecount.Add(r.Id, r.RoleCount);
             }
             //int priority;
-            bool warning = false;
+            //bool warning = false;
             users.Sort((x, y) => x.Roles.Count().CompareTo(y.Roles.Count()));//orders list prioritizing users with less roles assigned to be scheduled first
             foreach (User u in users)
             {
@@ -51,7 +54,7 @@ namespace CapstoneEmployeeScheduler.Algorithm
                         case 0:
                             if (loopCount >= 5)
                             {
-                                warning = true;
+                                //warning = true;
                                 goto default;
                             }
                             goto Start;
@@ -68,12 +71,13 @@ namespace CapstoneEmployeeScheduler.Algorithm
             }
             s.ScheduleDate = date;
             sc.createSchedule(s);//add schedule to the database
-            if (warning == true)
+            /*if (warning == true)
             {
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Warning;
                 MessageBox.Show("There are more employees than desired role assignments.\n There will be at least one role's \"count\" that is exceeded.", "Capstone Employee Scheduler", button, icon);
             }
+            */
                 return s;
 
             
