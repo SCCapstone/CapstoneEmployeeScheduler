@@ -55,9 +55,16 @@ namespace CapstoneEmployeeScheduler.Views
             //Iterate through the UserRoles table and get all the schedule data
             for (int i = 0; i < s.UserRoles.Count; i++)
             {
-                User u = (User)users.Where(uu => uu.Id == s.UserRoles.ElementAt(i).Key).ElementAt(0);
-                Role r = (Role)roles.Where(rr => rr.Id == s.UserRoles.ElementAt(i).Value).ElementAt(0);
-                dt.Rows.Add(u.UserName, u.Shift, r.RoleName);
+                try
+                {
+                    User u = (User)users.Where(uu => uu.Id == s.UserRoles.ElementAt(i).Key).ElementAt(0);
+                    Role r = (Role)roles.Where(rr => rr.Id == s.UserRoles.ElementAt(i).Value).ElementAt(0);
+                    dt.Rows.Add(u.UserName, u.Shift, r.RoleName);
+                }
+                catch
+                {
+
+                }
             }
             return dt;
 
