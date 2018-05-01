@@ -131,6 +131,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void FutureSchedules_Click(object sender, RoutedEventArgs e)
         {
+            this.futureBar.Value = 0;
             //Create a progress bar to track the progress of the schedule building
             System.Windows.Forms.MessageBox.Show("Generating 7 schedules. This will take a while.");
             System.Windows.Controls.ProgressBar futureBar = new System.Windows.Controls.ProgressBar();
@@ -139,36 +140,36 @@ namespace CapstoneEmployeeScheduler.Views
             UserController uc = new UserController();
             //Get all the users with the role ids before loop to speed up scheduling process
             users = uc.getAllUsersWithRoleId();
+            this.futureBar.Value = 50;
+
             //Create a new schedule 7 times
             for (int i=0; i < 7; i++)
             {
                 ScheduleController sc = new ScheduleController();
                 //View the 7 future schedules to see if any schedules have already been made that interfere with the weeks worth of schedules being generated.
                 Schedule t = sc.getScheduleByDate(DateTime.Today.AddDays(i));
-                this.futureBar.Value = 20;
                 if (t.Id != null)
                 {
-                    MessageBoxImage icon = MessageBoxImage.Warning;
-                    MessageBoxButton button = MessageBoxButton.YesNo;
-                    //Tells the user that the future schedules created will be overwritten
-                    MessageBoxResult result = System.Windows.MessageBox.Show("There was already a schedule made today. All schedules already created will be overwritten.", "Capstone Employee Scheduler", button, icon);
-                    if (result == MessageBoxResult.No)
-                    {
-                        return;
-                    }
-                    else if (result == MessageBoxResult.Yes)
-                    {
-                        //If they hit yes, delete the schedule
-                        this.futureBar.Value = 30;
+                    //MessageBoxImage icon = MessageBoxImage.Warning;
+                    //MessageBoxButton button = MessageBoxButton.YesNo;
+                    ////Tells the user that the future schedules created will be overwritten
+                    //MessageBoxResult result = System.Windows.MessageBox.Show("There was already a schedule made today. All schedules already created will be overwritten.", "Capstone Employee Scheduler", button, icon);
+                    //if (result == MessageBoxResult.No)
+                    //{
+                    //    return;
+                    //}
+                    //else if (result == MessageBoxResult.Yes)
+                    //{
+                    //    //If they hit yes, delete the schedule
+                    //    this.futureBar.Value = 30;
                         sc.deleteSchedule(t.Id);
-                    }
+                    //}
 
                 }
                 Schedule s = new Schedule();
                 s.ScheduleDate = DateTime.Today.AddDays(i);
                 MakeSchedule ms = new MakeSchedule();
                 //Update progress bar
-                this.futureBar.Value = 50;
                 /*List<int> rolecounts = new List<int>();
                 int q;
                 foreach (User u in users)
@@ -184,10 +185,9 @@ namespace CapstoneEmployeeScheduler.Views
                     System.Windows.MessageBox.Show("One or more employees are only trained in one role. This may cause scheudling problems", "Capstone Employee Scheduler", button, icon);
                 }
                 */
-                this.futureBar.Value = 100;
                 ms.Generate(users, DateTime.Today.AddDays(i));
-                this.futureBar.Value = 0;
             }
+            this.futureBar.Value = 100;
         }
     }
 }
