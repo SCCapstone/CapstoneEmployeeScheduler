@@ -62,8 +62,6 @@ namespace CapstoneEmployeeScheduler.Views
             return dt;
 
         }
-
-
         private void PrintSButton_Click(object sender, RoutedEventArgs e)
         {
             //Print method for the schedule

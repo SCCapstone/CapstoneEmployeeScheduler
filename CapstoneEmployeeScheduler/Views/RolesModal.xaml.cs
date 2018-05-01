@@ -19,6 +19,8 @@ namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
     /// Interaction logic for RolesModal.xaml
+    /// This is the Modal that deals with creating a new Role
+    /// The user enters all the required fields and then it adds a new Role with these values to the database
     /// </summary>
     public partial class RolesModal : Window
     {

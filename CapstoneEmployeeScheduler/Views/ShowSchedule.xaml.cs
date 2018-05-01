@@ -24,8 +24,6 @@ namespace CapstoneEmployeeScheduler.Views
     /// </summary>
     /// 
      
-    
-    
     public partial class ShowSchedule : Page
     {
         
