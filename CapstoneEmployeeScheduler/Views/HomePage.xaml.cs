@@ -25,7 +25,9 @@ using System.Windows.Threading;
 namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Homepage contains the Generation buttons and loading bars for scheduling. The top button generates a single schedule for the current date, and
+    /// checking for overwrites occurs here. We use our scheduleWindow() to display the schedule based on the date. The bottom button will perform
+    /// the same general task as the top one, but instead runs the scheduling algorithm 7 times, and stores these schedules in the View Schedules page
     /// </summary>
     public partial class HomePage : Page
     {
@@ -167,7 +169,7 @@ namespace CapstoneEmployeeScheduler.Views
                 MakeSchedule ms = new MakeSchedule();
                 //Update progress bar
                 this.futureBar.Value = 50;
-                List<int> rolecounts = new List<int>();
+                /*List<int> rolecounts = new List<int>();
                 int q;
                 foreach (User u in users)
                 {
@@ -175,7 +177,7 @@ namespace CapstoneEmployeeScheduler.Views
                     rolecounts.Add(q);
                 }
                 this.futureBar.Value = 60;
-               /* if (rolecounts.Contains(1))
+               if (rolecounts.Contains(1))
                 {
                     MessageBoxImage icon = MessageBoxImage.Warning;
                     MessageBoxButton button = MessageBoxButton.OK;
