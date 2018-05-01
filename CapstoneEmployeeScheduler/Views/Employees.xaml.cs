@@ -27,6 +27,8 @@ namespace CapstoneEmployeeScheduler.Views
 {
     /// <summary>
     /// Interaction logic for Employees.xaml
+    /// This is the main page for dealing with employees in the application
+    /// It contains all the methods for adding, deleting, editing, exporting, and printing an employee
     /// </summary>
     public partial class Employees : Page
     {
@@ -68,6 +70,7 @@ namespace CapstoneEmployeeScheduler.Views
                 }
                 else
                 {
+                    //If there is at least one role in the database, open the employee modal
                     EmployeeModal m = new Views.EmployeeModal();
                     m.ShowDialog();
                     InitializeComponent();
@@ -78,6 +81,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         private bool CanEdit()
         {
+            //Method to check that the user has the permission to edit the employee buttons such as edit and delete
             if (App.ISADMIN == false)
             {
                 PermissionController pc = new PermissionController();
@@ -379,7 +383,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void ReorderColumn(GridViewColumnHeader headerClicked)
         {
-            //Main method to reorder the columns as each on uses the same thing
+            //Main method to reorder the columns as each one uses the same thing
             ListSortDirection direction;
 
             if (headerClicked != null)

@@ -61,7 +61,6 @@ namespace CapstoneEmployeeScheduler.Views
             }
             else if (description.Text.Equals(""))
             {
-
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Error;
                 System.Windows.MessageBox.Show("The description field is empty. Please enter a description", "Error", button, icon);

@@ -45,6 +45,7 @@ namespace CapstoneEmployeeScheduler.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //When submitting, make sure the passwords are the same and at least the specific length
             if (NewPass.Password.Length < 8)
             {
                 MessageBox.Show("Password must be at least 8 characters in length");
@@ -74,8 +75,6 @@ namespace CapstoneEmployeeScheduler.Views
            
         }
 
-
-      
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
